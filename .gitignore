@@ -1,0 +1,39 @@
+# Paper Workbench .gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# Large binary files (if any)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
+*.pptx
+*.docx
+
+# Keep the structure but ignore contents of these
+output/
+temp/
+cache/
