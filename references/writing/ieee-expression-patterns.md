@@ -1500,3 +1500,81 @@ The patterns in this document are extracted from or validated against the follow
 - "Zero-shot vs Fine-tuned对比"
 - "多数据集多场景泛化性"
 - "分布漂移（distribution shift）鲁棒性"
+
+### 12.17 好句vs坏句对比（基于RIPCN KDD 2026等论文）
+
+**好句（高效、简洁、信息量大）：**
+
+| 好句 | 分析 |
+|------|------|
+| "RIPCN introduces a dynamic impedance evolution network that captures directional traffic transfer patterns driven by road congestion level and flow variability, revealing the underlying causes of uncertainty and enhancing both reliability and interpretability." | 主语明确，动词精准，三层递进：功能→原理→效果 |
+| "By dynamically evolving the impedance over time, we construct a time-varying impedance graph that captures the underlying traffic transfer patterns." | By引导方式状语，前置突出创新点 |
+| "This approach retains the most critical information in the covariance structure, while significantly reducing computational costs." | 转折对比，突出效率优势 |
+| "Unlike static positional embeddings, these are learnable and context-aware, allowing the model to adapt to varying traffic patterns." | Unlike开头直接对比，两个形容词精准描述特性 |
+| "RIPCN consistently achieves the best results across all metrics on PEMS04, PEMS08, and Seattle, and ranks among the top two on PEMS03." | "consistently"强调稳定性，"ranks among top two"诚实表述 |
+
+**坏句（冗余、模糊、模板化）：**
+
+| 坏句 | 问题 | 修改建议 |
+|------|------|---------|
+| "Extensive experiments show that our method achieves promising results on multiple benchmarks." | "Extensive"空洞，"promising"模糊 | "Experiments on PEMS04, PEMS08 show that RIPCN reduces MAE by 8.2%." |
+| "The results demonstrate the effectiveness of the proposed method." | 模板化，缺乏信息量 | "Removing the impedance module increases MAE by 3.2%, confirming its importance." |
+| "Our method outperforms existing methods in terms of accuracy and efficiency." | "outperforms"笼统，无具体数字 | "RIPCN reduces inference time by 80% while maintaining competitive MAE." |
+| "In this paper, we propose a novel method for traffic prediction." | "In this paper"冗余，"novel"自夸 | "We propose RIPCN, a dual-network architecture for probabilistic traffic forecasting." |
+| "Extensive experiments demonstrate the superiority of our proposed method." | "Extensive"空洞，"superiority"过于绝对 | "Experiments on four datasets show that RIPCN outperforms nine methods in both point prediction and uncertainty estimation." |
+| "Many methods have been proposed for traffic forecasting in recent years." | "Many methods"不具体，无引用 | "Since DCRNN [21] introduced graph convolution, numerous GNN-based methods have been developed, including STGCN [40], GMAN [42]." |
+| "However, existing methods still have some limitations." | "some limitations"不具体 | "Most existing methods estimate uncertainty independently across time and space, neglecting spatiotemporal dependencies." |
+
+### 12.18 量化改进的三种写法
+
+| 写法 | 示例 | 适用场景 |
+|------|------|---------|
+| **精确数字** | "reduces GPU memory consumption by about 50%", "accelerates inference by nearly 80%" | 强调具体改进 |
+| **相对比较** | "compared with the full covariance model", "vs. 15.28 for the best baseline" | 与基线对比 |
+| **绝对数值** | "MAE of 15.14±0.12 on PEMS08", "CRPS of 0.0565±0.0019" | 报告最终结果 |
+
+**最佳实践：** 同时提供绝对值和相对改进，使用±标准差表示不确定性。
+
+### 12.19 消融实验描述模式
+
+**逐组件分析：**
+- "w/o Impedance results in noticeable performance degradation across all metrics, highlighting the importance of incorporating traffic transfer patterns."
+- "w/o ST-Graph causes the most significant performance drop."
+
+**解释每个组件的作用：**
+- "When the impedance supervision loss LR is removed, the model retains the impedance input but lacks explicit guidance."
+- "Excluding the loss LD, which constrains the direction to align with the PCs, significantly degrades the quality of uncertainty estimation."
+
+**总结性陈述：**
+- "These results collectively show that both direction-level and variance-level constraints are essential for high-quality probabilistic forecasting."
+- "The full model achieves the best performance across all metrics, confirming the effectiveness of the overall design."
+
+### 12.20 表格标题写法
+
+**标准格式：**
+- "Table 1. Performance comparison of different methods on the METR-LA and PEMS-BAY datasets. The prediction horizons are 15, 30, and 60 minutes. The best results are highlighted in **bold** and the second best are underlined."
+
+**概率预测表格：**
+- "Table 3. Probabilistic forecasting results on METR-LA and PEMS-BAY datasets. CRPS↓ and PIT are reported for 15, 30, and 60 min horizons."
+
+**消融实验表格：**
+- "Table 5. Ablation study on the METR-LA dataset with a 60-minute prediction horizon. w/o ST means removing the spatio-temporal module."
+
+### 12.21 图表标题写法
+
+**架构图：**
+- "Fig. 1. The overall architecture of STAEformer. The model consists of three components: (a) spatio-temporal adaptive embedding module, (b) multi-head attention mechanism, and (c) prediction head."
+
+**可视化图：**
+- "Fig. 2. Visualization of spatial attention weights on the PEMS-BAY dataset. (a) Spatial attention matrix showing dependencies between different road segments. (b) Temporal attention patterns across different time steps."
+
+**预测对比图：**
+- "Fig. 3. Visualization of prediction results on METR-LA dataset. Blue lines represent ground truth, red lines represent our predictions, and green lines represent baseline predictions."
+
+### 12.22 结果描述段落结构
+
+**标准结构：**
+1. 总体结果："As shown in Table 1, our method achieves the best performance across all datasets."
+2. 详细比较："On METR-LA, it reduces MAE by 4.2% compared to the best baseline at 15-minute horizon."
+3. 原因分析："The improvements are more pronounced for longer horizons, demonstrating the effectiveness of our embedding in capturing long-range dependencies."
+4. 局限性承认："While our method shows significant improvements, it requires more computational resources than lightweight methods."
