@@ -1318,6 +1318,75 @@ Transformer的O(L²)复杂度在长序列交通预测中计算成本高昂。Mam
 | GeoMAE | 2025 | Neural Networks | 缺失值掩码自编码 |
 | HGAurban | 2024 | - | 城市异质图预训练 |
 
+### H.1 跨城市模型合并 / 拆分（任务算术与权重解耦视角）
+
+**适用场景**：老师或合作者给出的方向不是“再提一个更深的单城模型”，而是“多个城市已经各自有模型，现在要区域一体化、跨城协同、隐私受限共享、边缘落地”。这类题目更适合讲“模型如何合并与再拆分”的故事，而不是继续讲单点预测精度。
+
+**一句话问题定义**：
+- 已有城市模型 `M_A`, `M_B`, `M_C` 分别在本地训练完成；
+- 现在需要一个区域级模型 `M_union`；
+- 目标是在**不从 scratch 联合重训**或只付出极小增量训练代价的前提下，实现跨城市知识合并；
+- 随后再把 `M_union` 拆成城市/区域/场景专属版本。
+
+**推荐叙事模板**：
+1. 原有交通系统是分城市、分部门、分路网维护的，模型天然碎片化。
+2. 新需求来自大湾区交通一体化、跨城事件联动、统一调度平台或隐私受限的数据协同。
+3. 困难不在“是否有更多数据”，而在“已有模型参数、表示和知识如何可复用地合并”。
+4. 如果能合并，就自然存在反向问题：如何在统一模型形成后，再拆回个性化、本地化、低时延的小模型。
+
+**技术路线拆解**：
+- 权重空间合并：
+  - task arithmetic
+  - weight decoupling
+  - adapter / LoRA fusion
+  - Fisher 或 importance-aware merge
+- 表示空间合并：
+  - latent alignment
+  - graph optimal transport
+  - parameter matching / neuron matching
+  - shared encoder + city-specific head
+- 受限共享场景：
+  - federated averaging
+  - personalized FL
+  - federated distillation
+  - federated foundation model
+- 拆分路线：
+  - distill `M_union -> M_A' / M_B' / M_C'`
+  - 按区域聚类、社区检测、功能区分层拆分
+  - 用 MoE/router/prompt 在一个统一模型内部做“软拆分”
+
+**与现有交通方向的连接点**：
+- 和 `UniST / OpenCity / MoST / UrbanFM` 这类基础模型工作相连时，故事偏“统一骨干 + 城市适配”。
+- 和 `FedTransfer Cross-City / SecureGraphFL / FGNNEH / Federated GFM` 相连时，故事偏“隐私约束下的模型合并”。
+- 和 `跨城市元学习 / MGSTA / FML-TFP / Meta-Learning MFD` 相连时，故事偏“学一个可快速合并/快速适配的初始化”。
+- 和 `Cross-City Latent Alignment / Graph OT` 相连时，故事偏“先对齐再合并”。
+
+**实验设计最小骨架**：
+1. 先选有公开代码、能稳定复现的 backbone，不要一开始就做超大基础模型。
+2. 至少准备 `A/B/C` 三个城市或三个区域级数据划分。
+3. 比较：
+   - pooled-data scratch training
+   - single-city training
+   - fine-tune from one city to another
+   - weight merge / adapter merge
+   - federated merge
+   - meta-init + few-shot adapt
+4. 除 `MAE/RMSE/MAPE` 外，增加：
+   - merge cost（额外训练轮次、通信成本、参数增量）
+   - forgetting（合并后原城市性能回退）
+   - adaptation speed（拆分后收敛速度）
+   - personalization gap（统一模型到本地模型的性能差）
+
+**适合写成创新点的条件**：
+- 真正展示了“不从 scratch 合并”的可行性，而不是简单把数据并起来重训。
+- 合并和拆分至少有一边给出明确机制，另一边给出有说服力的实验或案例。
+- 能说明为什么该问题在交通场景下比通用多任务学习更难，例如路网异构、传感器语义不一致、行政边界和隐私约束。
+
+**不要误写**：
+- “多城市联合训练”不等于“模型合并”。
+- “从区域大模型微调到单城市”不自动等于“模型拆分”，除非明确给出拆分机制或资源收益。
+- 如果只有概念图，没有真实参数合并、对齐、蒸馏、联邦或元学习协议，就只能写成 future work。
+
 ### I. 扩散模型新应用
 
 **关键趋势**：从“生成预测”扩展到“生成网络参数”实现少样本学习；频域扩散加速；与因果推断结合。

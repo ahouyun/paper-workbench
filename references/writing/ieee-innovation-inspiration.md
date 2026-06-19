@@ -582,6 +582,104 @@
 
 ---
 
+## 19. Mamba混合架构创新方向
+
+### 19.1 图注意力+Mamba交替融合 (GAMMA-Net)
+
+**核心创新：** (arXiv 2026) 将Graph Attention Networks与Multi-Axis Mamba交替融合，GAT处理空间依赖，Mamba处理时间依赖。
+
+**关键洞察：** Transformer的O(n²)复杂度在长序列交通数据上计算成本高昂；Mamba的O(n)复杂度实现长程时序建模，同时GAT比固定图卷积更灵活。
+
+**实验结果：** 在METR-LA、PEMS-BAY等6个数据集上，MAE最高降低16.25%。
+
+**代码：** https://github.com/hdy6438/GAMMA-Net
+
+---
+
+### 19.2 注意力+Mamba协同框架 (FAST)
+
+**核心创新：** (ICME 2026) 提出Temporal-Spatial-Temporal架构，结合Attention和Mamba的优势。时间注意力捕捉短期模式，Mamba空间模块以线性复杂度建模长程空间依赖。
+
+**关键洞察：** Transformer捕捉全局依赖好但复杂度高；纯Mamba高效但在图结构数据上空间交互建模不足。FAST统一两者。
+
+**实验结果：** 在PeMS04/07/08上，RMSE最高降低4.3%，MAE最高降低2.8%。
+
+---
+
+### 19.3 频域自适应Mamba (AdaMamba)
+
+**核心创新：** (arXiv 2026) 将自适应频率分析内生化到Mamba状态空间更新过程中，开发自适应频率门控状态空间模块。
+
+**关键洞察：** 现有频率方法依赖跨域同质性假设，AdaMamba通过频率门控动态校准状态转换。
+
+**代码：** https://github.com/XDjiang25/AdaMamba
+
+---
+
+### 19.4 物理信息多尺度Mamba (PIMSM)
+
+**核心创新：** (arXiv 2026) 将频谱估计的频率区间转换点映射到尺度特定的离散化参数，将时间尺度对齐作为归纳偏置。
+
+**关键洞察：** 传统模型将科学时间结构视为无约束模式进行拟合；PIMSM通过时间尺度对齐在分布漂移下保持结构。
+
+---
+
+## 20. 时间序列基础模型创新方向
+
+### 20.1 TimesFM (Google Research)
+
+**核心创新：** (arXiv 2024) Decoder-only架构的时间序列基础模型，在1000亿个时间点上预训练。Patch-based tokenization，支持zero-shot forecasting。
+
+**对交通预测启示：** 可直接应用于交通流量、速度的zero-shot预测。
+
+---
+
+### 20.2 Chronos (Amazon)
+
+**核心创新：** (2024) 将时间序列预测视为语言建模问题，将数值tokenize为离散bins，利用T5系列架构。支持zero-shot预测。
+
+**代码：** https://github.com/amazon-science/chronos-forecasting
+
+---
+
+### 20.3 Moirai (Salesforce)
+
+**核心创新：** (ICML 2024) Universal Time Series Transformer，处理可变维度、频率和分布的任意变量数预测。Masked encoder-decoder架构。
+
+**对交通预测启示：** any-frequency特性适合交通数据的多粒度预测；any-variate适合不同规模交通网络。
+
+---
+
+### 20.4 基础模型的Regime-Dependent Failures
+
+**核心创新：** (ICML 2026 Workshop) 揭示聚合指标掩盖的TSFM严重失败。在自由流-拥堵转换期间，MAE达11 mph（整体仅3 mph），90%预测区间实际覆盖率降至55%。
+
+**关键发现：** 简单的历史条件基线在转换覆盖率上优于任何TSFM。提出Bimodal Mixture Augmentation后处理方法。
+
+**对交通预测启示：** TSFM在交通领域需要特别关注regime switching问题。
+
+---
+
+## 21. IEEE TITS 2024-2026 高引论文
+
+通过OpenAlex API检索的148篇IEEE TITS交通预测论文中，高引论文包括：
+
+| 论文 | 年份 | 引用 | 方向 |
+|------|------|------|------|
+| Attention-Driven ST Deep Hybrid Networks | 2025 | 101 | 时空GNN |
+| MT-STNet Multi-Task Spatiotemporal Network | 2024 | 64 | 高速公路预测 |
+| Collision-Aware Graph Transformer | 2024 | 84 | 轨迹预测 |
+| Physics-Informed Graph Attention Transformer | 2024 | 47 | 空中交通 |
+| Spatiotemporal Multiscale Graph Convolutional | 2024 | 38 | 多尺度GCN |
+| Spatio-Temporal Contrastive Learning | 2024 | 35 | 对比学习 |
+| Federated Learning for Traffic Flow | 2024 | 34 | 联邦学习 |
+| Network-Wide Traffic Flow Dynamics | 2024 | 32 | 宏观模型+DNN |
+
+**关键发现：** Mamba/SSM在IEEE TITS中尚未出现，仍处于arXiv/顶会阶段。Foundation Model也仅有综述。
+
+---
+
 > 更新时间：2026-06-19
-> 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML (2023-2026)
-> 涵盖论文：80+篇
+> 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME (2023-2026)
+> 涵盖论文：120+篇
+> 数据来源：OpenAlex API, arXiv API, Semantic Scholar

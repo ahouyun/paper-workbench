@@ -1433,3 +1433,70 @@ The patterns in this document are extracted from or validated against the follow
 | "X-Aware" | PDFormer (Propagation Delay-Aware) |
 | "Disentangled X" | D2STGNN |
 | "Universal X" | UniST |
+
+### 12.11 Abstract首句模式分类 (7篇顶会论文真实分析)
+
+| 模式类型 | 示例 | 代表论文 |
+|----------|------|----------|
+| **领域背景+问题重要性** | "With the rapid development of ITS, accurate traffic forecasting has emerged as a critical challenge." | STAEformer |
+| **生活化场景引入** | "We all depend on mobility, and vehicular transportation affects the daily lives of most of us." | D2STGNN |
+| **任务定义+学术定位** | "Spatio-temporal modeling as a canonical task of multivariate time series forecasting has been a significant research topic." | MegaCRN |
+| **现有主流方法肯定** | "Spatio-temporal graph neural networks (STGNN) have emerged as the dominant model for STG forecasting." | DiffSTG |
+| **任务目标定义** | "Spatio-temporal prediction aims to forecast and gain insights into the ever-changing dynamics of urban environments." | UrbanGPT |
+| **任务重要性+应用场景** | "Urban spatio-temporal prediction is crucial for informed decision-making, such as traffic management, resource optimization." | UniST |
+| **任务重要性+研究历史** | "Time series forecasting holds significant importance in many real-world dynamic systems and has been extensively studied." | Time-LLM |
+
+### 12.12 Limitation描述策略分类
+
+| 策略 | 原文示例 | 论文 |
+|------|----------|------|
+| **边际收益递减** | "the advancements in network architectures have encountered diminishing performance gains" | STAEformer |
+| **信号本质分析** | "traffic data encompasses two different kinds of hidden time series signals... nearly all previous works coarsely consider traffic signals entirely as the outcome of the diffusion" | D2STGNN |
+| **能力缺失+实用性受限** | "they fail to model intrinsic uncertainties within STG data, which cripples their practicality" | DiffSTG |
+| **数据依赖+数据稀缺** | "many of these methods heavily depend on having sufficient labeled data... the issue of data scarcity is pervasive" | UrbanGPT |
+| **专用性限制** | "Existing prediction approaches are typically tailored for specific spatio-temporal scenarios" | UniST |
+
+### 12.13 Solution引入动词选择
+
+| 动词 | 使用频率 | 示例 |
+|------|---------|------|
+| **present** | 最高 (4/7篇) | "we present a novel component called..." (STAEformer) |
+| **propose** | 高 (3/7篇) | "we propose a novel Decoupled Spatial-Temporal Framework" (D2STGNN) |
+| **introduce** | 中 (1/7篇) | "we introduce UniST, a universal model" (UniST) |
+
+### 12.14 方法命名规律
+
+| 命名策略 | 示例 | 特点 |
+|----------|------|------|
+| **核心组件缩写拼接** | STAEformer = ST + AE + former | 把创新点嵌入已有架构名 |
+| **修饰词叠加** | D2STGNN = D² + STGNN | 双重修饰词+基础架构 |
+| **概念前缀** | MegaCRN = Meta-Graph + CRN | 暗示"大/强"含义 |
+| **方法+任务** | DiffSTG = Diffusion + STG | 核心方法+目标任务 |
+| **领域+基础模型** | UrbanGPT = Urban + GPT | 借用知名品牌 |
+| **性质+任务** | UniST = Universal + ST | 强调通用性 |
+| **数据类型+基础模型** | Time-LLM = Time + LLM | 最直白的跨域命名 |
+
+### 12.15 改进量化三档模式
+
+| 档位 | 示例 | 适用场景 |
+|------|------|---------|
+| **只说SOTA不给数字** | "achieves state-of-the-art performance on five datasets" | STAEformer |
+| **给百分比范围** | "reduces CRPS by 4%-14%, RMSE by 2%-7%" | DiffSTG |
+| **给精确百分比** | "outperformed the state-of-the-arts to a large degree (over 27% MAE and 34% RMSE)" | MegaCRN |
+
+### 12.16 Mamba论文写作模式
+
+**效率对比叙事：**
+- "Transformer的quadratic complexity在长序列交通数据上计算成本高昂"
+- "Mamba的linear complexity实现长程时序建模"
+- "效率提升30-50%"
+
+**混合架构描述：**
+- "GAT处理空间依赖，Mamba处理时间依赖"
+- "结合Attention和Mamba的优势"
+- "统一两者，兼顾表达力和效率"
+
+**基础模型评估模式：**
+- "Zero-shot vs Fine-tuned对比"
+- "多数据集多场景泛化性"
+- "分布漂移（distribution shift）鲁棒性"
