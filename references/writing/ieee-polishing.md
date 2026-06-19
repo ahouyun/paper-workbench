@@ -668,3 +668,208 @@ When polishing multimodal papers (TMM domain):
 - [ ] 所有数据集已命名
 - [ ] 所有对比引用了具体方法和数字
 - [ ] 贡献声明具体且可验证
+
+---
+
+## 交通预测专用润色规则 (Traffic Prediction Specific Rules)
+
+### 规则 33: Foundation Model结果描述规范
+
+描述 foundation model 在交通预测中的结果时，必须明确区分 zero-shot、few-shot 和 cross-city transfer 三种设置。
+
+| 设置 | 描述规范 | 示例 |
+|------|----------|------|
+| Zero-shot | 明确说明"未见目标数据"，给出跨数据集泛化数字 | "UrbanGPT achieves 8.5% improvement in RMSE across all datasets in the zero-shot setting" |
+| Few-shot | 说明微调比例（如 5%、10% labeled data），对比 fully supervised baseline | "With only 5% labeled data from the target city, our model achieves 96% of fully supervised performance" |
+| Cross-city transfer | 明确源城市和目标城市，报告迁移增益或损失 | "Transferring from METR-LA to PEMS-BAY, our model reduces MAE by 12% compared to training from scratch" |
+
+**描述模板：**
+- "In the zero-shot setting, [Model] achieves [X%] improvement in [Metric] across [N] datasets without any target-domain training data."
+- "With [K%] labeled data from the target domain, [Model] recovers [Y%] of the fully supervised performance."
+- "Cross-city transfer from [Source] to [Target] yields [Z%] reduction in [Metric]."
+
+**必须避免：**
+- ❌ 混淆 zero-shot 和 few-shot 设置
+- ❌ 不说明微调数据比例
+- ❌ 不报告与 fully supervised baseline 的差距
+
+### 规则 34: Mamba/SSM效率描述规范
+
+描述基于 Mamba 或 State Space Model (SSM) 的效率优势时，必须同时报告复杂度分析和实际加速比。
+
+**复杂度对比表：**
+
+| 模型类别 | 时间复杂度 | 空间复杂度 | 典型序列长度 |
+|----------|-----------|-----------|-------------|
+| Transformer | O(n²d) | O(n²) | ≤ 512 |
+| Linear Attention | O(nd²) | O(nd) | ≤ 1024 |
+| Mamba/SSM | O(nd) | O(n) | ≥ 2048 |
+
+**描述规范：**
+- 复杂度对比必须说明输入维度 d 和序列长度 n 的关系
+- 实际加速比必须报告硬件环境（GPU型号、batch size）
+- 效率增益必须与性能指标并列呈现
+
+**示例：**
+- "Our SSM-based model achieves comparable performance (MAE: 2.31 vs. 2.28) while being 3x faster in training (12h vs. 36h on 4×A100 GPUs) and requiring 60% less GPU memory."
+- "Compared to Transformer-based baselines, our Mamba model reduces computational complexity from O(n²d) to O(nd), enabling training on sequences of length 4096 with 2.1GB memory (vs. 8.7GB for Transformer)."
+
+**必须避免：**
+- ❌ 只报告复杂度不报告实际加速
+- ❌ 不说明实验硬件环境
+- ❌ 只说"faster"不给具体倍数
+
+### 规则 35: 概率预测描述规范
+
+描述概率预测（probabilistic forecasting）结果时，必须同时报告点预测精度和不确定性校准质量。
+
+**核心指标：**
+
+| 指标 | 全称 | 说明 | 目标值 |
+|------|------|------|--------|
+| CRPS | Continuous Ranked Probability Score | 概率预测整体质量 | 越低越好 |
+| PICP | Prediction Interval Coverage Probability | 预测区间覆盖率 | 接近名义置信水平（如95%） |
+| PINAW | Prediction Interval Normalized Average Width | 预测区间宽度 | 越窄越好（在PICP达标前提下） |
+
+**描述模板：**
+- "DiffSTG reduces CRPS by 4%-14% while providing well-calibrated uncertainty estimates (PICP: 94.2% at 95% confidence level)."
+- "Our model achieves a CRPS of [X] on [Dataset], representing a [Y%] improvement over [Baseline]. The 95% prediction intervals show [Z%] coverage with [W%] narrower width compared to [Baseline]."
+
+**描述顺序：**
+1. 点预测精度（MAE/RMSE）
+2. 概率预测质量（CRPS）
+3. 校准效果（PICP/PINAW）
+4. 校准可视化（reliability diagram 或 calibration curve）
+
+**必须避免：**
+- ❌ 只报告点预测指标，忽略概率指标
+- ❌ 只报告PICP不报告PINAW（覆盖率为100%的区间无意义）
+- ❌ 不说明置信水平（如95%）
+
+### 规则 36: 大规模评估描述规范
+
+描述在 LargeST（8600 sensors）等大规模数据集上的结果时，必须说明规模带来的挑战和模型的可扩展性。
+
+**LargeST 评估要素：**
+
+| 要素 | 说明 | 描述示例 |
+|------|------|----------|
+| 数据规模 | 传感器数量、时间跨度 | "8600 sensors across 3 years" |
+| 计算成本 | 训练时间、内存占用 | "Training takes 48h on 8×A100 GPUs" |
+| 性能保持率 | 与小规模数据集的性能对比 | "Maintains 92% of performance on METR-LA" |
+| 可扩展性分析 | 不同规模下的性能/效率变化 | "Sub-linear scaling in training time" |
+
+**描述模板：**
+- "Our model maintains competitive performance even on the LargeST dataset with 8600 sensors, achieving MAE of [X] compared to [Y] on the smaller METR-LA dataset (12.5% relative degradation)."
+- "Scalability analysis shows that training time scales sub-linearly with the number of sensors (1.7x time for 8x sensors)."
+
+**必须避免：**
+- ❌ 只报告小规模数据集结果
+- ❌ 不说明大规模实验的计算成本
+- ❌ 不分析性能随规模的变化趋势
+
+### 规则 37: 跨城市迁移描述规范
+
+描述跨城市迁移学习结果时，必须明确迁移设置、域差异和性能差距。
+
+**迁移设置分类：**
+
+| 设置 | 说明 | 描述要求 |
+|------|------|----------|
+| Zero-shot transfer | 目标城市无任何训练数据 | 报告与目标城市supervised baseline的差距 |
+| Few-shot transfer | 目标城市有少量标注数据 | 说明标注比例，报告与fully supervised的差距 |
+| Domain adaptation | 使用目标城市无标注数据 | 说明适应策略，报告适应前后的性能变化 |
+
+**描述模板：**
+- "Our model achieves 85% of supervised performance in the zero-shot setting (MAE: 2.65 vs. 3.12), demonstrating effective cross-city generalization."
+- "With domain adaptation using unlabeled data from the target city, our model recovers 92% of supervised performance (MAE: 2.48 vs. 2.28)."
+
+**域差异描述：**
+- 交通网络拓扑差异（节点数、边数、连通性）
+- 交通模式差异（高峰时段、流量分布）
+- 传感器类型差异（loop detector vs. GPS probe）
+
+**必须避免：**
+- ❌ 不说明源城市和目标城市
+- ❌ 不报告与target supervised baseline的差距
+- ❌ 不分析域差异对迁移效果的影响
+
+### 规则 38: 物理信息模型描述规范
+
+描述物理信息（physics-informed）交通预测模型时，必须说明物理约束的形式化方式和一致性验证。
+
+**物理约束类型：**
+
+| 约束类型 | 说明 | 示例 |
+|----------|------|------|
+| 流量守恒 | 节点流入=流出 | "Flow conservation at intersections" |
+| 交通流模型 | LWR、CTM等宏观模型 | "First-order LWR model constraint" |
+| 速度-密度关系 | 基本图约束 | "Greenshields speed-density relationship" |
+| 传播约束 | 上下游因果关系 | "Upstream-downstream propagation delay" |
+
+**描述模板：**
+- "Our physics-informed model reduces MAE by 5% while maintaining physical consistency (flow conservation violation < 0.1%)."
+- "The LWR constraint ensures that predicted flows satisfy the conservation law, with a mean violation of [X] vehicles per time step."
+
+**一致性验证指标：**
+- 物理约束违反程度（如流量守恒误差）
+- 物理合理性可视化（如交通波传播方向）
+- 与纯数据驱动方法的对比（精度 vs. 可解释性）
+
+**必须避免：**
+- ❌ 不说明物理约束的具体形式
+- ❌ 不报告物理一致性验证结果
+- ❌ 只说"physics-informed"不解释如何融入
+
+### 规则 39: 对比学习描述规范
+
+描述对比学习（contrastive learning）在交通预测中的应用时，必须说明预训练策略和下游任务收益。
+
+**预训练策略描述要素：**
+
+| 要素 | 说明 | 示例 |
+|------|------|------|
+| 对比目标 | 正负样本定义 | "Same sensor, different time as positive; different sensors as negative" |
+| 数据增强 | 增强方式 | "Temporal masking (30%), spatial subgraph sampling" |
+| 预训练数据 | 数据规模 | "Pre-trained on 6 months of unlabeled data" |
+| 微调策略 | 全参数 vs. 部分微调 | "Fine-tune last 3 layers with 10% labeled data" |
+
+**描述模板：**
+- "With only 50% labeled data, our contrastive learning approach achieves 95% of fully supervised performance (MAE: 2.39 vs. 2.28)."
+- "Self-supervised pre-training on unlabeled data improves downstream performance by 8% compared to training from scratch."
+
+**必须避免：**
+- ❌ 不说明对比学习的具体实现方式
+- ❌ 不报告与fully supervised baseline的差距
+- ❌ 不说明预训练数据的规模和来源
+
+### 规则 40: 联邦学习描述规范
+
+描述联邦学习（federated learning）在交通预测中的应用时，必须说明隐私保护机制和性能-隐私权衡。
+
+**联邦学习评估要素：**
+
+| 要素 | 说明 | 描述要求 |
+|------|------|----------|
+| 联邦设置 | 参与方数量、数据分布 | "5 cities with non-IID traffic data" |
+| 隐私保护 | 差分隐私、安全聚合 | "ε-differential privacy with ε=1.0" |
+| 通信效率 | 通信轮次、传输量 | "Converges in 100 rounds, 2MB per round" |
+| 性能权衡 | 与集中式训练的差距 | "Achieves 92% of centralized performance" |
+
+**描述模板：**
+- "Our federated approach achieves 92% of centralized performance while preserving data privacy (no raw data leaves local devices)."
+- "With ε-differential privacy (ε=1.0), our model maintains 88% of non-private performance, demonstrating a favorable privacy-utility tradeoff."
+
+**性能-隐私权衡描述：**
+- 报告不同隐私预算下的性能变化
+- 与集中式baseline和本地训练baseline对比
+- 分析通信开销与收敛速度
+
+**必须避免：**
+- ❌ 不说明隐私保护的具体机制
+- ❌ 不报告与集中式训练的性能差距
+- ❌ 不分析通信效率和收敛特性
+
+---
+
+*Last updated: 2026-06-19*

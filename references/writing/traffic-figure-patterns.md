@@ -1309,5 +1309,1368 @@ def plot_transfer_matrix(transfer_results, datasets):
 
 ---
 
-> 更新时间：2026-05-27
-> 基于论文：STAEformer (AAAI'24), PDFormer (AAAI'23), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), Graph WaveNet (IJCAI'19), MegaCRN (AAAI'23), STID (ICLR'23), GAMMA-Net (2026), STM3 (KDD'26), SpoT-Mamba (2024), PatchSTG (KDD'25), Expand-and-Compress (ICLR'25), Damba-ST (ICDE'26), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), DTP-Attack (2026), Double-Diffusion (2025), CaPaint (NeurIPS'24), OracleTSC, SignalClaw, DiffRefiner, GaussianFusion, UrbanEV, Heterogeneous-Aware FL, M3-Net, FEDDGCN, Balance and Brighten, TopKNet
+---
+
+## 十六、Mamba 架构可视化模式（2024-2026 新兴）
+
+### 16.1 选择性扫描机制可视化
+
+**适用场景：** 当论文提出基于 Mamba/SSM 的交通预测模型，需要向读者解释 Selective Scan 如何处理时空数据时使用。
+
+**传达信息：** Mamba 的核心创新在于选择性扫描（Selective Scan）机制——通过输入依赖的门控动态决定保留或遗忘哪些信息，而非 Transformer 的全局注意力。
+
+**实际案例：**
+- **GAMMA-Net**：将图拓扑的 BFS 序作为扫描顺序，展示节点如何沿空间结构进行线性扫描
+- **FAST (ICLR'25)**：展示频域增强的 Mamba 扫描，将时域信号变换到频域后再进行选择性过滤
+- **SpoT-Mamba**：展示时空联合扫描路径，空间维度和时间维度交替扫描
+
+**可视化方案一：线性扫描流程图**
+
+展示数据沿序列维度的单向扫描过程，用颜色编码门控值（高保留=深色，低保留=浅色）。
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
+def plot_selective_scan_flow(scan_sequence, gate_values, node_labels=None):
+    """
+    可视化 Mamba 选择性扫描的数据流。
+
+    参数:
+        scan_sequence: 扫描序列的特征矩阵 (seq_len, feature_dim)
+        gate_values: 每步的门控值 (seq_len,)，范围 [0, 1]
+        node_labels: 节点标签列表
+    """
+    seq_len = len(gate_values)
+    fig, axes = plt.subplots(2, 1, figsize=(7.16, 3.5),
+                              gridspec_kw={'height_ratios': [1, 0.4]})
+
+    # 上图：特征热力图，颜色编码门控值
+    ax1 = axes[0]
+    # 用门控值调制特征显示
+    masked_features = scan_sequence * gate_values[:, np.newaxis]
+    im = ax1.imshow(masked_features.T, cmap='viridis', aspect='auto',
+                    extent=[0, seq_len, 0, scan_sequence.shape[1]])
+    ax1.set_ylabel('Feature Dimension')
+    ax1.set_title('Selective Scan: Feature Retention by Gate Value')
+    plt.colorbar(im, ax=ax1, label='Activated Feature Value')
+
+    # 下图：门控值条形图
+    ax2 = axes[1]
+    colors = plt.cm.RdYlGn(gate_values)  # 绿色=保留，红色=遗忘
+    ax2.bar(range(seq_len), gate_values, color=colors, width=0.8)
+    ax2.set_xlabel('Scan Position (BFS Order)')
+    ax2.set_ylabel('Gate Value')
+    ax2.set_ylim(0, 1.1)
+    ax2.axhline(y=0.5, color='gray', linestyle='--', alpha=0.5)
+
+    if node_labels:
+        ax2.set_xticks(range(seq_len))
+        ax2.set_xticklabels(node_labels, fontsize=7, rotation=45)
+
+    plt.tight_layout()
+    plt.savefig('selective_scan_flow.pdf', bbox_inches='tight')
+```
+
+**可视化方案二：门控热力图叠加图拓扑**
+
+在图结构上用颜色编码每个节点的门控值，展示空间扫描中哪些节点被选择性保留。
+
+```python
+import networkx as nx
+
+def plot_scan_on_graph(adj_matrix, gate_values, pos=None, node_labels=None):
+    """
+    在图拓扑上可视化选择性扫描的门控值。
+
+    参数:
+        adj_matrix: 邻接矩阵 (N, N)
+        gate_values: 每个节点的门控值 (N,)
+        pos: 节点位置字典，None 则自动布局
+    """
+    G = nx.from_numpy_array(adj_matrix)
+    if pos is None:
+        pos = nx.spring_layout(G, seed=42)
+
+    fig, ax = plt.subplots(figsize=(5, 4))
+
+    # 节点颜色编码门控值
+    node_colors = gate_values
+    nodes = nx.draw_networkx_nodes(G, pos, node_color=node_colors,
+                                    cmap='RdYlGn', vmin=0, vmax=1,
+                                    node_size=200, ax=ax)
+    nx.draw_networkx_edges(G, pos, alpha=0.3, ax=ax)
+
+    if node_labels:
+        nx.draw_networkx_labels(G, pos, node_labels, font_size=8, ax=ax)
+
+    # 标注扫描顺序
+    scan_order = np.argsort(-gate_values)  # 按门控值降序
+    for rank, node in enumerate(scan_order[:5]):  # 标注前5个
+        ax.annotate(f'Scan #{rank+1}', xy=pos[node],
+                   xytext=(10, 10), textcoords='offset points',
+                   fontsize=7, color='red',
+                   arrowprops=dict(arrowstyle='->', color='red', lw=0.8))
+
+    plt.colorbar(nodes, ax=ax, label='Gate Value (Retain/Discard)')
+    ax.set_title('Selective Scan Gate Values on Graph Topology')
+    plt.tight_layout()
+    plt.savefig('scan_on_graph.pdf', bbox_inches='tight')
+```
+
+### 16.2 Mamba vs Transformer 架构对比图
+
+**适用场景：** 当需要对比 Mamba 架构与 Transformer 架构在交通预测中的差异时使用。
+
+**传达信息：** Mamba 的线性复杂度 O(n) vs Transformer 的二次复杂度 O(n^2)，以及在长序列建模中的效率优势。
+
+**实际案例：**
+- **GAMMA-Net**：用 GAT+Mamba 交替层对比纯 GAT+Transformer 方案，展示精度-效率权衡
+- **STM3 (KDD'26)**：三路 Mamba 扫描（空间、时间、联合）对比单路 Transformer 注意力
+
+**可视化方案：复杂度-序列长度曲线**
+
+```python
+def plot_complexity_comparison():
+    """
+    Mamba vs Transformer 复杂度对比曲线。
+    """
+    seq_lengths = np.logspace(1, 4, 100)  # 10 to 10000
+
+    # 复杂度模型
+    transformer_flops = seq_lengths ** 2 * 1e-4  # O(n^2)
+    mamba_flops = seq_lengths * 1e-2              # O(n)
+
+    fig, ax = plt.subplots(figsize=(5, 4))
+    ax.plot(seq_lengths, transformer_flops, '--', color='#E31A1C',
+            linewidth=2, label='Transformer O(n²)')
+    ax.plot(seq_lengths, mamba_flops, '-', color='#4C78A8',
+            linewidth=2, label='Mamba O(n)')
+
+    # 标注交叉点
+    cross_idx = np.argmin(np.abs(transformer_flops - mamba_flops))
+    ax.axvline(x=seq_lengths[cross_idx], color='gray', linestyle=':', alpha=0.5)
+    ax.annotate(f'Crossover\nN={int(seq_lengths[cross_idx])}',
+               xy=(seq_lengths[cross_idx], mamba_flops[cross_idx]),
+               xytext=(30, -30), textcoords='offset points',
+               fontsize=9, arrowprops=dict(arrowstyle='->', color='gray'))
+
+    # 标注交通预测常用序列长度
+    for n, label in [(12, '1h (5min)'), (288, '1day'), (2016, '1week')]:
+        ax.axvline(x=n, color='green', linestyle='-.', alpha=0.3)
+        ax.text(n, ax.get_ylim()[1]*0.9, label, fontsize=7,
+               ha='center', color='green')
+
+    ax.set_xlabel('Sequence Length N')
+    ax.set_ylabel('Computational Cost (FLOPs, relative)')
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+    ax.legend(loc='upper left')
+    ax.grid(True, alpha=0.3)
+    ax.set_title('Computational Complexity: Mamba vs Transformer')
+    plt.tight_layout()
+    plt.savefig('mamba_vs_transformer_complexity.pdf', bbox_inches='tight')
+```
+
+**可视化方案：交替架构对比图（GAMMA-Net 风格）**
+
+用并排的子图展示 GAT+Mamba 交替方案 vs GAT+Transformer 交替方案的架构差异，标注每层的参数量和计算量。
+
+### 16.3 Mamba 多路扫描对比图（STM3 风格）
+
+**适用场景：** 当模型使用多路并行 Mamba 扫描（空间扫描、时间扫描、联合扫描）时使用。
+
+**传达信息：** 不同扫描路径捕获不同类型的时空依赖，门控融合机制动态加权各路输出。
+
+```python
+def plot_multi_path_scan(spatial_gate, temporal_gate, joint_gate, fusion_weights):
+    """
+    可视化三路 Mamba 扫描的门控融合。
+
+    参数:
+        spatial_gate: 空间扫描门控值 (seq_len,)
+        temporal_gate: 时间扫描门控值 (seq_len,)
+        joint_gate: 联合扫描门控值 (seq_len,)
+        fusion_weights: 融合权重 (seq_len, 3)
+    """
+    fig, axes = plt.subplots(2, 1, figsize=(7.16, 4))
+
+    # 上图：三路门控值对比
+    ax1 = axes[0]
+    x = range(len(spatial_gate))
+    ax1.plot(x, spatial_gate, '-', color='#4C78A8', label='Spatial Scan', linewidth=1.5)
+    ax1.plot(x, temporal_gate, '--', color='#E8864A', label='Temporal Scan', linewidth=1.5)
+    ax1.plot(x, joint_gate, ':', color='#9D78B8', label='Joint Scan', linewidth=1.5)
+    ax1.set_ylabel('Gate Value')
+    ax1.legend(loc='upper right', fontsize=8)
+    ax1.set_title('Multi-Path Selective Scan Gate Values')
+    ax1.grid(True, alpha=0.3)
+
+    # 下图：融合权重堆叠面积图
+    ax2 = axes[1]
+    ax2.stackplot(x,
+                  fusion_weights[:, 0], fusion_weights[:, 1], fusion_weights[:, 2],
+                  labels=['Spatial', 'Temporal', 'Joint'],
+                  colors=['#4C78A8', '#E8864A', '#9D78B8'], alpha=0.7)
+    ax2.set_xlabel('Scan Position')
+    ax2.set_ylabel('Fusion Weight')
+    ax2.set_ylim(0, 1)
+    ax2.legend(loc='upper right', fontsize=8)
+    ax2.set_title('Gated Fusion Weights')
+    ax2.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig('multi_path_scan.pdf', bbox_inches='tight')
+```
+
+---
+
+## 十七、基础模型评估可视化模式（2024-2026）
+
+### 17.1 Zero-shot vs Fine-tuned 对比图
+
+**适用场景：** 当论文提出交通基础模型（Foundation Model），需要展示预训练模型在未见数据集上的零样本泛化能力时使用。
+
+**传达信息：** 基础模型即使未经目标域微调，也能达到接近或超过从头训练的专用模型的性能，说明模型学到了通用的时空知识。
+
+**实际案例：**
+- **UrbanGPT (KDD'24)**：在 PEMS03/04/07/08 上对比 Zero-shot、Few-shot（10%数据）、Full-shot 三种设置
+- **UniST (KDD'24)**：跨 6 个城市数据集的 Zero-shot 迁移评估
+- **CityGPT**：跨城市 Zero-shot 对比，展示不同城市间的迁移难度差异
+
+**可视化方案：分组柱状图 + 性能差距标注**
+
+```python
+def plot_zero_shot_comparison(zero_shot, few_shot, full_shot, datasets, metric='MAE'):
+    """
+    Zero-shot vs Few-shot vs Full-shot 性能对比。
+
+    参数:
+        zero_shot: {dataset: value} 零样本性能
+        few_shot: {dataset: value} 少样本性能
+        full_shot: {dataset: value} 全量数据性能
+        datasets: 数据集名称列表
+    """
+    fig, ax = plt.subplots(figsize=(7.16, 3.5))
+    x = np.arange(len(datasets))
+    width = 0.25
+
+    colors = ['#4C78A8', '#E8864A', '#59A14F']
+    hatches = ['', '//', '\\\\']
+
+    for i, (name, values, color, hatch) in enumerate(zip(
+        ['Zero-shot', 'Few-shot (10%)', 'Full-shot'],
+        [zero_shot, few_shot, full_shot],
+        colors, hatches
+    )):
+        vals = [values[ds] for ds in datasets]
+        bars = ax.bar(x + i * width, vals, width, label=name,
+                     color=color, hatch=hatch, edgecolor='black', linewidth=0.5)
+        for bar, val in zip(bars, vals):
+            ax.text(bar.get_x() + bar.get_width()/2., bar.get_height(),
+                   f'{val:.2f}', ha='center', va='bottom', fontsize=7)
+
+    # 标注 Zero-shot 与 Full-shot 的性能差距
+    for j, ds in enumerate(datasets):
+        gap = (zero_shot[ds] - full_shot[ds]) / full_shot[ds] * 100
+        color = '#E31A1C' if gap > 10 else '#59A14F'
+        ax.annotate(f'Gap: {gap:.1f}%',
+                   xy=(x[j] + width, max(zero_shot[ds], full_shot[ds])),
+                   xytext=(0, 15), textcoords='offset points',
+                   fontsize=7, color=color, ha='center')
+
+    ax.set_xlabel('Dataset')
+    ax.set_ylabel(metric)
+    ax.set_xticks(x + width)
+    ax.set_xticklabels(datasets, rotation=15)
+    ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1))
+    ax.grid(True, axis='y', alpha=0.3)
+    ax.set_title('Zero-shot vs Fine-tuned Performance')
+    plt.tight_layout()
+    plt.savefig('zero_shot_comparison.pdf', bbox_inches='tight')
+```
+
+### 17.2 跨城市迁移可视化
+
+**适用场景：** 当模型在多个城市间进行迁移学习评估时使用。
+
+**传达信息：** 哪些城市对之间的迁移最有效，哪些城市作为源域/目标域最优，迁移学习相比从头训练的提升幅度。
+
+**实际案例：**
+- **CityGPT**：6 城市间的迁移矩阵热力图
+- **Damba-ST (ICDE'26)**：领域自适应的跨城市迁移，展示域偏移度量
+
+**可视化方案：迁移矩阵热力图 + 对角线标注本地性能**
+
+详见第七节代码模板 7.9（`plot_transfer_matrix`）。扩展版本增加：
+- 对角线标注本地训练性能
+- 每个单元格标注迁移提升/下降百分比
+- 用箭头标注最优迁移路径
+
+```python
+def plot_transfer_matrix_enhanced(transfer_results, local_performance, datasets):
+    """
+    增强版迁移矩阵：包含本地性能和迁移增益。
+
+    参数:
+        transfer_results: (n_source, n_target) MAE 矩阵
+        local_performance: {dataset: local_mae} 本地训练性能
+        datasets: 数据集名称列表
+    """
+    n = len(datasets)
+    fig, ax = plt.subplots(figsize=(7, 6))
+    im = ax.imshow(transfer_results, cmap='RdYlGn_r', aspect='auto')
+    plt.colorbar(im, ax=ax, label='MAE (lower is better)')
+
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                ax.text(j, i, f'{local_performance[datasets[i]]:.2f}\n(Local)',
+                       ha='center', va='center', fontsize=7, fontweight='bold')
+            else:
+                gain = (local_performance[datasets[j]] - transfer_results[i, j]) / \
+                       local_performance[datasets[j]] * 100
+                color = 'white' if transfer_results[i, j] > np.median(transfer_results) else 'black'
+                ax.text(j, i, f'{transfer_results[i, j]:.2f}\n({gain:+.1f}%)',
+                       ha='center', va='center', fontsize=7, color=color)
+
+    ax.set_xticks(range(n))
+    ax.set_yticks(range(n))
+    ax.set_xticklabels(datasets, rotation=45, ha='right')
+    ax.set_yticklabels(datasets)
+    ax.set_xlabel('Target Domain')
+    ax.set_ylabel('Source Domain')
+    ax.set_title('Cross-City Transfer Learning Matrix')
+    plt.tight_layout()
+    plt.savefig('transfer_matrix_enhanced.pdf', bbox_inches='tight')
+```
+
+### 17.3 Regime-Dependent Failure 可视化（ICML 2026 Workshop）
+
+**适用场景：** 当需要分析基础模型在不同交通状态（regime）下的失败模式时使用。
+
+**传达信息：** 基础模型并非在所有情况下都优于专用模型，某些特定交通状态（如极端拥堵、事故、天气异常）下可能出现性能退化。
+
+**可视化方案：按交通状态分组的性能对比**
+
+```python
+def plot_regime_dependent_performance(regime_results, methods, regimes):
+    """
+    不同交通状态下的模型性能对比。
+
+    参数:
+        regime_results: {method: {regime: mae_value}}
+        methods: 方法名称列表
+        regimes: 交通状态列表，如 ['Free-flow', 'Moderate', 'Heavy', 'Incident']
+    """
+    fig, ax = plt.subplots(figsize=(7.16, 3.5))
+    x = np.arange(len(regimes))
+    n_methods = len(methods)
+    width = 0.8 / n_methods
+
+    # 标记基础模型
+    foundation_models = ['UrbanGPT', 'UniST', 'CityGPT']
+    colors = ['#4C78A8' if m in foundation_models else '#797068' for m in methods]
+    markers = ['o' if m in foundation_models else 's' for m in methods]
+
+    for i, method in enumerate(methods):
+        values = [regime_results[method][r] for r in regimes]
+        ax.bar(x + i * width, values, width, label=method,
+              color=colors[i], alpha=0.8, edgecolor='black', linewidth=0.5)
+
+    # 标注基础模型表现差的 regime
+    for j, regime in enumerate(regimes):
+        for fm in foundation_models:
+            best_specialized = min(regime_results[m][regime]
+                                   for m in methods if m not in foundation_models)
+            fm_val = regime_results[fm][regime]
+            if fm_val > best_specialized * 1.1:  # 超过专用模型 10% 以上
+                ax.annotate('Failure!',
+                           xy=(x[j] + methods.index(fm) * width, fm_val),
+                           xytext=(0, 10), textcoords='offset points',
+                           fontsize=7, color='red', ha='center',
+                           fontweight='bold')
+
+    ax.set_xlabel('Traffic Regime')
+    ax.set_ylabel('MAE')
+    ax.set_xticks(x + width * (n_methods - 1) / 2)
+    ax.set_xticklabels(regimes)
+    ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1), fontsize=8)
+    ax.grid(True, axis='y', alpha=0.3)
+    ax.set_title('Regime-Dependent Performance: Foundation vs Specialized Models')
+    plt.tight_layout()
+    plt.savefig('regime_dependent_performance.pdf', bbox_inches='tight')
+```
+
+**可视化方案：雷达图展示各 regime 下的相对性能**
+
+```python
+def plot_regime_radar(results, methods, regimes):
+    """
+    雷达图展示不同交通状态下的模型性能。
+    面积越小越优（MAE 越低越好）。
+    """
+    n_regimes = len(regimes)
+    angles = np.linspace(0, 2 * np.pi, n_regimes, endpoint=False).tolist()
+    angles += angles[:1]  # 闭合
+
+    fig, ax = plt.subplots(figsize=(5, 5), subplot_kw=dict(polar=True))
+
+    for method in methods:
+        values = [results[method][r] for r in regimes]
+        values += values[:1]
+        ax.plot(angles, values, 'o-', linewidth=1.5, label=method)
+        ax.fill(angles, values, alpha=0.1)
+
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(regimes, fontsize=9)
+    ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1), fontsize=8)
+    ax.set_title('Performance Across Traffic Regimes\n(lower = better)', fontsize=10)
+    plt.tight_layout()
+    plt.savefig('regime_radar.pdf', bbox_inches='tight')
+```
+
+---
+
+## 十八、概率预测可视化模式（2024-2026）
+
+### 18.1 不确定性量化总览图
+
+**适用场景：** 当论文提出概率预测模型（如 Diffusion Model、Bayesian 方法、Conformal Prediction）时使用。
+
+**传达信息：** 模型不仅给出点预测，还能量化预测的不确定性，为决策提供置信度信息。
+
+**实际案例：**
+- **DiffSTG (KDD'24)**：扩散模型生成多条采样轨迹，用分位数区间展示不确定性
+- **Conformalized ST-GCN**：共形预测给出理论保证的预测区间
+- **Double-Diffusion (2025)**：ODE 先验引导的扩散，展示更紧凑的预测区间
+
+**四合一不确定性可视化面板：**
+
+```python
+def plot_uncertainty_panel(time_steps, samples, ground_truth,
+                           nominal_coverage, actual_coverage,
+                           sharpness_by_horizon, crps_by_method):
+    """
+    四合一不确定性量化面板。
+    包含：(a) 预测区间图, (b) 校准图, (c) 区间宽度随预测步变化, (d) CRPS 对比。
+
+    参数:
+        time_steps: 时间步数组
+        samples: (num_samples, time_steps) 采样结果
+        ground_truth: 真实值
+        nominal_coverage: 名义覆盖水平列表
+        actual_coverage: 实际覆盖水平列表
+        sharpness_by_horizon: {horizon: avg_interval_width}
+        crps_by_method: {method_name: crps_value}
+    """
+    fig, axes = plt.subplots(2, 2, figsize=(7.16, 5))
+
+    # (a) 预测区间图
+    ax = axes[0, 0]
+    q10 = np.percentile(samples, 10, axis=0)
+    q50 = np.percentile(samples, 50, axis=0)
+    q90 = np.percentile(samples, 90, axis=0)
+    ax.fill_between(time_steps, q10, q90, alpha=0.2, color='#E31A1C', label='80% PI')
+    ax.plot(time_steps, q50, color='#E31A1C', linewidth=1.5, label='Median')
+    ax.plot(time_steps, ground_truth, 'k-', linewidth=1.5, label='Ground Truth')
+    ax.set_xlabel('Time')
+    ax.set_ylabel('Traffic Flow')
+    ax.legend(fontsize=7)
+    ax.set_title('(a) Prediction Intervals')
+    ax.grid(True, alpha=0.3)
+
+    # (b) 校准图
+    ax = axes[0, 1]
+    ax.plot([0, 1], [0, 1], 'k--', linewidth=1, label='Perfect')
+    ax.plot(nominal_coverage, actual_coverage, 'ro-', markersize=4, label='Model')
+    ax.fill_between(nominal_coverage, nominal_coverage, actual_coverage,
+                    alpha=0.2, color='red')
+    ece = np.mean(np.abs(np.array(nominal_coverage) - np.array(actual_coverage)))
+    ax.text(0.05, 0.95, f'ECE = {ece:.3f}', transform=ax.transAxes,
+           fontsize=9, va='top')
+    ax.set_xlabel('Nominal Coverage')
+    ax.set_ylabel('Actual Coverage')
+    ax.legend(fontsize=7)
+    ax.set_title('(b) Calibration')
+    ax.set_aspect('equal')
+    ax.grid(True, alpha=0.3)
+
+    # (c) 区间宽度随预测步变化（Sharpness）
+    ax = axes[1, 0]
+    horizons = list(sharpness_by_horizon.keys())
+    widths = list(sharpness_by_horizon.values())
+    ax.plot(horizons, widths, 's-', color='#4C78A8', linewidth=1.5)
+    ax.set_xlabel('Prediction Horizon (min)')
+    ax.set_ylabel('Average Interval Width')
+    ax.set_title('(c) Sharpness (narrower = better)')
+    ax.grid(True, alpha=0.3)
+
+    # (d) CRPS 对比柱状图
+    ax = axes[1, 1]
+    methods = list(crps_by_method.keys())
+    crps_vals = list(crps_by_method.values())
+    colors = ['#E31A1C' if i == 0 else '#4C78A8' for i in range(len(methods))]
+    ax.barh(methods, crps_vals, color=colors, edgecolor='black', linewidth=0.5)
+    ax.set_xlabel('CRPS (lower = better)')
+    ax.set_title('(d) CRPS Comparison')
+    ax.grid(True, axis='x', alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig('uncertainty_panel.pdf', bbox_inches='tight')
+```
+
+### 18.2 采样轨迹多样性可视化
+
+**适用场景：** 展示扩散模型生成的多条采样轨迹的多样性和覆盖性。
+
+**传达信息：** 好的概率预测模型应生成多样但不离谱的样本——真实值应大部分落在样本覆盖范围内，同时样本不应过于分散（过于保守）。
+
+```python
+def plot_sample_diversity(time_steps, samples, ground_truth, n_highlight=5):
+    """
+    展示采样轨迹多样性，高亮少数几条轨迹便于观察。
+
+    参数:
+        time_steps: 时间步数组
+        samples: (num_samples, time_steps) 全部采样
+        ground_truth: 真实值
+        n_highlight: 高亮展示的轨迹数
+    """
+    fig, ax = plt.subplots(figsize=(7.16, 3))
+
+    # 所有轨迹：极低透明度
+    for i in range(samples.shape[0]):
+        ax.plot(time_steps, samples[i], color='#4C78A8', alpha=0.05, linewidth=0.5)
+
+    # 高亮几条轨迹
+    highlight_indices = np.random.choice(samples.shape[0], n_highlight, replace=False)
+    highlight_colors = plt.cm.Set1(np.linspace(0, 1, n_highlight))
+    for idx, color in zip(highlight_indices, highlight_colors):
+        ax.plot(time_steps, samples[idx], color=color, alpha=0.6,
+               linewidth=1, label=f'Sample {idx}')
+
+    # 真实值
+    ax.plot(time_steps, ground_truth, 'k-', linewidth=2, label='Ground Truth')
+
+    # 标注覆盖率
+    in_range = np.sum((samples.min(axis=0) <= ground_truth) &
+                      (samples.max(axis=0) >= ground_truth)) / len(ground_truth)
+    ax.text(0.02, 0.95, f'Coverage: {in_range*100:.1f}%',
+           transform=ax.transAxes, fontsize=9, va='top',
+           bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+
+    ax.set_xlabel('Time')
+    ax.set_ylabel('Traffic Flow')
+    ax.legend(loc='upper right', fontsize=7, ncol=2)
+    ax.grid(True, alpha=0.3)
+    ax.set_title('Sample Diversity from Diffusion Model')
+    plt.tight_layout()
+    plt.savefig('sample_diversity.pdf', bbox_inches='tight')
+```
+
+### 18.3 概率预测区间对比图（多方法）
+
+**适用场景：** 对比不同概率预测方法的预测区间质量。
+
+**传达信息：** 区间宽度反映不确定性程度，覆盖率反映可靠性，两者需平衡。
+
+```python
+def plot_interval_comparison(time_steps, results_dict, ground_truth):
+    """
+    多方法的预测区间对比。
+
+    参数:
+        time_steps: 时间步数组
+        results_dict: {method_name: {'lower': array, 'upper': array, 'median': array}}
+        ground_truth: 真实值
+    """
+    fig, axes = plt.subplots(len(results_dict), 1, figsize=(7.16, 2.5 * len(results_dict)),
+                              sharex=True)
+    if len(results_dict) == 1:
+        axes = [axes]
+
+    colors = ['#E31A1C', '#4C78A8', '#59A14F', '#E8864A']
+
+    for idx, (method, data) in enumerate(results_dict.items()):
+        ax = axes[idx]
+        color = colors[idx % len(colors)]
+
+        # 预测区间
+        ax.fill_between(time_steps, data['lower'], data['upper'],
+                       alpha=0.3, color=color, label='90% PI')
+        ax.plot(time_steps, data['median'], color=color, linewidth=1.5, label='Median')
+        ax.plot(time_steps, ground_truth, 'k-', linewidth=1.5, label='Ground Truth')
+
+        # 计算覆盖率和平均宽度
+        coverage = np.mean((ground_truth >= data['lower']) & (ground_truth <= data['upper']))
+        avg_width = np.mean(data['upper'] - data['lower'])
+        ax.text(0.02, 0.95, f'{method}\nCoverage: {coverage*100:.1f}%, Width: {avg_width:.2f}',
+               transform=ax.transAxes, fontsize=8, va='top',
+               bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
+
+        ax.set_ylabel('Flow')
+        ax.legend(loc='upper right', fontsize=7)
+        ax.grid(True, alpha=0.3)
+
+    axes[-1].set_xlabel('Time')
+    plt.tight_layout()
+    plt.savefig('interval_comparison.pdf', bbox_inches='tight')
+```
+
+### 18.4 校准图高级版本
+
+**适用场景：** 评估概率预测模型的校准质量。
+
+**传达信息：** 理想情况下，名义覆盖率应等于实际覆盖率（对角线）。偏离对角线越远，校准越差。
+
+```python
+def plot_calibration_advanced(models_coverage, nominal_levels):
+    """
+    多模型校准图对比。
+
+    参数:
+        models_coverage: {model_name: [actual_coverage_per_level]}
+        nominal_levels: [0.1, 0.2, ..., 0.9]
+    """
+    fig, ax = plt.subplots(figsize=(4.5, 4))
+
+    # 完美校准线
+    ax.plot([0, 1], [0, 1], 'k--', linewidth=1.5, label='Perfect Calibration')
+
+    # 理想区域（±5%）
+    ax.fill_between(nominal_levels,
+                    np.array(nominal_levels) - 0.05,
+                    np.array(nominal_levels) + 0.05,
+                    alpha=0.1, color='green', label='±5% Tolerance')
+
+    colors = ['#E31A1C', '#4C78A8', '#59A14F', '#E8864A']
+    markers = ['o', 's', '^', 'D']
+
+    for i, (model, coverage) in enumerate(models_coverage.items()):
+        ece = np.mean(np.abs(np.array(nominal_levels) - np.array(coverage)))
+        ax.plot(nominal_levels, coverage, f'{markers[i]}-',
+               color=colors[i % len(colors)], linewidth=1.5, markersize=5,
+               label=f'{model} (ECE={ece:.3f})')
+
+    ax.set_xlabel('Nominal Coverage Level')
+    ax.set_ylabel('Empirical Coverage')
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.set_aspect('equal')
+    ax.legend(loc='lower right', fontsize=8)
+    ax.grid(True, alpha=0.3)
+    ax.set_title('Calibration Plot: Multiple Models')
+    plt.tight_layout()
+    plt.savefig('calibration_advanced.pdf', bbox_inches='tight')
+```
+
+---
+
+## 十九、效率对比可视化模式（2024-2026）
+
+### 19.1 参数量 vs 性能散点图
+
+**适用场景：** 当需要展示不同模型在参数量和预测精度之间的权衡时使用。
+
+**传达信息：** 理想模型应位于左下角（低参数量 + 低误差）。散点图直观展示哪些模型是"高效"的，哪些是"高参数低回报"的。
+
+**实际案例：**
+- **STID (ICLR'23)**：用参数量-MAE 散点图展示轻量 MLP 架构的优势
+- **PatchSTG (KDD'25)**：展示参数效率，PatchSTG 用更少参数达到竞争性能
+- **M3-Net**：无图 MLP 架构在参数效率上的优势
+
+```python
+def plot_params_vs_performance(models_data, highlight_method='Ours'):
+    """
+    参数量 vs 预测精度散点图。
+
+    参数:
+        models_data: {name: {'params': float, 'mae': float, 'flops': float}}
+        highlight_method: 高亮标注的方法名
+    """
+    fig, ax = plt.subplots(figsize=(5, 4))
+
+    for name, data in models_data.items():
+        is_highlight = (name == highlight_method)
+        color = '#E31A1C' if is_highlight else '#4C78A8'
+        size = 120 if is_highlight else 60
+        marker = '*' if is_highlight else 'o'
+        alpha = 1.0 if is_highlight else 0.7
+
+        ax.scatter(data['params'], data['mae'], s=size, c=color,
+                  marker=marker, alpha=alpha, edgecolors='black', linewidth=0.5,
+                  zorder=5 if is_highlight else 3)
+
+        # 标注方法名
+        offset = (8, 8) if is_highlight else (5, 5)
+        ax.annotate(name, (data['params'], data['mae']),
+                   xytext=offset, textcoords='offset points',
+                   fontsize=7, fontweight='bold' if is_highlight else 'normal')
+
+    # Pareto 前沿线（连接非支配点）
+    sorted_models = sorted(models_data.items(), key=lambda x: x[1]['params'])
+    pareto_front = []
+    min_mae = float('inf')
+    for name, data in sorted_models:
+        if data['mae'] < min_mae:
+            pareto_front.append((data['params'], data['mae']))
+            min_mae = data['mae']
+    if len(pareto_front) > 1:
+        pareto_x, pareto_y = zip(*pareto_front)
+        ax.plot(pareto_x, pareto_y, '--', color='gray', alpha=0.5, linewidth=1)
+        ax.text(pareto_x[-1], pareto_y[-1], 'Pareto Front', fontsize=7,
+               color='gray', rotation=-10)
+
+    ax.set_xlabel('Parameters (M)')
+    ax.set_ylabel('MAE')
+    ax.set_xscale('log')
+    ax.grid(True, alpha=0.3)
+    ax.set_title('Parameter Efficiency')
+    plt.tight_layout()
+    plt.savefig('params_vs_performance.pdf', bbox_inches='tight')
+```
+
+### 19.2 FLOPs vs MAE 权衡曲线
+
+**适用场景：** 对比不同模型的计算量（FLOPs）和预测精度。
+
+**传达信息：** FLOPs 直接反映推理时的计算成本，比参数量更准确地反映实际效率。
+
+```python
+def plot_flops_vs_mae(models_data, highlight_method='Ours'):
+    """
+    FLOPs vs MAE 权衡散点图。
+    气泡大小可编码额外维度（如推理时间）。
+    """
+    fig, ax = plt.subplots(figsize=(5, 4))
+
+    for name, data in models_data.items():
+        is_highlight = (name == highlight_method)
+        color = '#E31A1C' if is_highlight else '#4C78A8'
+        # 气泡大小编码推理时间
+        size = data.get('inference_ms', 10) * 5
+        marker = '*' if is_highlight else 'o'
+
+        ax.scatter(data['flops'], data['mae'], s=size, c=color,
+                  marker=marker, alpha=0.8, edgecolors='black', linewidth=0.5)
+        ax.annotate(name, (data['flops'], data['mae']),
+                   xytext=(5, 5), textcoords='offset points', fontsize=7)
+
+    ax.set_xlabel('FLOPs (G)')
+    ax.set_ylabel('MAE')
+    ax.set_xscale('log')
+    ax.grid(True, alpha=0.3)
+    ax.set_title('Computational Efficiency\n(bubble size = inference time)')
+    plt.tight_layout()
+    plt.savefig('flops_vs_mae.pdf', bbox_inches='tight')
+```
+
+### 19.3 训练时间对比柱状图
+
+**适用场景：** 对比不同模型的训练时间开销。
+
+**传达信息：** 训练效率对实际部署和研究迭代至关重要，尤其对于大规模数据集。
+
+```python
+def plot_training_time(training_times, highlight_method='Ours'):
+    """
+    训练时间对比柱状图。
+
+    参数:
+        training_times: {method: hours}
+    """
+    fig, ax = plt.subplots(figsize=(7.16, 3))
+
+    methods = list(training_times.keys())
+    times = list(training_times.values())
+    colors = ['#E31A1C' if m == highlight_method else '#4C78A8' for m in methods]
+
+    bars = ax.barh(methods, times, color=colors, edgecolor='black', linewidth=0.5)
+
+    # 标注具体数值和相对倍数
+    min_time = min(times)
+    for bar, t in zip(bars, times):
+        ax.text(bar.get_width() + 0.5, bar.get_y() + bar.get_height()/2.,
+               f'{t:.1f}h ({t/min_time:.1f}x)', va='center', fontsize=8)
+
+    ax.set_xlabel('Training Time (hours)')
+    ax.set_title('Training Efficiency Comparison')
+    ax.grid(True, axis='x', alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('training_time.pdf', bbox_inches='tight')
+```
+
+### 19.4 内存使用对比
+
+**适用场景：** 展示不同模型的 GPU 内存占用，对边缘部署和资源受限场景尤为重要。
+
+```python
+def plot_memory_comparison(memory_data, highlight_method='Ours'):
+    """
+    GPU 内存使用对比柱状图。
+    可同时展示训练和推理时的内存占用。
+
+    参数:
+        memory_data: {method: {'train_mem_mb': X, 'infer_mem_mb': Y}}
+    """
+    fig, ax = plt.subplots(figsize=(7.16, 3.5))
+    methods = list(memory_data.keys())
+    x = np.arange(len(methods))
+    width = 0.35
+
+    train_mem = [memory_data[m]['train_mem_mb'] for m in methods]
+    infer_mem = [memory_data[m]['infer_mem_mb'] for m in methods]
+
+    colors_train = ['#E31A1C' if m == highlight_method else '#4C78A8' for m in methods]
+    colors_infer = ['#FF6B6B' if m == highlight_method else '#7BC8A4' for m in methods]
+
+    bars1 = ax.bar(x - width/2, train_mem, width, label='Training',
+                   color=colors_train, edgecolor='black', linewidth=0.5)
+    bars2 = ax.bar(x + width/2, infer_mem, width, label='Inference',
+                   color=colors_infer, edgecolor='black', linewidth=0.5)
+
+    # 标注数值
+    for bar in bars1:
+        ax.text(bar.get_x() + bar.get_width()/2., bar.get_height(),
+               f'{bar.get_height():.0f}', ha='center', va='bottom', fontsize=7)
+    for bar in bars2:
+        ax.text(bar.get_x() + bar.get_width()/2., bar.get_height(),
+               f'{bar.get_height():.0f}', ha='center', va='bottom', fontsize=7)
+
+    ax.set_ylabel('GPU Memory (MB)')
+    ax.set_xticks(x)
+    ax.set_xticklabels(methods, rotation=20, ha='right')
+    ax.legend()
+    ax.grid(True, axis='y', alpha=0.3)
+    ax.set_title('GPU Memory Usage Comparison')
+    plt.tight_layout()
+    plt.savefig('memory_comparison.pdf', bbox_inches='tight')
+```
+
+### 19.5 推理速度对比
+
+**适用场景：** 展示不同模型的推理延迟，对实时交通预测系统至关重要。
+
+```python
+def plot_inference_speed(inference_data, target_fps=10):
+    """
+    推理速度对比图，标注实时性阈值。
+
+    参数:
+        inference_data: {method: {'latency_ms': X, 'throughput_fps': Y}}
+        target_fps: 目标帧率（实时性要求）
+    """
+    fig, ax1 = plt.subplots(figsize=(7.16, 3.5))
+
+    methods = list(inference_data.keys())
+    latencies = [inference_data[m]['latency_ms'] for m in methods]
+    throughputs = [inference_data[m]['throughput_fps'] for m in methods]
+
+    x = np.arange(len(methods))
+    width = 0.35
+
+    # 延迟柱状图
+    bars = ax1.bar(x - width/2, latencies, width, label='Latency (ms)',
+                   color='#4C78A8', edgecolor='black', linewidth=0.5)
+    ax1.set_ylabel('Latency (ms)', color='#4C78A8')
+    ax1.tick_params(axis='y', labelcolor='#4C78A8')
+
+    # 吞吐量折线图（右轴）
+    ax2 = ax1.twinx()
+    ax2.plot(x, throughputs, 's-', color='#E31A1C', linewidth=1.5, label='Throughput (FPS)')
+    ax2.set_ylabel('Throughput (FPS)', color='#E31A1C')
+    ax2.tick_params(axis='y', labelcolor='#E31A1C')
+
+    # 实时性阈值线
+    target_latency = 1000 / target_fps
+    ax1.axhline(y=target_latency, color='green', linestyle='--', alpha=0.5)
+    ax1.text(len(methods)-1, target_latency, f'Real-time ({target_fps} FPS)',
+            fontsize=8, color='green', va='bottom')
+
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(methods, rotation=20, ha='right')
+
+    # 合并图例
+    lines1, labels1 = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=8)
+
+    ax1.grid(True, axis='y', alpha=0.3)
+    ax1.set_title('Inference Speed Comparison')
+    plt.tight_layout()
+    plt.savefig('inference_speed.pdf', bbox_inches='tight')
+```
+
+### 19.6 综合效率雷达图
+
+**适用场景：** 多维度综合评估模型效率。
+
+**传达信息：** 在参数量、FLOPs、推理时间、内存、精度五个维度全面对比，面积越小越优。
+
+```python
+def plot_efficiency_radar(models_data, highlight_method='Ours'):
+    """
+    多维效率雷达图。
+
+    参数:
+        models_data: {name: {'params': M, 'flops': G, 'latency_ms': X,
+                             'mem_mb': Y, 'mae': Z}}
+    """
+    dimensions = ['Params\n(M)', 'FLOPs\n(G)', 'Latency\n(ms)', 'Memory\n(MB)', 'MAE']
+    n_dims = len(dimensions)
+    angles = np.linspace(0, 2 * np.pi, n_dims, endpoint=False).tolist()
+    angles += angles[:1]
+
+    fig, ax = plt.subplots(figsize=(5, 5), subplot_kw=dict(polar=True))
+
+    # 归一化到 [0, 1]
+    all_values = {d: [] for d in ['params', 'flops', 'latency_ms', 'mem_mb', 'mae']}
+    for data in models_data.values():
+        for key in all_values:
+            all_values[key].append(data[key])
+
+    for key in all_values:
+        min_v, max_v = min(all_values[key]), max(all_values[key])
+        all_values[key] = (min_v, max_v)
+
+    colors = ['#E31A1C', '#4C78A8', '#59A14F', '#E8864A', '#9D78B8']
+
+    for idx, (name, data) in enumerate(models_data.items()):
+        values = []
+        for key in ['params', 'flops', 'latency_ms', 'mem_mb', 'mae']:
+            min_v, max_v = all_values[key]
+            normalized = (data[key] - min_v) / (max_v - min_v + 1e-8)
+            values.append(normalized)
+        values += values[:1]
+
+        is_highlight = (name == highlight_method)
+        ax.plot(angles, values, 'o-', linewidth=2 if is_highlight else 1,
+               color=colors[idx % len(colors)],
+               label=name, markersize=6 if is_highlight else 4)
+        if is_highlight:
+            ax.fill(angles, values, alpha=0.15, color=colors[idx % len(colors)])
+
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(dimensions, fontsize=9)
+    ax.set_ylim(0, 1)
+    ax.set_yticks([0.25, 0.5, 0.75, 1.0])
+    ax.set_yticklabels(['0.25', '0.5', '0.75', '1.0'], fontsize=7)
+    ax.legend(loc='upper right', bbox_to_anchor=(1.35, 1), fontsize=8)
+    ax.set_title('Efficiency Radar (lower = better)', fontsize=10, pad=20)
+    plt.tight_layout()
+    plt.savefig('efficiency_radar.pdf', bbox_inches='tight')
+```
+
+---
+
+## 二十、大规模评估可视化模式（2024-2026）
+
+### 20.1 多数据集 x 多方法热力图
+
+**适用场景：** 当论文在多个数据集上评估多个方法，需要一目了然地展示全局结果时使用。
+
+**传达信息：** 快速识别哪些方法在哪些数据集上表现最好，哪些数据集最具挑战性。
+
+**实际案例：**
+- 大多数顶会论文（如 STID、STAEformer）在 6+ 数据集上评估 10+ 方法
+- 2024-2026 趋势：评估规模扩大到 10+ 数据集、20+ 方法
+
+```python
+def plot_method_dataset_heatmap(results_matrix, methods, datasets, metric='MAE',
+                                 highlight_best=True):
+    """
+    多数据集 x 多方法热力图。
+
+    参数:
+        results_matrix: (n_methods, n_datasets) 结果矩阵
+        methods: 方法名称列表
+        datasets: 数据集名称列表
+        metric: 指标名称
+        highlight_best: 是否高亮最优结果
+    """
+    fig, ax = plt.subplots(figsize=(max(8, len(datasets)*1.2),
+                                     max(4, len(methods)*0.4)))
+
+    # 使用 viridis 色图（色盲友好）
+    im = ax.imshow(results_matrix, cmap='viridis_r', aspect='auto')
+    plt.colorbar(im, ax=ax, label=f'{metric} (lower is better)', shrink=0.8)
+
+    # 标注数值
+    for i in range(len(methods)):
+        for j in range(len(datasets)):
+            value = results_matrix[i, j]
+            # 判断是否为该数据集最优
+            is_best = (value == results_matrix[:, j].min())
+            text_color = 'white' if value > np.median(results_matrix) else 'black'
+            fontweight = 'bold' if is_best and highlight_best else 'normal'
+            text = f'{value:.2f}'
+            if is_best and highlight_best:
+                text = f'*{value:.2f}*'
+
+            ax.text(j, i, text, ha='center', va='center',
+                   fontsize=7, color=text_color, fontweight=fontweight)
+
+    ax.set_xticks(range(len(datasets)))
+    ax.set_yticks(range(len(methods)))
+    ax.set_xticklabels(datasets, rotation=45, ha='right', fontsize=8)
+    ax.set_yticklabels(methods, fontsize=8)
+    ax.set_xlabel('Dataset')
+    ax.set_ylabel('Method')
+    ax.set_title(f'Method × Dataset {metric} Comparison')
+    plt.tight_layout()
+    plt.savefig('method_dataset_heatmap.pdf', bbox_inches='tight')
+```
+
+### 20.2 多指标雷达图
+
+**适用场景：** 当需要在多个评估维度上全面对比方法时使用。
+
+**传达信息：** 单一指标可能产生误导，雷达图展示方法在各维度的综合表现。
+
+```python
+def plot_multi_metric_radar(results, methods, metrics):
+    """
+    多指标雷达图。
+
+    参数:
+        results: {method: {metric: value}}
+        methods: 方法名称列表
+        metrics: 指标名称列表，如 ['MAE', 'RMSE', 'MAPE', 'Inference Speed', 'Memory']
+    """
+    n_metrics = len(metrics)
+    angles = np.linspace(0, 2 * np.pi, n_metrics, endpoint=False).tolist()
+    angles += angles[:1]
+
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+
+    # 归一化：每个指标独立归一化到 [0, 1]
+    all_vals = {m: [results[mth][m] for mth in methods] for m in metrics}
+    norm_ranges = {m: (min(vals), max(vals)) for m, vals in all_vals.items()}
+
+    colors = ['#E31A1C', '#4C78A8', '#59A14F', '#E8864A', '#9D78B8', '#56B4E9']
+
+    for idx, method in enumerate(methods):
+        values = []
+        for m in metrics:
+            min_v, max_v = norm_ranges[m]
+            # 对于越小越好的指标，取反（使得面积小=好）
+            if m in ['MAE', 'RMSE', 'MAPE', 'Memory']:
+                norm = 1 - (results[method][m] - min_v) / (max_v - min_v + 1e-8)
+            else:
+                norm = (results[method][m] - min_v) / (max_v - min_v + 1e-8)
+            values.append(norm)
+        values += values[:1]
+
+        ax.plot(angles, values, 'o-', linewidth=1.5, color=colors[idx % len(colors)],
+               label=method, markersize=5)
+        ax.fill(angles, values, alpha=0.08, color=colors[idx % len(colors)])
+
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(metrics, fontsize=9)
+    ax.set_ylim(0, 1)
+    ax.legend(loc='upper right', bbox_to_anchor=(1.4, 1), fontsize=8)
+    ax.set_title('Multi-Metric Comparison\n(outer = better)', fontsize=11, pad=20)
+    plt.tight_layout()
+    plt.savefig('multi_metric_radar.pdf', bbox_inches='tight')
+```
+
+### 20.3 带误差线的统计显著性柱状图
+
+**适用场景：** 当实验包含多次重复运行，需要展示结果的统计显著性时使用。
+
+**传达信息：** 确保性能差异不是由随机性导致的，通过误差线和显著性标注增强结论可信度。
+
+```python
+def plot_significance_bar_chart(results_with_stats, methods, datasets, metric='MAE'):
+    """
+    带误差线和显著性标注的柱状图。
+
+    参数:
+        results_with_stats: {method: {dataset: {'mean': X, 'std': Y, 'p_value': Z}}}
+        methods: 方法名称列表
+        datasets: 数据集名称列表
+    """
+    fig, ax = plt.subplots(figsize=(7.16, 4))
+    n_methods = len(methods)
+    x = np.arange(len(datasets))
+    width = 0.8 / n_methods
+
+    colors = plt.cm.Set2(np.linspace(0, 1, n_methods))
+
+    for i, method in enumerate(methods):
+        means = [results_with_stats[method][ds]['mean'] for ds in datasets]
+        stds = [results_with_stats[method][ds]['std'] for ds in datasets]
+
+        bars = ax.bar(x + i * width, means, width, yerr=stds,
+                     label=method, color=colors[i],
+                     edgecolor='black', linewidth=0.5,
+                     capsize=3, error_kw={'linewidth': 0.8})
+
+    # 标注显著性（与最佳方法的 p 值比较）
+    for j, ds in enumerate(datasets):
+        # 找到最佳方法
+        best_method = min(methods,
+                         key=lambda m: results_with_stats[m][ds]['mean'])
+        best_val = results_with_stats[best_method][ds]['mean']
+
+        for i, method in enumerate(methods):
+            if method == best_method:
+                continue
+            p_val = results_with_stats[method][ds].get('p_value', 1.0)
+            if p_val < 0.01:
+                sig_mark = '**'
+            elif p_val < 0.05:
+                sig_mark = '*'
+            else:
+                sig_mark = 'n.s.'
+
+            if sig_mark != 'n.s.':
+                bar_x = x[j] + i * width
+                bar_y = results_with_stats[method][ds]['mean'] + stds[i]
+                ax.text(bar_x, bar_y + 0.02, sig_mark,
+                       ha='center', va='bottom', fontsize=8, color='red')
+
+    ax.set_xlabel('Dataset')
+    ax.set_ylabel(metric)
+    ax.set_xticks(x + width * (n_methods - 1) / 2)
+    ax.set_xticklabels(datasets, rotation=15)
+    ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1), fontsize=8)
+    ax.grid(True, axis='y', alpha=0.3)
+    ax.set_title(f'{metric} with Statistical Significance\n*p<0.05, **p<0.01')
+    plt.tight_layout()
+    plt.savefig('significance_bar_chart.pdf', bbox_inches='tight')
+```
+
+---
+
+## 二十一、消融实验可视化模式（2024-2026）
+
+### 21.1 组件贡献瀑布图
+
+**适用场景：** 当需要展示模型各组件对最终性能的逐步贡献时使用。
+
+**传达信息：** 从基线开始，逐步添加组件，展示每个组件带来的性能增益，直观看出哪个组件贡献最大。
+
+**实际案例：**
+- **GAMMA-Net**：消融 GAT 层、Mamba 层、门控融合的各自贡献
+- **STM3 (KDD'26)**：消融三路扫描和 MoE 融合的贡献
+
+```python
+def plot_component_waterfall(baseline, component_gains, full_model, metric='MAE'):
+    """
+    组件贡献瀑布图。
+
+    参数:
+        baseline: 基线模型的指标值
+        component_gains: [(组件名, 增益值)]，增益为负表示降低 MAE（改善）
+        full_model: 完整模型的指标值
+    """
+    fig, ax = plt.subplots(figsize=(7.16, 3.5))
+
+    # 构建瀑布图数据
+    labels = ['Baseline']
+    values = [baseline]
+    bottoms = [0]
+    colors_list = ['#797068']
+
+    current = baseline
+    for comp_name, gain in component_gains:
+        labels.append(comp_name)
+        values.append(abs(gain))
+        bottoms.append(current - abs(gain) if gain < 0 else current)
+        colors_list.append('#59A14F' if gain < 0 else '#E31A1C')
+        current += gain
+
+    labels.append('Full Model')
+    values.append(full_model)
+    bottoms.append(0)
+    colors_list.append('#4C78A8')
+
+    x = np.arange(len(labels))
+    bars = ax.bar(x, values, bottom=bottoms, color=colors_list,
+                 edgecolor='black', linewidth=0.5, width=0.6)
+
+    # 标注数值和增益
+    for i, (bar, val) in enumerate(zip(bars, values)):
+        if i == 0 or i == len(labels) - 1:
+            ax.text(bar.get_x() + bar.get_width()/2., bar.get_y() + val,
+                   f'{val:.3f}', ha='center', va='bottom', fontsize=8, fontweight='bold')
+        else:
+            gain = component_gains[i-1][1]
+            sign = '+' if gain > 0 else ''
+            ax.text(bar.get_x() + bar.get_width()/2., bar.get_y() + val,
+                   f'{sign}{gain:.3f}', ha='center', va='bottom', fontsize=8,
+                   color='green' if gain < 0 else 'red')
+
+    # 连接线
+    for i in range(len(labels) - 2):
+        ax.plot([i + 0.3, i + 0.7], [bottoms[i+1], bottoms[i+1]],
+               '--', color='gray', linewidth=0.8)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=20, ha='right')
+    ax.set_ylabel(metric)
+    ax.grid(True, axis='y', alpha=0.3)
+    ax.set_title('Component Contribution Waterfall')
+    plt.tight_layout()
+    plt.savefig('component_waterfall.pdf', bbox_inches='tight')
+```
+
+### 21.2 超参数敏感性折线图
+
+**适用场景：** 当需要展示模型对关键超参数的敏感性时使用。
+
+**传达信息：** 模型是否对超参数选择鲁棒？最优超参数在哪里？是否存在性能悬崖？
+
+**实际案例：**
+- **STAEformer**：展示 attention heads 数量和 embedding dimension 的敏感性
+- **GAMMA-Net**：展示 Mamba 层数和 hidden dimension 的影响
+
+```python
+def plot_hyperparameter_sensitivity(param_values, performance_dict, optimal_value,
+                                      param_name='Hidden Dimension', metric='MAE'):
+    """
+    超参数敏感性折线图。
+
+    参数:
+        param_values: 超参数取值列表
+        performance_dict: {method: [performance_at_each_value]}
+        optimal_value: 最优超参数值
+        param_name: 超参数名称
+    """
+    fig, ax = plt.subplots(figsize=(5, 3.5))
+
+    colors = ['#E31A1C', '#4C78A8', '#59A14F', '#E8864A']
+    markers = ['o', 's', '^', 'D']
+
+    for idx, (method, perfs) in enumerate(performance_dict.items()):
+        ax.plot(param_values, perfs, f'{markers[idx]}-',
+               color=colors[idx % len(colors)], linewidth=1.5, markersize=6,
+               label=method)
+
+    # 标注最优点
+    ax.axvline(x=optimal_value, color='gray', linestyle=':', alpha=0.5)
+    ax.annotate(f'Optimal = {optimal_value}',
+               xy=(optimal_value, ax.get_ylim()[1]),
+               xytext=(10, -10), textcoords='offset points',
+               fontsize=8, color='gray',
+               arrowprops=dict(arrowstyle='->', color='gray'))
+
+    ax.set_xlabel(param_name)
+    ax.set_ylabel(metric)
+    ax.legend(loc='best', fontsize=8)
+    ax.grid(True, alpha=0.3)
+    ax.set_title(f'Sensitivity to {param_name}')
+    plt.tight_layout()
+    plt.savefig(f'sensitivity_{param_name.replace(" ", "_").lower()}.pdf',
+               bbox_inches='tight')
+```
+
+### 21.3 消融实验表格（带颜色编码）
+
+**适用场景：** 以表格形式展示详细的消融实验结果，用颜色编码直观区分性能差异。
+
+```python
+def plot_ablation_table_colorcoded(ablation_data, variants, datasets, metric='MAE'):
+    """
+    带颜色编码的消融实验表格。
+
+    参数:
+        ablation_data: (n_variants, n_datasets) 数值矩阵
+        variants: 变体名称列表
+        datasets: 数据集名称列表
+    """
+    fig, ax = plt.subplots(figsize=(max(6, len(datasets)*1.5 + 2),
+                                     max(3, len(variants)*0.4 + 1)))
+    ax.axis('off')
+
+    # 归一化用于颜色映射
+    norm = plt.Normalize(vmin=ablation_data.min(), vmax=ablation_data.max())
+    cmap = plt.cm.RdYlGn_r  # 红色=差，绿色=好
+
+    table = ax.table(
+        cellText=[[f'{v:.3f}' for v in row] for row in ablation_data],
+        rowLabels=variants,
+        colLabels=datasets,
+        loc='center',
+        cellLoc='center'
+    )
+
+    # 设置颜色
+    for i in range(len(variants)):
+        for j in range(len(datasets)):
+            cell = table[i+1, j]
+            color = cmap(norm(ablation_data[i, j]))
+            cell.set_facecolor(color)
+            cell.set_text_props(fontsize=8)
+
+            # 高亮最优
+            if ablation_data[i, j] == ablation_data[:, j].min():
+                cell.set_text_props(fontweight='bold')
+
+    # 设置表头样式
+    for j in range(len(datasets)):
+        table[0, j].set_facecolor('#4C78A8')
+        table[0, j].set_text_props(color='white', fontweight='bold', fontsize=9)
+    for i in range(len(variants)):
+        table[i+1, -1].set_facecolor('#F0F0F0')
+        table[i+1, -1].set_text_props(fontweight='bold', fontsize=9)
+
+    table.auto_set_font_size(False)
+    table.scale(1, 1.5)
+
+    ax.set_title(f'Ablation Study: {metric}', fontsize=11, pad=20)
+    plt.tight_layout()
+    plt.savefig('ablation_table_colored.pdf', bbox_inches='tight')
+```
+
+### 21.4 多维度消融联合图
+
+**适用场景：** 同时消融多个维度（如层数、维度、组件组合）时使用。
+
+```python
+def plot_multi_dim_ablation(results_grid, dim1_values, dim2_values,
+                              dim1_name='Num Layers', dim2_name='Hidden Dim',
+                              metric='MAE'):
+    """
+    多维度消融热力图。
+
+    参数:
+        results_grid: (len(dim1_values), len(dim2_values)) 结果矩阵
+        dim1_values: 第一个消融维度的取值
+        dim2_values: 第二个消融维度的取值
+    """
+    fig, ax = plt.subplots(figsize=(6, 5))
+    im = ax.imshow(results_grid, cmap='viridis_r', aspect='auto')
+    plt.colorbar(im, ax=ax, label=metric)
+
+    # 标注数值
+    for i in range(len(dim1_values)):
+        for j in range(len(dim2_values)):
+            value = results_grid[i, j]
+            is_best = (value == results_grid.min())
+            text_color = 'white' if value > np.median(results_grid) else 'black'
+            text = f'{value:.3f}'
+            if is_best:
+                text = f'{value:.3f}*'
+            ax.text(j, i, text, ha='center', va='center',
+                   fontsize=8, color=text_color,
+                   fontweight='bold' if is_best else 'normal')
+
+    ax.set_xticks(range(len(dim2_values)))
+    ax.set_yticks(range(len(dim1_values)))
+    ax.set_xticklabels(dim2_values)
+    ax.set_yticklabels(dim1_values)
+    ax.set_xlabel(dim2_name)
+    ax.set_ylabel(dim1_name)
+    ax.set_title(f'Ablation: {dim1_name} × {dim2_name}')
+    plt.tight_layout()
+    plt.savefig('multi_dim_ablation.pdf', bbox_inches='tight')
+```
+
+---
+
+> 更新时间：2026-06-19
+> 基于论文：STAEformer (AAAI'24), PDFormer (AAAI'23), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), Graph WaveNet (IJCAI'19), MegaCRN (AAAI'23), STID (ICLR'23), GAMMA-Net (2026), STM3 (KDD'26), SpoT-Mamba (2024), PatchSTG (KDD'25), Expand-and-Compress (ICLR'25), Damba-ST (ICDE'26), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), DTP-Attack (2026), Double-Diffusion (2025), CaPaint (NeurIPS'24), OracleTSC, SignalClaw, DiffRefiner, GaussianFusion, UrbanEV, Heterogeneous-Aware FL, M3-Net, FEDDGCN, Balance and Brighten, TopKNet, FAST (ICLR'25), CityGPT, Conformalized ST-GCN, ICML 2026 Workshop on Foundation Models for Spatiotemporal
