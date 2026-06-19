@@ -928,9 +928,133 @@
 
 ---
 
+## 32. 多模态基础模型创新方向
+
+### 32.1 多模态时空基础模型 (MoST)
+
+**核心创新：** (KDD 2026) 首个多模态时空交通预测基础模型，统一处理多种交通数据模态。
+
+**关键洞察：** 2024年的工作主要是单一模态预测模型，MoST首次在KDD顶会上提出多模态统一基础模型框架。
+
+---
+
+### 32.2 开放时空基础模型 (OpenCity)
+
+**核心创新：** (ACM TIST 2024, 37次引用) 结合Transformer和GNN，通过大规模异构交通数据预训练实现zero-shot泛化。
+
+**关键结果：** 展示了scaling laws，能在未见城市上实现zero-shot预测。
+
+**代码：** https://github.com/HKUDS/OpenCity
+
+---
+
+## 33. LLM深度融合创新方向
+
+### 33.1 图增强时空LLM (ST-LLM+)
+
+**核心创新：** (IEEE TKDE 2025, 54次引用) 将图结构融入LLM，通过proximity-based adjacency matrix捕获交通网络时空依赖。Partially Frozen Graph Attention模块保留LLM预训练的全局依赖，同时建模交通领域局部依赖。
+
+**关键洞察：** 2024年的LLM交通预测主要是prompt-based，ST-LLM+首次将图结构深度融入LLM架构。
+
+---
+
+### 33.2 视觉LLM时空预测 (ST-Vision-LLM)
+
+**核心创新：** (arXiv 2025) 将时空预测重新定义为视觉-语言融合问题。利用Vision-LLM视觉编码器将历史全局流量矩阵作为图像序列处理。
+
+**关键结果：** 长期预测精度提升15.6%，跨域few-shot场景平均超越最佳基线约30%。
+
+---
+
+### 33.3 城市级LLM交通预测 (Nature Communications)
+
+**核心创新：** (Nature Communications 2026) 发表在Nature Communications的城市级交通预测LLM框架，具有高度可扩展性和通用性。
+
+**关键意义：** 标志着LLM交通预测方向进入主刊级别。
+
+---
+
+### 33.4 协作LLM信号控制 (CoLLMLight)
+
+**核心创新：** (arXiv 2025) 构建结构化时空图捕获实时交通动态，引入复杂度感知推理机制根据实时交通条件动态调整推理深度。
+
+---
+
+## 34. Mamba多通道创新方向
+
+### 34.1 字节级Mamba (Mamba-Byte-Traffic)
+
+**核心创新：** (IEEE ITSC 2025) 提出token-free的字节级交通流预测方法，将时间序列逐字节解释为超长数字序列，利用Mamba的长上下文能力。
+
+**关键结果：** MSE预测误差平均降低11.42%（最高33.45%），同时保持线性计算复杂度。
+
+---
+
+### 34.2 多通道时空Mamba (MCST-Mamba)
+
+**核心创新：** (arXiv 2025) 原生处理多变量输入（速度、流量、占用率），将时间序列和空间传感器交互分离到两个专用Mamba块中。
+
+**关键洞察：** 以往方法仅评估单通道，MCST-Mamba同时评估所有交通特征。
+
+---
+
+### 34.3 Mamba+对比学习 (MambaTraffic)
+
+**核心创新：** (IEEE ITS Magazine 2025) 双分支时空网络：Mamba + 时空卷积网络，对比学习范式增强特征提取。
+
+**关键结果：** NYCTaxi数据集上inflow MAPE降低6.4%，outflow MAPE降低9.7%。
+
+---
+
+## 35. 扩散+LLM融合创新方向
+
+### 35.1 LLM增强时空扩散模型 (LSDM)
+
+**核心创新：** (arXiv 2025) 将扩散模型的生成能力与Transformer的自适应学习能力结合，并利用LLM捕获多模态环境信息来建模服务级流量模式。
+
+**关键结果：** 引入LLM上下文信息后，R²至少提升2.83%；相比CSDI，RMSE至少降低8.29%。
+
+---
+
+### 35.2 LLM增强条件扩散 (LEC-Diff)
+
+**核心创新：** (IEEE MCOM 2025) 利用航空图像描述基站周围静态环境上下文，通过LLM增强文本表示提取丰富内在知识。结合GNN建模空间依赖，引入条件扩散模型捕获复杂流量分布。
+
+**关键结果：** 在移动流量预测上超越SOTA方法5%以上。
+
+---
+
+## 36. OOD泛化创新方向
+
+### 36.1 因果时空OOD泛化
+
+**核心创新：** (IEEE TITS 2025) 因果时空OOD泛化方法，适用于多种GNN。图匹配 + 等大小图划分缓解源-目标网络空间偏移。
+
+**关键结果：** MAE最大降低33.08%，比其他OOD baseline降低40.58%。
+
+**关键洞察：** 2024年主要假设i.i.d.数据，本文首次系统处理交通网络形态多样性。
+
+---
+
+## 37. 新评估指标汇总
+
+| 指标类别 | 指标名称 | 核心用途 |
+|---------|---------|---------|
+| 概率预测 | CRPS | 评估完整预测分布 |
+| 概率预测 | Pinball Loss | 评估分位数预测 |
+| 概率预测 | PIT | 诊断校准性 |
+| 概率预测 | Energy Score | 多变量概率评估 |
+| 预测区间 | PICP | 覆盖概率 |
+| 预测区间 | PINAW | 区间锐度 |
+| 预测区间 | Winkler Score | 严格区间评分 |
+| 公平性 | Spatial Fairness | 区域间公平性 |
+| 鲁棒性 | Robustness Ratio | 缺失/攻击下性能 |
+| 迁移 | Transfer Performance | 跨域泛化能力 |
+
+---
+
 > 更新时间：2026-06-19
-> 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME, WWW, SIGIR (2024-2026)
-> 涵盖论文：150+篇（创新方向仅含2024-2026年论文）
+> 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME, WWW, SIGIR, Nature Communications (2024-2026)
+> 涵盖论文：180+篇（创新方向仅含2024-2026年论文）
 > 基线参考：2023年及之前经典论文（PDFormer, STID, STGCN, DCRNN等）
-> 数据来源：OpenAlex API, arXiv API, Semantic Scholar
 > 数据来源：OpenAlex API, arXiv API, Semantic Scholar
