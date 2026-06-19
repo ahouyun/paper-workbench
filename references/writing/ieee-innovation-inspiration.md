@@ -60,7 +60,7 @@
 
 ### 2.1 传播延迟感知注意力 (Propagation Delay-Aware Attention)
 
-**核心创新：** PDFormer (AAAI 2023) 首次在Transformer中引入传播延迟感知机制，显式建模交通拥堵在路网中随时间传播的延迟效应。
+**核心创新：** 传播延迟感知机制，显式建模交通拥堵在路网中随时间传播的延迟效应。（基线参考：PDFormer, AAAI 2023, TKDE Best Paper）
 
 **关键洞察：** 交通拥堵不是同时发生在所有路段的——上游拥堵需要一定时间才会影响下游。传统注意力机制假设所有空间关系是即时的，这与交通流的物理传播特性矛盾。传播延迟感知注意力通过引入时间偏移来建模这种延迟效应。
 
@@ -266,7 +266,7 @@
 
 ### 7.1 空间-时间身份嵌入 (Spatio-Temporal Identity, STID)
 
-**核心创新：** STID (ICLR 2023 / IEEE TNNLS 2024 扩展) 揭示了简单MLP加空间/时间ID嵌入即可达到或超越复杂GNN模型的性能。
+**核心创新：** 简单MLP加空间/时间ID嵌入即可达到或超越复杂GNN模型的性能。（基线参考：STID, ICLR 2023; IEEE TNNLS 2024扩展）
 
 **关键洞察：** 这是一个令人震惊的发现——一个只有100K参数的简单MLP，在METR-LA上达到了与Graph WaveNet (850K参数) 相当的性能。这引发了对"图结构是否真的必要"的深刻反思。
 
@@ -341,8 +341,11 @@
 2. DiffSTG: Probabilistic Spatio-Temporal Graph Forecasting (KDD 2024)
 3. UrbanGPT: Spatio-Temporal Large Language Models (KDD 2024)
 4. UniST: Universal Spatio-Temporal Prediction (KDD 2024)
-5. PDFormer: Propagation Delay-Aware Transformer (AAAI 2023)
-6. STID: Spatio-Temporal Identity (ICLR 2023)
+
+**基线参考（2023及之前）：**
+- PDFormer: Propagation Delay-Aware Transformer (AAAI 2023, TKDE Best Paper)
+- STID: Spatio-Temporal Identity (ICLR 2023; TNNLS 2024扩展)
+- STGCN, DCRNN, GWNet, MTGNN, AGCRN, GMAN 等经典基线
 
 ---
 
@@ -680,6 +683,7 @@
 ---
 
 > 更新时间：2026-06-19
-> 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME (2023-2026)
-> 涵盖论文：120+篇
+> 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME (2024-2026)
+> 涵盖论文：120+篇（创新方向仅含2024-2026年论文）
+> 基线参考：2023年及之前经典论文（PDFormer, STID, STGCN, DCRNN等）
 > 数据来源：OpenAlex API, arXiv API, Semantic Scholar
