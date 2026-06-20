@@ -1655,5 +1655,61 @@ The patterns in this document are extracted from or validated against the follow
 | "zero-shot generalization" | 泛化能力 | OpenCity, UrbanFM |
 | "scaling laws" | 规模效应 | OpenCity, UrbanFM |
 | "theoretical guarantees" | 理论保证 | LTE-ODE, CIWI-CKT |
-| "catastrophic forgetting" | 持续学习 | CoMemNet
-| "causal discovery" | 因果推断 | Orion
+| "catastrophic forgetting" | 持续学习 | CoMemNet |
+| "causal discovery" | 因果推断 | Orion |
+
+### 12.29 IEEE TKDE/TNNLS 2025论文写作模式
+
+| 写作模式 | 典型句式 | 论文 |
+|---------|---------|------|
+| **对比转折式** | "While/Although... effectively..., their reliance on... impedes..." | CLEAR |
+| **缺陷列举式** | "However, there are two shortcomings: 1)... 2)..." | Multiscale STGCN |
+| **假设揭示式** | "The effectiveness of... relies on... assumption, which is violated..." | Disentangled STGNN |
+| **跨领域类比式** | "Despite breakthroughs in NLP..., ... remains challenging" | UniST |
+| **声明论证式** | "We argue that a desired solution should..." | S-MGHSTN |
+| **后果强调式** | "... can significantly compromise..., potentially leading to..." | COIN-GNN |
+| **技术背景驱动式** | "With the advancement of..., ... has emerged as..." | Lane-Level |
+
+### 12.30 WWW/CIKM 2025-2026论文标题命名模式
+
+| 模式 | 示例 | 特点 |
+|------|------|------|
+| **缩写组合型** | ST-LEGO, SMART, FedDis, FEDDGCN | 核心技术缩写组合 |
+| **问题质疑型** | "Do We Really Need GCNs in Traffic Forecasting?" | 挑战现有范式 |
+| **技术描述型** | "Decoder-only Pre-training Enhancement" | 直接描述方法 |
+| **概念隐喻型** | SMART(聪明), LEGO(模块化) | 借用知名品牌/概念 |
+
+### 12.31 Nature系列论文写作模式（与IEEE/ACM的关键差异）
+
+| 维度 | Nature风格 | IEEE风格 |
+|------|-----------|---------|
+| **开篇** | 宏观社会意义："underpins adaptive transport systems, resilient communities" | 具体技术挑战："Traffic flow prediction is a key component of ITS" |
+| **Gap引入** | "spectrum"结构、"yet"转折 | 直接列举3-4个不足 |
+| **核心卖点** | generalizability, transferability, uncertainty, interpretability | SOTA性能, 参数量减少, 推理速度 |
+| **实验设计** | 跨城市/跨时间迁移、可解释性分析、真实部署 | 标准benchmark对比多个baseline |
+| **结论** | "pave the way for", "hold promise for" | "achieves state-of-the-art", "outperforms all baselines" |
+
+**Nature论文典型句式：**
+- "Understanding...underpins..." (开篇)
+- "yet... are costly to update" (转折)
+- "These models may capture the fundamental universal features" (强调普适性)
+- "paving the way for scaling up AI systems" (结论)
+- "hold promise for advancing" (展望)
+
+### 12.32 2025-2026新研究方向关键词
+
+| 关键词 | 使用场景 | 代表论文 |
+|--------|---------|---------|
+| "lane-level prediction" | 车道级预测 | TKDE 2025 |
+| "federated graph neural network" | 联邦学习 | FGNNEH |
+| "disentangled spatiotemporal" | 解耦学习 | Disentangled STGNN |
+| "continuous distribution shift" | 分布偏移 | COIN-GNN |
+| "cross-city meta-learning" | 跨城市迁移 | TKDE 2025 |
+| "knowledge-guided pre-training" | 知识引导预训练 | TKDE 2025 |
+| "decoder-only pre-training" | 预训练范式 | CIKM 2025 |
+| "mixture of experts" | 专家混合 | CIKM 2025
+| "hypergraph learning" | 超图学习 | WWW 2026 |
+| "quantum neural network" | 量子计算 | Scientific Reports |
+| "digital twin" | 数字孪生 | Nature Communications |
+| "gravity-like model" | 引力模型 | Nature Communications |
+| "Bayesian neural field" | 贝叶斯推断 | Nature Communications |
