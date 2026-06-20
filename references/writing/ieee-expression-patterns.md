@@ -2357,4 +2357,65 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 
 ---
 
-> 本节交通预测内容整合自：PDFormer (AAAI'23), STAEformer (AAAI'24), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), MegaCRN (AAAI/TITS'23/'24), D2STGNN (VLDB/TKDE'22-'24), STID (CIKM/TNNLS'22-'24), FlashST (ICML'24), Expand-and-Compress (ICLR'25), TEAM (PVLDB'25), PatchSTG (KDD'25), LEAF (ACL'25), Damba-ST (ICDE'26), OpenCity (2025), STGformer (2024), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), GAMMA-Net (2026), FAST (ICME'26), MLA-STNet (2026), STM3 (KDD'26), RIPCN (KDD'26), U-STS-LLM (2026), FedLLM (2026), ACTFormer (TNNLS'26), DIST (TNNLS'25), MSTC-GAT (TNNLS'25), DDAMGCN (TNNLS'25), CHGNet (TVT'26), RoadDiff (TVT'25), TrafficLLM (TVT'25) 等论文。更新时间：2026-06-20。
+### 12.48 实验数据描述模式（IEEE TITS 413篇论文）
+
+**实验设置标准化模式：**
+- 数据集：METR-LA(207传感器)、PEMS-BAY(325传感器)、PEMS04/08
+- 评估指标：MAE、RMSE、MAPE
+- 训练配置：Adam/AdamW优化器，学习率0.001，批大小64，早停策略
+
+**典型数值范围：**
+- METR-LA: MAE 0.28-0.43, RMSE 0.50-0.80, MAPE 5%-12%
+- PEMS-BAY: MAE 0.17-0.25, RMSE 0.30-0.50, MAPE 3%-8%
+
+**实验结果表格模式：**
+- 主实验结果表格：模型 vs MAE/RMSE/MAPE
+- 多步预测表格：15/30/60分钟预测结果
+- 消融实验表格：完整模型 vs 各模块移除
+- 效率分析表格：参数量、FLOPs、训练时间
+
+**消融实验设计模式：**
+- 模块移除法：w/o [模块名称]
+- 设计选择法：不同设计选择对比
+- 超参数敏感性分析：不同超参数值对比
+
+### 12.49 arXiv 2025-2026新趋势关键词（70+篇论文）
+
+| 关键词 | 使用场景 | 代表论文 |
+|--------|---------|---------|
+| "Chain-of-Thought reasoning" | LLM推理增强 | arXiv 2605.09260 |
+| "chaos-informed wave interference" | 混沌理论 | CIWI-CKT |
+| "chaos-aware attention" | 混沌感知注意力 | CAST-CKT |
+| "physics-informed multi-phase consensus" | 物理信息共识 | PIMCST |
+| "city-conditioned memory" | 城市条件记忆 | arXiv 2512.00851 |
+| "graph liquid time-constant" | 图液态时间常数 | MA-GLTC |
+| "Mixture-of-Experts federated" | MoE联邦学习 | MoE-FedTP |
+| "causal disentanglement federated" | 因果解纠缠联邦 | FedDis |
+| "prompt tuning" | 提示学习 | SimpleST |
+| "dataset distillation" | 数据集蒸馏 | STemDist |
+| "adaptive graph pruning" | 自适应图剪枝 | arXiv 2512.17352 |
+| "Sudden Event Prediction Accuracy" | 突发事件指标 | SEPA |
+| "urban vibrancy embedding" | 城市活力嵌入 | arXiv 2602.21232 |
+| "road-conditioned traffic movie" | 路况条件视频 | arXiv 2605.27884 |
+| "sim2real" | 仿真到现实 | Sim-MSTNet |
+| "information blackouts" | 信息中断建模 | arXiv 2601.01480 |
+| "Byzantine-robust async FL" | 拜占庭鲁棒联邦 | arXiv 2505.19263 |
+| "Kolmogorov-Arnold Networks" | KAN网络 | Fed-KAN |
+| "intent-driven" | 意图驱动 | BERTO |
+
+### 12.50 2025-2026关键趋势总结
+
+| 趋势 | 论文数 | 核心特征 |
+|------|--------|---------|
+| LLM集成爆发 | 12篇 | 从prompt learning到联邦LLM |
+| Mamba/SSM崛起 | 6篇 | 线性复杂度优势 |
+| 联邦学习深化 | 10篇 | 隐私保护的联邦交通预测 |
+| 跨城市迁移 | 8篇 | 数据稀缺城市的few-shot预测 |
+| 效率优化 | 6篇 | STGCN深度研究、数据集蒸馏、图剪枝 |
+| 混沌理论引入 | 2篇 | 混沌分析融入交通预测 |
+| 概率预测 | 3篇 | 从确定性转向不确定性量化 |
+| 持续学习 | 3篇 | 应对流式交通数据的灾难性遗忘 |
+
+---
+
+> 本节交通预测内容整合自：PDFormer (AAAI'23), STAEformer (AAAI'24), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), MegaCRN (AAAI/TITS'23/'24), D2STGNN (VLDB/TKDE'22-'24), STID (CIKM/TNNLS'22-'24), FlashST (ICML'24), Expand-and-Compress (ICLR'25), TEAM (PVLDB'25), PatchSTG (KDD'25), LEAF (ACL'25), Damba-ST (ICDE'26), OpenCity (2025), STGformer (2024), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), GAMMA-Net (2026), FAST (ICME'26), MLA-STNet (2026), STM3 (KDD'26), RIPCN (KDD'26), U-STS-LLM (2026), FedLLM (2026), ACTFormer (TNNLS'26), DIST (TNNLS'25), MSTC-GAT (TNNLS'25), DDAMGCN (TNNLS'25), CHGNet (TVT'26), RoadDiff (TVT'25), TrafficLLM (TVT'25), CIWI-CKT, CAST-CKT, PIMCST, MoE-FedTP, FedDis, SimpleST, STemDist, MA-GLTC, ConFormer 等论文。更新时间：2026-06-20。涵盖500+篇论文。
