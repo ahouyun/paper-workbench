@@ -872,4 +872,127 @@ When polishing multimodal papers (TMM domain):
 
 ---
 
+### 规则 41: 标志词汇控制 (来自 academic-research-skills)
+
+以下词汇在AI生成文本中过度使用，需要检查并替换：
+
+| 标志词汇 | 问题 | 替代方案 |
+|---------|------|---------|
+| delve | 过度使用 | examine, investigate, analyze |
+| tapestry | 陈词滥调 | network, interplay, system |
+| landscape | 模糊 | field, domain, context |
+| pivotal | 夸大重要性 | important, significant, key |
+| crucial | 同上 | essential, necessary, critical |
+| foster | 模糊动词 | promote, develop, encourage |
+| showcase | 非学术 | demonstrate, illustrate, present |
+| testament | 陈词滥调 | evidence, indicator |
+| leverage | 商业行话 | use, employ, utilize |
+| realm | 古老/诗意 | domain, field, area |
+| embark | 夸张 | begin, initiate, start |
+| underscore | 过度使用 | emphasize, highlight, stress |
+| multifaceted | 模糊复杂性 | complex, varied, diverse |
+| nuanced | 通常空洞 | subtle, detailed, fine-grained |
+| comprehensive | 通常无根据 | thorough, extensive, broad |
+| robust | 模糊质量 | reliable, strong, rigorous |
+| intricate | 同multifaceted | complex, detailed, elaborate |
+| cornerstone | 陈词滥调 | foundation, basis, core |
+| paradigm | 过度使用 | framework, model, approach |
+| synergy | 商业行话 | interaction, cooperation |
+| holistic | 模糊 | comprehensive, integrated |
+| streamline | 非学术 | simplify, optimize |
+| cutting-edge | 陈词滥调 | recent, advanced, novel |
+| groundbreaking | 夸大 | novel, innovative, pioneering |
+
+**例外规则：** 如果标志词汇是目标学科的标准术语，则豁免。例如：
+- "paradigm shift" 在科学哲学中 → OK
+- "robust" 在统计学中（"robust estimator"）→ OK
+- "landscape" 在生态学/地理学中（字面意义）→ OK
+
+---
+
+### 规则 42: 标点符号控制
+
+**破折号 (—)：**
+- 限制：每篇论文≤3个，建议0-1个
+- 原因：AI文本过度使用破折号作插入语
+- 修复：用逗号、括号或独立句子替代
+
+**分号 (;)：**
+- 限制：每1000字≤2个
+- 原因：AI文本用分号连接独立从句
+- 修复：用句号开始新句子
+
+**冒号-列表序列：**
+- 规则：避免连续2+段以冒号后跟列表开头
+- 原因：创建单调的列举模式
+- 修复：将列表项融入散文，或使用单个合并列表
+
+---
+
+### 规则 43: 喉咙清理开头删除
+
+以下开头应该删除，直接切入主题：
+
+| 喉咙清理短语 | 处理方式 |
+|-------------|---------|
+| "In the realm of..." | 删除，从实际主语开始 |
+| "It's important to note that..." | 删除，如果重要，内容会自己说话 |
+| "It is worth mentioning that..." | 同上 |
+| "In today's rapidly evolving..." | 删除，时间戳陈词滥调 |
+| "This serves as a testament to..." | 替换为直接声明 |
+| "It goes without saying that..." | 如果不用说，就不要说 |
+| "In order to..." | 替换为"To..." |
+| "It should be noted that..." | 删除，直接记录 |
+| "As a matter of fact..." | 删除，陈述事实 |
+| "When it comes to..." | 直接替换为主语 |
+| "At the end of the day..." | 删除，口语化且模糊 |
+| "With that being said..." | 删除或用"However"替代 |
+
+**元评论避免：**
+- ❌ "This section will discuss..." → ✅ 直接讨论
+- ❌ "The following paragraph examines..." → ✅ 直接检查
+
+---
+
+### 规则 44: 清晰度测试 (Clarity Test)
+
+对每个段落问："如果我删除这个段落，论文还有意义吗？"
+
+- **是，没有损失** → 删除段落
+- **是，但失去上下文** → 保留，但是支持性段落——保持简短
+- **不，论证断裂** → 这是承重段落——值得最仔细的写作
+
+**判断启发：** 大多数AI生成的学术文本在清晰度测试中失败，因为每个段落被赋予同等权重。改变你的投入：承重段落多次草稿；支持性段落一次。
+
+---
+
+### 规则 45: 读者旅程 (Reader's Journey)
+
+学术写作是导览。在任何时候，读者应该能够回答：
+
+1. **我在哪里？** （章节结构，路标）
+2. **为什么我在这里？** （与研究问题的联系）
+3. **我应该带走什么？** （本节的要点）
+4. **我接下来要去哪里？** （过渡逻辑）
+
+如果任何一个不清楚，写作需要修改——无论内容多么准确。
+
+---
+
+### 规则 46: So What层级
+
+| 章节 | 读者的"So What?" | 你的工作 |
+|------|-----------------|---------|
+| Introduction | 为什么我应该关心这个话题？ | 用真实世界的后果或知识空白吸引 |
+| Literature Review | 我们所知道的缺少什么？ | 建立到空白，不要只是总结 |
+| Methodology | 我能信任这些结果吗？ | 展示严谨性，提前承认局限性 |
+| Results | 你实际发现了什么？ | 以发现为主导，而不是统计测试 |
+| Discussion | 这对领域意味着什么？ | 连接回空白；清楚地说明增量 |
+| Conclusion | 我应该记住什么？ | 一句话概括贡献 |
+
+---
+
+> 更新时间：2026-06-20
+> 来源：academic-research-skills (Imbad0202), nature-skills (Yuan1z0825)
+
 *Last updated: 2026-06-19*
