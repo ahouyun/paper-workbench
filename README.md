@@ -1,6 +1,6 @@
 # Paper Workbench — 论文写作工作台
 
-> 一套完整的 Claude Code 论文写作 Skill，支持 IEEE Transactions、Nature/Science/Cell 期刊风格，覆盖从文献检索到审稿回复的全流程。
+> 一套完整的 Claude Code 论文写作 Skill，支持 IEEE Transactions、Nature/Science/Cell 期刊风格，覆盖从文献检索到审稿回复的全流程。**专注交通流预测方向**。
 
 ---
 
@@ -10,12 +10,31 @@
 |------|------|
 | 📝 **论文撰写** | 摘要/引言/方法/实验/结论，按章节结构化写作 |
 | 🔍 **文献检索** | 调用 Semantic Scholar / DBLP / arXiv / CrossRef API |
-| 📊 **图表制作** | Python 图表模板 + LaTeX 表格 + IEEE 视觉规范 |
-| 🧪 **实验设计** | 消融实验、效率对比、鲁棒性评估 |
-| 🔬 **审稿模拟** | 5 个独立审稿人角色，6 维度评分 |
-| ✍️ **论文润色** | 32 条润色规则 + 去 AI 味 + Claim-Evidence-Boundary |
-| 💡 **创新灵感** | 60+ 篇真实论文的创新方向和技术洞察 |
+| 📊 **图表制作** | 3300行图表规范 + Python模板 + LaTeX表格 |
+| 🧪 **实验设计** | 4种消融类型、效率对比、鲁棒性评估 |
+| 🔬 **审稿模拟** | 5个独立审稿人角色，6维度评分 |
+| ✍️ **论文润色** | 51条润色规则 + 去AI味 + 逻辑严谨性检查 |
+| 💡 **创新灵感** | 39个创新方向，400+篇论文的技术洞察 |
 | 📈 **真实数据** | METR-LA/PEMS-BAY/PEMS04/PEMS08 真实实验数值 |
+| 🎯 **逐句学习** | 好句vs坏句对比，12种标题模式，7种写作范式 |
+| 📐 **逻辑严谨** | Claim-Evidence-Boundary三要素，六段式漏斗结构 |
+
+---
+
+## 🆕 v2.2 新增功能
+
+### 整合优化
+- **消除冗余**：合并4个重复文件，减少3个文件
+- **统一索引**：创建 `references/README.md` 快速导航
+- **结构清晰**：30个核心文件，21,700行内容
+
+### 新增内容
+- **400+篇论文**：覆盖2024-2026年IEEE TITS/TKDE/TNNLS、KDD/AAAI/NeurIPS/ICLR、Nature/Science
+- **39个创新方向**：GNN、Transformer、Mamba、Diffusion、LLM、Neural ODE、因果推断、联邦学习等
+- **51条润色规则**：含Claim-Evidence-Boundary、术语台账、过度声称控制
+- **21种图表模式**：Mamba架构、基础模型、概率预测、效率对比等可视化模式
+- **12种标题命名模式**：缩写组合、问题质疑、概念隐喻等
+- **Nature vs IEEE差异**：开篇、Gap引入、核心卖点、结论的对比
 
 ---
 
@@ -25,7 +44,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/paper-workbench.git /tmp/paper-workbench
+git clone https://github.com/ahouyun/paper-workbench.git /tmp/paper-workbench
 
 # 运行安装脚本
 cd /tmp/paper-workbench && bash install.sh
@@ -35,7 +54,7 @@ cd /tmp/paper-workbench && bash install.sh
 
 ```bash
 # 1. 克隆或下载本仓库
-git clone https://github.com/YOUR_USERNAME/paper-workbench.git
+git clone https://github.com/ahouyun/paper-workbench.git
 
 # 2. 复制到 Claude Code skills 目录
 mkdir -p ~/.claude/skills/
@@ -48,7 +67,7 @@ cp -r paper-workbench ~/.claude/skills/
 
 ```bash
 # 克隆到任意位置
-git clone https://github.com/YOUR_USERNAME/paper-workbench.git ~/projects/paper-workbench
+git clone https://github.com/ahouyun/paper-workbench.git ~/projects/paper-workbench
 
 # 创建符号链接
 ln -s ~/projects/paper-workbench ~/.claude/skills/paper-workbench
@@ -69,6 +88,7 @@ ln -s ~/projects/paper-workbench ~/.claude/skills/paper-workbench
 | "画一张对比图" | 图表制作 |
 | "润色这段话" | 论文润色 |
 | "有什么创新方向？" | 创新灵感 |
+| "逐句分析这篇论文" | 写作模式学习 |
 
 ---
 
@@ -80,25 +100,26 @@ paper-workbench/
 ├── README.md                         # 本文件
 ├── install.sh                        # 安装脚本
 ├── references/
-│   ├── writing/                      # 写作参考 (35个文件)
-│   │   ├── chapter-patterns-ieee.md  # IEEE 章节模式
-│   │   ├── ieee-expression-patterns.md  # 表达模式
-│   │   ├── ieee-polishing.md         # 润色规则 (32条)
-│   │   ├── ieee-visual-playbook.md   # 图表规范
-│   │   ├── ieee-experiment-playbook.md  # 实验设计
-│   │   ├── ieee-innovation-inspiration.md  # 创新灵感
-│   │   ├── ieee-real-experimental-data.md  # 真实数据
-│   │   └── traffic-*.md              # 交通预测专项 (9个文件)
+│   ├── README.md                     # 统一索引（快速导航）
+│   ├── writing/                      # 写作参考 (30个文件)
+│   │   ├── chapter-patterns-ieee.md  # IEEE章节模式（1375行）
+│   │   ├── ieee-expression-patterns.md  # 表达模式（2298行）
+│   │   ├── ieee-polishing.md         # 润色规则（1050行，51条）
+│   │   ├── traffic-figure-patterns.md   # 图表模式（3300行，21种）
+│   │   ├── ieee-experiment-playbook.md  # 实验设计（1096行）
+│   │   ├── ieee-innovation-inspiration.md  # 创新灵感（1920行，39方向）
+│   │   ├── ieee-real-experimental-data.md  # 真实数据（1498行）
+│   │   └── traffic-*.md              # 交通预测专项
 │   ├── research/                     # 研究工具
-│   │   └── academic-search.md        # 学术检索指南
+│   │   └── academic-search.md        # 学术检索指南（API调用）
 │   ├── review/                       # 审稿工具
-│   │   └── ieee-reviewer-simulation.md  # 审稿模拟
+│   │   └── ieee-reviewer-simulation.md  # 审稿模拟（5审稿人）
 │   ├── figure-table/                 # 图表工具
-│   │   ├── chart-templates.md        # Python 图表模板
+│   │   ├── chart-templates.md        # Python图表模板
 │   │   ├── academic-style.md         # 学术视觉规范
-│   │   └── latex-tables.md           # LaTeX 表格模板
+│   │   └── latex-tables.md           # LaTeX表格模板
 │   └── workflow/                     # 工作流
-├── agents/                           # Agent 定义
+├── agents/                           # Agent定义
 ├── workflows/                        # 工作流脚本
 ├── prompts/                          # 提示词模板
 └── scripts/                          # 辅助脚本
@@ -119,20 +140,34 @@ paper-workbench/
 
 ---
 
+## 📊 数据来源
+
+### 论文覆盖（400+篇）
+
+| 来源 | 论文数 | 时间范围 |
+|------|--------|---------|
+| IEEE TITS/TKDE/TNNLS | 100+ | 2024-2026 |
+| KDD/AAAI/NeurIPS/ICLR | 80+ | 2024-2026 |
+| Nature/Science | 15+ | 2024-2026 |
+| arXiv | 150+ | 2025-2026 |
+| Transportation Research | 15+ | 2024-2026 |
+| WWW/SIGIR/CIKM | 20+ | 2025-2026 |
+
+### 创新方向（39个）
+
+GNN、Transformer、Mamba/SSM、Diffusion、LLM/Foundation Model、Neural ODE、因果推断、对比学习、知识蒸馏、异构图、保形预测、时空点过程、联邦学习、高效注意力、元学习、OOD泛化、公平性、数字孪生、量子计算等。
+
+### 标准数据集
+
+METR-LA、PEMS-BAY、PEMS03/04/07/08、LargeST、NYC Taxi、XXLTraffic
+
+---
+
 ## 🔧 依赖
 
 - **Claude Code** (最新版本)
 - **Python 3.8+** (用于学术检索 API)
 - **requests** 库 (`pip install requests`)
-
----
-
-## 📊 数据来源
-
-- 150+ 篇 2024-2026 年 IEEE Transactions 真实论文
-- METR-LA, PEMS-BAY, PEMS04, PEMS08 真实实验数据
-- STAEformer, PDFormer, DiffSTG, UrbanGPT 等最新基线
-- nature-skills 仓库的写作方法论
 
 ---
 
@@ -145,8 +180,10 @@ MIT License
 ## 🙏 致谢
 
 - [nature-skills](https://github.com/Yuan1z0825/nature-skills) — Nature 论文写作 Skill
+- [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) — 学术研究Skill套件
 - [LibCity](https://github.com/LibCity/Bigscity-LibCity) — 交通预测统一框架
 - [BasicTS](https://github.com/GestaltCogTeam/BasicTS) — 时空预测基准
+- [LargeST](https://github.com/liuxu77/LargeST) — 大规模交通预测基准
 
 ---
 
