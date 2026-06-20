@@ -1707,9 +1707,77 @@ The patterns in this document are extracted from or validated against the follow
 | "cross-city meta-learning" | 跨城市迁移 | TKDE 2025 |
 | "knowledge-guided pre-training" | 知识引导预训练 | TKDE 2025 |
 | "decoder-only pre-training" | 预训练范式 | CIKM 2025 |
-| "mixture of experts" | 专家混合 | CIKM 2025
+| "mixture of experts" | 专家混合 | CIKM 2025 |
 | "hypergraph learning" | 超图学习 | WWW 2026 |
 | "quantum neural network" | 量子计算 | Scientific Reports |
 | "digital twin" | 数字孪生 | Nature Communications |
 | "gravity-like model" | 引力模型 | Nature Communications |
 | "Bayesian neural field" | 贝叶斯推断 | Nature Communications |
+
+### 12.33 AAAI/IJCAI 2025-2026论文标题命名模式
+
+| 模式 | 示例 | 特点 |
+|------|------|------|
+| **发现导向型** | "Unveiling the Power of Noise Priors" | 用"Unveiling"暗示探索性 |
+| **隐喻型** | "Riding the Wave" | 用"乘浪"比喻应对交通波动 |
+| **问题导向型** | "FairTP: A Prolonged Fairness Framework" | 突出公平性问题 |
+| **政治隐喻型** | "Make Graph Neural Networks Great Again" | 吸引注意力 |
+| **缩写组合型** | SSL-STMFormer, MetaDG | 创建易记缩写 |
+| **场景限定型** | "...Under Overload Scenarios" | 明确应用场景 |
+
+### 12.34 arXiv 2026最新写作模式
+
+**LLM+交通融合范式：**
+- "Our core innovation is a Dynamic Spatio-Temporal Attention Bias Generator that synthesizes a persistent functional graph with transient nodal states to explicitly steer the LLM's attention." (U-STS-LLM)
+- "STReasoner achieves average accuracy gains between 17% and 135% at only 0.004X the cost of proprietary models." (STReasoner, ACL 2026)
+
+**Mamba/SSM范式：**
+- "FAST adopts a Temporal-Spatial-Temporal architecture, where temporal attention modules capture both short- and long-term temporal patterns, and a Mamba-based spatial module models long-range inter-sensor dependencies with linear complexity." (FAST)
+- "NeST-S6 attains lower errors than a strong Mamba-family baseline... Under drift stress tests, our model's nested memory lowers MAE by 48-65% over a no-memory ablation." (NeST-S6)
+
+**Diffusion+交通范式：**
+- "DRIFT unifies heterogeneity-aware conditional encoding, conditional diffusion-based executable trajectory generation, and progressive adversarial alignment enhanced by risk-aware long-tail feedback." (DRIFT)
+- "On the Abilene dataset, LEAD attains a remarkable 45.2% reduction in RMSE against the best baseline." (LEAD)
+- "VFSI reduces collision rates by 67% (24.6% to 8.1%) and improves overall validity by 87% (50.3% to 94.2%)." (VFSI)
+
+**混沌理论范式：**
+- "Our framework introduces chaos-informed wave generation that extracts measurable chaos invariants and models traffic as adaptive wave components." (CIWI-CKT)
+- "CAST-CKT employs an efficient chaotic analyser to quantify traffic predictability regimes." (CAST-CKT)
+
+**零参数在线适应范式：**
+- "FORESEE operates without any parameter updates to the base model. Instead, it corrects today's forecast in each region using yesterday's prediction error." (FORESEE)
+- "The proposed model operates without trainable parameters, preserving its inherent interpretability." (TSNN)
+
+### 12.35 Transportation Research论文写作特点
+
+**与IEEE/ACM论文的关键差异：**
+
+| 维度 | Transportation Research | IEEE/ACM |
+|------|------------------------|----------|
+| **理论深度** | 更注重交通工程理论基础 | 更注重算法创新 |
+| **实际应用** | 强调模型在实际交通系统中的部署 | 强调benchmark性能 |
+| **可解释性** | 更关注模型的可解释性 | 更关注精度提升 |
+| **跨学科融合** | 交通工程+计算机科学+统计学 | 主要计算机科学 |
+| **不确定性** | 强调不确定性量化 | 主要点预测 |
+| **场景限定** | 明确应用场景（公交、海事、充电） | 通用benchmark |
+
+**Transportation Research典型句式：**
+- "A hybrid approach of traffic simulation and machine learning techniques for enhancing real-time traffic prediction"
+- "A Bayesian approach to quantifying uncertainties and improving generalizability"
+- "Semantic-fused multi-granularity cross-city traffic prediction"
+- "Learning universal human mobility patterns with a foundation model for cross-domain data fusion"
+
+### 12.36 2026年新兴范式关键词
+
+| 关键词 | 使用场景 | 代表论文 |
+|--------|---------|---------|
+| "chaos-informed wave" | 混沌理论 | CIWI-CKT |
+| "regime-stratified evaluation" | 评估方法 | ICML 2026 Workshop |
+| "zero-parameter online adaptation" | 在线适应 | FORESEE |
+| "non-parametric interpretable" | 无可训练参数 | TSNN |
+| "risk-constrained diffusion" | 风险约束生成 | DRIFT |
+| "traffic-to-image" | 交通转图像 | LEAD |
+| "macro-micro cross-attention" | 宏观-微观融合 | MMCAformer |
+| "incident-guided" | 事件引导 | IGSTGNN |
+| "validity-first spatial intelligence" | 物理有效性 | VFSI |
+| "federated LLM" | 联邦LLM | FedLLM
