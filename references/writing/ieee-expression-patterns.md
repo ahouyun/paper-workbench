@@ -1780,4 +1780,34 @@ The patterns in this document are extracted from or validated against the follow
 | "macro-micro cross-attention" | 宏观-微观融合 | MMCAformer |
 | "incident-guided" | 事件引导 | IGSTGNN |
 | "validity-first spatial intelligence" | 物理有效性 | VFSI |
-| "federated LLM" | 联邦LLM | FedLLM
+| "federated LLM" | 联邦LLM | FedLLM |
+| "temporal folding graph" | 时间折叠图 | VisiFold |
+| "retrieval augmented" | 检索增强 | RAST |
+| "efficient cosine operator" | 高效余弦算子 | RAGC |
+| "spatio-temporal distillation" | 时空蒸馏 | LightST |
+
+### 12.37 时空图神经网络2025-2026论文写作模式
+
+**高频写作句式：**
+
+| 句式 | 示例 | 出现频率 |
+|------|------|---------|
+| "We propose" | "We propose FAST, a unified framework..." | 极高 |
+| "To address these challenges" | "To address these challenges, this paper proposes..." | 高 |
+| "Extensive experiments show/demonstrate" | "Extensive experiments on ... show that FAST consistently outperforms..." | 极高 |
+| "Existing methods... however" | "Existing methods typically face a trade-off... however..." | 高 |
+| "while maintaining" | "while maintaining computational efficiency" | 中 |
+| "Inspired by" | "Inspired by Retrieval-Augmented Generation (RAG)..." | 中 |
+| "demonstrating" | "demonstrating a favorable balance between accuracy..." | 高 |
+
+**典型摘要结构（FAST论文）：**
+> "Existing methods typically face a trade-off between expressiveness and efficiency: Transformer-based models capture global dependencies well but suffer from quadratic complexity, while recent selective state-space models are computationally efficient yet less effective at modeling spatial interactions in graph-structured traffic data."
+> "FAST adopts a Temporal-Spatial-Temporal architecture, where temporal attention modules capture both short- and long-term temporal patterns, and a Mamba-based spatial module models long-range inter-sensor dependencies with linear complexity."
+
+**典型摘要结构（IGSTGNN论文）：**
+> "Most existing work focuses exclusively on capturing spatio-temporal dependencies from historical traffic data, while overlooking the fact that suddenly occurring transportation incidents, such as traffic accidents and adverse weather, serve as external disturbances that can substantially alter temporal patterns."
+> "IGSTGNN explicitly models the incident's impact through two core components: an Incident-Context Spatial Fusion (ICSF) module to capture the initial heterogeneous spatial influence, and a Temporal Incident Impact Decay (TIID) module to model the subsequent dynamic dissipation."
+
+**典型摘要结构（RAST论文）：**
+> "Although advanced Spatio-temporal Graph Neural Networks (STGNNs) and pre-trained models have achieved significant progress in traffic prediction, two key challenges remain: (i) limited contextual capacity when modeling complex spatio-temporal dependencies, and (ii) low predictability at fine-grained spatio-temporal points due to heterogeneous patterns."
+> "Extensive experiments on six real-world traffic networks, including large-scale datasets, demonstrate that RAST achieves superior performance while maintaining computational efficiency."
