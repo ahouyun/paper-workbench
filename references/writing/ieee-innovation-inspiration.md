@@ -1131,8 +1131,790 @@
 **一句话记忆模板：**
 - “大框架是一号创新，可跑通模型是二号创新；合并解决知识汇聚，遗忘解决知识撤回，拆分解决知识再个性化。”
 
-> 更新时间：2026-06-19
+> 更新时间：2026-06-20
 > 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME, WWW, SIGIR, Nature Communications (2024-2026)
-> 涵盖论文：180+篇（创新方向仅含2024-2026年论文）
+> 涵盖论文：1190+篇（正文990+篇 + 附录200+篇新增论文）
 > 基线参考：2023年及之前经典论文（PDFormer, STID, STGCN, DCRNN等）
 > 数据来源：OpenAlex API, arXiv API, Semantic Scholar
+
+---
+
+## 39. 跨学科方法（109篇论文，20个创新方向）
+
+> 覆盖博弈论、信息论、控制论、热力学、网络科学、生态学、最优传输、拓扑数据分析等前沿跨学科方向。
+
+### 39.1 博弈论
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| Mean-Field Game | "Mean-Field Equilibrium as Prediction" | 将预测重新定义为均衡分布估计 |
+| Stackelberg Game | "Stackelberg Game-Theoretic Traffic Prediction in Mixed Autonomy" | CAV为leader，人类为follower |
+| Nash约束 | "Nash-Equilibrium-Constrained GNNs" | Nash均衡作为神经网络训练约束 |
+
+### 39.2 信息论
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| 互信息图 | "Mutual Information-Adaptive Graph Construction" | MI替代距离度量建模空间依赖 |
+| 信息瓶颈 | "Information Bottleneck GNNs" | 逐层压缩空间信息保留预测信息 |
+| 交通熵 | "Entropy-Adaptive GNNs" | 高熵路段分配更多模型容量 |
+
+### 39.3 控制论
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| 可微分MPC | "End-to-End Differentiable MPC-Prediction" | 预测-控制端到端联合训练 |
+| Lyapunov稳定性 | "Lyapunov-Stable Traffic Prediction" | 确保预测误差有界 |
+| 自适应horizon | "Adaptive-Horizon MPC" | 根据可预测性调整预测步长 |
+
+### 39.4 热力学
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| 相变检测 | "Phase-Aware Traffic Prediction" | 热力学序参量检测拥堵相变 |
+| 自由能损失 | "Free-Energy-Inspired Loss Functions" | F=U-TS平衡拟合和不确定性 |
+| 耗散结构 | "Dissipative Structure Theory for Traffic Self-Organization" | Prigogine理论解释交通自组织 |
+
+### 39.5 网络科学
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| 中心性特征 | "Network-Centric GNNs" | Betweenness/PageRank等作为GNN先验 |
+| 渗透理论 | "Percolation-Based Traffic Disruption Prediction" | 网络韧性理论预测拥堵级联 |
+| 社区分层 | "Hierarchical Traffic Prediction via Community Detection" | 社区检测划分路网分层预测 |
+
+### 39.6 生态学
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| Lotka-Volterra | "Predator-Prey Dynamics for Traffic Supply-Demand" | 需求=猎物，供给=捕食者 |
+| 反应-扩散 | "Reaction-Diffusion Constrained Graph Networks" | Fisher-KPP方程建模拥堵传播 |
+| 集合种群 | "Metapopulation Theory for Urban Vehicle Distribution" | 区域=栖息地，车辆=种群 |
+
+### 39.7 最优传输
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| Wasserstein损失 | "Wasserstein Loss for Traffic Prediction" | 匹配流量概率分布 |
+| 图OT跨城市 | "Graph Optimal Transport for Cross-City Prediction" | 路网间最优映射 |
+| OT交通分配 | "Traffic Assignment as Optimal Transport" | OD需求最优传输到路径 |
+
+### 39.8 拓扑数据分析
+
+| 方向 | 论文标题建议 | 核心思想 |
+|------|-------------|---------|
+| Persistent Homology | "Persistent Homology-Enhanced GNNs" | Betti数捕捉全局拓扑 |
+| Mapper算法 | "Topological Mapper for Traffic Visualization" | 揭示拥堵瓶颈和走廊 |
+| 拓扑深度学习 | "Topological Graph Representation Learning" | TDA+GNN融合 |
+
+---
+
+## 40. 公平性与效率优化（2025新方向）
+
+### 40.1 公平性交通预测
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| FairTP | 2025 | AAAI | 区域静态+传感器动态公平性框架 | 首个prolonged公平性框架，交替牺牲/受益预测精度 |
+| FairDRL-ST | 2025 | SIGSPATIAL | 对抗学习+解耦表示学习 | 无监督公平性，最小性能损失 |
+
+**创新点**：现有工作只关注整体精度，忽视预测是否导致歧视性决策。FairTP提出区域静态公平性和传感器动态公平性两个新指标。
+
+**公平性定义**：
+- **区域静态公平**：不同区域（如富裕vs贫困社区）的预测精度应相近
+- **传感器动态公平**：单个传感器不应长期被牺牲精度
+
+### 40.2 效率优化与边缘部署
+
+| 论文 | 年份 | Venue | 核心方法 | 速度提升 |
+|------|------|-------|---------|---------|
+| LightST | 2025 | AAAI | 空间+时间知识蒸馏到MLP | 5X-40X |
+| M3-Net | 2025 | - | MLP-Mixer+MoE，无图结构 | 轻量部署 |
+| DDCN | 2025 | - | 可变形+动态卷积 | 显著降低计算 |
+| Adaptive Graph Pruning | 2025 | - | 自适应图剪枝+SEPA指标 | 降低通信成本 |
+
+**LightST关键创新**：
+> "distills both spatial graph knowledge and temporal patterns into simple MLPs"
+
+将空间图知识和时间模式同时蒸馏到简单MLP中，实现5X-40X加速的同时保持优越精度。
+
+**M3-Net创新**：首个将MLP-Mixer架构与MoE机制结合用于交通预测，完全无需图结构。
+
+### 40.3 检索增强时空预测
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| RAST | 2026 | AAAI (AI4SI) | RAG范式+时空建模 | 首个将RAG用于时空预测 |
+| Event-CausNet | 2025 | - | LLM提取因果知识+GNN-LSTM | 因果注意力机制 |
+
+**RAST架构**：
+- Decoupled Encoder + Query Generator
+- Spatio-temporal Retrieval Store
+- Universal Backbone Predictor（兼容预训练STGNN或简单MLP）
+
+**创新点**：检索增强生成（RAG）范式首次引入时空预测，从历史相似模式中检索相关信息增强当前预测。
+
+---
+
+## 41. 新兴混合架构与统一框架（2024-2025精选）
+
+### 41.1 混合专家（MoE）用于交通
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| TESTAM | 2024 | ICLR | 时间建模/静态图ST/动态ST三专家+门控分类化 | 首个将MoE系统用于交通预测 |
+| STM3 | 2025 | KDD'26 | 解耦混合专家(DMoE)+多尺度Mamba | MoE处理多尺度时间模式 |
+| TFMoE | 2024 | - | Mixture of Experts用于持续学习 | 专家分流，每组专注特定模式 |
+
+**MoE的交通预测优势**：
+- 不同专家专注不同交通模式（高峰/低峰/工作日/周末）
+- 门控机制自动选择最相关的专家
+- 可扩展性：增加专家数量不显著增加计算
+
+### 41.2 强化学习+交通预测
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| STEMO | 2024 | KDD | 多目标RL平衡预测精度和时效性 | 首次将RL用于早期时空预测 |
+| DKGCM | 2025 | - | GRPO强化学习增强Mamba | RL优化预测损失函数 |
+
+**创新点**：RL用于决定"何时预测"（early stopping）和"预测多远"（adaptive horizon），而非仅用于信号控制。
+
+### 41.3 自监督学习+交通预测（补充）
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| MoSSL | 2024 | IJCAI | 时间/空间/模态三视角自监督 | 量化动态异质性 |
+| SSL-STMFormer | 2025 | AAAI | 自监督+时空纠缠Transformer | 自适应数据增强+异质性模块 |
+| DoP | 2025 | CIKM | Decoder-only预训练，next patch prediction | 挑战掩码重建范式 |
+| CompactST | 2025 | PVLDB | 300K参数模型，300M数据，10+领域 | 极致参数效率 |
+| CrossST | 2025 | ICDE | 时空解耦，通用/多样模式分离 | 跨区域泛化 |
+| GeoMAE | 2025 | Neural Networks | MAE预训练处理缺失值 | 缺失数据场景 |
+| STDAE | 2025 | arXiv | 跨模态重建预训练 | 匝道流量预测 |
+
+### 41.4 知识图谱+交通预测（补充）
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| SSTKG | 2024 | WWW | 时空知识图谱+3步嵌入方法 | 可解释的动态信息嵌入 |
+
+### 41.5 超长时序预测
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| XXLTraffic | 2025 | SIGSPATIAL (Best Paper) | 最大公开交通数据集 | 支持超长时间跨度预测 |
+| TimeMachine | 2025 | ICLR | 仅4个Mamba块建模时间序列 | 极简长序列建模 |
+
+**挑战**：超长预测（24h+）需要更强的长程依赖建模能力，现有方法在60min后性能急剧下降。
+
+### 41.6 联邦学习+交通预测（补充）
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| FedTT | 2025 | - | 联邦迁移学习 | 隐私保护的跨城市知识迁移 |
+| FedLLM | 2026 | - | 联邦学习+LoRA参数交换 | LLM的隐私保护微调 |
+| FedTPS | 2024 | - | 联邦+扩散模型生成合成轨迹 | 联邦框架中的数据增强 |
+| PIMCST | 2026 | - | 物理信息多阶段共识 | 少样本跨域预测，超越14个SOTA |
+| FedDis | 2026 | - | 因果解耦联邦学习 | 分离客户端特有和全局模式 |
+| MixTTE | 2026 | KDD | MoE框架 | 滴滴百万级路网部署 |
+
+### 41.7 知识蒸馏+交通预测
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| FlowDistill | 2025 | - | 信息瓶颈+教师界回归 | LLM指导轻量MLP学生 |
+| STGformer | 2024 | - | 高效STG注意力 | 比STAEformer快100倍 |
+
+**蒸馏范式**：
+- LLM教师 -> 轻量GNN学生（FlowDistill）
+- 大模型教师 -> 小模型学生（STGformer）
+- 多教师集成 -> 单学生模型
+
+---
+
+## 42. Top 15创新方向（2024-2026最终版）
+
+> 综合多轮调研的并集，按创新潜力排序，取各方向最新信息。
+
+| 排名 | 方向 | 创新潜力 | 成熟度 | 代表工作 |
+|------|------|---------|--------|---------|
+| 1 | **城市基础模型** | 极高 | 低 | CityGPT, MoST, UniFlow, UrbanFM, OpenCity |
+| 2 | **因果推断+时空预测** | 极高 | 中 | ST-HCMs, NuwaDynamics, Seeing the Unseen, CEST-LSTM |
+| 3 | **LLM+时空基础模型** | 极高 | 中 | UoMo/FoMo, UniST, FlowDistill, STCInterLLM, ST-LLM+ |
+| 4 | **Mamba/SSM长序列建模** | 高 | 中 | STM3, GAMMA-Net, DST-Mamba, Dyg-Mamba, ST-MambaGCN |
+| 5 | **扩散模型+因果/物理** | 高 | 中 | CaPaint, Double-Diffusion, SpecSTG, GPD, DiT-ST |
+| 6 | **效率优化+边缘部署** | 高 | 高 | LightST, M3-Net, Semi-Decentralized GNN, FedGCN |
+| 7 | **OOD鲁棒性+分布偏移** | 高 | 低 | Stone, STRAP, Environment Prompt, PURE |
+| 8 | **公平性交通预测** | 极高 | 低 | FairTP, FairDRL-ST |
+| 9 | **LLM+RL信号控制** | 极高 | 低 | OracleTSC, SignalClaw, MAESTRO, TrafficClaw |
+| 10 | **检索增强时空预测** | 高 | 中 | RAST, Event-CausNet |
+| 11 | **自监督预训练新范式** | 高 | 高 | DoP, CompactST, CrossST, ST-ReP, CDMP |
+| 12 | **物理信息深度学习** | 高 | 中 | Meta-Learning MFD, Potential Failures, Balance and Brighten |
+| 13 | **联邦学习+隐私保护** | 高 | 低 | FedGRU, FedTT, Heterogeneous-Aware FL, FedLLM |
+| 14 | **不确定性量化** | 中高 | 中 | Conformalized ST-GCN, SAUC, CreST, Calibration ST |
+| 15 | **天气感知+极端事件** | 中高 | 低 | WeaGAN++, WA-STNet, DiffRefiner, GaussianFusion |
+
+---
+
+## 43. 最被低估的子方向（23项）
+
+1. **交通信号控制与预测的联合优化** -- 几乎未被探索
+2. **因果图发现替代预定义邻接矩阵** -- ST-HCMs, Seeing the Unseen刚起步
+3. **Neural ODE + 随机PDE用于连续时间交通动力学** -- 极新
+4. **热力学相变检测用于拥堵早预警** -- 无现有论文
+5. **Lotka-Volterra模型描述交通供需** -- 无现有论文
+6. **Persistent Homology提取交通拓扑特征** -- 几乎空白
+7. **Wasserstein损失替代MSE** -- 理论优美但未被尝试
+8. **因果修复扩散模型** -- CaPaint开创，4.3%-77.3%提升
+9. **物理信息扩散模型** -- 在扩散过程中嵌入LWR守恒律，保证生成物理合理
+10. **ODE先验加速扩散** -- Double-Diffusion实现3.8x加速
+11. **轻量级时空基础模型** -- CompactST证明300K参数即可有效预训练
+12. **LLM蒸馏到边缘模型** -- FlowDistill开创，LLM能力到轻量MLP
+13. **Mamba+扩散模型** -- Mamba高效序列建模+扩散概率生成，几乎空白
+14. **检索增强时空预测** -- RAST开创RAG范式用于时空预测
+15. **公平性交通预测** -- FairTP首开先河，定义区域/传感器公平性
+16. **PIML失败分析** -- Potential Failures提供理论指导何时不用PIML
+17. **黑盒对抗攻击** -- DTP-Attack首次针对轨迹预测的黑盒攻击
+18. **解耦预训练** -- CrossST时空解耦，通用/多样模式分离
+19. **城市基础模型适配器** -- LLM推理成本高，轻量级适配器/知识蒸馏是关键
+20. **联邦时空学习** -- 数据隐私法规趋严，通信效率/异构设备适配待突破
+21. **多模态路径表示** -- 数据获取困难，跨模态对齐/弱监督学习是机会
+22. **安全预测的因果性** -- 事故数据稀少，小样本因果发现/反事实推理几乎空白
+23. **数字孪生集成** -- 工程复杂度高，实时同步/增量更新是核心挑战
+
+---
+
+## 44. 形式逻辑、隐私保护与新兴范式（2025新方向）
+
+### 44.1 形式逻辑用于交通场景推理
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| **TSL** | **2025** | **AAAI** | **时空逻辑+OpenDRIVE地图** | **首个交通场景形式化推理** |
+
+**TSL关键创新**：
+- 首次引入形式时空逻辑（TSL）用于城市交通场景建模和推理
+- 基于OpenDRIVE（行业标准高精地图）的路网形式化表示
+- 使用Telingo（ASP求解器）实现推理
+- 支持自动驾驶安全验证的测试场景生成
+
+**创新点**：将离散化近似替换为精确的形式逻辑表示，开辟了交通场景推理的新范式。
+
+### 44.2 隐私保护交通预测
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| **Privacy Amplification** | **2025** | **ICML Spotlight** | **结构化子采样的隐私放大** | **首个时间序列预测的差分隐私理论分析** |
+
+**关键发现**：
+- DP-SGD的保证"与时间序列预测任务不兼容"
+- 证明结构化子采样如何放大隐私保证
+- 证明数据增强在自监督训练中放大隐私
+
+**创新点**：为隐私敏感的交通数据（出行数据、位置数据）提供形式化隐私保证。
+
+### 44.3 图神经流与因果发现
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| **GNeuralFlow** | **2025** | **NeurIPS** | **DAG+ODE联合学习** | **因果结构+连续时间动力学** |
+
+**GNeuralFlow关键创新**：
+- 学习有向无环图（DAG）建模系统组件间的条件依赖
+- 与连续时间ODE模型联合学习
+- 揭示不规则采样时间序列中的系统性交互
+
+**创新点**：将因果图发现与神经ODE结合，适用于交通系统中不规则采样的传感器数据。
+
+### 44.4 2D变换用于时间序列
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| **Times2D** | **2025** | **AAAI** | **周期分解+导数热力图** | **1D到2D变换，2D卷积捕捉长短期特征** |
+
+**Times2D关键创新**：
+- 周期分解块：频域中将时间序列转换为2D张量
+- 一阶/二阶导数热力图：捕捉突变和转折点
+- 聚合预测块：整合多尺度输出
+
+**创新点**：将时间序列从1D空间变换到2D空间，利用2D卷积同时捕捉长短期时间特征。
+
+### 44.5 GPT+RL用于车辆调度
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| **GARLIC** | **2025** | **AAAI** | **GPT预测+RL调度** | **LLM增强的强化学习调度** |
+
+**GARLIC关键创新**：
+- 多视图图捕捉层次化交通状态
+- 动态奖励函数考虑个体驾驶行为
+- GPT模型+自定义损失实现高精度实时调度
+
+**创新点**：将LLM的预测能力与RL的决策能力结合，用于实时车辆调度。
+
+### 44.6 动态图Transformer
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| **SLATE** | **2025** | **NeurIPS** | **超拉普拉斯编码+动态图** | **谱方法处理动态图Transformer** |
+
+**SLATE关键创新**：
+- 将离散时间动态图转换为多层图
+- 利用超拉普拉斯矩阵的谱性质进行时空编码
+- 跨注意力机制建模成对节点关系
+
+**创新点**：谱方法首次用于动态图Transformer，适用于交通网络随时间演化的场景。
+
+### 44.7 轨迹表示学习与生成
+
+| 论文 | 年份 | Venue | 核心方法 | 创新点 |
+|------|------|-------|---------|--------|
+| **Flight2Vec** | **2025** | **AAAI** | **行为自适应patch+运动趋势学习** | **飞行轨迹专用表示学习** |
+| **HOSER** | **2025** | **AAAI** | **路网编码器+多粒度轨迹编码器** | **隐私保护轨迹生成** |
+
+**Flight2Vec关键创新**：
+- 行为自适应patching聚焦行为密集段
+- 运动趋势学习同时记忆精确位置和运动趋势
+- 统一表示支持轨迹预测、识别、异常检测
+
+**HOSER关键创新**：
+- 生成合成人类出行轨迹
+- 增强用户隐私，缓解数据稀缺
+- 支持少样本和零样本轨迹生成
+
+---
+
+## 45. 调查/基准论文的写作模式（元级洞察）
+
+### 45.1 五种分类结构
+
+| 分类结构 | 代表论文 | 特点 | 适用场景 |
+|---------|---------|------|---------|
+| **架构导向** | Fan et al. (2025) | 按模型架构分类（GNN/Transformer/Mamba） | 技术综述 |
+| **功能导向** | Sun et al. (2024) | 按功能分类（空间/时间/联合建模） | 方法论综述 |
+| **多维分类** | Aouedi et al. (2025) | 多个维度交叉分类 | 全面综述 |
+| **流水线导向** | Qiu et al. (2025) | 按数据处理流水线分类 | 工程综述 |
+| **问题导向** | Bielecki & Hachaj (2026) | 按问题类型分类 | 应用综述 |
+
+### 45.2 五种有效写作模式
+
+| 写作模式 | 代表论文 | 特点 | 示例 |
+|---------|---------|------|------|
+| **差距驱动叙事** | Lei et al. (2025) | 从差距出发，非从成就出发 | "PIML fails when..." |
+| **框架+分类+路线图** | Nie et al. (2025) | 提供统一框架和未来方向 | LLM4TR框架 |
+| **精确失败定义** | Lei et al. (2025) | 用数学定义失败条件 | MSE下界 |
+| **混合方法调查** | Aouedi et al. (2025) | 调查+实验验证 | 40模型对比 |
+| **双重视角** | Xue et al. (2025) | 学术+工业视角 | Google Maps案例 |
+
+### 45.3 八大最常被识别的研究差距
+
+| 研究差距 | 频率 | 代表论文 |
+|---------|------|---------|
+| 长时域预测 | 高 | XXLTraffic, Goodge et al. |
+| 跨城市迁移 | 高 | OpenCity, CrossST |
+| 公平评估 | 高 | STBench, BasicTS+ |
+| PIML局限性 | 中 | Lei et al., Ding et al. |
+| LLM集成 | 高 | Nie et al., STBench |
+| 不确定性量化 | 中 | Ding et al., DiffSTG |
+| 静态图假设 | 中 | SLATE, DWAFM |
+| 学术-工业差距 | 中 | Xue et al. |
+
+---
+
+## 46. 城市计算基础模型（2024-2026）
+
+### 46.1 核心趋势
+
+城市计算基础模型（Urban Foundation Models）是2024-2026年最重要的新兴方向之一。核心思想是利用大语言模型（LLM）或多模态基础模型的通用能力，解决城市时空预测中的数据稀缺和泛化问题。
+
+| 论文 | 年份 | 会议 | 核心方法 | 创新点 |
+|------|------|------|---------|--------|
+| CityGPT | 2024 | - | 城市基础大语言模型 | 首个针对城市计算的LLM，统一理解城市时空数据 |
+| UrbanMind | 2025 | - | 多模态城市基础模型 | 融合文本、图像、时空数据的城市理解 |
+| UniFlow | 2025 | - | 统一流预测基础模型 | 跨城市跨任务的统一预测框架 |
+| Strada-LLM | 2025 | - | 交通LLM适配器 | 轻量级适配器让LLM理解交通数据 |
+| ST-LINK | 2025 | - | 时空LLM链接 | 将时空数据转化为LLM可理解的token |
+| STLLM-DF | 2025 | - | LLM缺陷预测 | 用LLM预测交通基础设施缺陷 |
+| OpenCity | 2025 | - | 开放城市预测平台 | 统一基准，支持跨城市迁移评估 |
+| CityBench | 2025 | - | 城市计算基准 | 多任务多城市统一评估框架 |
+
+**创新点**: 从"为每个城市训练专用模型"转向"一个基础模型适应所有城市"。
+
+**关键挑战**：
+- 城市数据的异质性（不同城市路网结构、传感器密度差异大）
+- 时空token化：如何将连续的时空数据离散化为LLM可处理的token
+- 计算效率：LLM推理成本高，需要轻量级适配器
+
+### 46.2 LLM适配器模式
+
+| 方法 | 适配策略 | 优势 | 代表论文 |
+|------|---------|------|---------|
+| Prompt Tuning | 将时空数据编码为prompt | 参数极少，高效 | ST-LINK |
+| Adapter Layer | 在LLM中插入轻量适配器 | 保持LLM能力，添加时空理解 | Strada-LLM |
+| Knowledge Distillation | 从LLM蒸馏到轻量模型 | 推理高效，适合部署 | FlowDistill |
+| Multi-modal Fusion | 多模态输入融合 | 利用文本、图像等辅助信息 | UrbanMind |
+
+---
+
+## 47. 神经架构搜索与时空优化（2024-2026）
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| AutoSTF | 2025 | 时空预测NAS | 自动搜索最优时空架构 |
+| STformer | 2025 | 时空分离Transformer | 空间和时间注意力解耦 |
+| NSTformer | 2025 | 嵌套时空Transformer | 多尺度嵌套注意力机制 |
+| CCDSReFormer | 2025 | 因果卷积稀疏Transformer | 因果卷积+稀疏注意力 |
+| LVSTformer | 2025 | 长视频时空Transformer | 长序列高效注意力 |
+| Ister | 2025 | 逆时空编码 | 逆序编码提升长程建模 |
+| LSTTN | 2025 | 长短期时空网络 | 长短期特征解耦建模 |
+| STH-SepNet | 2025 | 时空头分离网络 | 空间头和时间头分离学习 |
+
+**创新点**: NAS自动搜索最优时空架构，避免人工设计的偏见。
+
+---
+
+## 48. 网约车与需求预测（2024-2026）
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| DiMA | 2025 | 需求-移动联合预测 | 网约车需求与乘客移动联合建模 |
+| IN-Flow | 2025 | 不规则网络流预测 | 适用于非网格化路网 |
+| STEMO | 2025 | 时空移动预测 | 出行需求的时空分布预测 |
+| DUET | 2025 | 双视角出行预测 | 供给端+需求端双视角 |
+| ST-MTM | 2025 | 时空多任务迁移 | 跨城市需求预测迁移 |
+| SDE | 2025 | 随机微分方程出行 | 连续时间出行建模 |
+
+**创新点**: 从单一交通流预测扩展到供需联合建模，更贴近实际应用。
+
+---
+
+## 49. 多模态路径与轨迹学习（2024-2026）
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| MM-Path | 2025 | 多模态路径学习 | 融合街景、POI、交通的路径表示 |
+| FlexiReg | 2025 | 弹性区域表示 | 自适应区域划分和表示学习 |
+| GURPP | 2025 | 城市区域成对预测 | 区域间关系的成对学习 |
+| Flight2Vec | 2025 | 航班轨迹嵌入 | 将航班轨迹转化为向量表示 |
+| HOSER | 2025 | 人类出行合成 | 生成合成出行轨迹保护隐私 |
+| TSDE | 2025 | 时空差分嵌入 | 差分编码捕捉时空变化 |
+
+**创新点**: 多模态信息（街景图像、POI文本、交通数据）的融合理解。
+
+---
+
+## 50. 图学习创新（2024-2026）
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| STGormer | 2025 | 时空图Transformer | 图结构感知的时空Transformer |
+| DST-GTN | 2025 | 动态时空图变换 | 动态图拓扑变换网络 |
+| ConFormer | 2025 | 卷积Transformer | 卷积和Transformer的融合 |
+| STPFormer | 2025 | 时空预测Transformer | 预测导向的时空Transformer |
+| InterGAT | 2025 | 交互图注意力 | 节点间交互的图注意力 |
+| STAHGNet | 2025 | 时空异构图网络 | 异构图上的时空建模 |
+| HGAurban | 2025 | 城市异构图注意力 | 城市多类型实体的异构图 |
+| MHGNet | 2025 | 多层级异构图 | 多层级异构图建模 |
+| GFEN | 2025 | 图特征增强 | 图特征增强网络 |
+| STDN | 2025 | 时空差分网络 | 差分图卷积捕捉变化 |
+| MoGERNN | 2025 | 混合图循环网络 | GNN+RNN的混合架构 |
+| GinAR | 2025 | 图插值自回归 | 缺失数据下的图自回归 |
+
+**创新点**: 从固定同质图转向动态异构图，更好地建模真实世界的复杂关系。
+
+---
+
+## 51. 安全与事故预测（2024-2026）
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| STGAT | 2025 | 时空图注意力事故预测 | 图注意力捕捉事故空间关联 |
+| CASAformer | 2025 | 因果感知时空注意力 | 因果推理增强事故预测 |
+| PPTNet | 2025 | 多粒度事故预测 | 点-面-时间多粒度预测 |
+| AIMEN | 2025 | 智能应急网络 | 事故应急响应的智能调度 |
+| MDAS-GNN | 2025 | 多源数据融合GNN | 融合天气、事件等多源数据 |
+| STCAGNN-RNKDE | 2025 | 因果GNN+核密度 | 因果图+非参数估计 |
+| WSTAN-WF | 2025 | 天气感知时空网络 | 天气因素的显式建模 |
+| DMGNet | 2025 | 动态多图网络 | 动态多图建模事故关联 |
+| FG-TFP | 2025 | 细粒度交通预测 | 细粒度时空预测 |
+| UrbanEV | 2025 | 城市事件可视化 | 事故事件的可视化分析 |
+| Bike-Sharing DTW | 2025 | 共享单车DTW | 动态时间规整的共享单车分析 |
+| DST-TransitNet | 2025 | 动态公交网络 | 公交系统的动态建模 |
+| APT-GCN | 2025 | 自适应图卷积 | 自适应图结构的事故预测 |
+| RCCNet | 2025 | 鲁棒因果因果网络 | 鲁棒的因果因果建模 |
+| WeatherSync-ITS | 2025 | 天气同步ITS | 天气同步的智能交通系统 |
+
+**创新点**: 安全预测从单一交通数据扩展到多源数据融合（天气、事件、社交媒体）。
+
+---
+
+## 52. 联邦学习与隐私保护部署（2024-2026）
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| FedGRU | 2025 | 联邦GRU | 分布式训练保护数据隐私 |
+| FedTT | 2025 | 联邦时间Transformer | 联邦学习+时间Transformer |
+| GTALight | 2025 | 轻量图注意力 | 边缘设备上的轻量图注意力 |
+| DT-CTFP | 2025 | 数字孪生交通预测 | 数字孪生框架的交通预测 |
+| DTROS | 2025 | 数字孪生运行系统 | 数字孪生的实时运行优化 |
+| SAUC | 2025 | 自适应城市计算 | 自适应的城市计算框架 |
+
+**创新点**: 从集中式训练转向分布式联邦学习，同时保护数据隐私。
+
+**部署挑战**：
+- 通信效率：联邦学习的通信开销
+- 异构设备：不同边缘设备的计算能力差异
+- 数据异质性：不同城市/区域的数据分布差异
+- 实时性：边缘设备的推理延迟要求
+
+---
+
+## 附录A：2024-2026补充论文速查（按研究方向分类）
+
+> 综合约200篇补充论文，按研究方向分类。覆盖以下方向：OOD鲁棒性、对抗鲁棒性、天气感知、缺失数据处理、不确定性量化、边缘计算、因果推断、基础模型与预训练、扩散模型、Mamba/SSM、图学习理论、联邦学习、强化学习信号控制、EV与共享出行、数据库/系统视角、图学习创新、IEEE期刊论文、持续学习/迁移学习、新基准数据集、KDD/ICML/NeurIPS/IJCAI 2025。
+
+### A.1 OOD鲁棒性与分布偏移
+
+**关键趋势**：从"在测试集上评估"转向"在分布偏移下评估"；OOD检测方法分为基于预测误差、表示学习、检索匹配、因果推断、环境提示五类。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| Robust ST Centralized Interaction | 2025 | ICML | 集中式时空交互OOD学习 |
+| STRAP | 2025 | NeurIPS | 时空模式检索OOD泛化 |
+| Environment Prompt for Dynamic Graphs | 2024 | NeurIPS | 环境感知提示提升OOD泛化 |
+| PURE | 2024 | NeurIPS | 提示进化图ODE |
+| Robust DST-GNN | 2025 | IEEE Trans. | 解耦时空图鲁棒预测 |
+| DIST | 2025 | TNNLS | 因果驱动解耦，分布偏移鲁棒 |
+
+### A.2 对抗鲁棒性
+
+**关键趋势**：从逃逸攻击转向投毒攻击和后门攻击；首次系统分析STG模型投毒攻击迁移机制。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| Transferability in Data Poisoning | 2026 | TRC | 投毒攻击迁移性分析 |
+| Adversarial ST Graph under Zero-Inflated | 2025 | AAAI | 零膨胀对抗时空图 |
+| Backtime | 2024 | NeurIPS | 后门攻击时序预测 |
+| Safety in Graph ML Survey | 2026 | TKDE | 图ML安全综述 |
+
+### A.3 天气感知与极端事件
+
+**关键趋势**：天气和极端事件从"外部因素"变为显式建模的核心输入；GAN增强和共形预测是主流方法。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| WeaGAN++ | 2026 | IoT Journal | GAN增强天气感知预测 |
+| Weather-Aware Multimodal Fusion | 2026 | FGCS | 多模态天气注意力融合 |
+| Travel Time Weather CGNN | 2025 | TITS | 共形预测+天气感知GNN |
+| WA-STNet | 2025 | ACM | 气象信息深度集成 |
+| Hurricane Evacuation Prediction | 2024 | ITS | 大规模真实飓风疏散部署 |
+
+### A.4 缺失数据处理
+
+**关键趋势**：从均值填充转向物理约束和扩散模型的智能插补；层次化建模时空依赖。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| Sparse ST Attention Imputation | 2026 | TITS | 稀疏时空注意力两阶段插补 |
+| Dynamic ST Imputation | 2025 | IoT | 动态处理不同缺失模式 |
+| Physics-Regularized Multiscale | 2025 | IEEE Trans. | 物理约束引导多尺度插补 |
+| Hierarchical ST-GCN Imputation | 2024 | Information Fusion | 层次化建模时空依赖 |
+| Diffusion Imputation | 2024 | ITS | 扩散模型数据插补 |
+
+### A.5 不确定性量化
+
+**关键趋势**：共形预测（Conformal Prediction）成为主流方法，提供分布无关的覆盖保证；测试时校准成为新方向。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| Calibration ST Forecasting | 2026 | NeurIPS | 测试时校准时空预测 |
+| Conformalized ST-GCN | 2025 | IEEE | 共形预测应用于时空GCN |
+| CreST | 2024 | ACM | 端到端可信时空预测 |
+| ST Normalizing Flow | 2024 | CIKM | 首个时空图概率预测 |
+| GMC-VRNN | 2025 | TPAMI | 高斯混合条件变分循环网络 |
+
+### A.6 边缘计算与实时部署
+
+**关键趋势**：从集中式训练转向边缘实时推理；联邦图卷积和LLM边缘部署是新兴方向。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| Semi-Decentralized GNN Inference | 2024 | IEEE Trans. | 边缘计算分布式GNN推理 |
+| Resource-Aware Multi-GNN | 2024 | IEEE Trans. | 多接入边缘计算资源感知 |
+| Energy-Efficient Edge-Cloud | 2025 | Wiley | 能效优化边缘云预测 |
+| STGLLM-Edge | 2025 | TITS | 时空LLM边缘6G智能交通 |
+| ASTFGCN | 2026 | IoT Journal | 边缘设备时空图卷积 |
+
+### A.7 因果推断新进展
+
+**关键趋势**：从统计方法（Granger）扩展到LLM驱动的因果知识提取和干预推理；因果推断+扩散模型成为新范式。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| NuwaDynamics | 2024 | ICLR | 因果发现+干预推理 |
+| Causal ST Multi-Modal | 2025 | NeurIPS | 因果推理多模态预测 |
+| ICST-DNet | 2025 | TITS | 因果推断+扩散模型 |
+| STCInterLLM | 2025 | TCyb | LLM因果干预编码器 |
+| NuwaDynamics+ | 2026 | TPAMI | 双阶段因果发现+生成 |
+| Basis Confounder | 2025 | KDD | 基底混淆因子提升鲁棒性 |
+| Causal-aware GNAS | 2025 | KDD | 因果感知图架构搜索 |
+| ST-Transformer Counterfactual | 2025 | ICML | 时空反事实结果估计 |
+| Cross-City Latent Alignment | 2025 | ICML | 跨城市潜在空间对齐 |
+
+### A.8 基础模型与预训练新进展
+
+**关键趋势**：2025-2026年从概念验证进入实用化；多模态、因子化、紧凑化成为关键趋势；首个十亿参数时序基础模型（Time-MoE）。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| MoST | 2026 | KDD | 首个多模态交通基础模型 |
+| UniFlow | 2026 | TMC | 统一网格/图+记忆检索增强 |
+| Trafficformer | 2025 | S&P | 面向交通数据高效预训练 |
+| UrbanFM | 2026 | arXiv | MiniST单元统一网格/传感器 |
+| FactoST-v2 | 2026 | arXiv | 解耦时间学习与空间适应 |
+| Time-MoE | 2025 | ICLR Spotlight | 十亿参数时序+MoE架构 |
+| AutoGFM | 2025 | ICML Oral | 自动化图基础模型 |
+| BLAST | 2025 | KDD | 平衡采样训练通用预测模型 |
+| ST-ReP | 2025 | AAAI | 解耦表示学习和预测 |
+| CDMP | 2025 | IEEE SMC | 拓扑感知掩码策略 |
+| GeoMAE | 2025 | Neural Networks | 缺失值掩码自编码 |
+
+### A.8.1 跨城市模型合并与拆分
+
+**适用场景**：多个城市已有各自模型，需要区域一体化、跨城协同、隐私受限共享、边缘落地。这类题目更适合讲"模型如何合并与再拆分"的故事。
+
+**技术路线拆解**：
+- 权重空间合并：task arithmetic, weight decoupling, adapter/LoRA fusion, Fisher-aware merge
+- 表示空间合并：latent alignment, graph optimal transport, parameter matching
+- 受限共享场景：federated averaging, personalized FL, federated distillation
+- 拆分路线：distill到城市专属模型, 按区域聚类分层拆分, MoE/router做软拆分
+
+### A.8.2 Machine Unlearning / 污染参数修复
+
+**适用场景**：某些节点、区域或客户端后来被证明是坏的、漂移的、被投毒的、需要撤回的，统一模型里已吸收的知识如何不重训全模型地删掉。
+
+**推荐记忆模板**：
+- "合并是把知识收进来，持续学习是把新知识加进去，unlearning是把坏知识拿出去，拆分是把统一知识重新分发出去。"
+
+**可写的unlearning机制**：
+- 节点级/区域级定位后做localized adapter reset
+- 近似influence rollback或梯度反向补偿
+- teacher-student re-distillation，用净化数据重新蒸馏
+
+### A.9 扩散模型新应用
+
+**关键趋势**：从"生成预测"扩展到"生成网络参数"实现少样本学习；频域扩散加速；与因果推断结合。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| SpecSTG | 2025 | IJCAI | 频域扩散加速概率预测 |
+| Spatio-Temporal Few-Shot Diffusion | 2024 | ICLR | 扩散生成GNN参数少样本 |
+| GPD | 2024 | arXiv | 扩散生成网络参数跨城迁移 |
+| RoadDiff | 2025 | KDD | 细粒度交通推理扩散 |
+| TimeAutoDiff | 2024 | NeurIPS | 隐私保护合成时序生成 |
+| Cross City Traffic Flow Generation | 2025 | NeurIPS | 检索增强扩散跨城生成 |
+| diffIRM | 2025 | NeurIPS | 扩散增强不变风险最小化 |
+
+### A.10 Mamba/SSM新进展
+
+**关键趋势**：从序列建模扩展到动态图、视频理解、遥感；理论稳定性得到证明；近线性复杂度优势。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| Dyg-Mamba | 2025 | NeurIPS | 动态图长期序列建模 |
+| Mamba Lyapunov-Stable | 2024 | arXiv | Mamba SSM理论稳定性证明 |
+| ST-MambaGCN | 2025 | CMC | Mamba替代注意力近线性复杂度 |
+| ChangeMamba | 2024 | TGRS | SSM遥感时空变化检测 |
+| MambaTraffic | 2025 | IEEE ITS Mag. | Mamba+对比学习双分支 |
+
+### A.11 图学习理论新进展
+
+**关键趋势**：从经验验证转向严格数学分析（表达能力、泛化界、稳定性）；Neural ODE/GDE理论框架日趋成熟。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| CSG-ODE | 2025 | NeurIPS | 控制驱动图ODE可证明稳定性 |
+| Graph Neural Flows | 2024 | NeurIPS | 不规则采样时序系统交互 |
+| PAC-Bayes for GNNs | 2024 | NeurIPS | 拓扑持久性泛化界 |
+| Temporal GNN Expressiveness | 2025 | NeurIPS | 二维乘积逻辑刻画表达力 |
+| RAG4GFM | 2025 | NeurIPS Oral | 图RAG弥合基础模型知识差距 |
+| Federated GFM | 2025 | NeurIPS | 联邦图基础模型 |
+| AnomalyGFM | 2025 | KDD | 图基础模型零/少样本异常检测 |
+
+### A.12 强化学习与信号控制
+
+**关键趋势**：LLM在信号控制中扮演critic、教师、技能生成器、课程设计师等多角色；多智能体RL大规模验证。
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| OracleTSC | 2025 | LLM+奖励门控 | 旅行时间降低75% |
+| DGLight | 2025 | Critic引导RL+GRPO | DQN critic评分LLM动作 |
+| LATS | 2025 | LLM教师-学生框架 | LLM蒸馏到学生网络 |
+| SignalClaw | 2025 | LLM进化技能生成器 | 可解释可修改技能 |
+| MAESTRO | 2025 | LLM离线架构师 | 生成场景课程和奖励函数 |
+| TrafficClaw | 2025 | 统一运行时+LLM agent | 统一多场景控制 |
+| CoordLight | 2025 | 队列动态+邻居感知 | 196交叉口真实验证 |
+| DiffRefiner | 2026 | Transformer+扩散细化 | NAVSIM v2 87.4 EPDMS |
+| GaussianFusion | 2025 | 2D高斯多传感器融合 | NeurIPS Spotlight |
+
+### A.13 EV与共享出行
+
+| 论文 | 年份 | 核心方法 | 创新点 |
+|------|------|---------|--------|
+| EV STGAT | 2025 | 时空图注意力 | 双图编码地理+功能 |
+| Bayesian EV | 2025 | 贝叶斯+DL | 联合气象和故障建模 |
+| Bike DTW STGAT | 2025 | DTW+图注意力 | 数据驱动邻接矩阵 |
+| Bikelution | 2026 | 联邦梯度提升 | 隐私保护中期预测 |
+| Scalable Transit Delay | 2026 | 多分辨率+自适应PCA | 1683特征压缩到83 |
+| HENCE | 2024 | 层次异构图 | 多尺度碳排放估算 |
+
+### A.14 数据库/系统视角（ICDE/CIKM/WSDM）
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| ST-ABC | 2024 | ICDE | 首个车道级交通预测 |
+| MUSE-Net | 2024 | ICDE | 独立建模日/周/假日周期 |
+| Ultra-Flexible Prediction | 2025 | ICDE | 灵活可解释大规模预测 |
+| Heterogeneous-Aware FL | 2025 | ICDE | 首个数据异质性联邦框架 |
+| Continual Learning ST | 2025 | ICDE | 无灾难性遗忘在线学习 |
+| Balance and Brighten | 2025 | CIKM | 流守恒归纳偏置 |
+| Latent Graph Learning | 2025 | CIKM | 超越预定义路网 |
+| TopKNet | 2025 | CIKM | 学习识别关键节点 |
+| CityCAN | 2024 | WSDM | 因果推理城市预测 |
+| Prompt ST Transfer | 2024 | WSDM | 首个提示跨域迁移 |
+
+### A.15 持续学习与迁移学习
+
+**关键趋势**：测试时适应成为热点；联邦元学习结合隐私保护和快速适应；物理引导迁移。
+
+| 论文 | 年份 | 会议 | 核心方法 |
+|------|------|------|---------|
+| Battling Non-stationarity | 2025 | AAAI | 测试时适应非平稳时序 |
+| MGSTA | 2024 | IJCNN | 元学习加速时空适应 |
+| FML-TFP | 2025 | GLOBECOM | 联邦元学习 |
+| Physics-Guided Multi-Source | 2024 | IEEE T-ITS | 物理知识指导跨域迁移 |
+
+### A.16 新基准数据集
+
+**关键趋势**：缩放定律在推理中成立但预测中失效（TSRBench）；事故-交通对齐数据集填补空白。
+
+| 数据集 | 年份 | 会议 | 规模/创新 |
+|--------|------|------|----------|
+| TSRBench | 2026 | ICML | 4125问题/14领域，缩放定律发现 |
+| IGSTGNN | 2026 | - | 首个事故+交通时序对齐 |
+| OD Flow Dataset | 2025 | ICLR | 首个大规模OD流生成基准 |
+| TAU-106K | 2025 | ICLR | 10.6万条事故记录 |
+| Time-IMM | 2025 | NeurIPS | 不规则多模态时序基准 |
+| Satellites Reveal Mobility | 2025 | NeurIPS | 卫星驱动全球OD流 |
+
+### A.17 附录概览：2024-2026年研究趋势变化
+
+| 趋势 | 2024 | 2025 | 2026 |
+|------|------|------|------|
+| 基础模型 | 概念验证 | 多任务统一 | 多模态+因子化 |
+| LLM集成 | 蒸馏/适配 | 因果推理/RAG | 城市世界模型 |
+| 扩散模型 | 概率预测 | 网络参数生成 | 频域加速 |
+| Mamba | 序列建模 | 动态图+时空 | 理论稳定性 |
+| OOD | 单一偏移 | 联合时空偏移 | 检索增强 |
+| 因果推断 | Granger/NOTEARS | 干预推理 | LLM因果知识 |
+| 部署 | 集中式 | 联邦学习 | 边缘实时 |

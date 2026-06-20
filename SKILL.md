@@ -2,10 +2,11 @@
 name: paper-workbench
 description: >
   统一论文写作工作台。支持中文本科毕设、英文研究论文优化、IEEE Transactions、Nature/Science/Cell期刊风格写作、
-  深度研究、系统综述、多视角审稿、学术搜索等全流程学术工作。
+  深度研究、系统综述、多视角审稿、学术搜索、审稿回复（triage→point-by-point→QA）、
+  IMRAD/CONSORT/PRISMA/STROBE/ARRIVE报告规范检查、中英文对照阅读、LaTeX排版诊断等全流程学术工作。
   默认遵循"证据先于散文"，优先建立 claim-evidence-artifact 对齐，再进入正文生成或润色。
   当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述时触发。
-version: 6.0.0
+version: 6.1.0
 ---
 
 # Paper Workbench
@@ -51,6 +52,20 @@ version: 6.0.0
 | `deep_research` | 深度研究、文献探索、研究问题开发 | APA 7.0 研究报告 |
 | `systematic_review` | PRISMA 系统综述、元分析 | PRISMA 2020 规范 |
 
+### 论文类型与叙事弧
+
+在写作前先识别论文类型，不同类型对应不同叙事弧（narrative arc）：
+
+| 论文类型 | 叙事弧 | 核心结构 |
+|---------|--------|---------|
+| **discovery** 发现/机制类 | 问题→证据 | 背景→方法→结果→意义→展望 |
+| **methods** 方法/算法类 | 问题→解决方案 | 问题→现有缺陷→创新→验证→应用 |
+| **resource** 数据集/平台类 | 工作流→验证 | 动机→构建→规模→基准→用例 |
+| **clinical** 临床/人群类 | 设计→推断 | 问题→设计→结果→临床 implications |
+| **review** 综述/观点类 | 证据地图 | 现状→共识→争议→未来方向 |
+
+> 在 `full_draft` / `outline_only` / `paper2ppt` 任务前，必须先确认论文类型并锁定叙事弧。
+
 ### 模式判定规则
 
 - 用户提到"毕业论文 / 本科论文 / Word / 学校模板 / 导出文档" → `chinese_thesis`
@@ -59,6 +74,10 @@ version: 6.0.0
 - 用户提到"Nature / Science / Cell / high-impact / broad interest / novel discovery" → `nature`
 - 用户提到"research / deep research / literature review / systematic review / meta-analysis / fact-check" → `deep_research`
 - 用户提到"PRISMA / systematic review / meta-analysis / risk of bias" → `systematic_review`
+- 用户提到"审稿回复 / rebuttal / reviewer response / point-by-point / 返修" → `rebuttal` 任务
+- 用户提到"IMRAD / CONSORT / PRISMA合规 / STROBE / ARRIVE / 报告规范" → `imrad_check` 任务
+- 用户提到"中英对照 / bilingual / 双语阅读 / 术语对照" → `bilingual_reading` 任务
+- 用户提到"LaTeX排版 / Float too large / 页面稀疏 / 排版修复" → `latex_diagnosis` 任务
 
 ### Nature 模式子路由
 
@@ -109,6 +128,14 @@ version: 6.0.0
 | `paper2ppt` | 论文转 PPT | 中文 .pptx 演示文稿 |
 | `citation_convert` | 引用格式转换 | 目标格式引用列表 |
 | `academic_search` | 学术搜索 | 去重后的文献列表 |
+
+### 扩展任务
+
+| task_type | 用户意图 | 必要输出 |
+|-----------|----------|----------|
+| `imrad_check` | IMRAD/报告规范合规检查 | 逐条合规报告（✅/⚠️/❌） |
+| `bilingual_reading` | 中英文对照阅读 | 中英并排 Markdown + 术语对照表 |
+| `latex_diagnosis` | LaTeX 排版诊断修复 | 问题定位 + 精确行号 + 替换代码 + 修订报告 |
 
 如果请求跨多个任务，先按用户当前最急需的交付目标执行，不默认输出全家桶。
 
@@ -295,6 +322,52 @@ version: 6.0.0
 5. 修订后措辞
 6. 未解决的差距
 
+**执行参考**: `references/review/ieee-reviewer-simulation.md`, `references/review/reviewer-response.md`
+**审稿人角色**: 方法论/实验/写作/领域/魔鬼代言人
+**评分维度**: 创新性/技术质量/实验完整性/写作/重要性/可复现性
+
+#### Rebuttal 工作流（三阶段）
+
+**阶段一：Triage 分类**
+
+对每条审稿意见先分类：
+- `MAJOR_CONCERN` — 必须做实验/补数据才能响应
+- `CLARIFICATION` — 可通过解释/澄清解决
+- `POLITE_DISAGREE` — 审稿人主观意见，可礼貌不同意并提供证据
+
+输出修改策略总结：哪里需要补实验、哪里只需解释、哪里可以措辞分歧。
+
+**阶段二：Point-by-Point 回复起草**
+
+格式：
+```
+[R1.1] 审稿人原文
+→ 作者回复：[回复内容]
+→ 修改位置：[Section/Page/Line/Figure/Table]
+→ 状态：[已完成 / 需作者补充 [AUTHOR_INPUT_NEEDED: XXX]]
+```
+
+原则：
+- 语气尊重但坚定，措辞学术化
+- 不编造实验结果；需作者补充的标注 `[作者需提供：XXX]`
+- 每条声称的修改必须映射到具体论文位置
+
+**阶段三：回复信 QA 检查**
+
+- [ ] 每条审稿意见是否都有回复（无遗漏）？
+- [ ] 每个声称的修改是否都映射到具体论文位置？
+- [ ] 语气是否尊重且学术化？
+- [ ] 是否有编造数据或声称了不存在的修改？
+- [ ] 是否有需要作者决定但还未填入的 placeholder？
+
+#### 难以响应的意见处理
+
+当审稿意见难以直接响应时：
+1. 判断是技术缺陷还是主观偏好
+2. 是否必须做实验，还是可通过澄清+补充讨论解决
+3. 在不补实验的情况下，寻找论文中已有的证据支持立场
+4. 给出具体回复措辞建议
+
 ### H. `full_draft`
 
 输出：
@@ -353,6 +426,53 @@ version: 6.0.0
 **支持API**: Semantic Scholar, DBLP, arXiv, CrossRef
 **输出格式**: Markdown + BibTeX
 
+### N. `imrad_check`
+
+输出：
+1. 论文类型识别（RCT/观察性/Meta分析/动物实验/病例报告/方法类）
+2. 适用报告规范判定（CONSORT/STROBE/PRISMA/ARRIVE/CARE/IMRAD）
+3. 逐条合规检查（✅ 合规 / ⚠️ 部分合规 / ❌ 缺失）
+4. 缺失内容补充建议
+5. 合规报告（Word）
+
+#### 支持的报告规范
+
+| 规范 | 适用类型 | 核心要求 |
+|------|---------|---------|
+| **CONSORT 2025** | 随机对照试验（RCT） | 25条目，含分配隐藏、盲法、CONSORT流程图 |
+| **PRISMA 2020** | 系统综述/Meta分析 | 27条目，含检索策略、PRISMA流程图、偏倚评估 |
+| **STROBE** | 观察性研究（队列/病例对照/横断面） | 22条目，含暴露/结局定义、失访处理 |
+| **ARRIVE 2.0** | 动物实验 | 21条目，含样本量计算、随机化、盲法 |
+| **IMRAD** | 实验性研究（通用） | Introduction/Methods/Results/Discussion 四段结构 |
+
+### O. `bilingual_reading`
+
+输出：
+1. 中英文并排 Markdown 文档（每个章节：英文原文 + 中文翻译）
+2. 图表在对应文字位置就近呈现（非末尾集中）
+3. 术语对照表（英文术语 | 中文译法 | 首次出现位置）
+4. 完整内容保留（非摘要/概述）
+5. 所有参考文献编号保留
+
+### P. `latex_diagnosis`
+
+输出：
+1. 问题诊断（页面稀疏/图表不填满/Float too large/标题孤立等）
+2. 精确定位（具体行号/环境/命令）
+3. 可直接替换的 LaTeX 代码
+4. 修改前后对比
+5. 修订报告（Word）
+
+#### 常见 LaTeX 排版问题速查
+
+| 问题 | 典型原因 | 修复方向 |
+|------|---------|---------|
+| 页面稀疏 | 浮动体参数过严 | 调整 `[htbp]` 或使用 `!ht` |
+| Float too large | 图/表超出页面 | 缩放 `\includegraphics[width=\textwidth]` |
+| 标题孤立 | 分页不当 | `\needspace` 或调整内容位置 |
+| 多面板排列混乱 | `subfigure` 参数错误 | 统一宽度比例 |
+| 公式溢出 | 长公式未换行 | `split` / `multline` 环境 |
+
 ---
 
 ## Step 6 — Reference Loading Policy
@@ -362,6 +482,7 @@ version: 6.0.0
 - section writing: `references/writing/traffic-writing-execution-master-index.md`
 - structure / flow: `references/writing/traffic-writing-execution-master-index.md`
 - review / de-AI: `references/review/paper-review.md`, `references/review/humanizer-patterns.md`
+- **2024-2025 顶会模式**: `references/writing/cs-top-venue-patterns-2024-2025.md` (VAR, Mamba, Depth Anything V2 等真实 Abstract 分析)
 
 ### `ieee_trans` 常用加载
 
@@ -377,6 +498,8 @@ version: 6.0.0
 - real experimental data: `references/writing/ieee-real-experimental-data.md`
 - expression patterns: `references/writing/ieee-expression-patterns.md`
 - polishing rules: `references/writing/ieee-polishing.md`
+- **交通领域论文模式**: `references/writing/ieee-traffic-transportation-patterns.md` (T-ITS/TIV/TNNLS 2024-2025 真实 Abstract 分析: PGCN, ASTMGCNet, STIDGCN, Traj-LLM, DSTIGCN, Hybrid TrafficAI, Neuro-VAE-Symbolic, LLM+ITS Survey 等 11 篇)
+- **2024-2025 顶会模式**: `references/writing/cs-top-venue-patterns-2024-2025.md` (VAR, Mamba, DeepSeek-R1 等真实 Abstract 分析)
 
 ### `nature` 常用加载
 
@@ -387,6 +510,7 @@ version: 6.0.0
 - data availability: `references/writing/nature-data-availability.md`
 - response template: `references/review/nature-response-template.md`
 - venue spec: `references/venues/nature-portfolio.md`
+- **真实论文模式**: `references/writing/nature-paper-patterns.md` (AlphaFold 3, GNoME 等真实 Abstract/Introduction 分析)
 
 ### `chinese_thesis` 常用加载
 
@@ -411,6 +535,28 @@ version: 6.0.0
 - PRISMA protocol: `references/workflow/systematic-review-protocol.md`
 - risk of bias: `references/research/risk-of-bias-assessment.md`
 - meta-analysis: `references/research/meta-analysis-guide.md`
+
+### `rebuttal` 常用加载
+
+- 回复结构: `references/review/reviewer-response.md`
+- 审稿人模拟: `references/review/ieee-reviewer-simulation.md`
+- 审稿回复主索引: `references/review/traffic-review-response-master-index.md`
+
+### `imrad_check` 常用加载
+
+- 报告规范: 按论文类型选择 CONSORT/PRISMA/STROBE/ARRIVE 对应条目
+- 写作规范: `references/writing/writer-guidelines.md`
+- 章节模式: `references/writing/chapter-patterns-cn.md` 或 `chapter-patterns-ieee.md`
+
+### `bilingual_reading` 常用加载
+
+- 写作规范: `references/writing/writer-guidelines.md`
+- 术语管理: 随文档生成术语对照表
+
+### `latex_diagnosis` 常用加载
+
+- 图表标准: `references/writing/nature-figure-standards.md` 或 `ieee-visual-playbook.md`
+- 写作规范: 按目标期刊选择对应参考
 
 ---
 

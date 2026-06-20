@@ -2672,5 +2672,629 @@ def plot_multi_dim_ablation(results_grid, dim1_values, dim2_values,
 
 ---
 
-> 更新时间：2026-06-19
+> 更新时间：2026-06-20
 > 基于论文：STAEformer (AAAI'24), PDFormer (AAAI'23), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), Graph WaveNet (IJCAI'19), MegaCRN (AAAI'23), STID (ICLR'23), GAMMA-Net (2026), STM3 (KDD'26), SpoT-Mamba (2024), PatchSTG (KDD'25), Expand-and-Compress (ICLR'25), Damba-ST (ICDE'26), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), DTP-Attack (2026), Double-Diffusion (2025), CaPaint (NeurIPS'24), OracleTSC, SignalClaw, DiffRefiner, GaussianFusion, UrbanEV, Heterogeneous-Aware FL, M3-Net, FEDDGCN, Balance and Brighten, TopKNet, FAST (ICLR'25), CityGPT, Conformalized ST-GCN, ICML 2026 Workshop on Foundation Models for Spatiotemporal
+> 补充来源：IEEE Transactions Visual Playbook（基于 TPAMI, TMI, TNNLS, TITS, TVCG, TASE, TMM 等 115+ 篇 IEEE Transactions 论文分析）
+
+---
+
+## 二十二、IEEE Transactions 图表准入原则（来自 IEEE Visual Playbook）
+
+### 22.1 核心原则
+
+**每张图表必须回答一个审稿人的问题。**
+
+如果一个图表不能澄清一个论点，就删除它或合并到更强的图表中。
+
+**准入检验表：**
+
+| 检验问题 | 通过 | 失败 |
+|---------|------|------|
+| 这张图回答了什么审稿人问题？ | 具体问题已识别 | "看起来好看" |
+| 答案是否已在正文中？ | 图表增加了纯文字无法达到的清晰度 | 与某段文字重复 |
+| 审稿人能否在 rebuttal 中引用此图？ | 可以，作为支持或反对论点的证据 | 不可以，纯粹装饰性 |
+
+### 22.2 Figure 1 的四种角色
+
+Figure 1 应该做真正的工作，为整篇论文设定概念框架。
+
+**角色选择：**
+
+| 角色 | 说明 | 适用场景 |
+|------|------|---------|
+| Pipeline figure | 展示数据流和处理阶段 | 方法论文 |
+| Teaser figure | 一目了然地展示问题和解决方案 | 创新性强的论文 |
+| Taxonomy / roadmap | 组织设计空间 | Survey 论文 |
+| System model | 展示架构或部署上下文 | 系统论文 |
+
+**真实案例：**
+
+| 论文 | Figure 1 内容 | 角色 |
+|------|-------------|------|
+| SAM (Kirillov et al., TPAMI 2023) | 三个互连组件：promptable segmentation task, SAM model, data engine | Conceptual teaser |
+| FlashAttention-2 (Dao, 2023) | Speed vs. sequence length benchmark on A100 | Tradeoff teaser |
+| YOLOv7 (Wang et al., CVPR 2023) | Speed-accuracy Pareto plot across all YOLO variants | Tradeoff teaser |
+| UniAD (Hu et al., CVPR 2023) | Full pipeline: Track, Map, Motion, Occ, Planning | Pipeline |
+| Mamba (Gu & Dao, 2023) | Selective State Space architecture diagram | System model |
+| Llama 2 (Touvron et al., 2023) | Training pipeline: pretraining, SFT, RLHF stages | Pipeline |
+
+**规则：** 避免以装饰性图表开头，不增加推理价值的图表不应出现在论文开头。
+
+---
+
+## 二十三、图表类型选择决策树
+
+### 23.1 Claim → Chart 映射
+
+| 论点类型 | 最佳可视化选择 | 真实案例 |
+|---------|-------------|---------|
+| 质量对比 | 主要 benchmark table | SAM Table 3: zero-shot edge detection on BSDS500 |
+| 质量 vs 效率 | Scatter plot + summary table | YOLOv7: FPS-AP Pareto plot + 6-variant table |
+| 模块贡献 | Ablation table 或 bar chart | SAM Figure 13: data engine stages |
+| 超参数敏感性 | Line plot | Llama 2 Figure 6: reward model scaling trends |
+| 类别分解 | Grouped bar chart 或 heatmap | DeepSeek-V3: benchmark scores across domains |
+| 数据集覆盖 | Summary table | SAM Table 1: geographic and income representation |
+| 分类体系 | Layered diagram 或 matrix | PEFT Survey Figure 2: taxonomy tree |
+| 扩展行为 | Line plot with log scale | VAR Figure 2: scaling law plots |
+| 人工评估 | Bar chart with confidence intervals | Llama 2 Figure 12: win-rate across 4,000 prompts |
+
+**原则：** 当表格比图表更清晰地传达论点时，优先使用表格。
+
+### 23.2 Chart Selection Decision Tree
+
+```
+论点是否关于精确数值？
+  是 → 使用表格（benchmark, ablation, dataset stats）
+  否 → 论点是否关于趋势或关系？
+    是 → 使用折线图或散点图
+    否 → 论点是否关于相对比例？
+      是 → 使用分组柱状图或热力图
+      否 → 论点是否关于流程或架构？
+        是 → 使用示意图或 pipeline figure
+        否 → 重新考虑是否需要此图表
+```
+
+---
+
+## 二十四、表格角色模式（Table I / Table II Pattern）
+
+### 24.1 主对比表（Table I Pattern）
+
+论文中最重要的表格，将提出的方法与所有相关 baseline 在主要指标上进行对比。
+
+**真实模式 — SAM (Table 3)：**
+```
+Task: Zero-shot edge detection
+Dataset: BSDS500
+Metrics: ODS, OIS, AP
+Baselines: HED, EDETR, OFNet, NKN, SAM variants
+Key: SAM outperforms task-specific methods without any fine-tuning
+```
+
+**真实模式 — Llama 2 (Table 3)：**
+```
+Task: Academic benchmarks
+Metrics: MMLU, HumanEval, GSM8K, etc.
+Baselines: Llama 1, GPT-3.5, Falcon, MPT, etc.
+Key: Llama 2-70B competitive with GPT-3.5
+```
+
+**结构规则：**
+- 每列加粗最优结果
+- 按逻辑分组 baseline（traditional, learning-based, foundation-model）
+- 如有需要包含模型大小或复杂度
+- 提出方法放在最后一行
+
+### 24.2 消融实验表（Table II Pattern）
+
+通过移除或替换组件来展示各组件的贡献。
+
+**真实模式 — SAM：**
+```
+Rows: Data engine stages (RIT -> SA -> Auto), data volume, encoder scaling
+Columns: mIoU on evaluation suite
+Key: Each stage contributes measurable improvement
+```
+
+**真实模式 — DoRA：**
+```
+Rows: LoRA, LoRA+ (with magnitude), DoRA (full decomposition)
+Columns: Multiple downstream tasks
+Key: Direction component is the primary contributor
+```
+
+**结构规则：**
+- 每行仅移除一个组件或更改一个设置
+- 在括号或脚注中显示 delta（改进或退化）
+- 包含 "full model" 行作为参考点
+
+### 24.3 效率表
+
+**真实模式 — FlashAttention：**
+```
+Metrics: Memory (GB), FLOPs, wall-clock time
+Settings: Sequence lengths 512, 1024, 2048, 4096
+Key: Constant memory vs. quadratic for standard attention
+```
+
+**真实模式 — Llama 2 (Table 2)：**
+```
+Metrics: GPU hours, power consumption, CO2 emissions
+Models: Llama 2 7B, 13B, 70B
+Key: Transparency about training cost
+```
+
+**包含内容：**
+- FLOPs, parameters, memory footprint, inference time
+- 硬件规格（GPU type, batch size）
+- 测量协议（warm-up runs, averaging）
+
+### 24.4 数据集统计表
+
+**真实模式 — SAM (Table 1)：**
+```
+Columns: Dataset, Images, Masks, Avg masks/image, Geographic coverage
+Datasets: SA-1B vs. COCO vs. Open Images
+Key: SA-1B is 400x larger with better geographic diversity
+```
+
+### 24.5 符号表（Notation Table）
+
+**何时包含：**
+- 超过 15 个不同符号的论文
+- 跨越多技术领域的论文
+- 同一符号在不同上下文中可能有不同含义的论文
+
+**结构：**
+- 按类别分组（variables, functions, operators, sets）
+- 在有帮助的地方包含维度或类型
+- 引用每个符号首次出现的章节
+
+---
+
+## 二十五、数据溯源规范（Data Provenance）
+
+### 25.1 溯源标签
+
+图表中的每个数据点必须有可追溯的来源。使用以下标签：
+
+| 标签 | 含义 | 示例 |
+|------|------|------|
+| `real` | 从实际实验或部署系统中测量 | F1 score on held-out test set |
+| `synthetic` | 由受控仿真或合成数据管线生成 | Results on synthetic benchmarks |
+| `generated` | 由提出的模型自身生成 | GELF-generated images in a qualitative panel |
+| `augmented` | 经增强技术修改的真实数据 | Results on augmented test sets |
+| `reported` | 取自另一篇论文的已发表结果 | Baseline numbers from prior work |
+| `reproduced` | 作者使用已发布代码重新运行 | Reproduced baseline numbers |
+
+### 25.2 来源归属要求
+
+对每个图表，记录：
+
+1. **Dataset name** — "Evaluated on COCO val2017"
+2. **Evaluation scope** — "204 benchmark subjects" 或 "5,000 images"
+3. **Measurement method** — "Direct measurement" vs. "Aggregated from logs" vs. "Reported in [X]"
+4. **Hardware context** — "Measured on single A100-80GB GPU"
+5. **Run specification** — "Average over 3 runs" 或 "Single run"
+
+### 25.3 溯源检查清单
+
+在最终确定任何图表之前：
+
+- [ ] 能否将每个数字追溯到特定实验或来源？
+- [ ] 数据标签（real/synthetic/generated/reported/reproduced）是否明确？
+- [ ] 数据集名称是否在 caption、脚注或附近文字中说明？
+- [ ] 评估范围（样本数量）是否说明？
+- [ ] 测量方法（direct/aggregated/reported）是否说明？
+- [ ] 如果数字来自其他论文，引用是否 present？
+
+---
+
+## 二十六、多面板布局规范（Panel Layout Rules）
+
+### 26.1 核心规则
+
+**每个面板传达一个视觉消息：**
+- 错误：一个面板同时展示架构和性能曲线
+- 正确：架构图和性能曲线分开放在不同面板
+
+**跨面板一致排序：**
+- 如果面板比较方法，在每个面板中使用相同的方法排序
+- 示例：Ground Truth, SAM (Ours), ViTDet, FastSAM — 此顺序在所有定性比较图中保持一致
+
+**提出方法的稳定位置：**
+- 水平布局中最常见的位置：**最后一列**
+- 垂直布局中：**最后一行**
+- 配对比较中：**最右边**
+
+**相同裁剪逻辑和缩放比例：**
+- 所有方法必须展示相同的裁剪区域
+- 缩放比例必须相同
+- 裁剪边框样式（实线、虚线）必须一致
+
+### 26.2 故事排序
+
+如果图表在面板间讲述一个故事，从最简单到最难排序：
+
+1. 输入或问题设置
+2. 简单 baseline 结果
+3. 逐步改进
+4. 提出方法结果
+5. 失败案例或边界
+
+### 26.3 网格布局指南
+
+| 面板数 | 推荐布局 | IEEE Trans 列宽 |
+|--------|---------|----------------|
+| 2 | 1x2 或 2x1 | 适合单栏 |
+| 3 | 1x3 | 适合单栏 |
+| 4 | 2x2 | 适合单栏 |
+| 6 | 2x3 或 3x2 | 适合整页 |
+| 8 | 2x4 或 4x2 | 适合整页 |
+| 9+ | 考虑拆分为多个图表 | 可能超出页面限制 |
+
+### 26.4 子图标签规范
+
+- 使用一致的标签：(a), (b), (c), ... 小写罗马，无句号
+- 位置：每个面板的左上角，图像区域外部
+- 字号：与面板文字相同或稍大
+
+---
+
+## 二十七、图注写作模式（Caption Patterns）
+
+### 27.1 三部分 Caption 结构
+
+好的 caption 做三件事：
+
+1. **Setting identification** — 展示的是什么
+2. **Comparison identification** — 比较的是什么
+3. **Notice guidance** — 读者应该观察什么
+
+### 27.2 Caption 模板
+
+**Benchmark 图表：**
+```
+[Task] on [Dataset]. [Proposed method] achieves [key result] compared to [baselines].
+```
+示例："Zero-shot edge detection results on BSDS500. SAM achieves ODS 0.768, outperforming task-specific methods trained on BSDS500."
+
+**消融图表：**
+```
+Ablation results showing the contribution of [component]. [Key finding].
+```
+示例："Ablation results showing the contribution of each data engine stage. The automatic stage (SA) provides the largest improvement (+3.2 mIoU)."
+
+**定性比较：**
+```
+Qualitative comparison of [methods] on [task/dataset]. [What to notice].
+```
+示例："Qualitative comparison of depth estimation methods on indoor scenes. Our method produces sharper boundaries at object edges."
+
+**Tradeoff 图表：**
+```
+[Metric A] vs. [Metric B] for [methods]. [Proposed method] achieves [Pareto position].
+```
+示例："Accuracy vs. inference speed for real-time detectors. YOLOv7 achieves the Pareto frontier across all speed regimes."
+
+**系统架构图：**
+```
+Architecture of [system name]. [Key design choices].
+```
+示例："Overview of SAM architecture. The heavyweight image encoder runs once; prompts are processed by the lightweight decoder in real-time."
+
+**分类体系图：**
+```
+Taxonomy of [domain] grouped by [criterion].
+```
+示例："Taxonomy of parameter-efficient fine-tuning methods grouped by adaptation strategy."
+
+### 27.3 Status Cues（状态提示）
+
+当图表不是测量结果时，添加状态提示：
+
+- "Illustrative schematic of ..."
+- "Conceptual taxonomy of ..."
+- "Qualitative examples from ..."
+
+这帮助审稿人区分测量证据和解释性可视化。
+
+### 27.4 真实 Caption 示例
+
+**SAM figure captions：**
+- Figure 1: "Three interconnected components: promptable segmentation task, SAM model, data engine for SA-1B."
+- Figure 4: "SAM overview: heavyweight image encoder, efficient prompt querying, masks at amortized real-time."
+- Figure 13: "Ablation results: data engine stages, data volume, image encoder scaling."
+
+**模式：** Setting + what is compared + key metric or observation.
+
+**Llama 2 figure captions：**
+- Figure 4: "Training of LLAMA 2-CHAT: pretraining, SFT, RLHF with iterative reward modeling."
+- Figure 11: "Evolution of Llama 2-Chat: win-rate % compared to ChatGPT across RLHF iterations."
+- Figure 12: "Human evaluation results for LLAMA 2-CHAT compared to open- and closed-source models across ~4,000 helpfulness prompts."
+
+**模式：** What is measured + comparison scope + key finding.
+
+---
+
+## 二十八、论文类型可视化序列
+
+### 28.1 方法论文（Method Papers）
+
+推荐可视化序列：
+
+1. **Figure 1:** Teaser 或 pipeline — 设定框架
+2. **Setup/system figure** — 展示提出的架构
+3. **Main comparison table (Table I)** — 量化证据
+4. **Qualitative comparison figure** — 视觉证据
+5. **Ablation table (Table II)** — 组件贡献
+6. **Tradeoff figure** — 效率或 Pareto 分析
+7. **Failure or limitation figure** — 诚实的边界评估
+
+**真实序列 — SAM (Kirillov et al., TPAMI 2023)：**
+
+| 顺序 | Figure/Table | 角色 |
+|------|-------------|------|
+| 1 | Figure 1: Three interconnected components | Conceptual teaser |
+| 2 | Figure 2: SA-1B images with overlaid masks | Data overview |
+| 3 | Figure 3: Three valid masks from single point | Task setup |
+| 4 | Figure 4: SAM architecture overview | System model |
+| 5 | Figures 5-7: Dataset statistics | Data analysis |
+| 6 | Figure 8: 23 evaluation datasets | Evaluation dashboard |
+| 7 | Figure 9: Point-to-mask evaluation | Quantitative comparison |
+| 8 | Figure 10: Zero-shot edge prediction | Qualitative panel |
+| 9 | Figure 11: Mask quality ratings | Tradeoff plot |
+| 10 | Figure 12: Zero-shot text-to-mask | Qualitative panel |
+| 11 | Figure 13: Ablation results | Ablation figure |
+
+**关键观察：** SAM 有 13 个图表。数据分析图（5-7）在实验之前出现，先建立数据可信度。
+
+**真实序列 — FlashAttention (Dao et al., NeurIPS 2022)：**
+
+| 顺序 | Figure/Table | 角色 |
+|------|-------------|------|
+| 1 | Speed-sequence length benchmark | Tradeoff plot |
+| 2 | Memory comparison chart | Efficiency tradeoff |
+| 3 | H100 speedup benchmark | Benchmark comparison |
+
+**关键观察：** 基础设施论文使用速度和内存图表作为主要视觉；不需要架构图。
+
+**真实序列 — YOLOv7 (Wang et al., CVPR 2023)：**
+
+| 顺序 | Figure/Table | 角色 |
+|------|-------------|------|
+| 1 | Speed-accuracy Pareto plot | Tradeoff teaser |
+| 2 | Detection demo image | Qualitative panel |
+| 3 | Pose estimation demo | Qualitative panel |
+| 4 | Instance segmentation demo | Qualitative panel |
+| 5 | Detection performance table (6 variants) | Benchmark comparison |
+
+**关键观察：** 实时检测论文以 speed-accuracy Pareto plot 开头。
+
+### 28.2 Survey 论文
+
+推荐可视化序列：
+
+1. **Figure 1:** Taxonomy 或 roadmap — 组织领域
+2. **Framework comparison table** — 定位相关工作
+3. **Category comparison matrix** — 详细方法对比
+4. **Benchmark/dataset summary table** — 评估景观
+5. **Future directions map** — 开放问题
+
+**真实序列 — PEFT Survey (Xu et al., TPAMI 2024)：**
+
+| 顺序 | Figure/Table | 角色 |
+|------|-------------|------|
+| 1 | Figure 1: Evolutionary development timeline | Taxonomy timeline |
+| 2 | Figure 2: Taxonomy tree (5 categories) | Taxonomy tree |
+| 3 | Figure 3: Architecture comparison (3 methods) | System model |
+| 4 | Figure 4: 5-shot accuracy fluctuation | Training curve |
+| 5 | Tables I-II: Method comparison | Method comparison |
+| 6 | Tables III-VI: Benchmark results | Benchmark comparison |
+| 7 | Table VII: GPU memory usage | Efficiency comparison |
+
+**关键观察：** Survey 可视化序列是 taxonomy → architecture → performance → efficiency。
+
+### 28.3 实证论文（Empirical Papers）
+
+推荐可视化序列：
+
+1. **Study workflow figure** — 展示研究方法
+2. **Corpus or subject summary table** — 描述数据
+3. **RQ-aligned result tables** — 回答每个研究问题
+4. **Error taxonomy or failure analysis figure** — 分类失败
+5. **Recommendation or implication summary matrix** — 可操作的发现
+
+---
+
+## 二十九、图表完整性检查清单
+
+### 29.1 Figure Integrity Checklist
+
+在最终确定图表之前，检查以下所有项：
+
+**可读性：**
+- [ ] 字号在双栏缩放后可读（最终打印至少 6pt）？
+- [ ] 坐标轴标签存在且清晰？
+- [ ] 图例文字无需放大即可阅读？
+- [ ] 面板标签 (a), (b), (c) 清晰可见？
+
+**灰度生存：**
+- [ ] 所有数据系列在灰度下可区分？
+- [ ] 除颜色外还使用了不同线型（实线、虚线、点线）？
+- [ ] 热力图使用了在灰度下可用的顺序色图？
+- [ ] 关键标注在无颜色时可见？
+
+**内容完整性：**
+- [ ] 缩写在图中或 caption 中首次使用时已定义？
+- [ ] 图例小于消息本身？
+- [ ] Caption 解释了应该观察什么？
+- [ ] 图表未引入任何稿件中不存在的事实、模块或数字？
+- [ ] 如果是说明性而非测量性，是否明确标注？
+
+**技术质量：**
+- [ ] 光栅元素分辨率至少 300 DPI？
+- [ ] 矢量元素（线条、文字）在所有缩放级别下清晰渲染？
+- [ ] 光栅图像无压缩伪影？
+- [ ] 文件格式合适（PDF/EPS 用于矢量，PNG 用于光栅）？
+
+**一致性：**
+- [ ] 方法名称与正文和表格中使用的一致？
+- [ ] 配色方案与其他图表一致？
+- [ ] 坐标轴范围合适（未截断以夸大差异）？
+- [ ] 所有坐标轴都指定了单位？
+
+### 29.2 Table Integrity Checklist
+
+**内容：**
+- [ ] 仅一个主要消息？
+- [ ] 所有指标方向明确（↑ 表示越大越好，↓ 表示越小越好）？
+- [ ] 最优结果加粗？
+- [ ] 包含最强 baseline？
+- [ ] 提出方法行清晰标识？
+
+**格式：**
+- [ ] 小数对齐且一致（每列相同小数位数）？
+- [ ] 列标题简洁明确？
+- [ ] 行标签与图表和正文中使用的方法名称匹配？
+- [ ] 单位在列标题或脚注中指定？
+
+**溯源：**
+- [ ] 数据来源说明（数据集名称、评估协议）？
+- [ ] 评估范围说明（样本数量、受试者）？
+- [ ] 测量方法说明（直接测量、聚合、报告）？
+- [ ] 适当时标注统计显著性？
+
+**Caption：**
+- [ ] Caption 识别了任务？
+- [ ] Caption 识别了数据集？
+- [ ] Caption 识别了比较范围？
+- [ ] Caption 简短精确（一到两句话）？
+
+### 29.3 跨图表一致性检查
+
+当论文有多个图表时：
+
+- [ ] 方法名称在所有图表和正文中相同？
+- [ ] 相同方法的颜色编码在所有图表中相同？
+- [ ] 指标名称和单位在所有表格中一致？
+- [ ] Baseline 排序一致（或逻辑分组）？
+- [ ] 图表、表格和正文之间无冲突数字？
+- [ ] 图表编号顺序且在正文中引用？
+- [ ] 表格编号顺序且在正文中引用？
+
+---
+
+## 三十、图表合同（Figure Contract）
+
+在写任何绘图代码之前，先建立图表合同，明确以下要素：
+
+| 要素 | 说明 | 示例 |
+|------|------|------|
+| **核心结论** | 一句话，带动词 | "Our temporal attention reduces long-horizon error" |
+| **图表原型** | 布局类型 | Quantitative grid / Schematic-led composite |
+| **目标期刊** | 决定格式规范 | IEEE TITS (双栏, 183mm宽) |
+| **最终尺寸** | 单栏/双栏 | 双栏 ~183mm |
+| **面板映射** | 每个panel的内容 | (a) 趋势图 (b) 注意力热图 (c) 案例对比 |
+| **证据层次** | hero/validation/controls | (a) 是hero evidence, (b)(c) 是validation |
+| **统计需求** | 需要什么统计展示 | 误差条、置信区间、p值 |
+| **审稿人风险** | 可能被质疑的点 | "60min结果可能被质疑统计显著性" |
+
+**模板：**
+```
+Figure Contract:
+- Core claim: [一句话结论]
+- Prototype: [quantitative grid / schematic-led / mixed]
+- Size: [single ~89mm / double ~183mm]
+- Panels: (a) [内容] (b) [内容] (c) [内容]
+- Hero evidence: panel (a)
+- Stats needed: [error bars / CI / p-values]
+- Risk: [审稿人可能质疑的点]
+```
+
+---
+
+## 三十一、IEEE 配色与风格补充规范
+
+### 31.1 安全默认值
+
+1. **白色背景** — 图表永远不使用彩色或深色背景
+2. **克制的调色板** — 最多使用 4-6 种可区分颜色
+3. **可读标签** — 双栏缩放后最小 8pt（通常最终打印 6pt）
+4. **细但可见的线条** — 数据线 1-1.5pt，网格线 0.5pt
+5. **灰度安全区分** — 除颜色外使用不同线型（实线、虚线、点线）
+6. **直接标注** 优于图例（空间允许时）
+7. **衬线字体** 用于图表内文字（Times New Roman 或类似，与正文匹配）
+8. **一致的字体族** 跨论文所有图表
+
+### 31.2 IEEE 推荐调色板
+
+**Palette A（6色，灰度安全）：**
+```
+#1f77b4 (blue)
+#ff7f0e (orange)
+#2ca02c (green)
+#d62728 (red)
+#9467bd (purple)
+#8c564b (brown)
+```
+
+**Palette B（4色，高对比）：**
+```
+#000000 (black)
+#e66101 (orange)
+#5d3a9a (purple)
+#0077bb (blue)
+```
+
+**热力图色图：**
+- 使用顺序色图（白色到蓝色，或白色到红色）
+- 避免彩虹色图（jet, hsv）
+- 确保色图是感知均匀的
+
+### 31.3 应避免的问题
+
+1. **深色 UI 风格视觉** — 除非源内容需要（如展示深色模式界面）
+2. **霓虹调色板** — 看起来不专业且在灰度下失败
+3. **密集图例** — 可以用直接标注替代
+4. **微小文字** — 在双栏打印中不可读
+5. **3D 柱状图** — 扭曲感知；使用 2D 柱状图
+6. **饼图** — 使用柱状图进行更好的比较
+7. **渐变填充** — 增加视觉噪声而无信息
+8. **阴影效果** — 图表元素上的阴影
+9. **过多网格线** — 使用浅灰色网格或无网格
+10. **未标注的坐标轴** — 每个坐标轴都需要标签和单位
+
+### 31.4 图表内文字规范
+
+| 元素 | 字体 | 字号（缩放前） | 粗细 |
+|------|------|-------------|------|
+| Axis labels | Times New Roman | 10-12pt | Regular |
+| Tick labels | Times New Roman | 8-10pt | Regular |
+| Legend text | Times New Roman | 9-10pt | Regular |
+| Panel labels (a), (b) | Times New Roman | 12-14pt | Bold |
+| Annotation text | Times New Roman | 9-10pt | Regular or Italic |
+| Title (if used) | Times New Roman | 12pt | Bold |
+
+### 31.5 真实风格案例
+
+**SAM (TPAMI 2023)：**
+- 干净的白色背景
+- 最少使用颜色（蓝色用于 SAM 结果，灰色用于 baseline）
+- 散点图上直接标注替代图例
+- 一致的面板标签 (a), (b), (c)
+
+**FlashAttention (NeurIPS 2022)：**
+- 简单柱状图带直接数值标注
+- 对数 x 轴用于序列长度
+- 双色方案（蓝色 FlashAttention，橙色 baseline）
+
+**Llama 2 (Meta 2023)：**
+- 折线图在数据点处有清晰标记
+- 置信区间显示为阴影区域
+- 所有图表一致的颜色编码
+
+**VAR (NeurIPS 2024)：**
+- 大胆使用红色突出提出的方法
+- 所有 baseline 使用灰色
+- 清晰的坐标轴标签带单位
