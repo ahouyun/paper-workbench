@@ -1578,3 +1578,82 @@ The patterns in this document are extracted from or validated against the follow
 2. 详细比较："On METR-LA, it reduces MAE by 4.2% compared to the best baseline at 15-minute horizon."
 3. 原因分析："The improvements are more pronounced for longer horizons, demonstrating the effectiveness of our embedding in capturing long-range dependencies."
 4. 局限性承认："While our method shows significant improvements, it requires more computational resources than lightweight methods."
+
+### 12.23 2025-2026 IEEE TITS论文开头模式
+
+| 模式 | 示例 | 论文 |
+|------|------|------|
+| **领域重要性声明** | "Traffic flow prediction plays a critical role in..." | 多篇 |
+| **问题导向开头** | "The continuously increasing carbon emission from road traffic has a negative impact on..." | Carbon Emission Forecasting |
+| **趋势引出** | "...is receiving growing attention" | ODE+Multi-Scale |
+| **挑战前置** | "remains a challenging task because of..." | Correlated Channeled |
+| **应用价值** | "Effective traffic prediction is a critical component of traffic management, especially long-term traffic prediction" | Triple Dynamic Graph |
+
+### 12.24 2025-2026 IEEE TITS引出挑战句式
+
+**经典转折结构：**
+- "However, it remains a prevailing challenge due to the stochastic nature of urban traffic and environmental factors."
+- "However, accurate prediction remains a significant challenge due to the vast array of influencing factors."
+- "However, most of them suffer from limited representation ability or unstable training issues."
+- "However, there still exist several challenges, particularly in terms of inadequate conditional guidance and insufficient mode association."
+
+**肯定后转折：**
+- "Despite the remarkable improvements in prediction accuracy, existing research continues to face three limitations in practical engineering scenarios."
+- "Although various GNN models based on dynamic graph structures have introduced promising approaches, they still face challenges in adequately capturing spatio-temporal information."
+- "While denoising diffusion models have demonstrated remarkable capability in capturing the multimodal uncertainty, their reliance on a generic, isotropic Gaussian noise prior poses a critical limitation."
+
+**直接指出不足：**
+- "...without fully leveraging the congestion relationships within traffic flows to guide graph structure learning."
+- "...overlooking the profound impact of individual behaviors and decisions of microscopic traffic participants."
+- "...neglecting the potential impacts of label sequence autocorrelation, nonstationary signals, and temporal pattern changes."
+
+### 12.25 2025-2026 KDD/AAAI论文开头模式
+
+| 模式 | 示例 | 论文 |
+|------|------|------|
+| **隐喻开头** | "Traffic prediction is a cornerstone of modern intelligent transportation systems" | RAST (AAAI 2026) |
+| **数学化表达** | "It aims to establish a relationship between historical traffic data X and future traffic states Y" | STEVE (KDD 2025) |
+| **三重价值** | "understanding and predicting urban dynamics is crucial for managing transportation systems, optimizing urban planning, and enhancing public services" | UrbanMind (KDD 2025) |
+| **趋势引出** | "As large language models continue to advance and gain widespread use" | CityBench (KDD 2025) |
+| **普适性切入** | "Spatiotemporal data is ubiquitous, and forecasting it has important applications in many domains" | T-Graphormer |
+
+### 12.26 2025-2026 NeurIPS/ICLR/ICML论文写作模式
+
+**理论驱动型：**
+- "Rather than treating numerical error as a nuisance to be eliminated, we innovatively repurpose the Local Truncation Error as an unsupervised forward inductive bias." (LTE-ODE)
+- "We establish theoretical guarantees including chaos-to-wave stability, wave-induced dimension reduction, and generalisation bounds for few-shot adaptation." (CIWI-CKT)
+
+**Foundation Model范式：**
+- "By pre-training OpenCity on large-scale, heterogeneous traffic datasets, we enable the model to learn rich, generalizable representations that can be seamlessly applied to a wide range of traffic forecasting scenarios." (OpenCity)
+- "Grounded in first-principles analysis, we identify three critical dimensions: heterogeneity, correlation, and dynamics." (UrbanFM)
+
+**因果推理型：**
+- "Orion employs an LLM-based retrieval mechanism to select semantically relevant historical periods, a TE-CausGAT module for autonomous causal discovery and intervention-based validation." (Orion, ICLR 2026)
+
+**效率优化型：**
+- "This Kronecker attention map enables our Parallel-Kronecker Matrix-Vector product for efficient spatiotemporal message passing with O(P²N + N²P) complexity." (Weaver)
+
+### 12.27 改进描述的具体数字模式
+
+| 模式 | 示例 | 论文 |
+|------|------|------|
+| **具体百分比** | "reduces RMSE by 4.3%, MAE by 2.8%" | FAST |
+| **大幅改进** | "average prediction error reduction of 53.23%" | MDPNet |
+| **效率平衡** | "while maintaining computational efficiency" | RAST |
+| **泛化能力** | "even in zero-shot settings" | UrbanMind |
+| **稳定性强调** | "consistently reduces forecasting errors" | GenCast |
+| **多指标提升** | "RMSE and MAPE by up to 20% and 10%" | T-Graphormer |
+
+### 12.28 2025-2026新趋势关键词
+
+| 关键词 | 使用场景 | 示例论文 |
+|--------|---------|---------|
+| "cornerstone" | 隐喻开头 | RAST |
+| "first-principles analysis" | 理论基础 | UrbanFM |
+| "intervention-based validation" | 因果验证 | Orion |
+| "regime-stratified evaluation" | 评估框架 | ICML 2026 Workshop |
+| "zero-shot generalization" | 泛化能力 | OpenCity, UrbanFM |
+| "scaling laws" | 规模效应 | OpenCity, UrbanFM |
+| "theoretical guarantees" | 理论保证 | LTE-ODE, CIWI-CKT |
+| "catastrophic forgetting" | 持续学习 | CoMemNet
+| "causal discovery" | 因果推断 | Orion
