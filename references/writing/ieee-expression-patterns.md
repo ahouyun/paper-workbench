@@ -2295,4 +2295,66 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 
 ---
 
-> 本节交通预测内容整合自：PDFormer (AAAI'23), STAEformer (AAAI'24), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), MegaCRN (AAAI/TITS'23/'24), D2STGNN (VLDB/TKDE'22-'24), STID (CIKM/TNNLS'22-'24), FlashST (ICML'24), Expand-and-Compress (ICLR'25), TEAM (PVLDB'25), PatchSTG (KDD'25), LEAF (ACL'25), Damba-ST (ICDE'26), OpenCity (2025), STGformer (2024), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), GAMMA-Net (2026), FAST (ICME'26), MLA-STNet (2026), STM3 (KDD'26), RIPCN (KDD'26), U-STS-LLM (2026), FedLLM (2026) 等论文。更新时间：2026-05-27。
+### 12.44 IEEE TIV 2024-2025论文写作模式
+
+| 写作模式 | 使用频率 | 典型结构 |
+|---------|---------|---------|
+| **问题-局限-方案** | 高 | 现有方法 → 局限性 → 本文创新 |
+| **背景-挑战-贡献** | 高 | 领域重要性 → 技术挑战 → 本文贡献 |
+| **跨领域启发** | 中 | 其他领域成功 → 交通领域需求 → 方法迁移 |
+| **安全驱动** | 中 | 安全威胁 → 部署风险 → 防御方案 |
+| **数据特性分析** | 中 | 数据特点 → 建模需求 → 适配方法 |
+
+**IEEE TIV典型句式：**
+- "Traffic flow forecasting is a critical task for intelligent transportation systems, yet existing methods often rely on static graph structures that fail to capture the dynamic nature of spatial dependencies."
+- "The proliferation of connected vehicles generates massive real-time traffic data, presenting both opportunities and challenges for accurate traffic prediction."
+- "Privacy concerns and data silos pose significant challenges for centralized traffic prediction models, necessitating distributed learning approaches."
+- "Purely data-driven traffic prediction models may produce physically implausible results, particularly in scenarios with limited training data."
+
+### 12.45 IEEE TVT 2024-2025论文写作模式
+
+| 写作模式 | 使用频率 | 典型特征 |
+|---------|---------|---------|
+| **问题驱动式** | 高 | 从ITS/自动驾驶的实际需求出发，逐层引出技术挑战 |
+| **技术对比式** | 高 | 先指出现有方法（GCN/Transformer/FL）的局限，再提出改进 |
+| **多层递进式** | 中 | 传统方法不足 → 深度学习改进 → 仍有未解决问题 |
+| **前沿技术驱动** | 中 | 结合LLM、Diffusion Model、因果推理等前沿范式 |
+| **应用场景驱动** | 中 | 从高速公路合流、城市路网等具体场景切入 |
+
+**IEEE TVT典型句式：**
+- "As one of the most significant components of Intelligent Transportation Systems (ITS), traffic prediction has gained much popularity given its enormous application value."
+- "GCN-based approaches mainly focus on pair-wise interactions between road vertices (i.e. dyadic relations). However, the interactions between road vertices are not necessarily dyadic."
+- "Traffic prediction is one of the important research directions in Intelligent Transportation Systems, with positive implications for vehicle dispatching and vehicle management."
+- "With the rapid growth of urban vehicles, it is necessary to use advanced traffic control technologies for traffic flow control and traffic diversion."
+
+### 12.46 IEEE TNNLS 2025-2026论文写作模式
+
+| 写作模式 | 频率 | 典型结构 |
+|---------|------|---------|
+| **挑战-方案** | 高 | 指出核心挑战 → 提出创新方案 |
+| **局限性-创新** | 高 | 分析现有方法不足 → 提出改进 |
+| **多模块架构** | 中 | 多个协同模块 → 逐一设计 → 融合 |
+| **大规模基线比较** | 中 | 强调与大量baseline的比较 |
+| **数据集驱动** | 中 | 多个标准基准数据集验证 |
+
+**IEEE TNNLS典型句式：**
+- "Traffic prediction is a cornerstone of intelligent transportation systems (ITSs)."
+- "The effectiveness of existing spatiotemporal graph neural networks (STGNNs) heavily relies on the independent identically distributed (i.i.d.) assumption of traffic data, which is frequently violated in practice."
+- "Traffic time-series forecasting faces significant challenges from varying data complexity and domain-specific temporal patterns that existing transformer approaches fail to address through fixed architectural configurations."
+- "existing methods treat the delays between nodes in the traffic network as equally important and fail to extract critical information effectively, leading to information redundancy."
+
+### 12.47 ACTFormer创新模式（大规模基线比较）
+
+**ACTFormer (IEEE TNNLS 2026)** 的实验设计值得借鉴：
+- 比较了**34个baseline**（包括所有主流方法）
+- 在**6个基准任务**上验证（PeMS04/07/08、METR-LA、NYCTaxi）
+- 报告**参数量**（1.181M）和**训练时间**（29.49s）
+- 强调**自适应机制**（高复杂度场景用大词汇表，提升15.6%）
+
+**描述改进的写法：**
+- "ACTFormer achieves consistent 8.7%-14.6% mean absolute error (MAE) improvements over the strongest transformer (STGAFormer) baseline"
+- "high-complexity scenarios benefiting from large vocabularies (1024 tokens), achieving 15.6% performance gains"
+
+---
+
+> 本节交通预测内容整合自：PDFormer (AAAI'23), STAEformer (AAAI'24), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), MegaCRN (AAAI/TITS'23/'24), D2STGNN (VLDB/TKDE'22-'24), STID (CIKM/TNNLS'22-'24), FlashST (ICML'24), Expand-and-Compress (ICLR'25), TEAM (PVLDB'25), PatchSTG (KDD'25), LEAF (ACL'25), Damba-ST (ICDE'26), OpenCity (2025), STGformer (2024), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), GAMMA-Net (2026), FAST (ICME'26), MLA-STNet (2026), STM3 (KDD'26), RIPCN (KDD'26), U-STS-LLM (2026), FedLLM (2026), ACTFormer (TNNLS'26), DIST (TNNLS'25), MSTC-GAT (TNNLS'25), DDAMGCN (TNNLS'25), CHGNet (TVT'26), RoadDiff (TVT'25), TrafficLLM (TVT'25) 等论文。更新时间：2026-06-20。
