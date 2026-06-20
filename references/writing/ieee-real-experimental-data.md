@@ -1420,5 +1420,79 @@ Ours & -- & \textbf{2.52} & \textbf{4.85} & \textbf{6.45\%} & \textbf{2.85} & \t
 
 ---
 
-> 更新时间：2026-06-19
-> 来源：DCRNN (ICLR'18), STGCN (IJCAI'18), GWNet (IJCAI'19), MTGNN (KDD'20), AGCRN (NeurIPS'20), GMAN (AAAI'20), ASTGCN (AAAI'19), STSGCN (AAAI'20), PDFormer (AAAI'23), STAEformer (CIKM'23), MegaCRN (AAAI'24), DiffSTG (KDD'24), D2STGNN (2024), ST-Mamba (2024), GAMMA-Net (2026), STM3 (KDD'26), HiSTM (2025), ST-LLM (2024), UrbanGPT (KDD'24), UniST (KDD'24), FlashST (ICML'24), LEAF (ACL'25), FlowDistill (2025), UoMo (KDD'25), LargeST (NeurIPS'23), BasicTS (TKDE'24), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), Event-CausNet (2025), CityGPT (2025), AutoSTF (2025), FedGRU (2025), CASAformer (2025), MM-Path (2025), DT-CTFP (2025), UrbanMind (2025), UniFlow (2025), OpenCity (2025), STformer (2025), NSTformer (2025), FedTT (2025), PPTNet (2025), STGAT (2025), FlexiReg (2025), GURPP (2025), DTROS (2025), SAUC (2025), Stone (KDD'24), WeaGAN++ (2026), Physics-Regularized (2025), Backtime (NeurIPS'24), Conformalized ST-GCN (2025), Semi-Decentralized GNN (2024), STRAP (2025), Environment Prompt (2024), WA-STNet (2025), CompactST (2025), UrbanFM (2026), FactoST-v2 (2026), MobiFM (2026), MoST (2026), OracleTSC (2025), DiffRefiner (AAAI'26), UrbanEV (Scientific Data'25), Heterogeneous-Aware FL (ICDE'25), M3-Net (CIKM'25), Balance and Brighten (CIKM'25), DGLight (2025), CoordLight (2025), CROSS (2025), SymLight (2025), S4-Driver (2025), Beyond Patterns (2025), GaussianFusion (2025), LMFormer (2025), EV STGAT (2025), Bayesian EV (2025), Bikelution (2026), TSAGE (2025), Decoder-only Pre-train (2025), Latent Graph Learning (2025), FEDDGCN (2025), TopKNet (2025), FAST (ICME'26), U-STS-LLM (2026), MixTTE (2026), Chronos-2 (2026), PIMCST (2026), CSP (2026), ICST-DNET (TITS'26), ACTFormer (2026), ST-LLM+ (2026), NuwaDynamics+ (2026), STPAGNN (2026), TSRBench (2026), IGSTGNN (2026), ChaosNetBench (2026), XXLTraffic (2026)
+## 二十、2024-2026新数据集与基准
+
+### 20.1 XXLTraffic / EvoXXLTraffic
+
+**论文**: "XXLTraffic: Expanding and Extremely Long Traffic Forecasting beyond Test Adaptation" (ACM SIGSPATIAL 2025)
+
+**核心创新**: 目前最大的公开交通流量数据集，时间跨度长达27年。EvoXXLTraffic引入sensor-evolving特性：每年活跃传感器集合不同，增长率从+305%到超过+10,000%。
+
+**数据来源**: 美国洛杉矶（California PeMS）和澳大利亚新南威尔士州（NSW Transport）
+
+**评估内容**:
+- 极长时间跨度的交通流量预测
+- 超越传统test adaptation的预测场景
+- 引入down-sample训练配置以模拟实际资源约束
+- 定义streaming forecasting协议，每个calendar year作为一个continual task
+
+**关键发现**: 许多SOTA方法在该数据集上失效，揭示了新的研究方向。
+
+---
+
+### 20.2 Federated Urban Flow
+
+**论文**: "Federated Urban Flow: A Model-Centric Benchmark for Reproducible Evaluation of Deep Learning in Federated Traffic Forecasting" (IEEE FLTA 2025)
+
+**核心创新**: 首个专门针对联邦交通预测的标准化软件benchmark，包含21个实验场景。
+
+**关键发现**:
+- 上下文特征可降低70%以上的预测误差
+- Transformer在长时预测中表现优异
+- 增加客户端和通信轮数存在收益递减
+
+---
+
+### 20.3 MELAUDIS
+
+**论文**: "MELAUDIS: A Large-Scale Benchmark Acoustic Dataset For Intelligent Transportation Systems Research" (Nature Scientific Data 2025)
+
+**核心创新**: 最大城市声学交通数据集，包含16,092条录音，覆盖6种车辆类型。
+
+**评估内容**:
+- 车辆检测、交通状态监测、车辆类型分类
+- 分类精度从65.1%提升至82.84%
+
+---
+
+### 20.4 Enriched Madrid Traffic Datasets
+
+**论文**: "Enriched traffic datasets for the city of Madrid" (Data in Brief 2024)
+
+**核心创新**: 多源数据融合：交通传感器 + 道路基础设施 + 日历 + 天气，针对欧洲城市特征。
+
+---
+
+### 20.5 NetBench
+
+**论文**: "NetBench: A Large-Scale and Comprehensive Network Traffic Benchmark Dataset for Foundation Models" (IEEE FMSys 2024)
+
+**核心创新**: 首个专门为Foundation Model设计的网络流量benchmark。
+
+---
+
+### 20.6 新数据集趋势
+
+| 趋势 | 代表数据集 | 核心特征 |
+|------|-----------|---------|
+| 规模扩大 | LargeST, XXLTraffic | 从数百传感器扩展到数千 |
+| 时间跨度延长 | XXLTraffic | 从几个月扩展到27年 |
+| 动态性增强 | EvoXXLTraffic | 传感器网络逐年演化 |
+| 联邦学习支持 | Federated Urban Flow | 隐私保护场景评估 |
+| 多模态融合 | MELAUDIS, Madrid | 声学+视觉+结构化数据 |
+| Foundation Model导向 | NetBench | 为大规模预训练设计 |
+
+---
+
+> 更新时间：2026-06-20
+> 来源：DCRNN (ICLR'18), STGCN (IJCAI'18), GWNet (IJCAI'19), MTGNN (KDD'20), AGCRN (NeurIPS'20), GMAN (AAAI'20), ASTGCN (AAAI'19), STSGCN (AAAI'20), PDFormer (AAAI'23), STAEformer (CIKM'23), MegaCRN (AAAI'24), DiffSTG (KDD'24), D2STGNN (2024), ST-Mamba (2024), GAMMA-Net (2026), STM3 (KDD'26), HiSTM (2025), ST-LLM (2024), UrbanGPT (KDD'24), UniST (KDD'24), FlashST (ICML'24), LEAF (ACL'25), FlowDistill (2025), UoMo (KDD'25), LargeST (NeurIPS'23), BasicTS (TKDE'24), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), Event-CausNet (2025), CityGPT (2025), AutoSTF (2025), FedGRU (2025), CASAformer (2025), MM-Path (2025), DT-CTFP (2025), UrbanMind (2025), UniFlow (2025), OpenCity (2025), STformer (2025), NSTformer (2025), FedTT (2025), PPTNet (2025), STGAT (2025), FlexiReg (2025), GURPP (2025), DTROS (2025), SAUC (2025), Stone (KDD'24), WeaGAN++ (2026), Physics-Regularized (2025), Backtime (NeurIPS'24), Conformalized ST-GCN (2025), Semi-Decentralized GNN (2024), STRAP (2025), Environment Prompt (2024), WA-STNet (2025), CompactST (2025), UrbanFM (2026), FactoST-v2 (2026), MobiFM (2026), MoST (2026), OracleTSC (2025), DiffRefiner (AAAI'26), UrbanEV (Scientific Data'25), Heterogeneous-Aware FL (ICDE'25), M3-Net (CIKM'25), Balance and Brighten (CIKM'25), DGLight (2025), CoordLight (2025), CROSS (2025), SymLight (2025), S4-Driver (2025), Beyond Patterns (2025), GaussianFusion (2025), LMFormer (2025), EV STGAT (2025), Bayesian EV (2025), Bikelution (2026), TSAGE (2025), Decoder-only Pre-train (2025), Latent Graph Learning (2025), FEDDGCN (2025), TopKNet (2025), FAST (ICME'26), U-STS-LLM (2026), MixTTE (2026), Chronos-2 (2026), PIMCST (2026), CSP (2026), ICST-DNET (TITS'26), ACTFormer (2026), ST-LLM+ (2026), NuwaDynamics+ (2026), STPAGNN (2026), TSRBench (2026), IGSTGNN (2026), ChaosNetBench (2026), XXLTraffic (2026), EvoXXLTraffic (2026), Federated Urban Flow (2025), MELAUDIS (2025), Madrid Datasets (2024), NetBench (2024)

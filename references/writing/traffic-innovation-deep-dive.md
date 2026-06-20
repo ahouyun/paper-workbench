@@ -1,4 +1,4 @@
-# 交通流预测深度创新灵感库 (2023-2026)
+﻿# 交通流预测深度创新灵感库 (2023-2026)
 
 > 基于300+篇论文的系统性调研，覆盖因果推断、鲁棒性、跨学科方法、新型数据源等前沿方向。
 > 聚焦真正可创新的研究空白，非"把X模型应用到交通"的套路。
@@ -1386,6 +1386,75 @@ Transformer的O(L²)复杂度在长序列交通预测中计算成本高昂。Mam
 - “多城市联合训练”不等于“模型合并”。
 - “从区域大模型微调到单城市”不自动等于“模型拆分”，除非明确给出拆分机制或资源收益。
 - 如果只有概念图，没有真实参数合并、对齐、蒸馏、联邦或元学习协议，就只能写成 future work。
+
+
+### H.2 Machine Unlearning / 污染参数修复（从持续学习到可遗忘学习）
+
+**适用场景：** 前面 H.1 已经讲了“多个城市已有模型如何合并，再如何拆分”。接下来很自然的反向问题是：如果某些节点、区域或客户端后来被证明是坏的、漂移的、被投毒的、需要撤回的，那么统一模型里已经吸收进去的那部分知识，如何**不重训全模型**地删掉。
+
+**一句话问题定义：**
+- 某些传感器节点损坏，持续输出错误值；
+- 某些区域数据被攻击或投毒；
+- 某个城市后来不允许继续共享历史数据；
+- 某一时间段的数据已经明显过时；
+- 问题不再是 anomaly detection，而是模型已经被污染以后，怎样做 **selective forgetting / model repair**。
+
+**为什么这个方向好讲故事：**
+1. 持续学习解决“怎么把新知识加进去”。
+2. 机器遗忘解决“怎么把错误知识拿出来”。
+3. 合并解决“知识如何汇聚”。
+4. 拆分解决“知识如何重新个性化”。
+5. 四者连在一起，就不是一个小修小补模块，而是完整的区域级交通模型生命周期。
+
+**可直接挂靠的近期参考：**
+- `Machine Unlearning of Traffic State Estimation and Prediction` ([arXiv:2507.17984](https://arxiv.org/abs/2507.17984))：可以直接支撑“privacy / poisoned / outdated data 都可能触发 unlearning”这条论证线。
+- `Continuous Learning for Android Malware Detection` (USENIX Security 2023)：可借它的系统叙事，不是照搬任务，而是借“概念漂移、持续更新、自污染风险、修复闭环”的写法。
+
+**交通场景下可以怎么具体化：**
+- 交通流预测：坏传感器长期漂移，把局部速度/流量模式带偏。
+- 交通状态估计：局部观测异常导致全局状态重建被污染。
+- OD / 出行需求：节假日或突发事件后的过时数据残留在模型里。
+- 轨迹/移动流量：某些区域的隐私数据需要删除，必须从模型中遗忘。
+
+**最小技术路线：**
+- 先选一个有公开代码、容易跑通的 backbone，如 `STGCN / DCRNN / Graph WaveNet / STAEformer`。
+- 再把“大框架”作为一号创新，把“在该 backbone 上实现局部 unlearning 或 repair”作为二号创新。
+- 不要一上来就追求自建超大模型，否则实验和故事都会变散。
+
+**可写的 unlearning 机制：**
+- 节点级 / 区域级定位后做 localized adapter reset
+- 近似 influence rollback 或梯度反向补偿
+- city-specific head 替换 + shared encoder 保留
+- teacher-student re-distillation，用净化数据重新蒸馏
+- 对统一模型先遗忘，再蒸馏拆分到本地模型
+
+**实验设计建议：**
+1. 选 `A/B/C` 三个城市或三个区域子图。
+2. 人为构造污染：
+   - 节点故障 / 传感器漂移
+   - 标签翻转 / 数据投毒
+   - 局部时间段失真
+   - 隐私删除请求
+3. 比较：
+   - full retrain
+   - naive fine-tune
+   - localized unlearning
+   - parameter-efficient unlearning
+   - merge 后再 unlearn
+4. 除 `MAE/RMSE/MAPE` 外增加：
+   - forgetting effectiveness
+   - utility retention
+   - repair cost
+   - affected-region recovery
+   - unaffected-region collateral damage
+
+**特别适合写成亮点的地方：**
+- 不是泛泛讲“模型鲁棒性”，而是讲“模型已经被污染后如何修复”。
+- 不是只讲单城预测，而是讲“跨城市合并后的统一模型如何定向遗忘某一部分知识”。
+- 不是只适用于交通流，而是可以平移到交通状态估计、OD、轨迹、移动流量，甚至其他时空学习任务。
+
+**推荐记忆模板：**
+- “合并是把知识收进来，持续学习是把新知识加进去，unlearning 是把坏知识拿出去，拆分是把统一知识重新分发出去。”
 
 ### I. 扩散模型新应用
 
