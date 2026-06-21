@@ -2751,3 +2751,54 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - 统一超参数搜索
 - 统一评估流程
 - 多数据集验证
+
+### 13.20 KDD 2026论文写作模式
+
+**领域知识驱动（RIPCN）：**
+> "RIPCN introduces a dynamic impedance evolution network that captures directional traffic transfer patterns driven by road congestion level and flow variability, revealing the direct causes of uncertainty."
+
+**挑战编号列举（STM3）：**
+> "The long-term spatio-temporal dependency learning brings two new challenges: 1) The long-term temporal sequence naturally includes multiscale information, which is hard to extract efficiently; 2) The multiscale temporal information from different nodes is highly correlated and hard to model."
+
+**不确定性量化标配（EnergyMamba）：**
+> "existing works have two key limitations: (1) they usually formulate this task as a purely time-series prediction problem without explicitly modeling the spatial dependencies among different regions, and (2) they fail to provide reliable predictions with uncertainty estimates."
+
+**因果推断引入（CausalPOI）：**
+> "most methods rely on proximity-based graphs and correlation-driven modeling, which overlook the functional dependencies between POIs and fail to capture the causal effects of urban interventions."
+
+**物理信息引导（DSPR）：**
+> "Existing data-driven models often achieve strong statistical performance but struggle to respect regime-dependent interaction structures and transport delays inherent in real-world systems."
+
+### 13.21 2025-2026新方法写作范式
+
+**Mamba/SSM范式（TrafficMamba）：**
+- 强调效率优势："linear complexity vs quadratic complexity"
+- 双向扫描机制："bidirectional scanning captures both forward and backward temporal dependencies"
+
+**Transformer变体范式（PDFormer）：**
+- 从交通流理论出发："traffic congestion propagates through road networks with inherent delays"
+- 显式建模传播延迟："explicitly modeling the time delay of spatial information propagation"
+
+**LLM/基础模型范式（UrbanGPT, UniST）：**
+- 强调泛化能力："zero-shot and few-shot prediction capabilities"
+- 跨域迁移："transfer to unseen cities without fine-tuning"
+
+**扩散模型范式（DiffSTG）：**
+- 概率预测："probabilistic forecasting rather than point estimation"
+- 不确定性量化："provides calibrated uncertainty estimates"
+
+**图神经网络创新（DGCRN）：**
+- 动态图学习："dynamic graph structure evolves over time"
+- 元学习："meta-learning generates graph parameters"
+
+**多模态融合范式：**
+- 互补性："satellite imagery, GPS trajectories, camera data provide complementary information"
+- 异质图："heterogeneous graph structure handles multi-modal data"
+
+**联邦学习范式（FedST）：**
+- 隐私保护："privacy-preserving collaborative learning"
+- 跨域协作："cross-city knowledge transfer without sharing raw data"
+
+**物理信息范式：**
+- 物理约束："traffic flow theory as inductive bias"
+- 可解释性："physically interpretable predictions"
