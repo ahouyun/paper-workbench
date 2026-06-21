@@ -3170,3 +3170,104 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - 单位缩写：K=10^3, M=10^6
 - 指标顺序：MAE, RMSE, MAPE
 - 预测步长：15min, 30min, 60min (3, 6, 12 steps)
+
+### 13.32 arXiv 2025-2026最新论文（40篇，API验证）
+
+**GNN方向（9篇）：**
+- CIWI-CKT: Chaos-Informed Wave Interference (2026-06-14)
+- MA-GLTC: Memory-Augmented Graph Liquid Time-Constant (2026-06-14)
+- PatchSTG: Scalable Spatiotemporal Graph Transformers (2026-06-02)
+- GC-MoE: Graph-Conditioned Mixture of Experts (2026-05-28)
+- GAMMA-Net: Graph Attention + Multi-Axis Mamba (2026-04-18)
+- VisiFold: Temporal Folding Graph (2026-03-12)
+- GEnSHIN: Graphical Enhanced ST Hierarchical (2026-01-08)
+- Meta Dynamic Graph (2026-01-15)
+- RIPCN: Road Impedance Principal Component (2025-12-25)
+
+**Transformer方向（4篇）：**
+- FAST: Attention + SSM协同 (ICME 2026)
+- MMCAformer: Macro-Micro Cross-Attention (2026-02-17)
+- Long-Horizon Conformal ST-Transformers (2026-03-17)
+- Geographically-aware Transformer Digital Twin (2026-02-05)
+
+**LLM/Foundation Model方向（5篇）：**
+- U-STS-LLM: Unified Spatio-Temporal Steered LLM (2026-05-12)
+- FedLLM: Federated LLM (2026-04-17)
+- LEAD: LLM-Enhanced Adapter Diffusion (2026-01-29)
+- LSDM: LLM-Enhanced Diffusion (2025-07-23)
+- Efficient Prompt Learning (2026-05-08)
+
+**Mamba/SSM方向（3篇）：**
+- GAMMA-Net: Multi-Axis Mamba (2026-04-18)
+- NeST-S6: PDE-aware SSM (2026-03-12)
+- DKGCM: Fourier Bidirectional Mamba (2025-06-26)
+
+**其他方向（19篇）：**
+- Unveiling Stochasticity: Probabilistic (2026-04-17)
+- DRIFT: Risk-Constrained Diffusion (2026-06-15)
+- From GPU to Microcontroller: Edge Deploy (2026-06-16)
+- STGCN Architectural Depth Study (2026-06-08)
+- Do TSFM Benchmarks Hide Failures (2026-06-16)
+- Beyond Static Forecasting: World Models (2026-04-09)
+- CoMemNet: Continual Learning (2026-05-07)
+- PHGNet: Prototype Hypergraph (2026-05-25)
+- RCSNet: Road-Conditioned (2026-05-27)
+- PIMCST: Physics-Informed Multi-Phase (2026-02-02)
+- UniST-Pred: Robust Unified (2026-02-15)
+- DYNA-PRUNER: Input-Adaptive Pruning (2026-06-13)
+- Safe Urban Traffic: Conformal + RL (2026-02-04)
+- Long-Horizon Incident-Aware (2026-03-17)
+- DWAFM: Dynamic Weighted Graph (2026-03-01)
+- ADMFormer: Adaptive-Decomposition (2026-05-25)
+- OmniTraffic: Controllable Generation (2026-06-14)
+- Vessel Traffic: Learnable Tweedie (2026-06-05)
+
+### 13.33 KDD/AAAI/NeurIPS 2025-2026（30+篇）
+
+**KDD 2025-2026：**
+- MoST: Multi-modality Foundation Model (2026)
+- Multimodal Embeddings Traffic Accident (2026)
+- Seeing the Unseen: Confounder Representations (2025)
+- UoMo: Universal Mobile Traffic (2024)
+- CityBench: LLM Urban Tasks (2024)
+
+**AAAI 2025-2026：**
+- RAST: Retrieval Augmented ST Framework (2026)
+- Inter-Client Dependency Federated (2026)
+- Meta Dynamic Graph (2026)
+- Decomposed ST-Mamba (2025)
+- SSL-STMFormer (2025)
+- FairTP: Prolonged Fairness (2025)
+- Efficient ST Distillation (2025)
+
+**NeurIPS 2024：**
+- DeMo: Motion Decoupling (2024)
+- BehaviorGPT: Smart Agent Simulation (2024)
+
+### 13.34 WWW/CIKM/IJCAI 2025-2026（20篇）
+
+**WWW 2025-2026（8篇）：**
+- VisionST: Cross-modal Traffic (2026)
+- FedDis: Causal Disentanglement Federated (2026)
+- ST-LEGO: LLM Modular Architects (2026)
+- MIGC-CMamba: Cross-Domain Mamba (2026)
+- LLGformer: Learnable Long-range Graph (2025)
+- STKOpt: Automated Knowledge Optimization (2025)
+- Mitigating Spatial Disparity (2025)
+- Exploring Search Volumes Event-Aware (2025)
+
+**CIKM 2025（7篇）：**
+- M3-Net: Cost-Effective Graph-Free MLP (2025)
+- SS-MoE: Semantic Spatial Experts (2025)
+- FEDDGCN: Frequency-Enhanced Decoupling (2025)
+- TopKNet: Top-K Pivotal Nodes (2025)
+- DoP: Decoder-only Pre-training (2025)
+- Extracting Global Temporal Patterns (2025)
+- Traffic Safety Evaluation (2025)
+
+**IJCAI 2025（5篇）：**
+- Unveiling Noise Priors Diffusion (2025)
+- Riding the Wave: Overload Scenarios (2025)
+- STAMImputer: Spatio-Temporal MoE (2025)
+- Vision Language Models Traffic Profiling (2025)
+- Balancing Imbalance: Data-Scarce (2025)
