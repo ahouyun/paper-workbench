@@ -489,7 +489,7 @@ version: 6.1.0
 - article type / section spine: `references/workflow/ieee-writing-spine.md`, `references/writing/chapter-patterns-ieee.md`
 - language / contribution / abstract patterns: `references/writing/traffic-writing-execution-master-index.md`
 - experiment design: `references/writing/traffic-experiment-planning-master-index.md`
-- visual planning: `references/writing/ieee-visual-playbook.md`
+- visual planning: `references/writing/traffic-figure-patterns.md`
 - provenance / numbers: `references/writing/ieee-data-provenance-checklist.md`
 - paper review: `references/review/traffic-review-response-master-index.md`
 - academic search: `references/research/academic-search.md`
@@ -555,7 +555,7 @@ version: 6.1.0
 
 ### `latex_diagnosis` 常用加载
 
-- 图表标准: `references/writing/nature-figure-standards.md` 或 `ieee-visual-playbook.md`
+- 图表标准: `references/writing/nature-figure-standards.md` 或 `traffic-figure-patterns.md`
 - 写作规范: 按目标期刊选择对应参考
 
 ---

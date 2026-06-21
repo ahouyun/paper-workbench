@@ -10,9 +10,16 @@
 
 | 文件 | 行数 | 内容 |
 |------|------|------|
-| `ieee-expression-patterns.md` | 2600+ | IEEE论文表达模式，13种写作模式、好句vs坏句对比、实验描述模式 |
+| `ieee-expression-patterns.md` | 3400+ | 完整表达模式库（12.1-13.45节） |
+| `ieee-expression-patterns-core.md` | 1300 | 核心表达模式（12.1-12.8节，基础写作） |
+| `ieee-expression-patterns-new.md` | 972 | 新发现模式（13.1-13.45节，2024-2026论文） |
 | `chapter-patterns-ieee.md` | 1375 | IEEE章节模式，写作顺序、漏斗结构、技术挑战写作 |
 | `flexible-writing-guide.md` | 300+ | 灵活写作指南，避免模板化 |
+
+**文件关系说明：**
+- `ieee-expression-patterns.md` 是完整版，包含所有内容
+- `ieee-expression-patterns-core.md` 是核心子集，适合初次使用
+- `ieee-expression-patterns-new.md` 是2024-2026新发现，适合追加学习
 
 ### 创新灵感
 

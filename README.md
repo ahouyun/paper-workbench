@@ -91,7 +91,6 @@ paper-workbench/
 │   │   ├── cover-letter-template.md  # Cover Letter
 │   │   ├── ieee-submission-guide.md  # 投稿指南
 │   │   └── rejection-handling-guide.md # 拒稿处理
-│   └── figure-table/                 # 图表工具
 ├── templates/
 │   ├── latex/                        # LaTeX模板
 │   └── code/                         # Python代码模板
