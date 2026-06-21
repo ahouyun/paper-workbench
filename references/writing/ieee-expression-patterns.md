@@ -2973,3 +2973,67 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 
 **Urban FM（3篇）：**
 - Urban General Intelligence (2024), Urban-R1 (2025), CITYREP (2026)
+
+### 13.27 2024-2025实验描述6大模式
+
+**模式1：实验设置描述标准开头**
+> "We conduct extensive experiments on X real-world benchmark datasets..."
+> "All experiments are repeated 5 times with different random seeds, and we report the mean and standard deviation."
+
+**模式2：数据集描述标准格式**
+> "METR-LA collects traffic speed data from 207 sensors on the Los Angeles County highway system over 4 months (March 2012 to June 2012)."
+> "PEMS04 contains traffic flow data from 307 detectors in San Bernardino."
+
+**模式3：数据划分标准**
+> "We follow the standard data splitting strategy: 70% for training, 10% for validation, and 20% for testing."
+> "We adopt a unified evaluation protocol across all datasets with consistent data splits, preprocessing, and metrics."
+
+**模式4：公平对比声明**
+> "All methods are re-implemented using the same framework and hyperparameter tuning budget."
+> "For fair comparison, we use the same data preprocessing, evaluation protocol, and training strategy for all methods."
+
+**模式5：Ablation Study描述**
+> "To verify the effectiveness of each component, we conduct ablation studies by removing one component at a time."
+> "Removing X leads to the largest performance drop, demonstrating its importance."
+
+**模式6：效率报告**
+> "Table 5 compares the computational cost. Our method achieves the best accuracy-efficiency trade-off with 2.5M parameters and 3.2 GFLOPs."
+> "Our model trains 2.3x faster than STAEformer while achieving comparable accuracy."
+
+### 13.28 图表设计模式（15篇论文分析）
+
+**Architecture图设计：**
+- 分层展示：Input → Spatial Embedding → Temporal Embedding → Transformer Encoder → Prediction
+- 颜色编码：蓝色=空间模块，橙色=时间模块，绿色=输出
+- 箭头明确数据流方向
+
+**Prediction Comparison曲线：**
+- 实线=Ground Truth，虚线=各模型预测值
+- 不同颜色区分15min/30min/60min预测horizon
+- 每个子图代表一个sensor
+
+**Attention Heatmap设计：**
+- 使用jet或viridis colormap
+- 横轴=sensor节点，纵轴=time steps
+- 颜色深浅表示attention weight大小
+
+**Ablation柱状图：**
+- X轴=组件名称（w/o Module A, w/o Module B, Full Model）
+- Y轴=性能指标（MAE/RMSE）
+- 使用error bar表示标准差
+
+**效率散点图：**
+- 横轴=训练时间或参数量，纵轴=MAE
+- 气泡大小代表参数量
+- 理想位置为左下角（高效+高精度）
+
+**跨城市迁移热力图：**
+- 行=源城市，列=目标城市
+- 单元格=迁移后的性能指标
+- 颜色深浅表示性能增益
+
+**Figure Caption模板：**
+> "Fig. X. The overall architecture of [ModelName]. It consists of [Module1], [Module2], and [Module3]."
+> "Fig. X. Prediction comparison on [DatasetName] at [Horizon] horizon."
+> "Fig. X. Visualization of [Component] on [Dataset]."
+> "Fig. X. Case study of traffic prediction on [Date/Location]."
