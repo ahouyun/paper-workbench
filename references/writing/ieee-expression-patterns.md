@@ -2900,3 +2900,76 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - MSTC-GAT Multilayer Attention (10.1109/TNNLS.2025.3630903)
 - One Size Fits All Unified (10.1109/TNNLS.2023.3259045)
 - TraverseNet (10.1109/TNNLS.2022.3186103)
+
+### 13.24 arXiv 2026最新论文（40篇，API验证）
+
+**2026年6月（最新）：**
+- Do Time Series Foundation Model Benchmarks Hide Regime-Dependent Failures? (2026-06-16)
+- From GPU to Microcontroller: Online Ridge Regression (2026-06-16)
+- CIWI-CKT: Chaos-Informed Wave Interference (2026-06-14)
+- MA-GLTC: Memory-Augmented Graph Liquid Time-Constant (2026-06-14)
+- PatchSTG: Scalable Spatiotemporal Graph Transformers (2026-06-02)
+- GC-MoE: Graph-Conditioned Mixture of Experts (2026-05-28)
+- EvoXXLTraffic: Scaling to Sensor-Evolving Networks (2026-05-28)
+
+**2026年5月：**
+- ADMFormer: Adaptive-Decomposition Transformer (2026-05-25)
+- U-STS-LLM: Unified Spatio-Temporal Steered LLM (2026-05-12)
+- TSNN: Non-parametric Interpretable Framework (2026-05-09)
+- LTE-ODE: Local Truncation Error-Guided Neural ODEs (2026-05-05)
+- Efficient Prompt Learning for Traffic (2026-05-08)
+
+**2026年3-4月：**
+- GAMMA-Net: Graph Attention + Multi-Axis Mamba (2026-04-18)
+- Unveiling Stochasticity: Multi-modal Probabilistic (2026-04-17)
+- Beyond Static Forecasting: World Models (2026-04-09)
+- Long-Horizon Conformal ST-Transformers (2026-03-17)
+- NeST-S6: Spatial PDE-aware SSM (2026-03-12)
+- VisiFold: Temporal Folding Graph (2026-03-12)
+
+**2026年1-2月：**
+- UniST-Pred: Robust Unified Framework (2026-02-15)
+- PIMCST: Physics-Informed Multi-Phase (2026-02-02)
+- GEnSHIN: Graphical Enhanced ST Hierarchical (2026-01-08)
+
+### 13.25 Mamba/SSM论文（21篇，arXiv API验证）
+
+**2026年（7篇）：**
+- GAMMA-Net: GAT + Multi-Axis Mamba (2026-04-18, MAE降低16.25%)
+- FAST: Attention + SSM协同 (ICME 2026, RMSE降低4.3%)
+- NeST-S6: PDE-aware SSM (2026-03-12, MAE降低48-65%)
+
+**2025年（11篇）：**
+- HiSTM: Hierarchical ST Mamba (2025-08-07)
+- MCST-Mamba: Multivariate Mamba (2025-07-05)
+- DKGCM: Fourier Bidirectional Mamba (2025-06-26)
+- GAMDTP: Graph Attention Mamba (2025-04-07)
+
+**2024年（3篇，奠基工作）：**
+- ST-Mamba: Spatial-Temporal SSM (2024-04-20)
+- ST-MambaSync: Mamba+Transformer (2024-04-24)
+
+### 13.26 LLM/Foundation Model论文（37篇，arXiv API验证）
+
+**LLM+道路预测（8篇）：**
+- ST-LLM (2024), TPLLM (2024), Strada-LLM (2024)
+- FlowDistill (2025), FedLLM (2026), U-STS-LLM (2026)
+
+**LLM+移动流量（4篇）：**
+- Mobile Traffic LLM (2025), Chain-of-Thought (2026)
+
+**LLM+交通系统（5篇）：**
+- CrossTrafficLLM (2025), TransLLM (2025), TrafficClaw (2026)
+
+**Vision/多模态LLM（3篇）：**
+- Vision-LLMs (2025), CrashChat (2025), TB-Bench (2025)
+
+**Diffusion+交通（4篇）：**
+- ChatTraffic (2023), LSDM (2025, LLM+Diffusion融合)
+
+**Foundation Model（6篇）：**
+- Self-Refined FM (2024), PreMixer (2024), Efficient Prompt (2026)
+- ReasonLight (2026), Safe Mobility FM (2026)
+
+**Urban FM（3篇）：**
+- Urban General Intelligence (2024), Urban-R1 (2025), CITYREP (2026)
