@@ -1131,9 +1131,9 @@
 **一句话记忆模板：**
 - “大框架是一号创新，可跑通模型是二号创新；合并解决知识汇聚，遗忘解决知识撤回，拆分解决知识再个性化。”
 
-> 更新时间：2026-06-20
+> 更新时间：2026-06-21
 > 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME, WWW, SIGIR, Nature Communications (2024-2026)
-> 涵盖论文：1190+篇（正文990+篇 + 附录200+篇新增论文）
+> 涵盖论文：2024-2026年创新方向论文 + 综述论文参考文献索引
 > 基线参考：2023年及之前经典论文（PDFormer, STID, STGCN, DCRNN等）
 > 数据来源：OpenAlex API, arXiv API, Semantic Scholar
 
@@ -1972,5 +1972,5 @@
 
 > 更新时间：2026-06-21
 > 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME, WWW, SIGIR, CIKM, Nature Communications (2024-2026)
-> 涵盖论文：1200+篇
+> 涵盖论文：2024-2026年创新方向论文 + 综述论文参考文献索引
 > 数据来源：OpenAlex API, arXiv API, Semantic Scholar, 综述论文参考文献索引

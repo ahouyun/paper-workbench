@@ -10,15 +10,15 @@
 
 | 文件 | 行数 | 内容 |
 |------|------|------|
-| `ieee-expression-patterns.md` | 2298 | IEEE论文表达模式，12种标题模式、好句vs坏句对比 |
+| `ieee-expression-patterns.md` | 2600+ | IEEE论文表达模式，13种写作模式、好句vs坏句对比、实验描述模式 |
 | `chapter-patterns-ieee.md` | 1375 | IEEE章节模式，写作顺序、漏斗结构、技术挑战写作 |
-| `traffic-writing-patterns.md` | 704 | 交通预测论文写作模式（已合并到ieee-expression-patterns.md） |
+| `flexible-writing-guide.md` | 300+ | 灵活写作指南，避免模板化 |
 
 ### 创新灵感
 
 | 文件 | 行数 | 内容 |
 |------|------|------|
-| `ieee-innovation-inspiration.md` | 1920 | 39个创新方向，400+篇论文，涵盖GNN/Transformer/Mamba/Diffusion/LLM/Neural ODE/因果推断等 |
+| `ieee-innovation-inspiration.md` | 1920+ | 39个创新方向，涵盖GNN/Transformer/Mamba/Diffusion/LLM/Neural ODE/因果推断等 |
 
 ### 实验数据
 
