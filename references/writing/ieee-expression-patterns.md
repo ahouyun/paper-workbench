@@ -3271,3 +3271,61 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - STAMImputer: Spatio-Temporal MoE (2025)
 - Vision Language Models Traffic Profiling (2025)
 - Balancing Imbalance: Data-Scarce (2025)
+
+### 13.35 2025-2026最新写作技巧（15篇论文分析）
+
+**Abstract写作标准模板：**
+> "[背景句] Traffic forecasting is a critical task in intelligent transportation systems, enabling real-time traffic management and route planning. [问题句] However, existing methods struggle to capture the complex spatiotemporal dependencies inherent in traffic data. [方法句] In this paper, we propose [Model Name], a novel [技术] that [核心创新]. [技术细节] Specifically, [1-2句描述关键技术模块]. [实验句] Extensive experiments on [数据集名称] demonstrate that [Model Name] outperforms state-of-the-art methods by [X]% in MAE and [Y]% in RMSE. [意义句] Our approach provides new insights into [领域贡献]."
+
+**Introduction四段式模板（IEEE TITS标准）：**
+> 第1段（领域重要性）："Traffic prediction, which aims to forecast future traffic states based on historical observations, plays a pivotal role in intelligent transportation systems (ITS)."
+> 第2段（现有方法及局限）："Existing methods can be broadly categorized into three families: (1) statistical models, (2) traditional machine learning, and (3) deep learning methods. Despite their success, these methods suffer from several limitations."
+> 第3段（本文方法）："To address these limitations, we propose [Model Name], a novel adaptive graph learning framework for traffic prediction."
+> 第4段（贡献总结）："The main contributions of this paper are summarized as follows: (1) We propose..., (2) We design..., (3) We conduct..."
+
+**Contribution Statement三种风格：**
+> IEEE TITS风格："The main contributions of this paper are summarized as follows: 1. We propose... 2. We design... 3. Extensive experiments..."
+> AAAI风格："Methodologically, we propose... Theoretically, we provide... Empirically, we demonstrate..."
+> NeurIPS风格："We identify a fundamental limitation... We propose [Model] with a novel [技术], which provably mitigates... We establish new state-of-the-art results..."
+
+### 13.36 实验描述标准模式（15篇论文分析）
+
+**数据集描述三要素：**
+> "[Dataset] contains [data_type] data collected from [N] sensors/detectors in [location] over [time_period]."
+
+**基线分类描述：**
+> "We compare our method with several state-of-the-art baselines: (1) GNN-based methods: DCRNN, STGCN, GWNet; (2) Transformer-based methods: STAEformer, PDFormer; (3) LLM-based methods: UrbanGPT, UniST."
+
+**消融实验描述：**
+> "To verify the effectiveness of each component, we design the following variants: w/o [Module1]: Remove the [模块]; w/o [Module2]: Replace with [替代]; Full Model: Complete architecture."
+
+**效率分析描述：**
+> "Table Z compares the computational efficiency. Our model achieves the best trade-off between accuracy and computational cost with [X]M parameters and [Y]G FLOPs."
+
+### 13.37 图表设计模式（16篇论文分析）
+
+**必备图类型：**
+1. Architecture Diagram（100%论文）- 从左到右或从上到下流水线
+2. Performance Comparison（100%论文）- 多子图并排不同预测步长
+3. Attention Heatmap（70%论文）- Viridis/Plasma色系
+4. Ablation Bar Chart（75%论文）- 柱状图+误差棒
+5. Case Study Map（50%论文）- 真实路网热力图
+
+**Table设计规范：**
+- 最佳结果**加粗**，次佳<u>下划线</u>
+- 三线表格式，顶部横线加粗
+- 列按预测步长(15/30/45/60min)分组
+- 底部注释说明实验设置
+
+**Figure Caption模板：**
+> "Fig. 1. The overall architecture of [ModelName]. It consists of [Module1], [Module2], and [Module3]."
+> "Fig. 3. Visualization of [Component] on [Dataset]. Darker colors indicate stronger correlations."
+> "Fig. 5. Prediction results comparison. The red line represents our prediction, black line represents ground truth."
+
+### 13.36 2025年写作新趋势
+
+1. **LLM/Foundation Model论文**：必须提到"foundation model"或"large language model"，强调zero-shot/few-shot能力
+2. **不确定性量化**：不仅报告MAE/RMSE，还要报告CRPS/PICP/PINAW
+3. **可解释性**：增加Visualization子节展示attention权重
+4. **效率与可扩展性**：必须报告参数量、训练时间、GPU内存
+5. **多模态融合**：引入文本、图像、图谱等多源数据
