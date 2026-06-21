@@ -3038,7 +3038,7 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 > "Fig. X. Visualization of [Component] on [Dataset]."
 > "Fig. X. Case study of traffic prediction on [Date/Location]."
 
-### 13.25 交通流预测实验设置标准模板
+### 13.41 交通流预测实验设置标准模板
 
 **数据集描述标准格式：**
 > "METR-LA collects traffic speed data from 207 sensors on the Los Angeles County highway system over 4 months (March 2012 to June 2012). PEMS-BAY contains 6 months of traffic speed data collected from 325 sensors in the San Francisco Bay Area."
@@ -3055,7 +3055,7 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 > "For fair comparison, we use the same data preprocessing, evaluation protocol, and training strategy for all methods."
 > "We compare with three types of baselines: (1) Graph neural network-based methods, (2) Transformer-based methods, (3) LLM-based methods."
 
-### 13.26 2025-2026 IEEE TITS高引论文（CrossRef验证）
+### 13.42 2025-2026 IEEE TITS高引论文（CrossRef验证）
 
 **2026年：**
 - Spatio-Temporal Data Enhanced Vision-Language Model (10.1109/tits.2025.3628271)
@@ -3070,7 +3070,7 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - Spatio-Temporal Contrastive Learning (37 citations, 10.1109/tits.2024.3487982)
 - Federated Transfer Learning (19 citations, 10.1109/tits.2025.3545445)
 
-### 13.27 AAAI 2025-2026交通预测论文（DBLP验证）
+### 13.43 AAAI 2025-2026交通预测论文（DBLP验证）
 
 **AAAI 2026：**
 - RAST: Retrieval Augmented Spatio-Temporal Framework (10.1609/AAAI.V40I46.41264)
@@ -3083,7 +3083,7 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - FairTP: Prolonged Fairness (10.1609/AAAI.V39I25.34838)
 - Efficient Spatio-Temporal Distillation (10.1609/AAAI.V39I1.32096)
 
-### 13.28 Transportation Research Part C 2025-2026
+### 13.44 Transportation Research Part C 2025-2026
 
 - CONTINA: Confidence Interval for Traffic Demand (2504.13961v2)
 - MoGERNN: Inductive Traffic Predictor (2501.12281v2)
@@ -3322,7 +3322,7 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 > "Fig. 3. Visualization of [Component] on [Dataset]. Darker colors indicate stronger correlations."
 > "Fig. 5. Prediction results comparison. The red line represents our prediction, black line represents ground truth."
 
-### 13.36 2025年写作新趋势
+### 13.45 2025年写作新趋势
 
 1. **LLM/Foundation Model论文**：必须提到"foundation model"或"large language model"，强调zero-shot/few-shot能力
 2. **不确定性量化**：不仅报告MAE/RMSE，还要报告CRPS/PICP/PINAW
