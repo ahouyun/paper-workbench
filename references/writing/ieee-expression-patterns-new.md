@@ -970,3 +970,66 @@
 | LLM/Foundation Model | UniST, ST-LLM, TrafficGPT, LLM-Mob | 预训练+提示/语义理解 |
 | 因果推断 | CausalSTG | 因果图学习/反事实推理 |
 | 小波分析 | STWave | 多分辨率时间频率分析 |
+
+### 13.41 IEEE TITS 2026写作模式（18篇论文）
+
+**问题递进式（DSTIGFN）：**
+> "Existing models generally focus on modeling continuous traffic sequences, ignoring the multilevel correlation characteristics of spatio-temporal heterogeneity in traffic networks at different time scales."
+
+**转折递进式（TEg-STGNN）：**
+> "Despite achieving competitive overall results, their performance is often compromised in critical scenarios."
+
+**微观-宏观对比式（Adap-STWT）：**
+> "These studies tend to focus on interactions between nodes based on macroscopic traffic node attributes, overlooking the profound impact of individual behaviors and decisions of microscopic traffic participants."
+
+**实际需求驱动式（Sofed）：**
+> "Most existing methods follow batch learning paradigms, which are unsuitable for dynamic, streaming traffic data. In practical applications, traffic data arrives continuously, calling for online learning techniques."
+
+**编号列举式（Multi-Scale）：**
+> "Existing methods in cross-modal correlation modeling overlook two critical issues: 1) Existing cross-modal graph construction methods fail to uncover the latent relationships among cross-modal traffic flows, and 2) the spatio-temporal interaction across different traffic modes is not well modeled."
+
+**范式转换式（MLSTP）：**
+> "Existing methods often define trajectory prediction as a static task... However, this approach leads to significant long-term prediction errors and struggles to capture potential patterns."
+
+**因果推断引入式（MSCT）：**
+> "Previous studies have established a series of deep learning-based models to predict post-crash traffic conditions. Most of them were developed by learning statistical correlations from data, which may suffer from time-varying confounding bias."
+
+**基础模型范式式（Pretrained Mobility Transformer）：**
+> "We utilize these extensive, unlabeled sequences of user trajectories to develop a foundation model for understanding urban space and human mobility."
+
+### 13.42 KDD/AAAI 2026写作模式（13篇论文）
+
+**联邦学习+图学习（FedSTGD）：**
+> "Existing methods primarily address static dependencies, overlooking their dynamic nature and resulting in suboptimal performance."
+
+**扩散模型改进（FENCE）：**
+> "However, existing diffusion models typically apply a uniform guidance scale across both spatial and temporal dimensions, which is inadequate for nodes with high missing data rates."
+
+**Hidden Global Components（FedHINT）：**
+> "We find that the traffic data from different local regions actually contain hidden global components that reflect cross-regional traffic changes."
+
+**突发事件感知（IGSTGNN）：**
+> "Most existing work focuses exclusively on capturing spatio-temporal dependencies from historical traffic data, while overlooking the fact that suddenly occurring transportation incidents serve as external disturbances."
+
+**频域解耦（HyperD）：**
+> "To tackle these challenges, we propose HyperD (Hybrid Periodic Decoupling), a novel framework that decouples traffic data into periodic and residual components."
+
+### 13.43 新评估指标（15个）
+
+| 指标 | 定义 | 使用场景 |
+|------|------|---------|
+| CRPS | 预测CDF与观测值的积分平方差 | 概率预测 |
+| Pinball Loss | 分位数回归损失 | 分位数预测 |
+| NLL | 负对数似然 | 参数化分布 |
+| PICP | 预测区间覆盖概率 | Conformal Prediction |
+| MPIW | 平均预测区间宽度 | 区间评估 |
+| CWC | 覆盖宽度综合准则 | 权衡评估 |
+| Coverage Gap | 经验覆盖差距 | 分布偏移 |
+| Conditional Coverage | 条件覆盖率 | 公平性评估 |
+| DTW | 动态时间规整 | 形状相似性 |
+| FID/KID | 生成模型距离 | 扩散模型评估 |
+| Spatial Gini | 空间基尼系数 | 公平性评估 |
+| Disparate Impact | 差异影响比 | 公平性评估 |
+| Robustness Ratio | 鲁棒性比 | 鲁棒性评估 |
+| OOD Gap | 分布外性能差距 | 泛化能力 |
+| SCP | 空间相关性保持度 | 结构保持 |
