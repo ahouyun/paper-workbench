@@ -205,28 +205,29 @@ and we report the mean and standard deviation.
 \subsection{Main Results}
 \label{sec:results}
 
-Table~\ref{tab:main} shows the comparison results on METR-LA and PEMS-BAY datasets.
+Table~\ref{tab:main} shows the comparison results on [YOUR DATASET 1] and [YOUR DATASET 2] datasets.
 Our method achieves the best performance across all metrics and prediction horizons.
+
+% WARNING: Replace ALL placeholder values below with your actual experimental results.
+% DO NOT use these example numbers in your paper.
 
 \begin{table*}[!t]
 \centering
-\caption{Performance comparison on METR-LA and PEMS-BAY datasets.
+\caption{Performance comparison on [YOUR DATASET 1] and [YOUR DATASET 2] datasets.
 The best results are in \textbf{bold} and the second best are \underline{underlined}.
 ↓ indicates lower is better.}
 \label{tab:main}
 \begin{tabular}{l|ccc|ccc}
 \toprule
-\multirow{2}{*}{Method} & \multicolumn{3}{c|}{METR-LA} & \multicolumn{3}{c}{PEMS-BAY} \\
+\multirow{2}{*}{Method} & \multicolumn{3}{c|}{[YOUR DATASET 1]} & \multicolumn{3}{c}{[YOUR DATASET 2]} \\
 \cmidrule{2-7}
 & MAE↓ 15min & MAE↓ 30min & MAE↓ 60min & MAE↓ 15min & MAE↓ 30min & MAE↓ 60min \\
 \midrule
-DCRNN & 3.17 & 3.60 & 4.16 & 1.74 & 2.07 & 2.44 \\
-STGCN & 3.47 & 4.03 & 4.54 & 1.69 & 2.03 & 2.40 \\
-GWNet & 2.69 & 3.07 & 3.53 & 1.58 & 1.84 & 2.17 \\
-STAEformer & 2.49 & 2.78 & 3.15 & 1.48 & 1.65 & 1.88 \\
-PDFormer & 2.60 & 2.83 & 3.09 & 1.38 & 1.61 & 1.88 \\
+[Baseline 1] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] \\
+[Baseline 2] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] \\
+[Baseline 3] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] & [YOUR DATA] \\
 \midrule
-\textbf{Ours} & \textbf{2.38} & \textbf{2.65} & \textbf{2.98} & \textbf{1.32} & \textbf{1.52} & \textbf{1.75} \\
+\textbf{Ours} & \textbf{[YOUR DATA]} & \textbf{[YOUR DATA]} & \textbf{[YOUR DATA]} & \textbf{[YOUR DATA]} & \textbf{[YOUR DATA]} & \textbf{[YOUR DATA]} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -237,16 +238,18 @@ PDFormer & 2.60 & 2.83 & 3.09 & 1.38 & 1.61 & 1.88 \\
 To validate the effectiveness of each component, we conduct ablation studies
 on METR-LA with 60-minute prediction horizon.
 
+% WARNING: Replace ALL placeholder values below with your actual experimental results.
+
 \begin{table}[!t]
 \centering
-\caption{Ablation study on METR-LA (60min).
+\caption{Ablation study on [YOUR DATASET] ([YOUR HORIZON]).
 w/o means removing the component.}
 \label{tab:ablation}
 \begin{tabular}{lccc}
 \toprule
 Variant & MAE↓ & RMSE↓ & MAPE↓ \\
 \midrule
-Full Model & \textbf{2.98} & \textbf{5.85} & \textbf{7.52\%} \\
+Full Model & \textbf{[YOUR DATA]} & \textbf{[YOUR DATA]} & \textbf{[YOUR DATA]} \\
 w/o Spatial Attention & 3.12 & 6.15 & 8.01\% \\
 w/o Temporal Attention & 3.18 & 6.28 & 8.25\% \\
 w/o Adaptive Embedding & 3.05 & 5.98 & 7.78\% \\
