@@ -1,0 +1,318 @@
+% IEEE Transactions on Intelligent Transportation Systems LaTeX Template
+% 用法: 直接复制此文件，替换 [YOUR CONTENT] 部分
+
+\documentclass[journal,10pt]{IEEEtran}
+
+% ===== 常用包 =====
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[caption=false,font=footnotesize]{subfig}
+
+% ===== 图表路径 =====
+\graphicspath{{figures/}}
+
+% ===== 标题和作者 =====
+\title{[YOUR PAPER TITLE]}
+
+\author{
+\IEEEauthorblockN{Author One\IEEEauthorrefmark{1},
+Author Two\IEEEauthorrefmark{1},
+Author Three\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Transportation, University Name, City, Country}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Department of Computer Science, University Name, City, Country}
+\thanks{Corresponding author: Author One (email@university.edu)}
+}
+
+% ===== 开始文档 =====
+\begin{document}
+
+\maketitle
+
+% ===== Abstract =====
+\begin{abstract}
+[YOUR ABSTRACT HERE - 150-200 words]
+
+Traffic flow prediction is a critical task for intelligent transportation systems.
+However, existing methods often fail to capture [LIMITATION].
+In this paper, we propose [METHOD] to address this challenge.
+[1-2 sentences describing the approach].
+Extensive experiments on [DATASETS] demonstrate that our method
+achieves [RESULTS]. [1-2 sentences about broader impact].
+\end{abstract}
+
+\begin{IEEEkeywords}
+Traffic flow prediction, spatiotemporal graph neural network,
+intelligent transportation systems.
+\end{IEEEkeywords}
+
+% ===== I. Introduction =====
+\section{Introduction}
+\label{sec:intro}
+
+[YOUR INTRODUCTION - 6段漏斗结构]
+
+% 第1段：领域重要性
+Traffic flow prediction is a critical task for intelligent
+transportation systems (ITS), enabling efficient traffic management
+and route planning~\cite{ref1}.
+
+% 第2段：技术挑战
+However, accurate traffic prediction remains challenging due to
+[CHALLENGES]~\cite{ref2}.
+
+% 第3段：现有方法分类
+Existing methods can be categorized into [CATEGORIES]~\cite{ref3,ref4}.
+
+% 第4段：现有方法的局限
+Despite significant progress, existing methods suffer from [LIMITATIONS].
+
+% 第5段：本文方案
+To address these challenges, we propose [METHOD]. Our key insight is [INSIGHT].
+
+% 第6段：贡献列表
+The main contributions of this paper are summarized as follows:
+\begin{itemize}
+    \item We propose [CONTRIBUTION 1].
+    \item We design [CONTRIBUTION 2].
+    \item Extensive experiments on [DATASETS] demonstrate [CONTRIBUTION 3].
+\end{itemize}
+
+% ===== II. Related Work =====
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Graph Neural Networks for Traffic Prediction}
+[PARAGRAPH ABOUT GNN METHODS]
+
+\subsection{Transformer-based Methods}
+[PARAGRAPH ABOUT TRANSFORMER METHODS]
+
+\subsection{Other Approaches}
+[PARAGRAPH ABOUT OTHER METHODS]
+
+% ===== III. Method =====
+\section{Proposed Method}
+\label{sec:method}
+
+\subsection{Problem Formulation}
+\label{sec:problem}
+
+Given a traffic network represented as a graph $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{A})$,
+where $\mathcal{V}$ is the set of $N$ sensors, $\mathcal{E}$ is the set of edges,
+and $\mathbf{A} \in \mathbb{R}^{N \times N}$ is the adjacency matrix.
+Let $\mathbf{X}^{(t)} \in \mathbb{R}^{N \times F}$ be the traffic observations at time $t$,
+where $F$ is the number of features.
+The goal is to predict future traffic states $\hat{\mathbf{X}}^{(t+1:t+T)}$
+given historical observations $\mathbf{X}^{(t-L+1:t)}$,
+where $L$ is the input length and $T$ is the prediction horizon.
+
+\subsection{Overall Architecture}
+\label{sec:architecture}
+
+The proposed model consists of [N] main components:
+(a) [COMPONENT 1], (b) [COMPONENT 2], and (c) [COMPONENT 3].
+
+% 架构图
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/architecture.pdf}
+    \caption{Overall architecture of the proposed [MODEL NAME].
+    The model consists of (a) [Component 1], (b) [Component 2],
+    and (c) [Component 3].}
+    \label{fig:architecture}
+\end{figure}
+
+\subsection{Module 1: [MODULE NAME]}
+\label{sec:module1}
+
+[MODULE DESCRIPTION WITH MATH]
+
+\begin{equation}
+\mathbf{Y} = \text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V})
+= \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}
+\label{eq:attention}
+\end{equation}
+
+where $\mathbf{Q}$, $\mathbf{K}$, and $\mathbf{V}$ are query, key, and value
+matrices, respectively, and $d_k$ is the dimension of the keys.
+
+\subsection{Module 2: [MODULE NAME]}
+\label{sec:module2}
+
+[MODULE DESCRIPTION]
+
+\subsection{Training Objective}
+\label{sec:loss}
+
+The model is trained to minimize the mean absolute error (MAE):
+\begin{equation}
+\mathcal{L} = \frac{1}{N \cdot T} \sum_{i=1}^{N} \sum_{t=1}^{T}
+\left| \hat{x}_i^{(t)} - x_i^{(t)} \right|
+\label{eq:loss}
+\end{equation}
+
+% ===== IV. Experiments =====
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Experimental Setup}
+\label{sec:setup}
+
+\subsubsection{Datasets}
+We evaluate our method on four widely-used traffic benchmark datasets:
+\begin{itemize}
+    \item \textbf{METR-LA}: 207 sensors on Los Angeles highways,
+    traffic speed, 5-minute intervals.
+    \item \textbf{PEMS-BAY}: 325 sensors in San Francisco Bay Area,
+    traffic speed, 5-minute intervals.
+    \item \textbf{PEMS04}: 307 sensors in San Bernardino,
+    traffic flow, 5-minute intervals.
+    \item \textbf{PEMS08}: 170 sensors in San Bernardino,
+    traffic flow, 5-minute intervals.
+\end{itemize}
+
+\subsubsection{Baselines}
+We compare our method with the following baselines:
+\begin{itemize}
+    \item \textbf{DCRNN}~\cite{dcrnn}: Diffusion Convolutional Recurrent Neural Network.
+    \item \textbf{STGCN}~\cite{stgcn}: Spatio-Temporal Graph Convolutional Network.
+    \item \textbf{Graph WaveNet}~\cite{gwnet}: Graph WaveNet with adaptive adjacency matrix.
+    \item \textbf{STAEformer}~\cite{staeformer}: Spatio-Temporal Adaptive Embedding Transformer.
+    \item \textbf{PDFormer}~\cite{pdformer}: Propagation Delay-Aware Dynamic Long-Range Transformer.
+\end{itemize}
+
+\subsubsection{Implementation Details}
+\label{sec:impl}
+
+Our model is implemented in PyTorch and trained on a single NVIDIA A100 GPU.
+We use the Adam optimizer with an initial learning rate of $1 \times 10^{-3}$
+and a batch size of 64. The input sequence length is 12 (1 hour),
+and the prediction horizons are 15, 30, and 60 minutes.
+We use Z-score normalization with statistics computed on the training set.
+All experiments are repeated 5 times with different random seeds,
+and we report the mean and standard deviation.
+
+\subsection{Main Results}
+\label{sec:results}
+
+Table~\ref{tab:main} shows the comparison results on METR-LA and PEMS-BAY datasets.
+Our method achieves the best performance across all metrics and prediction horizons.
+
+\begin{table*}[!t]
+\centering
+\caption{Performance comparison on METR-LA and PEMS-BAY datasets.
+The best results are in \textbf{bold} and the second best are \underline{underlined}.
+↓ indicates lower is better.}
+\label{tab:main}
+\begin{tabular}{l|ccc|ccc}
+\toprule
+\multirow{2}{*}{Method} & \multicolumn{3}{c|}{METR-LA} & \multicolumn{3}{c}{PEMS-BAY} \\
+\cmidrule{2-7}
+& MAE↓ 15min & MAE↓ 30min & MAE↓ 60min & MAE↓ 15min & MAE↓ 30min & MAE↓ 60min \\
+\midrule
+DCRNN & 3.17 & 3.60 & 4.16 & 1.74 & 2.07 & 2.44 \\
+STGCN & 3.47 & 4.03 & 4.54 & 1.69 & 2.03 & 2.40 \\
+GWNet & 2.69 & 3.07 & 3.53 & 1.58 & 1.84 & 2.17 \\
+STAEformer & 2.49 & 2.78 & 3.15 & 1.48 & 1.65 & 1.88 \\
+PDFormer & 2.60 & 2.83 & 3.09 & 1.38 & 1.61 & 1.88 \\
+\midrule
+\textbf{Ours} & \textbf{2.38} & \textbf{2.65} & \textbf{2.98} & \textbf{1.32} & \textbf{1.52} & \textbf{1.75} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Ablation Study}
+\label{sec:ablation}
+
+To validate the effectiveness of each component, we conduct ablation studies
+on METR-LA with 60-minute prediction horizon.
+
+\begin{table}[!t]
+\centering
+\caption{Ablation study on METR-LA (60min).
+w/o means removing the component.}
+\label{tab:ablation}
+\begin{tabular}{lccc}
+\toprule
+Variant & MAE↓ & RMSE↓ & MAPE↓ \\
+\midrule
+Full Model & \textbf{2.98} & \textbf{5.85} & \textbf{7.52\%} \\
+w/o Spatial Attention & 3.12 & 6.15 & 8.01\% \\
+w/o Temporal Attention & 3.18 & 6.28 & 8.25\% \\
+w/o Adaptive Embedding & 3.05 & 5.98 & 7.78\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The results show that removing the temporal attention module leads to the
+largest performance degradation (+0.20 MAE), indicating its importance
+in capturing long-range temporal dependencies.
+
+\subsection{Efficiency Analysis}
+\label{sec:efficiency}
+
+Table~\ref{tab:efficiency} compares the computational efficiency of different methods.
+
+\begin{table}[!t]
+\centering
+\caption{Computational efficiency comparison.}
+\label{tab:efficiency}
+\begin{tabular}{lcccc}
+\toprule
+Method & Params (M) & FLOPs (G) & Time (ms) & MAE \\
+\midrule
+STGCN & 0.5 & 2.1 & 3.2 & 4.54 \\
+GWNet & 0.8 & 5.3 & 8.5 & 3.53 \\
+STAEformer & 8.2 & 15.6 & 25.3 & 3.15 \\
+\midrule
+Ours & 5.1 & 10.2 & 15.8 & 2.98 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Visualization}
+\label{sec:visualization}
+
+Figure~\ref{fig:prediction} shows the prediction results on two representative sensors.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/prediction.pdf}
+    \caption{Prediction results on METR-LA.
+    (a) Sensor with stable traffic patterns.
+    (b) Sensor with high variability.
+    Black: ground truth. Red: our prediction.}
+    \label{fig:prediction}
+\end{figure}
+
+% ===== V. Conclusion =====
+\section{Conclusion}
+\label{sec:conclusion}
+
+In this paper, we proposed [METHOD] for traffic flow prediction.
+[1-2 sentences summarizing the approach].
+Extensive experiments on four benchmark datasets demonstrated that
+our method achieves state-of-the-art performance, with improvements
+of [X]\% in MAE over the strongest baseline.
+[1-2 sentences about limitations and future work].
+
+% ===== Acknowledgments =====
+\section*{Acknowledgments}
+This work was supported by [FUNDING].
+The authors thank [ACKNOWLEDGMENTS].
+
+% ===== References =====
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
