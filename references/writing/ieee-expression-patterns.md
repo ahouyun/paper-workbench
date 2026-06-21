@@ -3037,3 +3037,64 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 > "Fig. X. Prediction comparison on [DatasetName] at [Horizon] horizon."
 > "Fig. X. Visualization of [Component] on [Dataset]."
 > "Fig. X. Case study of traffic prediction on [Date/Location]."
+
+### 13.25 交通流预测实验设置标准模板
+
+**数据集描述标准格式：**
+> "METR-LA collects traffic speed data from 207 sensors on the Los Angeles County highway system over 4 months (March 2012 to June 2012). PEMS-BAY contains 6 months of traffic speed data collected from 325 sensors in the San Francisco Bay Area."
+
+**数据划分标准：**
+> "We follow the standard data splitting strategy: 70% for training, 10% for validation, and 20% for testing."
+> "We adopt a unified evaluation protocol across all datasets with consistent data splits, preprocessing, and metrics."
+
+**实现细节标准描述：**
+> "We use Adam optimizer with an initial learning rate of 0.001, which decays by 0.1 every 20 epochs. The batch size is set to 64."
+> "All experiments are repeated 5 times with different random seeds, and we report the mean and standard deviation."
+
+**Baseline对比声明：**
+> "For fair comparison, we use the same data preprocessing, evaluation protocol, and training strategy for all methods."
+> "We compare with three types of baselines: (1) Graph neural network-based methods, (2) Transformer-based methods, (3) LLM-based methods."
+
+### 13.26 2025-2026 IEEE TITS高引论文（CrossRef验证）
+
+**2026年：**
+- Spatio-Temporal Data Enhanced Vision-Language Model (10.1109/tits.2025.3628271)
+- Contrastive Learning + TCN-DMAttention (10.1109/tits.2025.3626524)
+- Cross-City Correlation Learning (10.1109/tits.2025.3647158)
+- Dynamic Spatiotemporal GCN (10.1109/tits.2025.3628554)
+- Heterogeneity-Guided Tensor Decomposition (10.1109/tits.2026.3658186)
+
+**2025年高引：**
+- Attention-Driven ST Deep Hybrid NN (102 citations, 10.1109/tits.2025.3540852)
+- LLM in Adaptive Traffic Signal Control (41 citations, 10.1109/tits.2024.3498735)
+- Spatio-Temporal Contrastive Learning (37 citations, 10.1109/tits.2024.3487982)
+- Federated Transfer Learning (19 citations, 10.1109/tits.2025.3545445)
+
+### 13.27 AAAI 2025-2026交通预测论文（DBLP验证）
+
+**AAAI 2026：**
+- RAST: Retrieval Augmented Spatio-Temporal Framework (10.1609/AAAI.V40I46.41264)
+- Inter-Client Dependency Recovery Federated (10.1609/AAAI.V40I34.40130)
+- Meta Dynamic Graph (10.1609/AAAI.V40I19.38699)
+
+**AAAI 2025：**
+- Decomposed Spatio-Temporal Mamba (10.1609/AAAI.V39I11.33281)
+- SSL-STMFormer (10.1609/AAAI.V39I11.33321)
+- FairTP: Prolonged Fairness (10.1609/AAAI.V39I25.34838)
+- Efficient Spatio-Temporal Distillation (10.1609/AAAI.V39I1.32096)
+
+### 13.28 Transportation Research Part C 2025-2026
+
+- CONTINA: Confidence Interval for Traffic Demand (2504.13961v2)
+- MoGERNN: Inductive Traffic Predictor (2501.12281v2)
+- Physics-Informed Meta ML for MFD (2508.14137v2)
+- Q-Net: Queue Length Estimation (2509.24725v4)
+- Adaptive Domain Decomposition PINN (2605.08028v1)
+- T-STAR: Context-Aware Transformer (2602.06866v2)
+
+### 13.29 CIKM 2025交通预测论文
+
+- Forecasting at Full Spectrum (2505.01279v2)
+- ST-LINK: Spatially-Aware LLM (2509.13753v1)
+- CityLight: Universal Traffic Signal Control (2406.02126v4)
+- HGAurban: Heterogeneous Graph Autoencoding (2410.10915v2)
