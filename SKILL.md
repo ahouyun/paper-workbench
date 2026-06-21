@@ -100,7 +100,7 @@ version: 6.1.0
 
 | task_type | 用户意图 | 必要输出 |
 |-----------|----------|----------|
-| `full_draft` | 写整篇/大段正式草稿 | section spine + contribution map + draft plan |
+| `full_draft` | 写整篇/大段正式草稿 | 完整论文初稿（Abstract+Introduction+Related Work+Method+Experiments+Conclusion） |
 | `section_rewrite` | 改某一节/某几段 | revised text + claim-evidence map + revision notes |
 | `outline_only` | 生成论文结构/章节大纲 | article type + section spine + section goals |
 | `claim_evidence_check` | 查声明是否站得住 | claim list + evidence status + gaps |
