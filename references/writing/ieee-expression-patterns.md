@@ -2837,3 +2837,66 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - Federated Meta-Learning (2024, 6 citations) - 联邦元学习
 - STGCNFormer (2025, 4 citations) - 时空双流GCN+Transformer
 - Cross-City Self-Supervised (2026) - 跨城市自监督图学习
+
+### 13.23 IEEE TITS/TKDE/TNNLS 2024-2026论文（DBLP API验证）
+
+**IEEE TITS 2024（34篇）：**
+- Spatiotemporal Multiscale GCN (10.1109/TITS.2024.3354802)
+- Confined Attention Bi-GRU (10.1109/TITS.2024.3375890)
+- PIGAT: Physics-Informed Graph Attention Transformer (10.1109/TITS.2024.3386128)
+- Multi-Task Collision-Aware Graph Transformer (10.1109/TITS.2023.3345296)
+- MT-STNet Multi-Task Spatiotemporal (10.1109/TITS.2024.3411638)
+- Dynamic Spatiotemporal Straight-Flow (10.1109/TITS.2024.3443887)
+- DSFormer-LRTC Dynamic Spatial Transformer (10.1109/TITS.2024.3436523)
+- STORM Event-Triggered Abnormal Crowd (10.1109/TITS.2024.3390185)
+- FastSTI Conditional Pseudo Numerical Diffusion (10.1109/TITS.2024.3469240)
+- Blockchain-Based Federated Learning (10.1109/TITS.2024.3391053)
+
+**IEEE TITS 2025（19篇）：**
+- 6G Enabled Real-Time Traffic (10.1109/TITS.2025.3571773)
+- Edge Computing Large-Scale GPT (10.1109/TITS.2024.3456890)
+- Attention-Driven ST Deep Hybrid (10.1109/TITS.2025.3540852)
+- Selective Transfer Learning (10.1109/TITS.2025.3596309)
+- Cluster-Granularity Transfer (10.1109/TITS.2025.3552111)
+- Satellite Imagery Domain Adaptation (10.1109/TITS.2025.3589218)
+- Graph Transformer Dynamic Edge (10.1109/TITS.2024.3513325)
+- TRACER Transfer Knowledge (10.1109/TITS.2025.3546284)
+- Federated Transfer Learning (10.1109/TITS.2025.3545445)
+- Dynamic Routing ST-Transformer (10.1109/TITS.2025.3552404)
+- TLAST Time-Lag Aware (10.1109/TITS.2025.3583391)
+- Score-Based ST Point Process (10.1109/TITS.2025.3605287)
+- Sparse Cross Attention GCN (10.1109/TITS.2025.3533560)
+- Online Test-Time Adaptation (10.1109/TITS.2025.3600237)
+- High/Low Frequency Attention (10.1109/TITS.2025.3564305)
+- DGODE Dynamic Graph ODE (10.1109/TITS.2025.3612204)
+
+**IEEE TITS 2026（10篇）：**
+- Bicycle Traffic Prediction (10.1109/TITS.2025.3633930)
+- Functional Encryption Privacy (10.1109/TITS.2026.3673039)
+- Cross-City Correlation (10.1109/TITS.2025.3647158)
+- Congestion Propagation GCN (10.1109/TITS.2025.3628554)
+- Bayesian Optimization GAT (10.1109/TITS.2025.3632402)
+- Meta-Learning Traffic Conflict (10.1109/TITS.2025.3648403)
+- Physics-Informed Deep Learning (10.1109/TITS.2025.3642303)
+- Sofed Online Federated (10.1109/TITS.2026.3658759)
+- TCN-DMAttention Congestion (10.1109/TITS.2025.3626524)
+- Self-Supervised Bilateral Learning (10.1109/TITS.2026.3667856)
+
+**IEEE TKDE 2024-2026（17篇）：**
+- STWave++ Multi-Scale Spectral (10.1109/TKDE.2023.3324501)
+- Spatio-Temporal Memory Multi-Level (10.1109/TKDE.2023.3322405)
+- Uncertainty Quantification (10.1109/TKDE.2023.3312261)
+- CLEAR Representation Learning (10.1109/TKDE.2025.3536009)
+- Spatio-Temporal Multivariate Probabilistic (10.1109/TKDE.2025.3539680)
+- S-MGHSTN Streaming Accident (10.1109/TKDE.2025.3557864)
+- Lane-Level Traffic Prediction (10.1109/TKDE.2025.3580465)
+- ST-LLM+ Graph Enhanced LLM (10.1109/TKDE.2025.3570705)
+- Federated GNN Hypergraph (10.1109/TKDE.2025.3607895)
+- MTNet Multi-Task (10.1109/TKDE.2025.3638147)
+
+**IEEE TNNLS 2024-2026（8篇）：**
+- Robust Disentangled STGNN (10.1109/TNNLS.2025.3635636)
+- Multiscale Dynamic Delay (10.1109/TNNLS.2025.3617860)
+- MSTC-GAT Multilayer Attention (10.1109/TNNLS.2025.3630903)
+- One Size Fits All Unified (10.1109/TNNLS.2023.3259045)
+- TraverseNet (10.1109/TNNLS.2022.3186103)
