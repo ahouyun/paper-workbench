@@ -3098,3 +3098,75 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 - ST-LINK: Spatially-Aware LLM (2509.13753v1)
 - CityLight: Universal Traffic Signal Control (2406.02126v4)
 - HGAurban: Heterogeneous Graph Autoencoding (2410.10915v2)
+
+### 13.30 2025-2026新评估方法（12篇论文）
+
+**合成Benchmark（ChaosNetBench）：**
+- 可控混沌动力学下的评估
+- 解决单一领域、单一holdout split的问题
+
+**动态传感器网络（EvoXXLTraffic）：**
+- 27年California PeMS数据
+- 传感器网络随时间变化的真实场景
+
+**几何结构指标（TGSI）：**
+- 超越点误差，评估形态保持
+- 将时间序列转换为图像评估几何结构
+
+**概率校准评估（Unveiling Stochasticity）：**
+- GMM层将确定性模型转为概率预测器
+- 评估calibration和sharpness
+
+**效率-准确率联合评估（STGCN深度研究）：**
+- 3-block架构无有利tradeoff
+- 超过2倍计算成本仅换<0.5%改进
+
+**干扰鲁棒性（UniST-Pred）：**
+- 结构不确定性（道路封闭）
+- 观测不确定性（传感器故障）
+
+**跨域泛化（CAST-CKT）：**
+- 混沌分析器量化可预测性regime
+- chaos-aware attention实现regime自适应
+
+**Conformal Prediction：**
+- 带统计保证的预测区间
+- 校准性和预测区间宽度
+
+**多时长退化分析：**
+- 性能随horizon增加的退化曲线
+- 为不同时长选择合适模型
+
+### 13.31 图表设计模式（12篇论文分析）
+
+**必备图类型：**
+1. Model Architecture Diagram（100%论文）
+2. Performance Comparison Table（100%论文）
+
+**高频图类型：**
+3. Heatmap（50%论文）- 性能对比、注意力权重
+4. Bubble Chart（25%论文）- 精度/效率/内存三维权衡
+5. Attention Visualization（42%论文）- 社区检测、邻接矩阵重排序
+6. Embedding Visualization（33%论文）- t-SNE/UMAP降维
+7. Case Study（33%论文）- 预测曲线对比
+
+**新兴图类型（2025-2026）：**
+8. SVD-Based Visualization - 分析Mamba状态转移矩阵
+9. Probabilistic Calibration Histogram - PIT直方图
+10. Spatial Residual Analysis - Moran's I空间依赖检验
+11. Vector Similarity Topology - 向量相似度拓扑对比
+
+**真实Caption模板：**
+> "Figure 1: Model Architecture of proposed [ModelName]."
+> "Figure 3: Performance heatmaps of twelve predictive models on the Metr-LA dataset for forecasting horizons of 3, 6, and 12 time steps, showing MAE (left), RMSE (center) and MAPE (right)."
+> "Figure 3: Bubble position indicates MAE and training time, while bubble size denotes GPU memory usage."
+> "Figure 7: Community detection based on spatial and temporal attention."
+> "Figure 4: Embedding visualization of SPAE. A more uniform and complete circular distribution of colors indicates lower similarity among nodes."
+
+**Table设计规范：**
+- 最佳结果 **加粗**，次佳结果 <u>下划线</u>
+- 无法运行用 dash (–)
+- 颜色编码：深色 = 更好性能
+- 单位缩写：K=10^3, M=10^6
+- 指标顺序：MAE, RMSE, MAPE
+- 预测步长：15min, 30min, 60min (3, 6, 12 steps)
