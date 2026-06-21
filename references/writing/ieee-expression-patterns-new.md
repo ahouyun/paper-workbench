@@ -1102,3 +1102,63 @@
 | 概率预测 | GMM-Universal, RIPCN | 优雅的概率化改造 |
 | 轻量化部署 | LightST, M3-Net, GraphSparseNet | 知识蒸馏/去图化/线性复杂度 |
 | 在线适应 | FORESEE | 零参数更新的实时校正 |
+
+### 13.47 IEEE TITS 2025-2026写作模式（25篇论文）
+
+**问题-挑战-方案三段式（PatchSTG）：**
+> "Traffic forecasting is a fundamental component of intelligent transportation systems, yet remains challenging in real-world settings due to irregular sensor distributions and the high computational cost of modeling large-scale spatiotemporal dependencies."
+
+**价值先行-问题后置（DKGCM）：**
+> "Accurate traffic demand forecasting enables transportation management departments to allocate resources more effectively, thereby improving their utilization efficiency. However, complex spatiotemporal relationships in traffic systems continue to limit the performance of demand forecasting models."
+
+**先扬后抑（Virtual Nodes）：**
+> "While traditional spatio-temporal graph neural networks (ST-GNNs) have achieved notable success in short-term traffic forecasting, their performance in long-term predictions remains limited."
+
+**Trade-off显式化（FAST）：**
+> "Existing methods typically face a trade-off between expressiveness and efficiency: Transformer-based models capture global dependencies well but suffer from quadratic complexity, while recent selective state-space models are computationally efficient yet less effective at modeling spatial interactions."
+
+**双因素并列（ADMFormer）：**
+> "However, it remains challenging due to two key factors: (1) Traffic series contain heterogeneous temporal patterns, where stable periodic regularities coexist with event-driven fluctuations. (2) Spatial dependencies among nodes are influenced by dynamic factors."
+
+**让步-转折（ConFormer）：**
+> "Traffic prediction remains a key challenge in spatio-temporal data mining, despite progress in deep learning. Accurate forecasting is hindered by the complex influence of external factors."
+
+**能力-局限对比（Vision-LLM）：**
+> "While large language models have shown promise in time series analysis, they inherently struggle to model the complex spatial dependencies of grid-based traffic data."
+
+**质疑-方法创新（Regime Failures）：**
+> "Standard benchmarks evaluate time series foundation models using aggregate metrics, but these can mask severe failures in critical operating regimes."
+
+**因果分析（Event-CausNet）：**
+> "While spatio-temporal Graph Neural Networks excel at modeling recurring traffic patterns, their reliability plummets during non-recurring events like accidents. This failure occurs because GNNs are fundamentally correlational models."
+
+**系统级需求（U-STS-LLM）：**
+> "The efficient operation of modern cellular networks hinges on the accurate analysis of spatio-temporal traffic data. Mastering these patterns is essential for core network functions."
+
+### 13.48 实验方法新趋势
+
+**统计显著性检验：**
+- 多次运行（5-10次）报告均值和标准差
+- 使用Wilcoxon signed-rank test检验模型间差异
+- 报告p-value和effect size
+
+**多尺度评估：**
+- 短期(5-15min)、中期(30-60min)、长期(2+ hours)分层
+- Spatial fidelity metrics评估空间相关性保持
+- Temporal consistency metrics评估时间序列平滑性
+
+**公平性感知评估：**
+- 不同路段/区域的性能差异分析
+- 高峰/非高峰时段的分层评估
+- Spatial Gini Coefficient衡量误差分布不平等
+
+**鲁棒性评估：**
+- 对抗鲁棒性（Metattack/Nettack适配）
+- 分布外泛化（跨城市/跨时段）
+- 传感器故障场景测试
+
+**基础模型评估：**
+- Few-shot/zero-shot evaluation
+- Cross-task transfer evaluation
+- Prompt sensitivity analysis
+- Regime-stratified evaluation
