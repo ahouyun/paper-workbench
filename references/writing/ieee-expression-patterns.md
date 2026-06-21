@@ -2802,3 +2802,38 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 **物理信息范式：**
 - 物理约束："traffic flow theory as inductive bias"
 - 可解释性："physically interpretable predictions"
+
+### 13.22 OpenAlex API搜索结果（2024-2026）
+
+**WWW 2024-2026（9篇）：**
+- Unveiling Delay Effects (2024, 37 citations) - 时空延迟微分方程视角
+- LLGformer (2025, 17 citations) - 可学习长程图Transformer
+- STKOpt (2025, 6 citations) - 自动化时空知识优化
+- VisionST (2026) - 跨模态交通预测
+- WED-Net (2026) - 天气效应解耦
+- ST-LEGO (2026) - LLM作为模块化架构师
+- FedDis (2026) - 因果解耦联邦学习
+- MIGC-CMamba (2026) - 跨域Mamba
+
+**CIKM 2024-2025（12篇）：**
+- Urban Traffic Accident Risk (2024, 26 citations) - 事故风险预测
+- Spatio-temporal Graph Normalizing Flow (2024, 9 citations) - 概率预测
+- FEDDGCN (2025, 2 citations) - 频率增强解耦动态GCN
+- M3-Net (2025, 11 citations) - 无图MLP模型
+- SS-MoE (2025) - 语义空间专家混合
+- DoP (2025) - Decoder-only预训练增强
+
+**Transportation Research Part C 2024-2026（20篇）：**
+- MAST-GNN (2024, 38 citations) - 空域复杂度预测
+- Driver Lane Change (2024, 30 citations) - 换道意图预测
+- Hybrid Traffic Simulation (2024, 28 citations) - 仿真+ML混合
+- Cross-City Transfer (2025, 18 citations) - 跨城市迁移学习
+- i-CLTP (2025, 9 citations) - 对比学习+Transformer
+- Game-theoretic FL (2026) - 博弈论联邦学习
+- Joint Dynamic Pruning (2026) - 动态剪枝
+
+**IEEE TVT 2024-2026（7篇）：**
+- Latent Gaussian Processes (2024, 11 citations) - 隐高斯过程图学习
+- Federated Meta-Learning (2024, 6 citations) - 联邦元学习
+- STGCNFormer (2025, 4 citations) - 时空双流GCN+Transformer
+- Cross-City Self-Supervised (2026) - 跨城市自监督图学习
