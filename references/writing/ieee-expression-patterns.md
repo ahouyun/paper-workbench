@@ -2614,6 +2614,49 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 **隐私-效率权衡式（AutoFed）：**
 > "Due to significant privacy concerns surrounding traffic data, most existing methods rely on local training, resulting in data silos and limited knowledge sharing."
 
+### 13.14 新评估指标（2024-2026）
+
+| 指标 | 定义 | 何时使用 | 报告格式 |
+|------|------|---------|---------|
+| **CRPS** | 预测CDF与观测值的积分平方差 | 概率预测 | CRPS (↓) |
+| **Pinball Loss** | 分位数回归的非对称损失 | 分位数预测 | Q=0.1/0.25/0.5/0.75/0.9 |
+| **ACE** | 预期覆盖率与实际覆盖率的偏差 | 校准评估 | ACE (↓) |
+| **Sharpness** | 预测区间的平均宽度 | 区间评估 | Sharpness (↓) |
+| **PICP** | 观测值落在预测区间内的比例 | Conformal Prediction | 90% PICP, 95% PICP |
+| **PINAW** | 归一化的预测区间宽度 | Conformal Prediction | 90% PINAW, 95% PINAW |
+| **Coverage Gap** | 实际覆盖率与理论保证的差距 | Conformal Prediction | Coverage Gap (↓) |
+| **Spatial Equity** | 不同路段预测精度的变异系数 | 公平性评估 | SEI (↓) |
+| **DTW** | 预测序列与实际序列的形状相似性 | 时间偏移评估 | DTW (↓) |
+| **Directional Accuracy** | 预测变化方向与实际方向的一致性 | 趋势评估 | DA (%) |
+| **Peak-Hour MAE** | 高峰时段的加权MAE | 实际应用评估 | PHW-MAE (↓) |
+| **Degradation Rate** | 精度随预测步长的退化速率 | 长期预测评估 | DR (%) |
+
+### 13.15 新评估指标报告格式
+
+**概率预测表格：**
+```
+| Model    | MAE  | RMSE | CRPS (↓) | 90% PICP | 90% PINAW |
+|----------|------|------|----------|----------|-----------|
+| DiffSTG  | 2.93 | 5.61 | 1.82     | 0.912    | 0.234     |
+| ProbGWNet| 2.98 | 5.72 | 1.91     | 0.887    | 0.256     |
+```
+
+**公平性评估表格：**
+```
+| Model  | Overall MAE | Worst-10% MAE | Best-10% MAE | SEI (↓) |
+|--------|-------------|---------------|--------------|---------|
+| STGCN  | 2.85        | 5.12          | 1.34         | 0.42    |
+| DCRNN  | 2.78        | 4.89          | 1.28         | 0.39    |
+```
+
+**分步长评估表格：**
+```
+| Model    | 15min | 30min | 45min | 60min | DR(%) |
+|----------|-------|-------|-------|-------|-------|
+| STAE     | 2.12  | 2.58  | 3.01  | 3.42  | 61.3  |
+| PDFormer | 2.08  | 2.49  | 2.87  | 3.21  | 54.3  |
+```
+
 ---
 
 > 本节交通预测内容整合自：PDFormer (AAAI'23), STAEformer (AAAI'24), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), MegaCRN (AAAI/TITS'23/'24), D2STGNN (VLDB/TKDE'22-'24), STID (CIKM/TNNLS'22-'24), FlashST (ICML'24), Expand-and-Compress (ICLR'25), TEAM (PVLDB'25), PatchSTG (KDD'25), LEAF (ACL'25), Damba-ST (ICDE'26), OpenCity (2025), STGformer (2024), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), GAMMA-Net (2026), FAST (ICME'26), MLA-STNet (2026), STM3 (KDD'26), RIPCN (KDD'26), U-STS-LLM (2026), FedLLM (2026), ACTFormer (TNNLS'26), DIST (TNNLS'25), MSTC-GAT (TNNLS'25), DDAMGCN (TNNLS'25), CHGNet (TVT'26), RoadDiff (TVT'25), TrafficLLM (TVT'25), CIWI-CKT, CAST-CKT, PIMCST, MoE-FedTP, FedDis, SimpleST, STemDist, MA-GLTC, ConFormer, Adap-STWT (TITS'26), PGCRN (TITS'25), iTPGT-former (TITS'24), D³STN (TITS'24), MVSTG (TITS'24), W-Diffusion (TITS'26), FastSTI (TITS'24), Sofed (TITS'26), REFOL (TITS'24), CROSS-Net (TITS'26), SAMformer (ICML'24), ScaleSTF, Double-Diffusion, ICST-DNET, Chronos (Amazon), Timer (ICML'24), TimeMixer, Moirai (Salesforce), Moirai-MoE, TimesFM (Google), MOMENT (ICML'24), UrbanFM, BjTT, UQGNN, RDGCN, GraphTrafficGPT, MetaDG (AAAI'26), HyperD (AAAI'26), STDN (AAAI'25), SSL-STMFormer (AAAI'25), ModWaveMLP (AAAI'24), STONE (KDD'24), FedGTP (KDD'24), CityBench (KDD'24), UoMo (KDD'24), ST-ReP (AAAI'25), LLGformer (WWW'25), Trffc (WWW'25), Unveiling Delay Effects (WWW'24), M3-Net (CIKM'25), FEDDGCN (CIKM'25), TopKNet (CIKM'25), Seeing Forest Trees (CIKM'24), ByGCN (CIKM'24), Riding Wave (IJCAI'25), Make Bricks (IJCAI'24), TESTAM (ICLR'24), WardropNet (ICLR'24), Talking Trails (AAAI'26), ST-LEGO (WWW'26), STELA (WWW'26), ST-LINK (CIKM'25), MF3 (WWW'26), WED-Net (WWW'26), VisionST (WWW'26), KnowLCP (AAAI'26), CaTFormer (AAAI'25), NEST (AAAI'24), BehaviorGPT (NeurIPS'24), GeoPro-Net (AAAI'25), Beta Distribution (AAAI'25), RDPI (AAAI'25), PhyMPGN (ICLR'24), PhyMPGN, STEMO (KDD'24), Conservation-informed (KDD'24), Interpretable MoE (KDD'24), Efficient Large-Scale (KDD'24), TelTrans (AAAI'24), Tel2Veh (WWW'24), Adaptive Frequency Pathways (AAAI'26), Responsive Dynamic Graph (AAAI'25), LLeCaT (TITS'25), Cross-City Correlation (TITS'26), Taming Spatial Heterophily (TITS'26), Online Test-Time Adaptation (TITS'25), Spatio-Temporal VL Model (TITS'26), DAGCAN (TITS'25), Task-Oriented Spatial Graph (TITS'25), Conformal GNN (TITS'25), Geometric Deep Learning (TITS'25), V-DCRNN (TITS'25), MT-STNet (TITS'24), Voronoi STGCN (TITS'24), DSTIGFN (TITS'26), Bicycle Traffic Prediction (TITS'26), Noise-Robust Bus (TITS'26), Dirichlet Graph (TITS'25), SEDA (TITS'24), G²-HGNN (TITS'25), High/Low Frequency Attention (TITS'25), Multi-Form ST (TITS'25), Sparse Cross Attention (TITS'25), Knowledge-Based Multiple (TITS'24), TRECK (TITS'24), ST-Augmentation (TITS'25), TCN-DMAttention (TITS'26), CSP-AIT-Net (TITS'26), Management Actions (TITS'25), TAMHA-DDPM (TITS'25), Versatile Behavior (TITS'26), Multi-Granularity Graph Diffusion (TITS'26), Intention-Aware Diffusion (TITS'25), CNDM (TITS'26), Diffutory (TITS'25), AirTraj-Diff (TITS'25), Security-Enhanced HFL (TITS'25), Security-Enhanced VFL (TITS'25), Fed Few-Shot (TITS'25), Clustered Fed (TITS'25), Network-State-Intelligent (TITS'25), Co-Evolving (TITS'25), Bridging Temporal Gaps (TITS'26), Physics-Guided Transfer (TITS'24), Network-Wide Dynamics (TITS'24), Nonlocal Traffic (TITS'24), Physics-Inspired Energy (TITS'24), DT-CTFP (TITS'25), Multi-Scale Spatio-Temporal (TITS'26), DualRisk (TITS'24), STORM (TITS'24), Vessel Traffic (TITS'26), Carbon Emission (TITS'25), Meta-Learning Conflict (TITS'26), STAEformer (AAAI'23), PDFormer (AAAI'23), HyperD (AAAI'26), STDN (AAAI'25), SSL-STMFormer (AAAI'25), Decomposed ST-Mamba (AAAI'25), ModWaveMLP (AAAI'24), Pivotal GNN (AAAI'24), STONE (KDD'24), FedGTP (KDD'24), CityBench (KDD'24), UoMo (KDD'24), UniST (KDD'24), Talking Trails (AAAI'26), ST-LEGO (WWW'26), STELA (WWW'26), ST-LINK (CIKM'25), MF3 (WWW'26), WED-Net (WWW'26), VisionST (WWW'26), KnowLCP (AAAI'26), CaTFormer (AAAI'25), NEST (AAAI'24), BehaviorGPT (NeurIPS'24), GeoPro-Net (AAAI'25), Beta Distribution (AAAI'25), RDPI (AAAI'25), PhyMPGN (ICLR'24), STEMO (KDD'24), Conservation-informed (KDD'24), Interpretable MoE (KDD'24), Efficient Large-Scale (KDD'24), TelTrans (AAAI'24), Tel2Veh (WWW'24), Adaptive Frequency Pathways (AAAI'26), Responsive Dynamic Graph (AAAI'25) 等论文。更新时间：2026-06-20。涵盖1000+篇论文。
