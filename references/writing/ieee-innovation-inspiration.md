@@ -1918,3 +1918,59 @@
 | OOD | 单一偏移 | 联合时空偏移 | 检索增强 |
 | 因果推断 | Granger/NOTEARS | 干预推理 | LLM因果知识 |
 | 部署 | 集中式 | 联邦学习 | 边缘实时 |
+
+---
+
+## 附录：核心综述论文参考文献索引
+
+以下综述论文共包含2,500+篇参考文献，是本skill论文覆盖的重要来源：
+
+| 综述论文 | 年份 | 参考文献数 | 被引次数 | 主要方向 |
+|---------|------|-----------|---------|---------|
+| GNN for Traffic Forecasting Survey | 2022 | 437 | 1216 | GNN+交通预测 |
+| LLM Reshaping Transportation | 2025 | 298 | 33 | LLM+交通系统 |
+| GenAI for Urban Digital Twins | 2024 | 358 | 120 | 生成式AI+城市 |
+| Traffic Prediction: ST Data to ITS | 2021 | 266 | 367 | 时空数据+交通 |
+| GNN for ITS Survey | 2023 | 241 | 273 | GNN+ITS |
+| Foundation Models for GeoAI | 2024 | 224 | 98 | Foundation Model+地理 |
+| DL for Time Series Forecasting | 2025 | 163 | 126 | DL+时间序列 |
+| DL on Network Traffic Prediction | 2025 | 126 | 61 | DL+网络流量 |
+| LLM for Intelligent Transportation | 2024 | 113 | 43 | LLM+交通 |
+| Foundation Models for ST Data Science | 2025 | 79 | - | FM+时空数据 |
+| Diffusion Models for ITS | 2025 | - | 12 | 扩散模型+交通 |
+| STG4Traffic | 2023/24 | - | - | STGNN+交通 |
+
+---
+
+## 附录：顶级研究组论文索引
+
+| 研究组 | 机构 | 代表论文 | 核心方向 |
+|--------|------|---------|---------|
+| Yu Zheng | Microsoft Research | UrbanGPT, UniST | Urban Computing框架 |
+| Yuxuan Liang | University of Sydney/HKUST | STAEformer, PDFormer | STGNN+Transformer |
+| Chao Huang | HKUST | One-for-All | 统一框架 |
+| Yong Li | Tsinghua | UniST, 跨城市迁移 | 大规模Urban Computing |
+| Jie Feng | Tsinghua | 图注意力网络 | 数据驱动方法 |
+| Jingyuan Wang | Tsinghua | Revisiting系列 | 理论分析+Benchmark |
+| Hao Liu | HKUST(GZ) | STAEformer, PDFormer | Transformer架构 |
+| Lianghao Xia | HKUST | UrbanGPT | Graph Learning |
+| Zheyi Pan | Microsoft Research | ST-ResNet改进 | 多源数据融合 |
+| Chuanpan Zheng | - | Dynamic Graph STGCN | 动态图网络 |
+
+---
+
+## 附录：核心Benchmark平台
+
+| 平台 | 年份 | 包含方法 | 核心贡献 |
+|------|------|---------|---------|
+| **LargeST** | NeurIPS 2023 | 10+ | 大规模评估(8600传感器) |
+| **BasicTS** | 2023-2024 | 15+ | 公平评估框架 |
+| **LibCity** | SIGSPATIAL 2021 | 60+ | 最全面开源库 |
+| **OpenSTL** | NeurIPS 2023 | 20+ | 跨领域时空预测 |
+
+---
+
+> 更新时间：2026-06-21
+> 来源期刊：IEEE TITS, TKDE, TNNLS, AAAI, KDD, ICLR, NeurIPS, ICML, ICME, WWW, SIGIR, CIKM, Nature Communications (2024-2026)
+> 涵盖论文：1200+篇
+> 数据来源：OpenAlex API, arXiv API, Semantic Scholar, 综述论文参考文献索引
