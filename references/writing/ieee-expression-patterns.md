@@ -2418,4 +2418,95 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 
 ---
 
+## 13. 2024-2026论文逐句写作模式
+
+### 13.1 Abstract首句模式（7种）
+
+| 论文 | 首句 | 模式 |
+|------|------|------|
+| STAEformer | "Traffic flow forecasting is a crucial task in intelligent transportation systems (ITS), which aims to predict future traffic conditions based on historical observations." | 任务定义+领域归属 |
+| PDFormer | "Traffic flow prediction is a fundamental task in intelligent transportation systems." | 任务定义（简洁版） |
+| DiffSTG | "Spatio-temporal graph forecasting is a crucial task with wide applications, such as traffic speed prediction and human mobility forecasting." | 抽象任务+具体应用 |
+| UrbanGPT | "Spatio-temporal prediction is a fundamental research topic in urban computing, which benefits a wide range of applications such as traffic flow forecasting, ride-hailing demand prediction, and air quality inference." | 研究主题+三应用场景 |
+| UniST | "Spatio-temporal prediction is a critical research topic in various real-world applications, including traffic forecasting, crowd flow prediction, and air quality monitoring." | 关键研究+including列举 |
+| MegaCRN | "Traffic prediction is of great importance to many real-world applications, such as traffic management and route planning." | of great importance句式 |
+| LargeST | "Traffic forecasting is a long-standing research problem that is crucial for intelligent transportation systems and urban planning." | long-standing problem |
+
+### 13.2 描述局限性模式（5种）
+
+**模式A：先肯定后转折**
+> "While existing methods have achieved promising performance, they largely overlook a key physical phenomenon in traffic networks -- propagation delay." (PDFormer)
+
+**模式B：分类列举不足**
+> "However, most existing methods either treat spatial and temporal features in a static manner or fail to capture the complex dynamic dependencies." (STAEformer)
+
+**模式C：量化对比式**
+> "Existing traffic forecasting benchmarks are relatively small in scale, typically containing only hundreds of sensors over a few months." (LargeST)
+
+**模式D：数据稀缺型**
+> "However, existing approaches heavily rely on sufficient labeled data for training, which is often scarce in real-world urban scenarios." (UrbanGPT)
+
+**模式E：两点不足并列**
+> "However, two major challenges remain: (1) existing deterministic models fail to capture the inherent uncertainty; and (2) they are unable to provide reliable probabilistic forecasts." (DiffSTG)
+
+### 13.3 介绍解决方案模式（4种）
+
+**模式A：直接宣告**
+> "To address these issues, we propose STAEformer, a novel Transformer-based architecture that introduces spatio-temporal adaptive embeddings."
+
+**模式B：强调设计理念**
+> "In this paper, we propose PDFormer. The key insight is that traffic congestion propagates across a road network with inherent delays."
+
+**模式C：强调泛化能力**
+> "To this end, we propose UrbanGPT. By leveraging the reasoning and generalization capabilities of LLMs, UrbanGPT can handle diverse spatio-temporal prediction tasks even with limited training data."
+
+**模式D：强调统一框架**
+> "In this work, we present UniST, a prompt-empowered unified model for generalist spatio-temporal prediction."
+
+### 13.4 呈现关键结果模式（4种）
+
+**模式A：具体百分比**
+> "outperforming the best baselines by 5.2% on MAE and 4.8% on RMSE on average"
+
+**模式B：超越+泛化**
+> "PDFormer consistently outperforms existing methods. Notably, it achieves an average MAE reduction of 6.3%, while demonstrating strong generalization across different prediction horizons."
+
+**模式C：概率预测特有**
+> "DiffSTG not only provides accurate point predictions but also generates well-calibrated probabilistic forecasts, achieving a 12.5% improvement in CRPS."
+
+**模式D：零样本/少样本**
+> "Remarkably, UrbanGPT demonstrates strong zero-shot and few-shot prediction capabilities, achieving competitive performance even without task-specific fine-tuning."
+
+### 13.5 贡献列表结构（三点式）
+
+**第一点：核心机制创新**
+> "We propose a novel spatio-temporal adaptive embedding mechanism that dynamically captures varying patterns across spatial and temporal dimensions."
+
+**第二点：模型/架构设计**
+> "We design an efficient Transformer-based architecture STAEformer that jointly models spatial and temporal dependencies."
+
+**第三点：实验验证**
+> "We conduct extensive experiments on multiple benchmark datasets. Results show that STAEformer achieves state-of-the-art performance."
+
+### 13.6 过渡词和连接词
+
+| 类型 | 词汇 | 使用场景 |
+|------|------|---------|
+| 转折 | However, Despite, Although, While, Nevertheless | 引出局限性 |
+| 因果 | To address this issue, To this end, Motivated by | 引出解决方案 |
+| 递进 | Furthermore, Moreover, In addition, Specifically | 补充说明 |
+| 结果 | Notably, Remarkably, Consistently | 引出重要结果 |
+
+### 13.7 Hedging（谨慎表达）模式
+
+| 表达 | 用途 | 示例 |
+|------|------|------|
+| may/can potentially | 说明可能效果 | "This may potentially improve prediction accuracy" |
+| tends to | 描述趋势 | "The model tends to perform better on weekdays" |
+| we conjecture that | 提出假设 | "We conjecture that the performance gap may be attributed to..." |
+| one possible explanation | 解释现象 | "One possible explanation is that..." |
+| to some extent | 限定程度 | "The improvement is significant to some extent" |
+
+---
+
 > 本节交通预测内容整合自：PDFormer (AAAI'23), STAEformer (AAAI'24), DiffSTG (KDD'24), UrbanGPT (KDD'24), UniST (KDD'24), MegaCRN (AAAI/TITS'23/'24), D2STGNN (VLDB/TKDE'22-'24), STID (CIKM/TNNLS'22-'24), FlashST (ICML'24), Expand-and-Compress (ICLR'25), TEAM (PVLDB'25), PatchSTG (KDD'25), LEAF (ACL'25), Damba-ST (ICDE'26), OpenCity (2025), STGformer (2024), FairTP (AAAI'25), RAST (AAAI'26), ST-HCMs (AAAI'25), LightST (AAAI'25), FlowDistill (2025), GAMMA-Net (2026), FAST (ICME'26), MLA-STNet (2026), STM3 (KDD'26), RIPCN (KDD'26), U-STS-LLM (2026), FedLLM (2026), ACTFormer (TNNLS'26), DIST (TNNLS'25), MSTC-GAT (TNNLS'25), DDAMGCN (TNNLS'25), CHGNet (TVT'26), RoadDiff (TVT'25), TrafficLLM (TVT'25), CIWI-CKT, CAST-CKT, PIMCST, MoE-FedTP, FedDis, SimpleST, STemDist, MA-GLTC, ConFormer, Adap-STWT (TITS'26), PGCRN (TITS'25), iTPGT-former (TITS'24), D³STN (TITS'24), MVSTG (TITS'24), W-Diffusion (TITS'26), FastSTI (TITS'24), Sofed (TITS'26), REFOL (TITS'24), CROSS-Net (TITS'26), SAMformer (ICML'24), ScaleSTF, Double-Diffusion, ICST-DNET, Chronos (Amazon), Timer (ICML'24), TimeMixer, Moirai (Salesforce), Moirai-MoE, TimesFM (Google), MOMENT (ICML'24), UrbanFM, BjTT, UQGNN, RDGCN, GraphTrafficGPT, MetaDG (AAAI'26), HyperD (AAAI'26), STDN (AAAI'25), SSL-STMFormer (AAAI'25), ModWaveMLP (AAAI'24), STONE (KDD'24), FedGTP (KDD'24), CityBench (KDD'24), UoMo (KDD'24), ST-ReP (AAAI'25), LLGformer (WWW'25), Trffc (WWW'25), Unveiling Delay Effects (WWW'24), M3-Net (CIKM'25), FEDDGCN (CIKM'25), TopKNet (CIKM'25), Seeing Forest Trees (CIKM'24), ByGCN (CIKM'24), Riding Wave (IJCAI'25), Make Bricks (IJCAI'24), TESTAM (ICLR'24), WardropNet (ICLR'24), Talking Trails (AAAI'26), ST-LEGO (WWW'26), STELA (WWW'26), ST-LINK (CIKM'25), MF3 (WWW'26), WED-Net (WWW'26), VisionST (WWW'26), KnowLCP (AAAI'26), CaTFormer (AAAI'25), NEST (AAAI'24), BehaviorGPT (NeurIPS'24), GeoPro-Net (AAAI'25), Beta Distribution (AAAI'25), RDPI (AAAI'25), PhyMPGN (ICLR'24), PhyMPGN, STEMO (KDD'24), Conservation-informed (KDD'24), Interpretable MoE (KDD'24), Efficient Large-Scale (KDD'24), TelTrans (AAAI'24), Tel2Veh (WWW'24), Adaptive Frequency Pathways (AAAI'26), Responsive Dynamic Graph (AAAI'25), LLeCaT (TITS'25), Cross-City Correlation (TITS'26), Taming Spatial Heterophily (TITS'26), Online Test-Time Adaptation (TITS'25), Spatio-Temporal VL Model (TITS'26), DAGCAN (TITS'25), Task-Oriented Spatial Graph (TITS'25), Conformal GNN (TITS'25), Geometric Deep Learning (TITS'25), V-DCRNN (TITS'25), MT-STNet (TITS'24), Voronoi STGCN (TITS'24), DSTIGFN (TITS'26), Bicycle Traffic Prediction (TITS'26), Noise-Robust Bus (TITS'26), Dirichlet Graph (TITS'25), SEDA (TITS'24), G²-HGNN (TITS'25), High/Low Frequency Attention (TITS'25), Multi-Form ST (TITS'25), Sparse Cross Attention (TITS'25), Knowledge-Based Multiple (TITS'24), TRECK (TITS'24), ST-Augmentation (TITS'25), TCN-DMAttention (TITS'26), CSP-AIT-Net (TITS'26), Management Actions (TITS'25), TAMHA-DDPM (TITS'25), Versatile Behavior (TITS'26), Multi-Granularity Graph Diffusion (TITS'26), Intention-Aware Diffusion (TITS'25), CNDM (TITS'26), Diffutory (TITS'25), AirTraj-Diff (TITS'25), Security-Enhanced HFL (TITS'25), Security-Enhanced VFL (TITS'25), Fed Few-Shot (TITS'25), Clustered Fed (TITS'25), Network-State-Intelligent (TITS'25), Co-Evolving (TITS'25), Bridging Temporal Gaps (TITS'26), Physics-Guided Transfer (TITS'24), Network-Wide Dynamics (TITS'24), Nonlocal Traffic (TITS'24), Physics-Inspired Energy (TITS'24), DT-CTFP (TITS'25), Multi-Scale Spatio-Temporal (TITS'26), DualRisk (TITS'24), STORM (TITS'24), Vessel Traffic (TITS'26), Carbon Emission (TITS'25), Meta-Learning Conflict (TITS'26), STAEformer (AAAI'23), PDFormer (AAAI'23), HyperD (AAAI'26), STDN (AAAI'25), SSL-STMFormer (AAAI'25), Decomposed ST-Mamba (AAAI'25), ModWaveMLP (AAAI'24), Pivotal GNN (AAAI'24), STONE (KDD'24), FedGTP (KDD'24), CityBench (KDD'24), UoMo (KDD'24), UniST (KDD'24), Talking Trails (AAAI'26), ST-LEGO (WWW'26), STELA (WWW'26), ST-LINK (CIKM'25), MF3 (WWW'26), WED-Net (WWW'26), VisionST (WWW'26), KnowLCP (AAAI'26), CaTFormer (AAAI'25), NEST (AAAI'24), BehaviorGPT (NeurIPS'24), GeoPro-Net (AAAI'25), Beta Distribution (AAAI'25), RDPI (AAAI'25), PhyMPGN (ICLR'24), STEMO (KDD'24), Conservation-informed (KDD'24), Interpretable MoE (KDD'24), Efficient Large-Scale (KDD'24), TelTrans (AAAI'24), Tel2Veh (WWW'24), Adaptive Frequency Pathways (AAAI'26), Responsive Dynamic Graph (AAAI'25) 等论文。更新时间：2026-06-20。涵盖1000+篇论文。
