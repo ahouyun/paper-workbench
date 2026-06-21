@@ -3329,3 +3329,63 @@ Despite this minor gap, [Model] demonstrates significantly better performance on
 3. **可解释性**：增加Visualization子节展示attention权重
 4. **效率与可扩展性**：必须报告参数量、训练时间、GPU内存
 5. **多模态融合**：引入文本、图像、图谱等多源数据
+
+### 13.38 IEEE TITS 2025-2026写作模式（20篇论文分析）
+
+**问题重新定义型（MLSTP）：**
+> "Existing methods often define trajectory prediction as a static task... However, this approach leads to significant long-term prediction errors."
+
+**瓶颈突破型（GAN Pre-Training）：**
+> "Existing methods extract traffic data's features by designing sophisticated spatiotemporal graph neural network models, and have reached a bottleneck."
+
+**物理机理驱动型（DSTGCN）：**
+> "Most ST-GNNs construct the graph adjacency matrix using predefined rules or trainable parameters, without fully leveraging the congestion relationships within traffic flows to guide graph structure learning."
+
+**多因素挑战编号列举型（ICST-DNET）：**
+> "However, making accurate predictions is challenging due to three factors: 1) traffic diffusion, i.e., the spatial and temporal causality..., 2) the poor interpretability..., and 3) the latent pattern of traffic speed fluctuations..."
+
+**LLM增强型（LLeCaT）：**
+> "Previous studies have focused on predicting accident hotspots, risks, or traffic states using simple accident features. Yet, because traffic accidents are infrequent and exhibit spatio-temporal biases..."
+
+**隐私保护驱动型（Sofed）：**
+> "As concerns over data privacy grow, direct data sharing is increasingly restricted, prompting substantial interest in Federated Graph Learning for traffic prediction."
+
+**研究空白填补型（OD Demand）：**
+> "Existing studies mainly focus on modeling and predicting OD demands in the short term, while studies for long-term OD demand forecasting are limited."
+
+**性能退化问题导向型（Online TTA）：**
+> "Traditional deep-learning based methods typically rely on historical data to train their models... However, the performance of the trained model usually degrades due to the temporal drift."
+
+### 13.39 KDD/NeurIPS 2024-2025写作模式
+
+**Prompt-based统一模型（UniST）：**
+> "UniST leverages large-scale spatiotemporal data for pre-training and employs learnable prompts to adapt to diverse downstream tasks."
+
+**LLM Instruction Tuning（UrbanGPT）：**
+> "We introduce a spatio-temporal instruction tuning approach that enables LLMs to reason over spatial and temporal patterns."
+
+**物理引导（STDEN）：**
+> "STDEN integrates physics-informed constraints from traffic flow theory into graph neural networks, improving interpretability and generalization."
+
+**传播延迟建模（PDFormer）：**
+> "Traffic congestion and flow patterns don't instantly affect all locations — there is a spatial-temporal propagation delay between different road segments."
+
+**自适应嵌入（STAEformer）：**
+> "Achieves state-of-the-art performance without requiring a predefined adjacency matrix."
+
+**Meta-Graph（MegaCRN）：**
+> "Through meta-learning, the model dynamically generates graph structures at each time step, rather than relying on fixed adjacency matrices."
+
+**扩散概率预测（DiffSTG）：**
+> "Generates probabilistic forecasts that capture the uncertainty in future traffic patterns."
+
+### 13.40 新方法架构总结（17篇）
+
+| 类别 | 代表论文 | 核心创新 |
+|------|---------|---------|
+| Transformer变体 | STAEformer, PDFormer, AutoSTP | 自适应嵌入/传播延迟/NAS |
+| State Space Model | ST-Mamba, TrafficMamba, SGMamba | 双向扫描/图信息融入SSM |
+| Diffusion Model | DiffSTG, PD-Diff, DSTAGNN改进 | 概率预测/物理信息引导 |
+| LLM/Foundation Model | UniST, ST-LLM, TrafficGPT, LLM-Mob | 预训练+提示/语义理解 |
+| 因果推断 | CausalSTG | 因果图学习/反事实推理 |
+| 小波分析 | STWave | 多分辨率时间频率分析 |
