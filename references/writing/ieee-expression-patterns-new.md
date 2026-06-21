@@ -1033,3 +1033,72 @@
 | Robustness Ratio | 鲁棒性比 | 鲁棒性评估 |
 | OOD Gap | 分布外性能差距 | 泛化能力 |
 | SCP | 空间相关性保持度 | 结构保持 |
+
+### 13.44 IEEE TITS/TKDE 2025-2026写作模式（23篇论文）
+
+**LLM+图注意力（ST-LLM+）：**
+> "Through incorporating a proximity-based adjacency matrix derived from the traffic network into the calibrated LLMs, ST-LLM+ captures complex spatio-temporal dependencies within the traffic network."
+
+**每日自适应预测（ASTCL）：**
+> "Existing traffic forecasting relies on the assumption that there is a hidden invariant spatial-temporal pattern in the large-scale dataset. However, the traffic patterns are easily influenced by many unpredictable external factors."
+
+**多任务学习（MTNet）：**
+> "Traditional research has often focused on predicting traffic flow or speed independently, leading to higher resource consumption due to the need for separate models."
+
+**四元数图神经网络（QSTGNN）：**
+> "The quaternion spatio-temporal graph is constructed firstly, such that the information of both short and long-term time steps are preserved in quaternion feature tensor."
+
+**概率预测（Probabilistic）：**
+> "To date, most work is focused on point estimation models, which only output a single value w.r.t an attribute of traffic data at a time, falling short of depicting diverse situations and uncertainty in future."
+
+**拥堵传播（DSTGCN）：**
+> "Accurate traffic prediction is crucial for the management of intelligent transportation systems. However, most ST-GNNs construct the graph adjacency matrix using predefined rules or trainable parameters, without fully leveraging the congestion relationships."
+
+**文本到交通生成（ChatTraffic）：**
+> "The analysis of traffic situations under abnormal conditions is one of the bottleneck issues in Intelligent Transportation Systems. Influenced by the suddenness, randomness, and uncertainty, this issue is challenging to achieve through existing deep learning methods."
+
+**意图感知扩散（Intention-Aware Diffusion）：**
+> "Accurate prediction of future trajectories for surrounding agents is crucial for ensuring the safety and reliability of autonomous driving systems."
+
+**Conformal Prediction（Travel Time + Weather）：**
+> "Traffic flow forecasting is essential for managing congestion, improving safety, and optimizing various transportation systems. However, it remains a prevailing challenge due to the stochastic nature of urban traffic."
+
+**在线测试时适应（Online TTA）：**
+> "Traditional deep-learning based methods typically rely on historical data to train their models. However, the performance of the trained model usually degrades due to the temporal drift between the historical and future data."
+
+### 13.45 KDD/AAAI 2025-2026写作模式（10篇论文）
+
+**空间数据管理视角（Efficient Large-Scale）：**
+> "From a spatial data management perspective, we revisit the problem of large-scale traffic forecasting."
+
+**物理守恒律（Conservation-informed）：**
+> "Data-centric methods have shown great potential in understanding and predicting spatiotemporal dynamics. However, deep learning models often lack interpretability, fail to obey intrinsic physics, and struggle to cope with the various domains."
+
+**Mamba分解（Decomposed ST-Mamba）：**
+> "By virtue of the ability to effectively learn spatial and temporal dependencies from a global view, Transformers have achieved superior performance in long-term traffic prediction."
+
+**公平性框架（FairTP）：**
+> "Existing approaches primarily focus on improving overall accuracy, often neglecting a critical issue: whether predictive models lead to biased decisions by transportation authorities."
+
+**时空蒸馏（ST-Distillation）：**
+> "Although GNNs have shown great promise in handling traffic datasets, their deployment in real-life applications has been hindered by scalability constraints arising from high-order message passing."
+
+**零膨胀分布（Zero-Inflated）：**
+> "Adversarial spatiotemporal graph learning under zero-inflated distribution presents unique challenges for traffic prediction."
+
+**异构图对比学习（Heterogeneous Graph CL）：**
+> "Heterogeneous graph contrastive learning enhances the robustness of spatiotemporal representations."
+
+### 13.46 新方法架构总结（18篇）
+
+| 类别 | 代表论文 | 核心突破 |
+|------|---------|---------|
+| Attention+SSM混合 | FAST, GAMMA-Net | 统一Transformer表达力与Mamba效率 |
+| Diffusion增强 | DETNO, NPDiff, LEAD | 高频重建/噪声先验/LLM融合 |
+| LLM适配 | U-STS-LLM, CrossTrafficLLM | 注意力偏置引导/预测+描述双输出 |
+| 检索增强 | RAST | RAG理念迁移至时空建模 |
+| Neural ODE创新 | LTE-ODE | 数学误差转化为注意力偏置 |
+| PDE物理先验 | NeST-S6 | 物理方程嵌入SSM |
+| 概率预测 | GMM-Universal, RIPCN | 优雅的概率化改造 |
+| 轻量化部署 | LightST, M3-Net, GraphSparseNet | 知识蒸馏/去图化/线性复杂度 |
+| 在线适应 | FORESEE | 零参数更新的实时校正 |
