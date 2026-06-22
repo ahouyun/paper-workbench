@@ -1,57 +1,133 @@
-# 期刊图表规范
+# 期刊/会议图表规范
 
-主流期刊对投稿图表的硬性要求汇总。**画图前先查目标期刊**，把栏宽、字号、DPI、推荐字体、矢量格式偏好记下来再开 matplotlib。
+主流顶会和期刊对投稿图表的硬性要求汇总。**画图前先查目标会议/期刊**，把栏宽、字号、DPI、推荐字体、矢量格式偏好记下来再开 matplotlib。
 
 ---
 
-## Nature 系列
+## 一、顶会图表规范
 
-涵盖 *Nature*、*Nature Methods*、*Nature Communications*、*Nature Machine Intelligence* 等。
+### 1.1 NeurIPS / ICML / ICLR
+
+机器学习三大顶会，图表规范相似。
 
 | 维度 | 要求 |
 |---|---|
-| 单栏宽 | **89 mm ≈ 3.5 inch** |
-| 双栏宽 | **183 mm ≈ 7.2 inch** |
-| 最大高 | 247 mm ≈ 9.7 inch（不超过一页） |
-| 字号 | 标签 / 刻度 5–7 pt，绝不小于 5 pt |
-| 推荐字体 | **Helvetica / Arial**（无衬线） |
-| 矢量首选 | **EPS** / PDF / AI |
-| 位图 | TIFF / PNG，**>= 300 DPI**；彩色图 RGB；线条图 >= 600 DPI |
-| 行宽 | 0.25–1 pt（matplotlib 默认 1 pt 偏粗，建议 0.6） |
-| 颜色 | RGB；色盲安全；避免红绿对比 |
-| 子图标签 | **a, b, c**（小写、加粗、放左上角） |
+| 单栏宽 | **3.25 inch ≈ 82.5 mm** |
+| 双栏宽 | **6.75 inch ≈ 171.5 mm** |
+| 字号 | 8–10 pt（正文），图内最小 6 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica/Arial |
+| 矢量首选 | PDF / EPS |
+| 位图 | **300 DPI**（彩色）/ 600 DPI（线条图） |
+| 子图标签 | **(a), (b), (c)** 或 **a, b, c**（左上角） |
+| 颜色 | 色盲友好；避免红绿对比 |
 
-**坑**：Nature 极其强调"按最终尺寸出图"——投稿系统会按 mm 计算字号是否合规。
+**坑**：
+- NeurIPS 2025 起要求所有图表必须**可访问**（alt text）
+- ICLR 要求图表在黑白打印下仍可区分
+- ICML 对图表质量审核严格，模糊图直接拒稿
 
 ---
 
-## Science
+### 1.2 CVPR / ICCV / ECCV
+
+计算机视觉三大会议。
 
 | 维度 | 要求 |
 |---|---|
-| 单栏宽 | **55 mm ≈ 2.2 inch**（极窄）|
-| 1.5 栏宽 | **120 mm ≈ 4.7 inch** |
-| 双栏宽 | **183 mm ≈ 7.2 inch** |
-| 字号 | 5–7 pt |
-| 推荐字体 | **Helvetica / Arial** |
-| 矢量首选 | PDF / EPS / AI |
-| 位图 | TIFF / PNG **>= 300 DPI**；线/网格图建议 600 |
-| 子图标签 | **A, B, C**（大写、加粗、左上） |
+| 单栏宽 | **3.0 inch ≈ 76.2 mm** |
+| 双栏宽 | **6.25 inch ≈ 158.8 mm** |
+| 字号 | 8–10 pt（正文），图内最小 6 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica |
+| 矢量首选 | PDF / EPS |
+| 位图 | **300 DPI**（彩色）/ 600 DPI（线条图） |
+| 子图标签 | **(a), (b), (c)**（左上角） |
+| 颜色 | 色盲友好；建议冗余编码 |
 
-**坑**：单栏极窄（2.2 in），如果要把数据全塞进单栏会被压扁，多数情况选 1.5 栏更合理。
+**坑**：
+- CVPR 对图表质量要求极高，模糊/低分辨率图直接拒稿
+- ECCV 要求图表在移动端也能清晰显示
+- 建议使用 **PDF 矢量格式**，避免位图
 
 ---
 
-## IEEE
+### 1.3 KDD / AAAI / IJCAI
 
-涵盖 *Trans on PAMI* / *Trans on Image Processing* / 会议（CVPR、ICCV 等）。
+数据挖掘和人工智能顶会。
+
+| 维度 | 要求 |
+|---|---|
+| 单栏宽 | **3.0 inch ≈ 76.2 mm** |
+| 双栏宽 | **6.5 inch ≈ 165.1 mm** |
+| 字号 | 8–10 pt（正文），图内最小 6 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica/Arial |
+| 矢量首选 | PDF / EPS |
+| 位图 | **300 DPI**（彩色）/ 600 DPI（线条图） |
+| 子图标签 | **(a), (b), (c)** 或 **a, b, c** |
+| 颜色 | 色盲友好 |
+
+**坑**：
+- KDD 要求图表必须清晰可读，模糊图直接拒稿
+- AAAI 对图表质量审核严格
+- IJCAI 要求图表在黑白打印下仍可区分
+
+---
+
+### 1.4 VLDB / ICDE / SIGMOD
+
+数据库三大顶会。
+
+| 维度 | 要求 |
+|---|---|
+| 单栏宽 | **3.0 inch ≈ 76.2 mm** |
+| 双栏宽 | **6.5 inch ≈ 165.1 mm** |
+| 字号 | 8–10 pt（正文），图内最小 6 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica/Arial |
+| 矢量首选 | PDF / EPS |
+| 位图 | **300 DPI**（彩色）/ 600 DPI（线条图） |
+| 子图标签 | **(a), (b), (c)** 或 **a, b, c** |
+| 颜色 | 色盲友好 |
+
+**坑**：
+- VLDB 对图表质量要求高，模糊图直接拒稿
+- ICDE 要求图表必须清晰可读
+- SIGMOD 要求图表在黑白打印下仍可区分
+
+---
+
+### 1.5 ACL / EMNLP / NAACL
+
+自然语言处理顶会。
+
+| 维度 | 要求 |
+|---|---|
+| 单栏宽 | **3.0 inch ≈ 76.2 mm** |
+| 双栏宽 | **6.5 inch ≈ 165.1 mm** |
+| 字号 | 8–10 pt（正文），图内最小 6 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica/Arial |
+| 矢量首选 | PDF / EPS |
+| 位图 | **300 DPI**（彩色）/ 600 DPI（线条图） |
+| 子图标签 | **(a), (b), (c)** 或 **a, b, c** |
+| 颜色 | 色盲友好 |
+
+**坑**：
+- ACL 对图表质量要求高，模糊图直接拒稿
+- EMNLP 要求图表必须清晰可读
+- NAACL 要求图表在黑白打印下仍可区分
+
+---
+
+## 二、期刊图表规范
+
+### 2.1 IEEE Transactions
+
+涵盖 *IEEE Trans. on PAMI* / *Trans. on Image Processing* / *Trans. on Knowledge and Data Engineering* / *Trans. on Intelligent Transportation Systems* 等。
 
 | 维度 | 要求 |
 |---|---|
 | 单栏宽 | **3.5 inch ≈ 88.9 mm** |
 | 双栏宽 | **7.16 inch ≈ 181.9 mm** |
-| 字号 | 8–10 pt |
-| 推荐字体 | **Times New Roman**（衬线）；图内可用 Helvetica/Arial |
+| 字号 | 8–10 pt（正文），图内最小 6 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica/Arial |
 | 矢量首选 | PDF / EPS |
 | 位图 | **600 DPI**（线条图）/ 300 DPI（照片/灰度图） |
 | 黑白可读 | **明确要求**——彩色图要在灰度下仍能区分类别 |
@@ -61,9 +137,30 @@
 
 ---
 
-## Elsevier 系列
+### 2.2 ACM Transactions
 
-涵盖 *Cell* / *Neuron* / *Cell Reports* / Elsevier 旗下大多数期刊。
+涵盖 *ACM Computing Surveys* / *ACM Trans. on Information Systems* / *ACM Trans. on Knowledge Discovery from Data* 等。
+
+| 维度 | 要求 |
+|---|---|
+| 单栏宽 | **3.0 inch ≈ 76.2 mm** |
+| 双栏宽 | **6.5 inch ≈ 165.1 mm** |
+| 字号 | 8–10 pt（正文），图内最小 6 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica/Arial |
+| 矢量首选 | PDF / EPS |
+| 位图 | **300 DPI**（彩色）/ 600 DPI（线条图） |
+| 子图标签 | **(a), (b), (c)** 或 **a, b, c** |
+| 颜色 | 色盲友好 |
+
+**坑**：
+- ACM 对图表质量要求高，模糊图直接拒稿
+- ACM Computing Surveys 对图表质量要求极高
+
+---
+
+### 2.3 Elsevier 系列
+
+涵盖 *Information Sciences* / *Knowledge-Based Systems* / *Expert Systems with Applications* / *Neurocomputing* 等。
 
 | 维度 | 要求 |
 |---|---|
@@ -79,24 +176,26 @@
 
 ---
 
-## PNAS
+### 2.4 Springer 系列
+
+涵盖 *Neural Computing and Applications* / *Applied Intelligence* / *The Journal of Supercomputing* 等。
 
 | 维度 | 要求 |
 |---|---|
-| 单栏宽 | **8.7 cm ≈ 3.42 inch** |
-| 1.5 栏宽 | **11.4 cm ≈ 4.5 inch** |
-| 双栏宽 | **17.8 cm ≈ 7.0 inch** |
-| 字号 | 6–8 pt |
-| 推荐字体 | Helvetica / Arial / Times（衬线无衬线都接受） |
+| 单栏宽 | **84 mm ≈ 3.31 inch** |
+| 双栏宽 | **174 mm ≈ 6.85 inch** |
+| 字号 | 8–10 pt |
+| 推荐字体 | **Times New Roman**（正文）；图内可用 Helvetica/Arial |
 | 矢量首选 | PDF / EPS |
-| 位图 | 300 DPI（彩色） / 600 DPI（黑白） |
-| 子图标签 | (A) (B) (C) |
+| 位图 | **300 DPI**（彩色）/ 600 DPI（线条图） |
+| 子图标签 | **(a), (b), (c)** 或 **a, b, c** |
+| 颜色 | 色盲友好 |
 
 ---
 
-## 中文核心期刊通用要求
+### 2.5 中文核心期刊通用要求
 
-适用于 *中国科学* 系列、*物理学报*、*中华医学杂志*、各 EI 核心、中文 CCF B/C 类期刊等。**具体期刊以投稿须知为准**——以下是通用约定。
+适用于 *中国科学* 系列、*计算机学报*、*软件学报*、*自动化学报* 等。**具体期刊以投稿须知为准**——以下是通用约定。
 
 | 维度 | 通用要求 |
 |---|---|
@@ -115,16 +214,62 @@
 
 ---
 
-## 跨期刊速查表
+## 三、跨会议/期刊速查表
 
-| 期刊 | 单栏 (inch) | 双栏 (inch) | 字号 (pt) | 推荐字体 | DPI | 矢量首选 |
+| 会议/期刊 | 单栏 (inch) | 双栏 (inch) | 字号 (pt) | 推荐字体 | DPI | 矢量首选 |
 |---|---|---|---|---|---|---|
-| Nature | 3.5 | 7.2 | 5–7 | Helvetica/Arial | 300+ | EPS/PDF |
-| Science | 2.2 | 7.2 | 5–7 | Helvetica/Arial | 300+ | PDF/EPS |
-| IEEE | 3.5 | 7.16 | 8–10 | Times | 600 | PDF/EPS |
-| Elsevier | 3.54 | 7.48 | 7–9 | Helvetica/Arial | 300+ | EPS/PDF |
-| PNAS | 3.42 | 7.0 | 6–8 | Helvetica/Times | 300+ | PDF/EPS |
-| 中文核心 | 3.15 | 6.7 | 8–9 | 宋体+TNR | 600 | PDF |
+| **NeurIPS/ICML/ICLR** | 3.25 | 6.75 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **CVPR/ICCV/ECCV** | 3.0 | 6.25 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **KDD/AAAI/IJCAI** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **VLDB/ICDE/SIGMOD** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **ACL/EMNLP/NAACL** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **IEEE Trans.** | 3.5 | 7.16 | 8–10 | Times | 600 | PDF/EPS |
+| **ACM Trans.** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **Elsevier** | 3.54 | 7.48 | 7–9 | Helvetica/Arial | 300+ | EPS/PDF |
+| **Springer** | 3.31 | 6.85 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **中文核心** | 3.15 | 6.7 | 8–9 | 宋体+TNR | 600 | PDF |
+
+---
+
+## 四、通用建议
+
+### 4.1 字体选择
+
+| 场景 | 推荐字体 |
+|---|---|
+| 正文 | Times New Roman（衬线） |
+| 图内标签 | Helvetica / Arial（无衬线） |
+| 中文 | 宋体 + Times New Roman 数字混排 |
+
+### 4.2 配色方案
+
+| 场景 | 推荐配色 |
+|---|---|
+| 色盲友好 | Okabe-Ito / seaborn `colorblind` |
+| 热力图（单向） | viridis / magma / inferno / cividis |
+| 热力图（双向） | RdBu_r / PiYG / seismic + center=0 |
+| **永远不用** | rainbow / jet / hsv |
+
+### 4.3 子图标签风格
+
+| 会议/期刊 | 标签风格 | 位置 |
+|---|---|---|
+| NeurIPS/ICML/ICLR | (a), (b), (c) 或 a, b, c | 左上角 |
+| CVPR/ICCV/ECCV | (a), (b), (c) | 左上角 |
+| KDD/AAAI/IJCAI | (a), (b), (c) 或 a, b, c | 左上角 |
+| IEEE Trans. | (a) (b) (c) | 左上角 |
+| 中文核心 | (a) (b) (c) 或 (甲) (乙) (丙) | 左上角 |
+
+### 4.4 导出建议
+
+| 格式 | 适用场景 | 不适用场景 |
+|---|---|---|
+| PDF | 数据图、流程图、架构图 | 照片 |
+| SVG | 网页展示、交互图 | 投稿（部分期刊不支持） |
+| EPS | 传统期刊投稿 | 现代会议（更推荐PDF） |
+| PNG | 照片、网页展示 | 数据图（用矢量） |
+| TIFF | 照片（高质量） | 数据图（用矢量） |
+| **JPEG** | **永远不用** | 数据图、照片 |
 
 ---
 

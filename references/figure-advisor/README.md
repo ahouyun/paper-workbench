@@ -93,16 +93,20 @@
 
 ---
 
-## 期刊规范速查
+## 会议/期刊规范速查
 
-| 期刊 | 单栏 (inch) | 双栏 (inch) | 字号 (pt) | 推荐字体 | DPI | 矢量首选 |
+| 会议/期刊 | 单栏 (inch) | 双栏 (inch) | 字号 (pt) | 推荐字体 | DPI | 矢量首选 |
 |---|---|---|---|---|---|---|
-| Nature | 3.5 | 7.2 | 5–7 | Helvetica/Arial | 300+ | EPS/PDF |
-| Science | 2.2 | 7.2 | 5–7 | Helvetica/Arial | 300+ | PDF/EPS |
-| IEEE | 3.5 | 7.16 | 8–10 | Times | 600 | PDF/EPS |
-| Elsevier | 3.54 | 7.48 | 7–9 | Helvetica/Arial | 300+ | EPS/PDF |
-| PNAS | 3.42 | 7.0 | 6–8 | Helvetica/Times | 300+ | PDF/EPS |
-| 中文核心 | 3.15 | 6.7 | 8–9 | 宋体+TNR | 600 | PDF |
+| **NeurIPS/ICML/ICLR** | 3.25 | 6.75 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **CVPR/ICCV/ECCV** | 3.0 | 6.25 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **KDD/AAAI/IJCAI** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **VLDB/ICDE/SIGMOD** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **ACL/EMNLP/NAACL** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **IEEE Trans.** | 3.5 | 7.16 | 8–10 | Times | 600 | PDF/EPS |
+| **ACM Trans.** | 3.0 | 6.5 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **Elsevier** | 3.54 | 7.48 | 7–9 | Helvetica/Arial | 300+ | EPS/PDF |
+| **Springer** | 3.31 | 6.85 | 8–10 | Times/Helvetica | 300+ | PDF/EPS |
+| **中文核心** | 3.15 | 6.7 | 8–9 | 宋体+TNR | 600 | PDF |
 
 详见 `journal-specs.md`。
 
