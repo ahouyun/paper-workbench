@@ -1231,3 +1231,61 @@
 | DM Test | 统计检验 | 模型间差异显著性 |
 | Bootstrap CI | 置信区间 | 重采样估计 |
 | Transfer Ratio | 迁移能力 | 迁移性能/从头训练 |
+
+### 13.52 IEEE TITS 2025-2026写作模式（18篇论文）
+
+**拥堵传播驱动（DSTGCN）：**
+> "Most ST-GNNs construct the graph adjacency matrix using predefined rules or trainable parameters, without fully leveraging the congestion relationships within traffic flows to guide graph structure learning."
+
+**信号解耦（PGCRN）：**
+> "Real-world traffic data comprises two distinct types of latent time-series signals: diffuse signals, which refer to time-varying information propagated across the traffic network, and intrinsic signals, which capture unique, location-specific patterns."
+
+**GAN预训练（GAPSTGCN）：**
+> "Existing methods extract traffic data's features by designing sophisticated spatiotemporal graph neural network models, and have reached a bottleneck."
+
+**浅层扩散（W-Diffusion）：**
+> "Most existing methods neglect the inherent uncertainties within the traffic scenario, which reduces their practicality for real-world traffic control."
+
+**点过程（Score-Based STPP）：**
+> "Unlike the forecasting of traffic flow, speed, and demand, traffic accidents occur irregularly and are highly unpredictable."
+
+**扩散+GAN融合（Diffusion-TGAN）：**
+> "Existing GAN-based models often suffer from mode collapse and cannot fully reflect the complex characteristics of real-world traffic."
+
+**自监督双边学习（3S-TBLN）：**
+> "In highway traffic speed prediction, three essential elements should be considered: 1) the complex spatial diffusion of traffic over time; 2) the influence of traffic patterns on prediction accuracy; and 3) the crucial role of bidirectional learning mechanisms."
+
+**微观-宏观多尺度（Adap-STWT）：**
+> "These studies tend to focus on interactions between nodes based on macroscopic traffic node attributes, overlooking the profound impact of individual behaviors and decisions of microscopic traffic participants."
+
+**物理正则化（PRMAN）：**
+> "The comprehensive multiscale nature of dependencies in traffic data, encompassing more than just local and global levels, has not been well explored in the literature."
+
+**元学习少样本（MAML-Traffic）：**
+> "However, most existing models struggle with limited-sample data and poor generalization across different locations."
+
+**Foundation Model（PMT）：**
+> "In this study, we utilize these extensive, unlabeled sequences of user trajectories to develop a foundation model for understanding urban space and human mobility."
+
+**LLM决策Agent（LLM-ODDR）：**
+> "To our knowledge, this is the first exploration of LLMs as decision-making agents in ride-hailing ODDR tasks, establishing foundational insights for integrating advanced language models within intelligent transportation systems."
+
+**物理信息OD流（PI-MPN）：**
+> "However, purely data-driven approaches often act as closed box models, failing to reveal the underlying mechanisms of human mobility."
+
+### 13.53 新评估方法（12个）
+
+| 方法 | 用途 | 关键指标 |
+|------|------|---------|
+| LargeST分层评估 | 大规模评估 | 按传感器流量分组 |
+| BasicTS公平比较 | 统一评估 | 相同预处理/超参数 |
+| LibCity复现 | 可复现性 | 原始vs复现差距 |
+| WMAPE | 替代MAPE | 按流量加权 |
+| MASE | 相对改进 | 相对于naive baseline |
+| 分段评估 | 状态识别 | Congestion Detection/Onset Time Error |
+| Diebold-Mariano检验 | 统计检验 | 模型间差异显著性 |
+| Bootstrap CI | 置信区间 | 重采样估计 |
+| 缺失数据鲁棒性 | 鲁棒性 | 5%-50%缺失率 |
+| 对抗鲁棒性 | 安全性 | 数据注入/传感器欺骗 |
+| 分布偏移鲁棒性 | 泛化性 | 时间/季节/事件偏移 |
+| 异常值鲁棒性 | 稳定性 | 异常隔离率 |
