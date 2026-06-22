@@ -407,6 +407,159 @@
 
 ---
 
+## 3B. 真实 Abstract 分析 — IEEE TIV 自动驾驶
+
+### 3B.1 PINN-MPC Trajectory Tracking (IEEE TIV 2024, 97 citations)
+
+**论文：** Physical-Informed Neural Network for MPC-Based Trajectory Tracking of Vehicles With Noise Considered
+**摘要原文：**
+
+> The trajectory tracking plays a vital role in unmanned driving technology. Although traditional control schemes may yield satisfactory outcomes in dealing with simple linear tasks, they may fall short when handling dynamic systems with time-varying characteristics or lack of ability to complete a given task with the disturbance of noise. Therefore, a predictive control scheme under the framework of artificial systems, computational experiments, and parallel execution (ACP) is proposed. Within the ACP framework, the scheme integrates a model predictive control (MPC) controller and a physical-informed neural network (PINN) model to tackle intricate trajectory tracking tasks effectively with noise considered. Moreover, soft constraints that can enhance model robustness and improve solution efficiency are considered in the scheme. Then, theoretical analyses on the PINN model are provided with rigorous mathematical proofs. Finally, experiments and comparisons with existing works are conducted to illustrate the effectiveness and superiority of the constructed PINN model for MPC-based trajectory tracking of vehicles.
+
+**写作模式拆解：**
+
+| 句子 | 功能 | 模式 |
+|------|------|------|
+| 第1句 | 任务重要性 | `[任务] plays a vital role in [技术]` |
+| 第2句 | 现有方法局限 | `Although [方法] may yield satisfactory outcomes in [简单场景], they may fall short when [复杂场景]` |
+| 第3句 | 本文贡献 | `Therefore, [方案] under the framework of [框架] is proposed` |
+| 第4-5句 | 方法细节 | `Within [框架], the scheme integrates [组件1] and [组件2] to [目标]. Moreover, [增强机制]` |
+| 第6-7句 | 理论+实验 | `Then, theoretical analyses are provided with [证明]. Finally, experiments illustrate [结果]` |
+
+**关键技巧：**
+- "plays a vital role" — 任务重要性表达
+- "may yield satisfactory outcomes ... may fall short" — 对比现有方法的优劣
+- "under the framework of [框架]" — 框架化表达
+- "with rigorous mathematical proofs" — 强调理论贡献
+
+---
+
+### 3B.2 VLM in AD Survey (IEEE TIV 2024, 91 citations)
+
+**论文：** Vision Language Models in Autonomous Driving: A Survey and Outlook
+**摘要原文：**
+
+> The applications of Vision-Language Models (VLMs) in the field of Autonomous Driving (AD) have attracted widespread attention due to their outstanding performance and the ability to leverage Large Language Models (LLMs). By integrating language data, the driving systems can be able to deeply understand real-world environments, improving driving safety and efficiency. In this work, we present a comprehensive and systematic survey of the advances in language models in this domain, encompassing perception and understanding, navigation and planning, decision-making and control, end-to-end autonomous driving, and data generation. We introduce the mainstream VLM tasks and the commonly utilized metrics. Additionally, we review current studies and applications in various areas and summarize the existing language-enhanced autonomous driving dataset thoroughly. At last, we discuss the benefits and challenges of VLMs in AD, and provide researchers with the current research gaps and future trends.
+
+**写作模式拆解：**
+
+| 句子 | 功能 | 模式 |
+|------|------|------|
+| 第1句 | 领域热度 | `The applications of [技术] in [领域] have attracted widespread attention due to [原因]` |
+| 第2句 | 价值 | `By integrating [数据], the system can [能力], improving [效果]` |
+| 第3句 | 综述范围 | `In this work, we present a comprehensive and systematic survey of [范围]` |
+| 第4-5句 | 综述内容 | `We introduce [任务]. Additionally, we review [内容] and summarize [数据集]` |
+| 第6句 | 讨论 | `At last, we discuss [优缺点], and provide [差距和趋势]` |
+
+**关键技巧：**
+- "attracted widespread attention" — 领域热度表达
+- "comprehensive and systematic survey" — 综述论文的标准修饰
+- "encompassing [5个方面]" — 用列举展示覆盖范围
+- "At last" — 结论过渡词
+
+---
+
+### 3B.3 World Models for AD (IEEE TIV 2024, 58 citations)
+
+**论文：** World Models for Autonomous Driving: An Initial Survey
+**摘要原文：**
+
+> In the rapidly evolving landscape of autonomous driving, the capability to accurately predict future events and assess their implications is paramount for both safety and efficiency, critically aiding the decision-making process. World models have emerged as a transformative approach, enabling autonomous driving systems to synthesize and interpret vast amounts of sensor data, thereby predicting potential future scenarios and compensating for information gaps. This paper provides an initial review of the current state and prospective advancements of world models in autonomous driving, spanning their theoretical underpinnings, practical applications, and ongoing research efforts aimed at overcoming existing limitations. Highlighting the significant role of world models in advancing autonomous driving technologies, this survey aspires to serve as a foundational reference for the research community, facilitating swift access to and comprehension of this burgeoning field, and inspiring continued innovation and exploration.
+
+**写作模式拆解：**
+
+| 句子 | 功能 | 模式 |
+|------|------|------|
+| 第1句 | 领域重要性 | `In the rapidly evolving landscape of [领域], the capability to [能力] is paramount for [目标]` |
+| 第2句 | 技术趋势 | `[技术] have emerged as a transformative approach, enabling [系统] to [能力]` |
+| 第3句 | 综述范围 | `This paper provides an initial review of [范围], spanning [方面]` |
+| 第4句 | 意义 | `Highlighting [角色], this survey aspires to serve as [定位], facilitating [目标]` |
+
+**关键技巧：**
+- "In the rapidly evolving landscape of" — 领域快速发展的表达
+- "paramount for both safety and efficiency" — 双重价值
+- "a transformative approach" — 技术突破性表达
+- "aspires to serve as a foundational reference" — 综述论文的定位
+
+---
+
+### 3B.4 HLTP Cognitive Trajectory Prediction (IEEE TIV 2024, 58 citations)
+
+**论文：** A Cognitive-Based Trajectory Prediction Approach for Autonomous Driving
+**摘要原文：**
+
+> In autonomous vehicle (AV) technology, the ability to accurately predict the movements of surrounding vehicles is paramount for ensuring safety and operational efficiency. Incorporating human decision-making insights enables AVs to more effectively anticipate the potential actions of other vehicles, significantly improving prediction accuracy and responsiveness in dynamic environments. This paper introduces the Human-Like Trajectory Prediction (HLTP) model, which adopts a teacher-student knowledge distillation framework inspired by human cognitive processes. The HLTP model incorporates a sophisticated teacher-student knowledge distillation framework. The "teacher" model, equipped with an adaptive visual sector, mimics the visual processing of the human brain, particularly the functions of the occipital and temporal lobes. The "student" model focuses on real-time interaction and decision-making, drawing parallels to prefrontal and parietal cortex functions. This approach allows for dynamic adaptation to changing driving scenarios, capturing essential perceptual cues for accurate prediction. Evaluated using the Macao Connected and Autonomous Driving (MoCAD) dataset, along with the NGSIM and HighD benchmarks, HLTP demonstrates superior performance compared to existing models, particularly in challenging environments with incomplete data.
+
+**写作模式拆解：**
+
+| 句子 | 功能 | 模式 |
+|------|------|------|
+| 第1句 | 核心能力 | `In [领域], the ability to [能力] is paramount for [目标]` |
+| 第2句 | 价值 | `Incorporating [insight] enables [系统] to [能力], significantly improving [效果]` |
+| 第3句 | 本文贡献 | `This paper introduces [模型], which adopts [框架] inspired by [insight]` |
+| 第4-7句 | 方法类比 | `The "teacher" model mimics [功能]. The "student" model focuses on [功能], drawing parallels to [类比]` |
+| 第8句 | 实验 | `Evaluated using [数据集], [模型] demonstrates superior performance, particularly in [场景]` |
+
+**关键技巧：**
+- "inspired by human cognitive processes" — 用认知科学inspire模型设计
+- "mimics the visual processing of the human brain" — 生物启发的类比
+- "drawing parallels to prefrontal and parietal cortex functions" — 神经科学类比
+- "particularly in challenging environments with incomplete data" — 强调鲁棒性
+
+---
+
+### 3B.5 Data-Driven Traffic Simulation Review (IEEE TIV 2024, 55 citations)
+
+**论文：** Data-Driven Traffic Simulation: A Comprehensive Review
+**摘要原文：**
+
+> Autonomous vehicles (AVs) have the potential to significantly revolutionize society by providing a secure and efficient mode of transportation. Recent years have witnessed notable advancements in autonomous driving perception and prediction, but the challenge of validating the performance of AVs remains largely unresolved. Data-driven microscopic traffic simulation has become an important tool for autonomous driving testing due to 1) availability of high-fidelity traffic data; 2) its advantages of enabling large-scale testing and scenario reproducibility; and 3) its potential in reactive and realistic traffic simulation. However, a comprehensive review of this topic is currently lacking. This paper aims to fill this gap by summarizing relevant studies. The primary objective of this paper is to review current research efforts and provide a futuristic perspective that will benefit future developments in the field. It introduces the general issues of data-driven traffic simulation and outlines key concepts and terms. After overviewing traffic simulation, various datasets and evaluation metrics commonly used are reviewed. The paper then offers a comprehensive evaluation of imitation learning, reinforcement learning, deep generative and deep learning methods, summarizing each and analyzing their advantages and disadvantages in detail. Moreover, it evaluates the state-of-the-art, existing challenges, and future research directions.
+
+**写作模式拆解：**
+
+| 句子 | 功能 | 模式 |
+|------|------|------|
+| 第1句 | 领域前景 | `[技术] have the potential to significantly revolutionize [领域]` |
+| 第2句 | 现有进展+不足 | `Recent years have witnessed notable advancements in [进展], but [挑战] remains largely unresolved` |
+| 第3句 | 技术重要性 | `[工具] has become an important tool for [应用] due to 1) [原因1]; 2) [原因2]; and 3) [原因3]` |
+| 第4句 | 综述缺口 | `However, a comprehensive review of this topic is currently lacking` |
+| 第5-8句 | 综述内容 | `This paper aims to fill this gap. [具体覆盖范围]` |
+
+**关键技巧：**
+- "have the potential to significantly revolutionize" — 领域前景的强表达
+- "remains largely unresolved" — 指出未解决问题
+- "due to 1) ... 2) ... and 3) ..." — 编号列举原因
+- "aims to fill this gap" — 综述论文的标准动机
+
+---
+
+## 3C. 真实 Abstract 分析 — IEEE TNNLS 2024
+
+### 3C.1 LLM-Enhanced RL Survey (IEEE TNNLS 2024, 109 citations)
+
+**论文：** Survey on Large Language Model-Enhanced Reinforcement Learning: Concept, Taxonomy, and Methods
+**摘要原文：**
+
+> With extensive pretrained knowledge and high-level general capabilities, large language models (LLMs) emerge as a promising avenue to augment reinforcement learning (RL) in aspects, such as multitask learning, sample efficiency, and high-level task planning. In this survey, we provide a comprehensive review of the existing literature in LLM-enhanced RL and summarize its characteristics compared with conventional RL methods, aiming to clarify the research scope and directions for future studies. Utilizing the classical agent-environment interaction paradigm, we propose a structured taxonomy to systematically categorize LLMs' functionalities in RL, including four roles: information processor, reward designer, decision-maker, and generator. For each role, we summarize the methodologies, analyze the specific RL challenges that are mitigated and provide insights into future directions. Finally, the comparative analysis of each role, potential applications, prospective opportunities, and challenges of the LLM-enhanced RL are discussed. By proposing this taxonomy, we aim to provide a framework for researchers to effectively leverage LLMs in the RL field, potentially accelerating RL applications in complex applications, such as robotics, autonomous driving, and energy systems.
+
+**写作模式拆解：**
+
+| 句子 | 功能 | 模式 |
+|------|------|------|
+| 第1句 | 技术潜力 | `With [能力], [技术] emerge as a promising avenue to augment [领域] in [方面]` |
+| 第2句 | 综述目标 | `In this survey, we provide a comprehensive review of [范围] and summarize [特点]` |
+| 第3句 | 分类法 | `Utilizing [范式], we propose a structured taxonomy to systematically categorize [功能]` |
+| 第4-5句 | 内容 | `For each role, we summarize [方法], analyze [挑战] and provide [insights]` |
+| 第6句 | 总结 | `By proposing this taxonomy, we aim to provide [框架], potentially accelerating [应用]` |
+
+**关键技巧：**
+- "emerge as a promising avenue to augment" — 技术融合的表达
+- "a structured taxonomy to systematically categorize" — 分类法的标准表达
+- "four roles: [角色1], [角色2], [角色3], and [角色4]" — 用角色分类
+- "potentially accelerating RL applications in complex applications, such as" — 用具体应用举例
+
+---
+
 ## 4. 交通领域 Abstract 写作模式汇总
 
 ### 4.1 四步结构（IEEE T-ITS 通用）

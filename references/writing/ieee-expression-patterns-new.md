@@ -1162,3 +1162,72 @@
 - Cross-task transfer evaluation
 - Prompt sensitivity analysis
 - Regime-stratified evaluation
+
+### 13.49 IEEE TITS 2025-2026写作模式（15篇论文）
+
+**物理现象驱动（PDFormer）：**
+> "Traffic congestion propagates through road networks with inherent delays, yet existing Transformer-based models overlook this critical physical phenomenon."
+
+**效率/复杂度驱动（STGMamba）：**
+> "While Transformer-based models achieve remarkable performance, their quadratic computational complexity limits their applicability to large-scale traffic networks with long historical sequences."
+
+**范式转移（DiffSTG）：**
+> "Deterministic point predictions fail to capture the inherent uncertainty in traffic systems, which is critical for risk-aware decision making."
+
+**理论保证型（Trustworthy STF）：**
+> "Reliable uncertainty quantification is essential for safety-critical transportation applications, yet most traffic prediction models provide only point estimates."
+
+**自动化/统一化（AutoSTF）：**
+> "Designing effective spatiotemporal architectures for traffic forecasting requires extensive domain expertise and manual trial-and-error."
+
+**动态自适应（RL-STG）：**
+> "Predefined or statically learned graph structures may contain noisy or irrelevant edges that degrade prediction performance."
+
+**MoE异质性（Mixture-of-Experts）：**
+> "Traffic data exhibits significant heterogeneity across different traffic states, yet existing models use a single network to handle all scenarios."
+
+**小波分解（WaveSTG）：**
+> "Traffic time series contain multi-frequency components including trends, periodic patterns, and random fluctuations, which are entangled in existing methods."
+
+### 13.50 KDD/AAAI 2026写作模式（12篇论文）
+
+**RAG范式迁移（RAST）：**
+> "Inspired by Retrieval-Augmented Generation (RAG), we propose RAST, a universal framework that integrates retrieval-augmented mechanisms with spatio-temporal modeling."
+
+**动态图学习（MetaDG）：**
+> "The core challenge lies in modeling the underlying complex spatio-temporal dependencies. MetaDG leverages dynamic graph structures of node representations to explicitly model spatio-temporal dynamics."
+
+**自监督零样本（DST）：**
+> "Road network representation learning has attracted increasing attention... However, spatial heterogeneity and temporal dynamics raise severe challenges to the neighborhood smoothing mechanism."
+
+**拓扑机器学习（T3former）：**
+> "Existing methods often rely on snapshot-based or recurrent architectures that either lose fine-grained temporal information or struggle with long-range dependencies."
+
+**Attention-free（GLFormer）：**
+> "While Transformer-based models have demonstrated strong performance by capturing long-range temporal dependencies, their reliance on self-attention results in quadratic complexity."
+
+**工业部署（MixTTE）：**
+> "While existing production systems excel at holistic route-level dependency modeling, they struggle to capture city-scale traffic dynamics and long-tail scenarios."
+
+**多模态+因果（Multimodal Accident）：**
+> "Previous work for predicting accident occurrences relies primarily on road network structural features while overlooking physical and environmental information."
+
+**Agent架构（MapAgent）：**
+> "A vision-language Judge diagnoses errors by jointly inspecting visual evidence and draft vectors, while a tool-calling Planner generates minimal corrective edits."
+
+### 13.51 新评估方法（12个）
+
+| 方法 | 用途 | 关键指标 |
+|------|------|---------|
+| LibCity统一框架 | 公平比较 | 标准化pipeline |
+| Horizon-weighted MAE | 时间加权 | 短期预测权重更高 |
+| Peak-hour metrics | 高峰评估 | 高峰时段专项 |
+| Spatial heterogeneity | 空间差异 | 市中心vs郊区 |
+| Adaptive RMSE | 状态自适应 | 自由流/拥堵/临界 |
+| Directional Accuracy | 方向准确 | 上升/下降/持平 |
+| Calibration Error | 校准误差 | 概率预测校准 |
+| Robustness Score | 鲁棒性 | 性能下降/扰动强度 |
+| Recovery Rate | 恢复速度 | 扰动移除后恢复 |
+| DM Test | 统计检验 | 模型间差异显著性 |
+| Bootstrap CI | 置信区间 | 重采样估计 |
+| Transfer Ratio | 迁移能力 | 迁移性能/从头训练 |

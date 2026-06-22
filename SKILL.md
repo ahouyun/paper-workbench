@@ -498,7 +498,7 @@ version: 6.1.0
 - real experimental data: `references/writing/ieee-real-experimental-data.md`
 - expression patterns: `references/writing/ieee-expression-patterns.md`
 - polishing rules: `references/writing/ieee-polishing.md`
-- **交通领域论文模式**: `references/writing/ieee-traffic-transportation-patterns.md` (T-ITS/TIV/TNNLS 2024-2025 真实 Abstract 分析: PGCN, ASTMGCNet, STIDGCN, Traj-LLM, DSTIGCN, Hybrid TrafficAI, Neuro-VAE-Symbolic, LLM+ITS Survey 等 11 篇)
+- **交通领域论文模式**: `references/writing/ieee-traffic-transportation-patterns.md` (T-ITS/TIV/TNNLS 2024-2025 真实 Abstract 分析: 17 篇论文，涵盖交通流预测、轨迹预测、自动驾驶、GenAI 仿真、LLM+ITS、世界模型等)
 - **2024-2025 顶会模式**: `references/writing/cs-top-venue-patterns-2024-2025.md` (VAR, Mamba, DeepSeek-R1 等真实 Abstract 分析)
 
 ### `nature` 常用加载
