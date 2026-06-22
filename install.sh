@@ -1,70 +1,128 @@
 #!/bin/bash
 # Paper Workbench 安装脚本
-# 用法: bash install.sh
+# 支持多种 AI 编程工具
+# 用法: bash install.sh [--tool claude|codex|cursor|windsurf|all]
 
 set -e
 
 echo "=========================================="
 echo "  Paper Workbench 安装程序"
-echo "  论文写作工作台 for Claude Code"
+echo "  工具无关的论文写作工作台"
 echo "=========================================="
 echo ""
 
-# 检测 Claude Code skills 目录
-if [ -d "$HOME/.claude/skills" ]; then
-    SKILLS_DIR="$HOME/.claude/skills"
-elif [ -d "$HOME/.config/claude/skills" ]; then
-    SKILLS_DIR="$HOME/.config/claude/skills"
-else
-    SKILLS_DIR="$HOME/.claude/skills"
-    mkdir -p "$SKILLS_DIR"
-    echo "✓ 创建 skills 目录: $SKILLS_DIR"
-fi
+# 默认安装所有工具
+TOOL="${1:-all}"
+# 移除 --tool 前缀
+TOOL="${TOOL#--tool }"
 
 # 获取脚本所在目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TARGET_DIR="$SKILLS_DIR/paper-workbench"
 
-# 检查是否已安装
-if [ -d "$TARGET_DIR" ]; then
-    echo "⚠ 已检测到已安装版本: $TARGET_DIR"
-    read -p "是否覆盖安装? (y/N): " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo "取消安装。"
-        exit 0
+# 安装函数
+install_to_tool() {
+    local tool_name="$1"
+    local skills_dir="$2"
+
+    echo "📦 安装到 $tool_name..."
+
+    # 创建目录（如果不存在）
+    mkdir -p "$skills_dir"
+
+    local target_dir="$skills_dir/paper-workbench"
+
+    # 检查是否已安装
+    if [ -d "$target_dir" ]; then
+        echo "  ⚠ 已检测到已安装版本: $target_dir"
+        read -p "  是否覆盖安装? (y/N): " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "  跳过 $tool_name。"
+            return
+        fi
+        rm -rf "$target_dir"
+        echo "  ✓ 已删除旧版本"
     fi
-    rm -rf "$TARGET_DIR"
-    echo "✓ 已删除旧版本"
-fi
 
-# 复制文件
-echo "正在安装..."
-cp -r "$SCRIPT_DIR" "$TARGET_DIR"
+    # 复制文件
+    cp -r "$SCRIPT_DIR" "$target_dir"
 
-# 删除不需要的文件
-rm -rf "$TARGET_DIR/.git" 2>/dev/null || true
-rm -f "$TARGET_DIR/install.sh" 2>/dev/null || true
+    # 删除不需要的文件
+    rm -rf "$target_dir/.git" 2>/dev/null || true
+    rm -f "$target_dir/install.sh" 2>/dev/null || true
 
-echo "✓ 文件已复制到: $TARGET_DIR"
+    echo "  ✓ 已安装到: $target_dir"
+}
+
+# 根据参数安装
+case "$TOOL" in
+    claude)
+        install_to_tool "Claude Code" "$HOME/.claude/skills"
+        ;;
+    codex)
+        install_to_tool "Codex CLI" "$HOME/.codex/skills"
+        ;;
+    cursor)
+        install_to_tool "Cursor" ".cursor/skills"
+        ;;
+    windsurf)
+        install_to_tool "Windsurf" ".windsurf/skills"
+        ;;
+    all)
+        echo "将安装到所有支持的工具..."
+        echo ""
+
+        # Claude Code
+        if [ -d "$HOME/.claude" ] || [ "$1" = "--all" ]; then
+            install_to_tool "Claude Code" "$HOME/.claude/skills"
+            echo ""
+        fi
+
+        # Codex CLI
+        if [ -d "$HOME/.codex" ] || [ "$1" = "--all" ]; then
+            install_to_tool "Codex CLI" "$HOME/.codex/skills"
+            echo ""
+        fi
+
+        # Cursor（当前目录）
+        install_to_tool "Cursor" ".cursor/skills"
+        echo ""
+
+        # Windsurf（当前目录）
+        install_to_tool "Windsurf" ".windsurf/skills"
+        echo ""
+
+        # 创建符号链接（可选）
+        echo "💡 提示: 也可以使用符号链接共享同一个安装："
+        echo "   ln -s $(pwd)/paper-workbench ~/.claude/skills/paper-workbench"
+        echo "   ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench"
+        echo ""
+        ;;
+    *)
+        echo "❌ 未知工具: $TOOL"
+        echo "用法: bash install.sh [--tool claude|codex|cursor|windsurf|all]"
+        exit 1
+        ;;
+esac
 
 # 统计
-FILE_COUNT=$(find "$TARGET_DIR" -name "*.md" -type f | wc -l)
-LINE_COUNT=$(find "$TARGET_DIR" -name "*.md" -type f -exec cat {} + | wc -l)
+if [ -d "$TARGET_DIR" ]; then
+    FILE_COUNT=$(find "$TARGET_DIR" -name "*.md" -type f | wc -l)
+    LINE_COUNT=$(find "$TARGET_DIR" -name "*.md" -type f -exec cat {} + | wc -l)
+fi
 
 echo ""
 echo "=========================================="
 echo "  安装完成！"
 echo "=========================================="
 echo ""
-echo "  📁 安装位置: $TARGET_DIR"
 echo "  📄 文件数量: $FILE_COUNT 个 Markdown 文件"
 echo "  📝 总行数:   $LINE_COUNT 行"
 echo ""
-echo "  使用方法: 重启 Claude Code，然后说："
-echo "    - '帮我写一篇IEEE论文'"
-echo "    - '搜索交通预测论文'"
-echo "    - '审稿一下我的论文'"
+echo "  使用方法："
+echo "    - Claude Code: 重启后直接使用"
+echo "    - Codex CLI: 使用 /skill paper-workbench"
+echo "    - Cursor/Windsurf: 在项目中使用"
 echo ""
-echo "  更多用法请查看: $TARGET_DIR/README.md"
+echo "  更多用法请查看: TOOL_COMPATIBILITY.md"
 echo ""

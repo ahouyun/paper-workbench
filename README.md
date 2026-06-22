@@ -1,6 +1,8 @@
 # Paper Workbench — 论文写作工作台
 
-> 一套 Claude Code 论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通流预测方向**。
+> 一套**工具无关**的论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通流预测方向**。
+>
+> 支持 Claude Code, Codex CLI, Cursor, Windsurf, Aider, Continue, Cline 等多种 AI 编程工具。
 >
 > 整合了 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (v3.13.0) 和 [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) (v2.1.0) 的核心能力。
 
@@ -20,9 +22,25 @@
 
 ### 安装（30秒）
 
+**Claude Code:**
 ```bash
 git clone https://github.com/ahouyun/paper-workbench.git ~/.claude/skills/paper-workbench
 ```
+
+**Codex CLI:**
+```bash
+git clone https://github.com/ahouyun/paper-workbench.git ~/.codex/skills/paper-workbench
+```
+
+**Cursor / Windsurf / 其他:**
+```bash
+git clone https://github.com/ahouyun/paper-workbench.git .cursor/skills/paper-workbench
+# 或使用符号链接
+ln -s $(pwd)/paper-workbench ~/.claude/skills/paper-workbench
+ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
+```
+
+> 详见 [TOOL_COMPATIBILITY.md](TOOL_COMPATIBILITY.md) 了解各工具的详细安装和配置方式。
 
 ### 使用示例
 
@@ -168,9 +186,11 @@ paper-workbench/
 
 ## 🔧 依赖
 
-- **Claude Code** (最新版本)
+- **AI 编程工具**：Claude Code / Codex CLI / Cursor / Windsurf / Aider / Continue / Cline（任选其一）
 - **Python 3.8+** (用于学术检索API)
 - **requests** 库 (`pip install requests`)
+
+> 详见 [TOOL_COMPATIBILITY.md](TOOL_COMPATIBILITY.md) 了解各工具的兼容性说明。
 
 ---
 

@@ -1,7 +1,8 @@
 ---
 name: paper-workbench
 description: >
-  统一论文写作工作台。支持中文本科毕设、英文研究论文优化、IEEE Transactions (T-ITS/TNNLS/TVT/TIV)、
+  工具无关的统一论文写作工作台。支持 Claude Code, Codex CLI, Cursor, Windsurf 等多种 AI 编程工具。
+  支持中文本科毕设、英文研究论文优化、IEEE Transactions (T-ITS/TNNLS/TVT/TIV)、
   顶会 (NeurIPS/ICML/ICLR/CVPR/KDD/VLDB/AAAI/IJCAI) 论文写作、深度研究、系统综述、多视角审稿、
   学术搜索、审稿回复（triage→point-by-point→QA）、IMRAD/CONSORT/PRISMA/STROBE/ARRIVE报告规范检查、
   中英文对照阅读、LaTeX排版诊断等全流程学术工作。
