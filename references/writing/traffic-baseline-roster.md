@@ -40,6 +40,7 @@
 4. **反复杂度或极简强基线**：STID
 5. **机制增强路线**：MegaCRN
 6. **概率预测或统一模型路线**：DiffSTG, UniST
+7. **新兴架构路线**：ST-GTrans, MSGFormer, ST-LLM+, Transfer-Mamba（按论文技术路线选用）
 
 如果你的论文属于其中某一条路线，该路线的强代表不能缺席。
 
@@ -59,6 +60,10 @@
 | memory / pattern-enhanced graph recurrent | MegaCRN | 记忆增强机制型 baseline |
 | probabilistic generative forecasting | DiffSTG | 概率预测 / 分布建模路线代表 |
 | universal / prompt / foundation framing | UniST | 统一建模 / 跨任务叙事代表 |
+| graph transformer (spatial-temporal decoupling) | ST-GTrans | 空间-时间解耦图 Transformer baseline |
+| multi-scale graph transformer | MSGFormer | 多尺度图 Transformer，IoT 交通场景代表 |
+| LLM-based spatiotemporal | ST-LLM+ | 大语言模型时空预测 baseline |
+| SSM / Mamba + transfer | Transfer-Mamba | 状态空间模型 + 迁移学习路线代表 |
 
 ---
 
@@ -347,7 +352,124 @@
 
 - introduction 中的 paradigm-upgrade family
 - multi-task / transfer table
-- rebuttal 中回应“scope too narrow”
+- rebuttal 中回应”scope too narrow”
+
+### 3.11 ST-GTrans
+
+**角色定位**
+
+- 空间-时间解耦图 Transformer baseline
+- 代表”将空间图建模与时间 Transformer 解耦后再融合”的设计范式
+
+**什么时候应纳入**
+
+- 你使用 graph transformer 或 spatial-temporal decoupling 设计
+- 你声称空间依赖和时间依赖需要不同建模策略
+- 你投 Neural Networks / Neural Computing 等期刊
+
+**它代表的 claim 对照物**
+
+- 你的时空融合策略是否比解耦再聚合更优
+- 增益是否来自空间建模改进还是时间建模改进
+
+**不要如何误用**
+
+- 不要把它和纯 temporal transformer（如 STAEformer）混为一谈
+- 不要忽略它对 spatial graph structure 的显式依赖
+
+**最适合出现的位置**
+
+- graph transformer family related work
+- spatial-temporal fusion ablation discussion
+
+### 3.12 MSGFormer
+
+**角色定位**
+
+- 多尺度图 Transformer baseline
+- 代表”在不同时间粒度/空间尺度上分别建模再聚合”的路线
+
+**什么时候应纳入**
+
+- 你的方法涉及多尺度、多粒度、多分辨率时空建模
+- 你在 IoT 交通传感器网络场景下工作
+- 你声称单一尺度建模不足以捕获交通模式
+
+**它代表的 claim 对照物**
+
+- 多尺度设计是否真的带来增益
+- 你的尺度融合策略是否比 MSGFormer 的多尺度图更合理
+
+**不要如何误用**
+
+- 不要把它当成普通 Transformer baseline 使用
+- 不要在不做多尺度相关 claim 时强行纳入
+
+**最适合出现的位置**
+
+- multi-scale / multi-resolution related work
+- IoT traffic scenario benchmark table
+
+### 3.13 ST-LLM+
+
+**角色定位**
+
+- 大语言模型用于时空预测的 baseline
+- 代表”用 LLM 的通用表示能力捕获时空模式”的路线
+- 与 UniST 的 foundation framing 互补：UniST 侧重统一架构，ST-LLM+ 侧重 LLM adapter/prompt
+
+**什么时候应纳入**
+
+- 你做 LLM-based / foundation model-based 时空预测
+- 你声称预训练语言模型的知识可以迁移到交通领域
+- 你投 TKDE / TPAMI 等强调知识迁移的期刊
+
+**它代表的 claim 对照物**
+
+- LLM 的通用知识是否真的对交通预测有帮助
+- 你的 LLM 适配方案是否比 ST-LLM+ 的 prompt/adapter 策略更优
+
+**不要如何误用**
+
+- 不要只用点精度指标比较，需讨论 LLM 的计算开销
+- 不要忽视 LLM-based 方法在小数据集上可能的过拟合问题
+- 不要和 UniST 混淆——UniST 是统一架构，ST-LLM+ 是 LLM 适配
+
+**最适合出现的位置**
+
+- LLM / foundation model for spatiotemporal related work
+- efficiency vs. accuracy trade-off discussion
+- rebuttal 中回应”LLM 是否 overkill”
+
+### 3.14 Transfer-Mamba
+
+**角色定位**
+
+- 状态空间模型（SSM / Mamba）+ 迁移学习路线 baseline
+- 代表”用 Mamba 替代 Transformer 做序列建模，同时支持跨域迁移”的新范式
+
+**什么时候应纳入**
+
+- 你的方法使用 SSM / Mamba 架构
+- 你声称线性复杂度的序列建模优于 Transformer 的二次复杂度
+- 你做跨城市 / 跨数据集迁移学习
+
+**它代表的 claim 对照物**
+
+- Mamba 架构是否在时空预测上真的优于 Transformer
+- 迁移学习策略是否有效，增益是否来自架构还是迁移
+
+**不要如何误用**
+
+- 不要只比较精度不比较效率（Mamba 的核心优势是线性复杂度）
+- 不要把它当成普通 RNN baseline
+- 如果你不做迁移学习，考虑只用 Mamba-based ST baseline 而非 Transfer-Mamba
+
+**最适合出现的位置**
+
+- SSM / Mamba family related work
+- efficiency benchmark（latency / memory / params）
+- transfer learning / cross-city experiment section
 
 ---
 
@@ -368,7 +490,10 @@
 推荐增强：
 
 - MegaCRN
-n- 如果你有概率预测或统一建模 claim，再加 DiffSTG / UniST
+- 如果你有概率预测或统一建模 claim，再加 DiffSTG / UniST
+- 如果你使用 Transformer 或图 Transformer，考虑加 ST-GTrans
+- 如果你做 LLM-based 方法，加 ST-LLM+
+- 如果你做 Mamba/SSM 方法，加 Transfer-Mamba
 
 ### 4.2 如果你写的是 traffic-specific Transformer paper
 
@@ -430,6 +555,49 @@ n- 如果你有概率预测或统一建模 claim，再加 DiffSTG / UniST
 
 - multi-task / transfer / zero-shot or few-shot evidence
 
+### 4.6 如果你写的是 LLM / foundation model 时空预测论文
+
+至少覆盖：
+
+- ST-LLM+
+- UniST
+- STAEformer
+- Graph WaveNet
+- STID
+
+原因：
+
+- ST-LLM+ 代表 LLM adapter 路线
+- UniST 代表统一架构路线
+- STAEformer 代表纯 Transformer 性能锚点
+- GWNet 是工程基线
+- STID 防止"LLM 是否 overkill"质疑
+
+并且补充：
+
+- 计算开销对比表（params / FLOPs / latency）
+- LLM 特有分析：prompt 设计、adapter 参数量、few-shot 能力
+
+### 4.7 如果你写的是 SSM / Mamba 时空预测论文
+
+至少覆盖：
+
+- Transfer-Mamba
+- Graph WaveNet
+- STAEformer
+- STID
+
+原因：
+
+- Transfer-Mamba 代表 SSM 路线
+- GWNet 和 STAEformer 是 Transformer 时代的强锚点
+- STID 防止"是否只需简单模型"质疑
+
+并且补充：
+
+- 效率对比表（latency / memory / params / throughput）
+- 序列长度扩展性实验
+
 ---
 
 ## 5. 结果分析时如何写 baseline
@@ -470,6 +638,9 @@ n- 如果你有概率预测或统一建模 claim，再加 DiffSTG / UniST
 5. 用 UniST 却不报告 transfer / multi-task 证据
 6. 用 PDFormer / MegaCRN，却不讨论交通现象或模式机制
 7. 用 STAEformer 只作点缀，不把它当真正强对手分析
+8. 用 LLM-based baseline（ST-LLM+）却不讨论计算开销和 LLM 特有优势
+9. 用 Mamba/SSM baseline 却不报告效率指标，浪费了架构的核心卖点
+10. 只选 Transformer 家族 baseline，遗漏了 SSM 这一新兴竞争范式
 
 ---
 
@@ -488,15 +659,22 @@ n- 如果你有概率预测或统一建模 claim，再加 DiffSTG / UniST
 
 - “审稿人说 baseline 不够强”
   - 用本 roster 检查是否缺失了：GWNet / STID / PDFormer / STAEformer / DiffSTG / UniST 中与你 claim 直接相关的强代表
+  - ST-GTrans / MSGFormer（如果 reviewer 问图 Transformer）
+  - ST-LLM+（如果 reviewer 问 LLM/foundation model）
+  - Transfer-Mamba（如果 reviewer 问 SSM/Mamba 新范式）
 
 ---
 
 ## 8. 最终硬规则
 
 1. baseline selection 必须覆盖 claim 对应的方法家族。
-2. 任何“优于 SOTA”的表述，都要能指出至少一个强且相关的 comparator。
+2. 任何”优于 SOTA”的表述，都要能指出至少一个强且相关的 comparator。
 3. 如果你的论文主打交通机制，不能缺 PDFormer 这一类 comparator。
 4. 如果你的论文主打高性能，不能缺 STAEformer / Graph WaveNet。
 5. 如果你的论文主打简单有效，不能缺 STID。
 6. 如果你的论文主打概率预测，不能缺 DiffSTG。
 7. 如果你的论文主打统一模型或迁移，不能缺 UniST。
+8. 如果你的论文主打 LLM-based 预测，不能缺 ST-LLM+。
+9. 如果你的论文主打 Mamba/SSM 架构，不能缺 Transfer-Mamba。
+10. 如果你的论文主打图 Transformer，不能缺 ST-GTrans。
+11. 如果你的论文主打多尺度建模，不能缺 MSGFormer。
