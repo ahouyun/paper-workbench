@@ -72,7 +72,7 @@ git clone https://github.com/ahouyun/paper-workbench.git ~/.claude/skills/paper-
 | 👥 **多视角审稿** | 5人审稿团 + Devil's Advocate | `ars-references/review-criteria-framework.md` |
 | 🔄 **完整流水线** | 10阶段编排：研究→写作→审稿→修改→定稿 | `ars-references/pipeline-state-machine.md` |
 | 🎨 **风格校准** | 6维度写作风格分析 | `writing/style-calibration-protocol.md` |
-| 📜 **Nature政策** | Nature/Science/Cell期刊规范 | `venues/nature-policy.md` |
+| 📐 **图表规范** | NeurIPS/ICML/ICLR/CVPR/KDD/VLDB等顶会+IEEE/ACM期刊规范 | `figure-advisor/journal-specs.md` |
 | 🎯 **图表顾问** | 先思考后绘制 + 主动拦截 + 视觉自检闭环 | `figure-advisor/figure-workflow.md` |
 | 📐 **图表规范** | 6大期刊图表规范 + 中文字体配置 | `figure-advisor/journal-specs.md` |
 | 🔍 **图表审查** | 18条避坑清单 + 投稿前合规自检 | `figure-advisor/viz-pitfalls.md` |
