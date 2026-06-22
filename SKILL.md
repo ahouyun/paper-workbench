@@ -7,7 +7,7 @@ description: >
   整合了 academic-research-skills (v3.13.0) 的深度研究、多视角审稿、完整流水线编排、风格校准、Nature/venue 政策等能力。
   默认遵循"证据先于散文"，优先建立 claim-evidence-artifact 对齐，再进入正文生成或润色。
   当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述、完整流程、端到端时触发。
-version: 6.2.0
+version: 7.2.0
 ---
 
 # Paper Workbench

@@ -100,7 +100,7 @@
 
 ## 版本更新
 
-- paper-workbench 版本：6.1.0 → 6.2.0
+- paper-workbench 版本：7.1.0 → 7.2.0
 - 整合日期：2026-06-22
 - 源仓库版本：academic-research-skills v3.13.0
 

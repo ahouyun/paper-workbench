@@ -1,4 +1,4 @@
-# Paper Workbench v6.2.0 整合总结
+# Paper Workbench v7.2.0 整合总结
 
 ## 整合来源
 
@@ -200,7 +200,7 @@
 
 ### 4. SKILL.md 更新
 
-**版本**：5.0.0 → 6.2.0
+**版本**：5.0.0 → 7.2.0
 
 **主要更新**：
 - 新增 4 种模式路由（含 pipeline 模式）
@@ -308,7 +308,7 @@
 
 ```
 paper-workbench/
-├── SKILL.md (主入口，v6.2.0)
+├── SKILL.md (主入口，v7.2.0)
 ├── INTEGRATION_SUMMARY.md (本文件)
 ├── INTEGRATION_SUMMARY_ARS.md (ARS 整合总结)
 ├── agents/
