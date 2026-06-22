@@ -74,7 +74,6 @@ git clone https://github.com/ahouyun/paper-workbench.git ~/.claude/skills/paper-
 | 🎨 **风格校准** | 6维度写作风格分析 | `writing/style-calibration-protocol.md` |
 | 📐 **图表规范** | NeurIPS/ICML/ICLR/CVPR/KDD/VLDB等顶会+IEEE/ACM期刊规范 | `figure-advisor/journal-specs.md` |
 | 🎯 **图表顾问** | 先思考后绘制 + 主动拦截 + 视觉自检闭环 | `figure-advisor/figure-workflow.md` |
-| 📐 **图表规范** | 6大期刊图表规范 + 中文字体配置 | `figure-advisor/journal-specs.md` |
 | 🔍 **图表审查** | 18条避坑清单 + 投稿前合规自检 | `figure-advisor/viz-pitfalls.md` |
 
 ---
