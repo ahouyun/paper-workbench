@@ -61,6 +61,11 @@ git clone https://github.com/ahouyun/paper-workbench.git ~/.claude/skills/paper-
 | 📄 **LaTeX模板** | IEEE官方模板 + 自定义TITS模板 | `templates/latex/` |
 | 🔍 **引用验证** | 4步验证流程 + Phantom ID检测 | `citation-verification.md` |
 | 📋 **投稿指南** | Cover Letter + 审稿回复 + 拒稿处理 | `submission/` |
+| 🔬 **深度研究** | 13个智能体的研究团队，7种模式 | `ars-references/socratic-mode-protocol.md` |
+| 👥 **多视角审稿** | 5人审稿团 + Devil's Advocate | `ars-references/review-criteria-framework.md` |
+| 🔄 **完整流水线** | 10阶段编排：研究→写作→审稿→修改→定稿 | `ars-references/pipeline-state-machine.md` |
+| 🎨 **风格校准** | 6维度写作风格分析 | `writing/style-calibration-protocol.md` |
+| 📜 **Nature政策** | Nature/Science/Cell期刊规范 | `venues/nature-policy.md` |
 
 ---
 
@@ -81,16 +86,44 @@ paper-workbench/
 │   │   ├── traffic-figure-patterns.md # 图表模式（3300行）
 │   │   ├── ieee-experiment-playbook.md # 实验设计
 │   │   ├── ieee-innovation-inspiration.md # 创新灵感
+│   │   ├── style-calibration-protocol.md # 风格校准协议（ARS整合）
 │   │   └── traffic-*.md              # 交通预测专项
 │   ├── research/                     # 研究工具
 │   │   ├── academic-search.md        # 学术检索
 │   │   └── citation-verification.md  # 引用验证
 │   ├── review/                       # 审稿工具
-│   │   └── ieee-reviewer-simulation.md # 审稿模拟
+│   │   ├── ieee-reviewer-simulation.md # 审稿模拟
+│   │   └── collaboration-depth-rubric.md # 协作深度评分（ARS整合）
 │   ├── submission/                   # 投稿工具
 │   │   ├── cover-letter-template.md  # Cover Letter
 │   │   ├── ieee-submission-guide.md  # 投稿指南
 │   │   └── rejection-handling-guide.md # 拒稿处理
+│   ├── venues/                       # 期刊政策
+│   │   ├── ieee-tits.md              # IEEE TITS规范
+│   │   ├── nature-portfolio.md       # Nature期刊家族
+│   │   └── nature-policy.md          # Nature政策（ARS整合）
+│   ├── workflow/                     # 工作流
+│   │   ├── deep-research-workflow.md # 深度研究工作流
+│   │   ├── systematic-review-protocol.md # 系统综述协议
+│   │   ├── handoff-schemas.md        # 交接模式（ARS整合）
+│   │   ├── compliance-checkpoint-protocol.md # 合规检查点（ARS整合）
+│   │   ├── raise-framework.md        # RAISE框架（ARS整合）
+│   │   ├── prisma-trAIce-protocol.md # PRISMA协议（ARS整合）
+│   │   └── cross-model-verification.md # 跨模型验证（ARS整合）
+│   ├── ars-references/               # ARS整合参考（40个文件）
+│   │   ├── apa7-style-guide.md       # APA 7风格指南
+│   │   ├── review-criteria-framework.md # 审稿标准框架
+│   │   ├── pipeline-state-machine.md # 流水线状态机
+│   │   └── ...                       # 其他37个文件
+│   ├── ars-agents/                   # ARS整合智能体（3个文件）
+│   │   ├── report-compiler-agent.md  # 报告编译器
+│   │   ├── research-architect-agent.md # 研究架构师
+│   │   └── synthesis-agent.md        # 综合智能体
+│   ├── ars-templates/                # ARS整合模板（7个文件）
+│   │   ├── evidence-assessment-template.md # 证据评估模板
+│   │   ├── literature-matrix-template.md # 文献矩阵模板
+│   │   └── ...                       # 其他5个文件
+│   └── ars-integration-index.md      # ARS整合索引
 ├── templates/
 │   ├── latex/                        # LaTeX模板
 │   └── code/                         # Python代码模板

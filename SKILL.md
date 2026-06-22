@@ -4,9 +4,10 @@ description: >
   统一论文写作工作台。支持中文本科毕设、英文研究论文优化、IEEE Transactions、Nature/Science/Cell期刊风格写作、
   深度研究、系统综述、多视角审稿、学术搜索、审稿回复（triage→point-by-point→QA）、
   IMRAD/CONSORT/PRISMA/STROBE/ARRIVE报告规范检查、中英文对照阅读、LaTeX排版诊断等全流程学术工作。
+  整合了 academic-research-skills (v3.13.0) 的深度研究、多视角审稿、完整流水线编排、风格校准、Nature/venue 政策等能力。
   默认遵循"证据先于散文"，优先建立 claim-evidence-artifact 对齐，再进入正文生成或润色。
-  当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述时触发。
-version: 6.1.0
+  当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述、完整流程、端到端时触发。
+version: 6.2.0
 ---
 
 # Paper Workbench
@@ -51,6 +52,7 @@ version: 6.1.0
 | `nature` | Nature/Science/Cell 期刊、高影响力期刊、强调创新性和广泛兴趣 | Nature Portfolio journal style |
 | `deep_research` | 深度研究、文献探索、研究问题开发 | APA 7.0 研究报告 |
 | `systematic_review` | PRISMA 系统综述、元分析 | PRISMA 2020 规范 |
+| `pipeline` | 完整学术流水线：研究→写作→审稿→修改→定稿 | 端到端论文产出 |
 
 ### 论文类型与叙事弧
 
@@ -74,6 +76,7 @@ version: 6.1.0
 - 用户提到"Nature / Science / Cell / high-impact / broad interest / novel discovery" → `nature`
 - 用户提到"research / deep research / literature review / systematic review / meta-analysis / fact-check" → `deep_research`
 - 用户提到"PRISMA / systematic review / meta-analysis / risk of bias" → `systematic_review`
+- 用户提到"完整流程 / 端到端 / 研究到发表 / academic pipeline" → `pipeline`
 - 用户提到"审稿回复 / rebuttal / reviewer response / point-by-point / 返修" → `rebuttal` 任务
 - 用户提到"IMRAD / CONSORT / PRISMA合规 / STROBE / ARRIVE / 报告规范" → `imrad_check` 任务
 - 用户提到"中英对照 / bilingual / 双语阅读 / 术语对照" → `bilingual_reading` 任务
@@ -136,6 +139,16 @@ version: 6.1.0
 | `imrad_check` | IMRAD/报告规范合规检查 | 逐条合规报告（✅/⚠️/❌） |
 | `bilingual_reading` | 中英文对照阅读 | 中英并排 Markdown + 术语对照表 |
 | `latex_diagnosis` | LaTeX 排版诊断修复 | 问题定位 + 精确行号 + 替换代码 + 修订报告 |
+
+### ARS 整合任务
+
+| task_type | 用户意图 | 必要输出 |
+|-----------|----------|----------|
+| `style_calibration` | 学习作者写作风格 | Style Profile（6 维度） |
+| `socratic_research` | 苏格拉底式引导研究 | 研究计划 + INSIGHT 集合 |
+| `disclosure` | 生成 AI 使用声明 | venue 特定的 AI-usage disclosure |
+| `re_review` | 验证修改是否回应审稿意见 | R&R Traceability Matrix + 残留问题 |
+| `calibration` | 校准审稿准确性 | Calibration Report（FNR/FPR/balanced accuracy） |
 
 如果请求跨多个任务，先按用户当前最急需的交付目标执行，不默认输出全家桶。
 
@@ -246,6 +259,18 @@ version: 6.1.0
 5. Data extraction and synthesis
 6. Meta-analysis (if applicable)
 7. GRADE evidence certainty
+
+### `pipeline` 最小执行主线
+
+1. **RESEARCH** — deep-research: RQ Brief, Methodology, Bibliography, Synthesis
+2. **WRITE** — academic-paper: Paper Draft
+3. **INTEGRITY** — integrity_verification_agent: 完整性验证报告
+4. **REVIEW** — academic-paper-reviewer: 5 份审稿报告 + Editorial Decision
+5. **REVISE** — academic-paper: 修订稿, Response to Reviewers
+6. **RE-REVIEW** — academic-paper-reviewer: 验证审稿报告
+7. **FINAL INTEGRITY** — integrity_verification_agent: 最终验证报告
+8. **FINALIZE** — academic-paper: 最终论文（MD/DOCX/LaTeX/PDF）
+9. **PROCESS SUMMARY** — orchestrator: 论文创作过程记录
 
 ---
 
@@ -473,6 +498,62 @@ version: 6.1.0
 | 多面板排列混乱 | `subfigure` 参数错误 | 统一宽度比例 |
 | 公式溢出 | 长公式未换行 | `split` / `multline` 环境 |
 
+### Q. `style_calibration`
+
+输出：
+1. Style Profile（6 维度）
+   - 句子长度分布
+   - 段落长度分布
+   - 词汇偏好
+   - 引用整合风格
+   - 修饰语风格
+   - 语域变化
+2. 写作风格样本分析
+3. 风格校准建议
+
+**执行参考**: `references/writing/style-calibration-protocol.md`
+
+### R. `socratic_research`
+
+输出：
+1. 研究问题开发（FINER 评分）
+2. 研究计划
+3. INSIGHT 集合
+4. 方法论蓝图
+
+**执行参考**: `references/ars-references/socratic-mode-protocol.md`, `references/ars-references/socratic-questioning-framework.md`
+
+### S. `disclosure`
+
+输出：
+1. venue 特定的 AI-usage disclosure
+2. 支持的 venue: Nature, Science, ICLR, NeurIPS, ACL, EMNLP, IEEE
+3. 声明合规检查
+
+**执行参考**: `references/ars-references/disclosure-mode-protocol.md`, `references/ars-references/venue-disclosure-policies.md`
+
+### T. `re_review`
+
+输出：
+1. R&R Traceability Matrix
+2. 残留问题列表
+3. 新的 Editorial Decision
+4. 修订回应清单
+
+**执行参考**: `references/ars-references/re-review-mode-protocol.md`, `references/ars-references/review-criteria-framework.md`
+
+### U. `calibration`
+
+输出：
+1. Calibration Report
+   - FNR（假阴性率）
+   - FPR（假阳性率）
+   - balanced accuracy
+2. 审稿准确性评估
+3. 校准建议
+
+**执行参考**: `references/ars-references/calibration-mode-protocol.md`, `references/ars-references/quality-rubrics.md`
+
 ---
 
 ## Step 6 — Reference Loading Policy
@@ -558,6 +639,40 @@ version: 6.1.0
 - 图表标准: `references/writing/nature-figure-standards.md` 或 `traffic-figure-patterns.md`
 - 写作规范: 按目标期刊选择对应参考
 
+### `pipeline` 常用加载
+
+- 流水线编排: `references/ars-references/pipeline-state-machine.md`
+- 完整性验证: `references/ars-references/integrity-review-protocol.md`
+- 两阶段审稿: `references/ars-references/two-stage-review-protocol.md`
+- 外部审稿: `references/ars-references/external-review-protocol.md`
+- 过程总结: `references/ars-references/process-summary-protocol.md`
+- 进度仪表盘: `references/ars-templates/progress-dashboard-template.md`
+
+### `style_calibration` 常用加载
+
+- 风格校准协议: `references/writing/style-calibration-protocol.md`
+
+### `socratic_research` 常用加载
+
+- Socratic 模式协议: `references/ars-references/socratic-mode-protocol.md`
+- Socratic 提问框架: `references/ars-references/socratic-questioning-framework.md`
+
+### `disclosure` 常用加载
+
+- Disclosure 模式协议: `references/ars-references/disclosure-mode-protocol.md`
+- Venue disclosure 政策: `references/ars-references/venue-disclosure-policies.md`
+- Nature 政策: `references/venues/nature-policy.md`
+
+### `re_review` 常用加载
+
+- Re-review 模式协议: `references/ars-references/re-review-mode-protocol.md`
+- 审稿标准框架: `references/ars-references/review-criteria-framework.md`
+
+### `calibration` 常用加载
+
+- Calibration 模式协议: `references/ars-references/calibration-mode-protocol.md`
+- 质量评分标准: `references/ars-references/quality-rubrics.md`
+
 ---
 
 ## Step 7 — Special Enforcement Rules
@@ -622,6 +737,16 @@ Pipeline 中的完整性门禁不可跳过：
 - 7 模式 AI 研究失败清单
 - 声称的修改必须有证据支持
 
+### 7.7 ARS Integration Rule
+
+ARS 整合任务的额外规则：
+
+- **风格校准**：必须基于真实写作样本，不能虚构风格特征
+- **Socratic 引导**：必须遵循 FINER 标准开发研究问题
+- **Disclosure**：必须按目标 venue 要求生成，不能使用通用模板
+- **Re-review**：必须验证所有审稿意见是否得到回应
+- **Calibration**：必须使用真实审稿数据，不能虚构校准结果
+
 ---
 
 ## Step 8 — Agent Orchestration
@@ -681,6 +806,14 @@ Pipeline 中的完整性门禁不可跳过：
 | integrity_verification_agent | 完整性验证 |
 | collaboration_depth_observer_agent | 协作深度观察 |
 | claim_audit_agent | 声明审计 |
+
+### ARS 整合 Agents (3个)
+
+| Agent | 职责 |
+|-------|------|
+| report_compiler_agent | APA 7.0 报告编写 |
+| research_architect_agent | 方法论蓝图设计 |
+| synthesis_agent | 跨源综合分析 |
 
 ---
 
