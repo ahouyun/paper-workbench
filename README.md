@@ -109,7 +109,6 @@ paper-workbench/
 │   │   └── rejection-handling-guide.md # 拒稿处理
 │   ├── venues/                       # 期刊政策
 │   │   ├── ieee-tits.md              # IEEE TITS规范
-│   │   ├── ieee-tits.md              # IEEE TITS规范
 │   │   └── conference-specs.md       # 顶会规范
 │   ├── workflow/                     # 工作流
 │   │   ├── deep-research-workflow.md # 深度研究工作流
@@ -142,6 +141,8 @@ paper-workbench/
 │   │   ├── data-profiling.md         # 数据剖析报告解读
 │   │   ├── visual-review.md          # 视觉自检闭环
 │   │   └── publication-checklist.md  # 投稿前合规自检清单
+│   ├── _archived/                    # 归档目录
+│   │   └── nature/                   # Nature相关文件（已归档）
 │   └── ars-integration-index.md      # ARS整合索引
 ├── templates/
 │   ├── latex/                        # LaTeX模板
