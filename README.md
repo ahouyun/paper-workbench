@@ -109,8 +109,8 @@ paper-workbench/
 │   │   └── rejection-handling-guide.md # 拒稿处理
 │   ├── venues/                       # 期刊政策
 │   │   ├── ieee-tits.md              # IEEE TITS规范
-│   │   ├── nature-portfolio.md       # Nature期刊家族
-│   │   └── nature-policy.md          # Nature政策（ARS整合）
+│   │   ├── ieee-tits.md              # IEEE TITS规范
+│   │   └── conference-specs.md       # 顶会规范
 │   ├── workflow/                     # 工作流
 │   │   ├── deep-research-workflow.md # 深度研究工作流
 │   │   ├── systematic-review-protocol.md # 系统综述协议
@@ -159,7 +159,7 @@ paper-workbench/
 | KDD/AAAI/NeurIPS/ICLR/ICML | 204 | 2024-2026 |
 | WWW/CIKM/IJCAI/SIGIR | 60+ | 2024-2026 |
 | Transportation Research | 20+ | 2024-2026 |
-| Nature/Scientific Reports | 15+ | 2024-2026 |
+| IEEE TITS/TNNLS/TVT/TIV | 110+ | 2024-2026 |
 | arXiv预印本 | 150+ | 2025-2026 |
 | 综述论文参考文献 | 800+ | 去重后 |
 
@@ -181,7 +181,7 @@ MIT License
 
 ## 🙏 致谢
 
-- [nature-skills](https://github.com/Yuan1z0825/nature-skills) — Nature论文写作Skill
+- [nature-skills](https://github.com/Yuan1z0825/nature-skills) — Nature论文写作Skill（已整合部分能力）
 - [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) — 学术研究Skill套件
 - [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) — 科研数据可视化顾问
 - [CCF-Figure](https://github.com/Deepshare-Official/CCF-Figure) — 科研配图Skill

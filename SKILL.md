@@ -1,15 +1,16 @@
 ---
 name: paper-workbench
 description: >
-  统一论文写作工作台。支持中文本科毕设、英文研究论文优化、IEEE Transactions、Nature/Science/Cell期刊风格写作、
-  深度研究、系统综述、多视角审稿、学术搜索、审稿回复（triage→point-by-point→QA）、
-  IMRAD/CONSORT/PRISMA/STROBE/ARRIVE报告规范检查、中英文对照阅读、LaTeX排版诊断等全流程学术工作。
-  整合了 academic-research-skills (v3.13.0) 的深度研究、多视角审稿、完整流水线编排、风格校准、Nature/venue 政策等能力。
+  统一论文写作工作台。支持中文本科毕设、英文研究论文优化、IEEE Transactions (T-ITS/TNNLS/TVT/TIV)、
+  顶会 (NeurIPS/ICML/ICLR/CVPR/KDD/VLDB/AAAI/IJCAI) 论文写作、深度研究、系统综述、多视角审稿、
+  学术搜索、审稿回复（triage→point-by-point→QA）、IMRAD/CONSORT/PRISMA/STROBE/ARRIVE报告规范检查、
+  中英文对照阅读、LaTeX排版诊断等全流程学术工作。
+  整合了 academic-research-skills (v3.13.0) 的深度研究、多视角审稿、完整流水线编排、风格校准等能力。
   整合了 scipilot-figure-skill (v2.1.0) 的科研数据可视化顾问能力——先思考后绘制，主动拦截画图错误，视觉自检闭环。
   默认遵循"证据先于散文"，优先建立 claim-evidence-artifact 对齐，再进入正文生成或润色。
   当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述、完整流程、端到端、
   科研画图、数据可视化、不知道用什么图、怎么展示数据、用什么图好、期刊投稿图、figure、出版级图表时触发。
-version: 7.3.0
+version: 7.4.0
 ---
 
 # Paper Workbench
@@ -18,7 +19,7 @@ version: 7.3.0
 
 本文件负责六件事：
 
-1. **模式判定**：选择 `chinese_thesis` / `english_research` / `ieee_trans` / `nature` / `deep_research` / `systematic_review`
+1. **模式判定**：选择 `chinese_thesis` / `english_research` / `ieee_trans` / `conference` / `deep_research` / `systematic_review`
 2. **任务判定**：选择 17 种任务类型之一
 3. **场刊偏置**：按目标期刊风格执行
 4. **加载路由**：按任务只加载必要参考
@@ -35,7 +36,7 @@ version: 7.3.0
 > 3. **数字先过 provenance**：任何具体数字进入摘要、引言、实验、图表、结论前，先过 `references/writing/ieee-data-provenance-checklist.md`；过不了就删、改写或标记 `needs evidence`。
 > 4. **图表回答审稿问题**：每个 figure/table 必须回答一个明确 reviewer question；不能只是装饰。
 > 5. **AI 表达治理**：禁止空泛夸张、模板化贡献、伪精确数字和简单同义替换式"降 AIGC"。
-> 6. **学校/场刊覆盖默认**：中文毕设遵循 学校模板 > 导师要求 > 国标 > 内置默认；IEEE/英文论文遵循目标 venue 要求 > 内置默认；Nature 期刊遵循 Nature Portfolio 规范。
+> 6. **学校/场刊覆盖默认**：中文毕设遵循 学校模板 > 导师要求 > 国标 > 内置默认；IEEE/英文论文遵循目标 venue 要求 > 内置默认；顶会遵循会议规范。
 > 7. **按需加载**：只加载当前任务所需 section/reference，避免上下文污染。
 > 8. **完整性门禁**：关键阶段的完整性检查不可跳过。
 > 9. **审稿独立性**：多视角审稿时，各审稿人独立评审，不交叉参考。
@@ -50,8 +51,8 @@ version: 7.3.0
 |------|----------|----------|
 | `chinese_thesis` | 中文毕设、毕业论文、项目说明型论文、需要 Word 导出 | 中文学校规范 + 工作区驱动 |
 | `english_research` | 通用英文研究论文、ML/CV/NLP 风格、非特定期刊模板优先 | Reviewer-friendly research writing |
-| `ieee_trans` | IEEE Transactions 风格、LaTeX 论文、强调贡献-证据-实验打包 | IEEE Transactions journal style |
-| `nature` | Nature/Science/Cell 期刊、高影响力期刊、强调创新性和广泛兴趣 | Nature Portfolio journal style |
+| `ieee_trans` | IEEE Transactions 风格 (T-ITS/TNNLS/TVT/TIV)、LaTeX 论文、强调贡献-证据-实验打包 | IEEE Transactions journal style |
+| `conference` | 顶会论文 (NeurIPS/ICML/ICLR/CVPR/KDD/VLDB/AAAI/IJCAI)、强调创新性和实验完整性 | 顶会论文风格 |
 | `deep_research` | 深度研究、文献探索、研究问题开发 | APA 7.0 研究报告 |
 | `systematic_review` | PRISMA 系统综述、元分析 | PRISMA 2020 规范 |
 | `pipeline` | 完整学术流水线：研究→写作→审稿→修改→定稿 | 端到端论文产出 |
@@ -74,8 +75,8 @@ version: 7.3.0
 
 - 用户提到"毕业论文 / 本科论文 / Word / 学校模板 / 导出文档" → `chinese_thesis`
 - 用户提到"rewrite / polish / introduction / abstract / claim-evidence / paper review"，但未强调 IEEE 模板 → `english_research`
-- 用户提到"IEEE / Transactions / journal / rebuttal / LaTeX / contribution list / experiments for submission" → `ieee_trans`
-- 用户提到"Nature / Science / Cell / high-impact / broad interest / novel discovery" → `nature`
+- 用户提到"IEEE / Transactions / T-ITS / TNNLS / TVT / TIV / journal / rebuttal / LaTeX / contribution list / experiments for submission" → `ieee_trans`
+- 用户提到"NeurIPS / ICML / ICLR / CVPR / KDD / VLDB / AAAI / IJCAI / conference / poster / spotlight / oral" → `conference`
 - 用户提到"research / deep research / literature review / systematic review / meta-analysis / fact-check" → `deep_research`
 - 用户提到"PRISMA / systematic review / meta-analysis / risk of bias" → `systematic_review`
 - 用户提到"完整流程 / 端到端 / 研究到发表 / academic pipeline" → `pipeline`
@@ -84,16 +85,20 @@ version: 7.3.0
 - 用户提到"中英对照 / bilingual / 双语阅读 / 术语对照" → `bilingual_reading` 任务
 - 用户提到"LaTeX排版 / Float too large / 页面稀疏 / 排版修复" → `latex_diagnosis` 任务
 
-### Nature 模式子路由
+### Conference 模式子路由
 
-当模式为 `nature` 时，进一步识别目标期刊：
+当模式为 `conference` 时，进一步识别目标会议：
 
-| 期刊家族 | 风格偏置 |
-|----------|----------|
-| Nature 主刊 | 创新性 + 广泛兴趣 + 简洁 |
-| Nature 子刊 | 专业深度 + 方法严谨 |
-| Science | 突破性发现 + 证据链 |
-| Cell | 机制深入 + 多角度验证 |
+| 会议 | 风格偏置 |
+|------|----------|
+| NeurIPS | 理论深度 + 实验完整性 + 创新性 |
+| ICML | 方法严谨 + 理论贡献 + 大规模实验 |
+| ICLR | 创新性 + 清晰表达 + 可复现性 |
+| CVPR | 视觉效果 + 实验对比 + 应用价值 |
+| KDD | 实用性 + 大规模验证 + 工程贡献 |
+| VLDB | 系统设计 + 性能优化 + 数据管理 |
+| AAAI | AI创新 + 应用场景 + 理论基础 |
+| IJCAI | AI综合 + 跨领域应用 + 理论深度 |
 
 ---
 
@@ -124,11 +129,14 @@ version: 7.3.0
 | `fact_check` | 事实核查 | 验证报告 (300-800字) |
 | `lit_review` | 文献综述 | 带注释的文献综述 (1500-4000字) |
 
-### Nature 专项任务
+### 顶会专项任务
 
 | task_type | 用户意图 | 必要输出 |
 |-----------|----------|----------|
-| `nature_polish` | Nature 风格润色 | 润色后文本 + 修改说明 |
+| `conference_polish` | 顶会风格润色 | 润色后文本 + 修改说明 |
+| `poster_design` | 海报设计 | 海报布局 + 内容建议 |
+| `slide_design` | 幻灯片设计 | PPT结构 + 演讲要点 |
+| `rebuttal_writing` | Rebuttal撰写 | 结构化回复 + 策略建议 |
 | `data_availability` | 数据可用性声明 | FAIR 合规的数据声明 |
 | `paper2ppt` | 论文转 PPT | 中文 .pptx 演示文稿 |
 | `citation_convert` | 引用格式转换 | 目标格式引用列表 |
@@ -186,25 +194,25 @@ version: 7.3.0
 - 若用户偏好 **IEEE T-ITS**，优先加载交通/ITS 相关写作参考
 - 若未指定 venue，则使用通用 IEEE Transactions 参考
 
-### 3.2 Nature 路由
+### 3.2 Conference 路由
 
-在 `nature` 模式中：
+在 `conference` 模式中：
 
 #### 加载参考
 
-- `references/venues/nature-portfolio.md` - Nature 期刊家族规范
-- `references/writing/nature-writing-style.md` - Nature 写作风格
-- `references/writing/nature-figure-standards.md` - Nature 图表标准
-- `references/writing/nature-polishing-rules.md` - Nature 润色规则
-- `references/writing/nature-citation-format.md` - Nature 引用格式
+- `references/figure-advisor/journal-specs.md` - 顶会图表规范
+- `references/writing/ieee-expression-patterns-core.md` - 表达模式
+- `references/writing/ieee-polishing.md` - 润色规则
+- `references/writing/ieee-experiment-playbook.md` - 实验设计
+- `references/figure-advisor/chart-selection.md` - 图表选择
 
-#### Nature 风格偏置
+#### Conference 风格偏置
 
 1. 创新性优先：必须有明确的 novelty claim
-2. 广泛兴趣：研究问题需面向广泛读者
-3. 简洁表达：每句 ≤30 词，避免过度技术化
-4. 证据链完整：每个声明需有实验支持
-5. 英式英语：signalling, colour, analyse, programme
+2. 实验完整性：完整的消融实验 + 对比实验
+3. 清晰表达：逻辑清晰，避免过度技术化
+4. 可复现性：代码和数据可获取
+5. 图表质量：高质量可视化，符合会议规范
 
 ---
 
@@ -230,15 +238,15 @@ version: 7.3.0
 6. Check provenance for all concrete numbers
 7. Run adversarial review and rebuttal-readiness check
 
-### `nature` 最小执行主线
+### `conference` 最小执行主线
 
-1. Identify novelty claim and target journal
-2. Lock story arc (context → gap → discovery → implication)
-3. Plan figures (Figure 1 = main finding, Figure 2-4 = mechanism/evidence)
-4. Draft with Nature style constraints
-5. Run Nature-specific quality checks
+1. Identify novelty claim and target conference
+2. Lock story arc (problem → method → experiments → contribution)
+3. Plan figures (Figure 1 = framework, Figure 2-5 = experiments)
+4. Draft with conference style constraints
+5. Run conference-specific quality checks
 6. Run multi-perspective review
-7. Prepare data availability and methods
+7. Prepare code release and reproducibility checklist
 
 ### `chinese_thesis` 最小执行主线
 
@@ -423,14 +431,14 @@ version: 7.3.0
 5. 证据等级评估
 6. 研究空白识别
 
-### J. `nature_polish`
+### J. `conference_polish`
 
 输出：
 1. 润色后文本
 2. 修改清单
 3. 风格合规检查
-4. 对冲校准报告
-5. 时态检查结果
+4. 创新性强化建议
+5. 实验完整性检查
 
 ### K. `data_availability`
 
@@ -537,7 +545,7 @@ version: 7.3.0
 
 输出：
 1. venue 特定的 AI-usage disclosure
-2. 支持的 venue: Nature, Science, ICLR, NeurIPS, ACL, EMNLP, IEEE
+2. 支持的 venue: NeurIPS, ICML, ICLR, CVPR, KDD, VLDB, AAAI, IJCAI, ACL, EMNLP, IEEE
 3. 声明合规检查
 
 **执行参考**: `references/ars-references/disclosure-mode-protocol.md`, `references/ars-references/venue-disclosure-policies.md`
@@ -592,16 +600,15 @@ version: 7.3.0
 - **交通领域论文模式**: `references/writing/ieee-traffic-transportation-patterns.md` (T-ITS/TIV/TNNLS 2024-2025 真实 Abstract 分析: 17 篇论文，涵盖交通流预测、轨迹预测、自动驾驶、GenAI 仿真、LLM+ITS、世界模型等)
 - **2024-2025 顶会模式**: `references/writing/cs-top-venue-patterns-2024-2025.md` (VAR, Mamba, DeepSeek-R1 等真实 Abstract 分析)
 
-### `nature` 常用加载
+### `conference` 常用加载
 
-- writing style: `references/writing/nature-writing-style.md`
-- figure standards: `references/writing/nature-figure-standards.md`
-- polishing rules: `references/writing/nature-polishing-rules.md`
-- citation format: `references/writing/nature-citation-format.md`
-- data availability: `references/writing/nature-data-availability.md`
-- response template: `references/review/nature-response-template.md`
-- venue spec: `references/venues/nature-portfolio.md`
-- **真实论文模式**: `references/writing/nature-paper-patterns.md` (AlphaFold 3, GNoME 等真实 Abstract/Introduction 分析)
+- figure specs: `references/figure-advisor/journal-specs.md`
+- expression patterns: `references/writing/ieee-expression-patterns-core.md`
+- polishing rules: `references/writing/ieee-polishing.md`
+- experiment design: `references/writing/ieee-experiment-playbook.md`
+- chart selection: `references/figure-advisor/chart-selection.md`
+- visual review: `references/figure-advisor/visual-review.md`
+- **真实论文模式**: `references/writing/ieee-traffic-transportation-patterns.md` (IEEE T-ITS 真实 Abstract 分析)
 
 ### `chinese_thesis` 常用加载
 
@@ -646,7 +653,7 @@ version: 7.3.0
 
 ### `latex_diagnosis` 常用加载
 
-- 图表标准: `references/writing/nature-figure-standards.md` 或 `traffic-figure-patterns.md`
+- 图表标准: `references/figure-advisor/journal-specs.md` 或 `traffic-figure-patterns.md`
 - 写作规范: 按目标期刊选择对应参考
 
 ### `pipeline` 常用加载
@@ -671,7 +678,7 @@ version: 7.3.0
 
 - Disclosure 模式协议: `references/ars-references/disclosure-mode-protocol.md`
 - Venue disclosure 政策: `references/ars-references/venue-disclosure-policies.md`
-- Nature 政策: `references/venues/nature-policy.md`
+- 顶会规范: `references/figure-advisor/journal-specs.md`
 
 ### `re_review` 常用加载
 
@@ -710,7 +717,7 @@ version: 7.3.0
 
 ### 7.1 Contribution Rule
 
-在 `ieee_trans` 和 `nature` 模式下，每条 contribution 必须绑定：
+在 `ieee_trans` 和 `conference` 模式下，每条 contribution 必须绑定：
 
 - 一个强动词
 - 一个具体工件（模型、系统、数据集、分类法、定理、协议、实验包）
@@ -740,15 +747,15 @@ version: 7.3.0
 - vague quantifiers
 - scope inflation
 
-### 7.4 Nature Style Rule
+### 7.4 Conference Style Rule
 
-在 `nature` 模式下额外检查：
+在 `conference` 模式下额外检查：
 
-- 每句 ≤30 词
-- 对冲校准：声明强度匹配证据水平
-- 时态正确：Results 过去时，Discussion 对冲语言
-- 英式英语：signalling, colour, analyse, programme
-- 无绝对声明：避免 "first", "novel", "groundbreaking"
+- 创新性声明明确
+- 实验完整性（消融 + 对比）
+- 图表质量符合会议规范
+- 代码和数据可获取性
+- 可复现性检查
 
 ### 7.5 Multi-Reviewer Independence Rule
 
@@ -815,7 +822,7 @@ ARS 整合任务的额外规则：
 | meta_analysis_agent | 元分析和效应量 |
 | monitoring_agent | 后续文献追踪 |
 
-### Nature Writing Agents
+### Conference Writing Agents
 
 | Agent | 职责 |
 |-------|------|
