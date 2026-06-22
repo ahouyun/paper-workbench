@@ -1289,3 +1289,188 @@
 | 对抗鲁棒性 | 安全性 | 数据注入/传感器欺骗 |
 | 分布偏移鲁棒性 | 泛化性 | 时间/季节/事件偏移 |
 | 异常值鲁棒性 | 稳定性 | 异常隔离率 |
+
+### 13.54 IEEE TITS 2025-2026 Abstract写作模式（新增）
+
+基于最新IEEE TITS论文逐句分析，总结出以下写作模式：
+
+#### 首句模式（任务重要性）
+
+**模式A：crucial for句式**
+> "Accurate traffic flow prediction is crucial for the efficient management of urban transportation systems." (DSTIGFN, IEEE TITS 2026)
+
+**模式B：growing complexity句式**
+> "With growing complexity in urban transportation systems, multimodal traffic flow prediction is essential for coordinating multiple transport modes, optimizing resource allocation, and enhancing urban mobility efficiency." (Multi-Scale ST-Enhanced, IEEE TITS 2026)
+
+**模式C：critical challenge句式**
+> "In the research on navigation efficiency optimization in complex waters, accurate vessel traffic flow prediction has emerged as a critical challenge in the field of intelligent maritime navigation." (Vessel Traffic Flow, IEEE TITS 2026)
+
+**模式D：Ubiquitous句式**
+> "Ubiquitous mobile devices are generating vast amounts of location-based service data that reveal how individuals navigate and utilize urban spaces in detail." (PMT, IEEE TITS 2026)
+
+**模式E：critical task句式**
+> "Bus passenger profiling is a critical task for optimizing urban transportation, but it is hindered by three key challenges: the heterogeneity of passenger behaviors, complex station-level interactions, and the prevalence of sparse, noisy transit data." (GRASP, IEEE TITS 2025)
+
+#### 问题陈述模式
+
+**模式A：two critical issues句式**
+> "However, existing methods in cross-modal correlation modeling overlook two critical issues: 1) Existing cross-modal graph construction methods fail to uncover the latent relationships between nodes based on the travel patterns across different modes; 2) Existing cross-modal feature extraction methods cannot effectively capture the correlations between features across different modes." (Multi-Scale ST-Enhanced, IEEE TITS 2026)
+
+**模式B：ignoring句式**
+> "However, existing models generally focus on modeling continuous traffic sequences, ignoring the multilevel correlation characteristics of spatio-temporal heterogeneity in traffic networks at different time scales." (DSTIGFN, IEEE TITS 2026)
+
+**模式C：overlooking句式**
+> "These studies tend to focus on interactions between nodes based on macroscopic traffic node attributes, overlooking the profound impact of individual behaviors and decisions of microscopic traffic participants." (Adap-STWT, IEEE TITS 2026)
+
+**模式D：fail to address句式**
+> "Conventional end-to-end models that operate on aggregated traffic flow often fail to address these issues systematically." (GRASP, IEEE TITS 2025)
+
+**模式E：making it difficult句式**
+> "Moreover, the spatial dependencies among road nodes are usually modeled by static graphs, making it difficult to capture their dynamic evolution over time." (DSTIGFN, IEEE TITS 2026)
+
+#### 解决方案引入模式
+
+**模式A：To address句式**
+> "To address the above challenges, this paper proposes a Dynamic Spatio-Temporal Interactive Graph Fusion Network." (DSTIGFN, IEEE TITS 2026)
+
+**模式B：In this study句式**
+> "In this study, we utilize these extensive, unlabeled sequences of user trajectories to develop a foundation model for understanding urban space and human mobility." (PMT, IEEE TITS 2026)
+
+**模式C：This study presents句式**
+> "This study presents a feasibility assessment framework for evaluating potential UAM route integration under shared-use conditions." (UAM Route, IEEE TITS 2026)
+
+**模式D：To overcome句式**
+> "To overcome these limitations, this paper proposes GRASP, a novel two-stage paradigm for passenger profiling and flow prediction." (GRASP, IEEE TITS 2025)
+
+#### 方法描述模式
+
+**模式A：First... Second...句式**
+> "First, the multi-scale spatio-temporal-enhanced network captures cross-modal correlations at different spatial and temporal scales. Second, the multimodal traffic flow joint prediction module integrates the learned representations for accurate prediction." (Multi-Scale ST-Enhanced, IEEE TITS 2026)
+
+**模式B：We introduce句式**
+> "We introduce the pretrained mobility transformer (PMT), which leverages the transformer architecture to process user trajectories in an autoregressive manner, converting geographical areas into tokens and embedding spatial and temporal information within these representations." (PMT, IEEE TITS 2026)
+
+**模式C：The framework employs句式**
+> "The framework employs probabilistic trajectory prediction based on conditional Normalizing Flows to model short-term trajectory distributions of conventional aircraft, and enables UAM aircraft to perform tactical speed adjustments to maintain safe separation." (UAM Route, IEEE TITS 2026)
+
+**模式D：In the first stage句式**
+> "In the first stage, GRASP acts as a disentangling module, constructing a passenger-centric graph to capture individual travel patterns and station-level interactions." (GRASP, IEEE TITS 2025)
+
+#### 结果/贡献模式
+
+**模式A：Experimental results句式**
+> "Experimental results on real-world datasets demonstrate that the proposed method achieves state-of-the-art performance, outperforming existing methods by significant margins." (通用模式)
+
+**模式B：A case study句式**
+> "A case study over the Los Angeles terminal area shows that the proposed framework can effectively assess UAM route feasibility while maintaining safe separation from conventional aircraft." (UAM Route, IEEE TITS 2026)
+
+**模式C：The proposed method句式**
+> "The proposed method achieves 5.2% improvement in MAE and 4.8% improvement in RMSE compared to the best existing methods." (通用模式)
+
+**模式D：extensive experiments句式**
+> "Extensive experiments on multiple real-world datasets validate the effectiveness and efficiency of the proposed approach." (通用模式)
+
+### 13.55 IEEE TITS 2025-2026 各研究方向Abstract模式（新增）
+
+基于最新IEEE TITS论文逐句分析，按研究方向分类：
+
+#### 交通流预测方向
+
+**STGNN+通道独立（CI-STGNN）：**
+> "The criticality of efficient traffic forecasting in Intelligent Transportation System (ITS) has garnered significant academic attention. This study addresses the prevalent issue of distribution shift in real-world datasets, which often degrades performance, and explores the effectiveness of the channel-independence (CI), a technique recently proposed to mitigate this issue." (CI-STGNN, IEEE TITS 2026)
+
+**多模态交通流预测：**
+> "With growing complexity in urban transportation systems, multimodal traffic flow prediction is essential for coordinating multiple transport modes, optimizing resource allocation, and enhancing urban mobility efficiency." (Multi-Scale ST-Enhanced, IEEE TITS 2026)
+
+**动态图融合：**
+> "Accurate traffic flow prediction is crucial for managing and making decisions in urban traffic systems. Recent studies have shown outstanding performance in traffic prediction by using methods that employ graph adjacency matrices predefined by heuristic rules or learn graph structures through trainable parameters." (Adap-STWT, IEEE TITS 2026)
+
+#### 轨迹预测方向
+
+**意图驱动轨迹预测：**
+> "Trajectory prediction is crucial for autonomous vehicles to make safe and informed decisions. However, the lack of transparency in current trajectory prediction models introduces significant security risks, because their output contains almost no explanatory details." (IGTPT, IEEE TITS 2026)
+
+**物理信息轨迹预测：**
+> "Accurate prediction of vehicle trajectories in complex traffic environments is essential for path planning and safety decisions in autonomous driving systems. However, purely data-driven models lack physical constraints, making it challenging to ensure reliability and consistency in dynamic traffic scenarios." (Physics-Aware, IEEE TITS 2026)
+
+**多智能体轨迹预测：**
+> "Multi-agent trajectory prediction at signalized intersections is pivotal for the safety of autonomous driving and the efficiency of intelligent transportation systems. However, conventional vehicle-centric approaches are limited by restricted perception ranges and occlusion." (I2X, IEEE TITS 2026)
+
+#### 自动驾驶方向
+
+**端到端自动驾驶：**
+> "Automated vehicles (AVs) are transforming urban transportation systems, as end-to-end autonomous driving models show great promise in enhancing traffic safety and operational efficiency. Despite these advances, their performance in highly interactive driving scenarios remains limited due to insufficient decision-making diversity and the absence of explicit safety guarantees." (NavDrive, IEEE TITS 2026)
+
+**强化学习自动驾驶：**
+> "In real-world autonomous driving applications, reinforcement learning (RL) faces several persistent challenges including limited critical training data, low exploration efficiency, and poor policy generalization. These limitations often result in slow convergence or stagnation in local optima, undermining the safety and generalization of intelligent vehicles." (RL-Diffusion, IEEE TITS 2026)
+
+**人机共享驾驶：**
+> "Human-machine shared driving (HMSD) has emerged as a crucial transitional paradigm before the widespread adoption of fully autonomous vehicles. However, existing research typically only considers either human-dominated or human-machine equal relationships, neglecting the fact that these two relationships alternate during driving." (LLM-HMSD, IEEE TITS 2026)
+
+#### 大语言模型方向
+
+**LLM+订单调度：**
+> "Ride-hailing platforms face significant challenges in optimizing order dispatching and driver repositioning operations in dynamic urban environments. Traditional approaches based on combinatorial optimization, rule-based heuristics, and reinforcement learning often overlook driver income fairness, interpretability, and adaptability to real-world dynamics." (LLM-ODDR, IEEE TITS 2026)
+
+**LLM+图像分割：**
+> "The integration of Large Language Models (LLMs) with computer vision is profoundly transforming perception tasks like image segmentation. For intelligent transportation systems (ITS), where accurate scene understanding is critical for safety and efficiency, this new paradigm offers unprecedented capabilities." (LLM-Seg, IEEE TITS 2026)
+
+**LLM+合规验证：**
+> "Compliance verification of autonomous vehicle behavior represents a fundamental requirement for transportation system deployment. While human drivers handle natural language ambiguities intuitively, autonomous vehicles require precise formal specifications to eliminate linguistic uncertainties and ensure compliance." (AutoLegal, IEEE TITS 2026)
+
+**LLM+出行预测：**
+> "Accurately predicting fine-grained urban mobility is essential for optimizing transportation, accessibility, and urban management. However, existing approaches often depend on dynamic data such as trajectories or signaling records, which are sparsely available across cities, thereby limiting their applicability and generalizability to new urban contexts." (LMEMR, IEEE TITS 2026)
+
+#### Mamba/SSM方向
+
+**Mamba+RUL预测：**
+> "In transportation systems, accurately estimating the remaining useful life (RUL) of critical components, such as aircraft engines, Battery Management Systems (BMSs), is crucial for the safe and reliable operation and manufacturing of transportation vehicles. However, most existing research overlooks the underlying physical information, which is vital for more precise RUL prediction." (Physics-Mamba, IEEE TITS 2026)
+
+**Transformer+Mamba混合：**
+> "Driver distraction remains a leading cause of traffic accidents, posing a critical threat to road safety globally. As intelligent transportation systems evolve, accurate and real-time identification of driver distraction has become essential. However, existing methods struggle to capture both global contextual and fine-grained local features while contending with noisy labels in training datasets." (DSDFormer, IEEE TITS 2025)
+
+**Mamba+BEV感知：**
+> "BEV-based 3D perception with multi-frame images input is crucial for autonomous driving. However, current methods for temporal BEV perception fail to fully utilize long sequence features because of local fusion or high complexity. Recently, Mamba, a powerful temporal modeling network with linear complexity, has shown exceptional performance in various 2D vision tasks, but its application to 3D perception tasks remains unexplored." (BEVMamba, IEEE TITS 2025)
+
+#### 扩散模型方向
+
+**扩散模型+ITS综述：**
+> "Intelligent Transportation Systems (ITS) play a crucial role in enhancing traffic efficiency and safety. Recently, diffusion models have emerged as transformative tools for addressing the complex challenges faced within ITS, including traffic uncertainty, data multimodality, and data imperfections." (Diffusion-ITS Survey, IEEE TITS 2025)
+
+**扩散模型+轨迹预测：**
+> "The prediction of future trajectories for vehicle in the field of autonomous driving is of utmost importance to ensure safe driving. However, it is challenging as the existing methods still suffer from noise sensitivity, limited representation ability and time-consuming inference." (DMC-Diffuser, IEEE TITS 2026)
+
+**扩散模型+交通仿真：**
+> "Existing traffic simulation models often fall short in capturing the intricacies of real-world scenarios, particularly the interactive behaviors among multiple traffic participants, thereby limiting their utility in the evaluation and validation of autonomous driving systems." (VBD, IEEE TITS 2026)
+
+#### 联邦学习方向
+
+**联邦图学习：**
+> "Traffic prediction plays a crucial role in smart cities. As concerns over data privacy grow, direct data sharing is increasingly restricted, prompting substantial interest in Federated Graph Learning for traffic prediction. Nonetheless, most existing methods follow batch learning paradigms, which are unsuitable for dynamic, streaming traffic data." (SoFed, IEEE TITS 2026)
+
+**联邦迁移学习：**
+> "Accurate future traffic flow prediction is essential for decision-making in travel recommendations and route planning, aiming to reduce congestion and enhance traffic safety. Traditional traffic flow prediction models often face limitations in quality and structure, leading to increased training costs and inefficiencies, due to data scarcity and centralized training modes that compromise data privacy." (2MGTCN, IEEE TITS 2025)
+
+#### 数字孪生方向
+
+**数字孪生+交通管理：**
+> "We present methods and applications for the development of digital twins (DT) for urban traffic management. While the majority of studies on the DT focus on its 'eyes,' which is the emerging sensing and perception like object detection and tracking, what really distinguishes the DT from a traditional simulator lies in its 'brain,' the prediction and decision making capabilities." (AI-CPS-DT, IEEE TITS 2026)
+
+**数字孪生+联邦学习：**
+> "Digital Twin (DT) technology has gained significant attention for simulating and optimizing urban traffic systems, especially in intersection vehicle trajectory prediction. However, digital twin traffic system faces significant challenges due to privacy and security regulations that prevent the centralized storage of trajectory and semantic data." (FedSTAST, IEEE TITS 2025)
+
+#### 不确定性量化方向
+
+**贝叶斯物理信息UQ：**
+> "Accident anticipation is essential for autonomous driving, yet existing video-based models often exhibit unstable predictions because they insufficiently account for the uncertainty that accumulates over long temporal sequences. Such instability leads to fluctuating confidence and unreliable alert timing in complex traffic environments." (U3A, IEEE TITS 2026)
+
+**保形预测+GNN：**
+> "Traffic flow forecasting is essential for managing congestion, improving safety, and optimizing various transportation systems. However, it remains a prevailing challenge due to the stochastic nature of urban traffic and environmental factors. Better predictions require models capable of accommodating the traffic variability influenced by multiple dynamic and complex interdependent factors." (Conformal-GNN, IEEE TITS 2025)
+
+#### 元学习方向
+
+**元学习+交通预测：**
+> "Accurately and jointly predicting multimodal transportation demand is crucial for pre-allocating transport resources, enhancing the resilience of traffic systems. However, current approaches insufficiently explore inter- and intra-mode heterogeneity, resulting in undifferentiated dependency extraction." (MMD-Meta, IEEE TITS 2025)
+
+**元学习+少样本：**
+> "Traffic prediction with limited data becomes increasingly momentous and attracts a lot of attention because the urban data scarcity problem is common and often leads to low prediction precision in the practical application. Cross-city transfer learning based on deep learning can effectively alleviate the above problem by transferring knowledge data-rich source cities to data-poor target cities." (Selective-Transfer, IEEE TITS 2025)
