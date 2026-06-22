@@ -1,6 +1,8 @@
 # Paper Workbench — 论文写作工作台
 
 > 一套 Claude Code 论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通流预测方向**。
+>
+> 整合了 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (v3.13.0) 和 [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) (v2.1.0) 的核心能力。
 
 ---
 
@@ -42,6 +44,11 @@ git clone https://github.com/ahouyun/paper-workbench.git ~/.claude/skills/paper-
 
 # 润色论文
 "润色这段话"
+
+# 图表顾问
+"我有这份数据，帮我画成论文图"
+"这个图表达到投稿要求了吗？"
+"帮我把图表润色成出版级"
 ```
 
 ---
@@ -66,6 +73,9 @@ git clone https://github.com/ahouyun/paper-workbench.git ~/.claude/skills/paper-
 | 🔄 **完整流水线** | 10阶段编排：研究→写作→审稿→修改→定稿 | `ars-references/pipeline-state-machine.md` |
 | 🎨 **风格校准** | 6维度写作风格分析 | `writing/style-calibration-protocol.md` |
 | 📜 **Nature政策** | Nature/Science/Cell期刊规范 | `venues/nature-policy.md` |
+| 🎯 **图表顾问** | 先思考后绘制 + 主动拦截 + 视觉自检闭环 | `figure-advisor/figure-workflow.md` |
+| 📐 **图表规范** | 6大期刊图表规范 + 中文字体配置 | `figure-advisor/journal-specs.md` |
+| 🔍 **图表审查** | 18条避坑清单 + 投稿前合规自检 | `figure-advisor/viz-pitfalls.md` |
 
 ---
 
@@ -123,6 +133,16 @@ paper-workbench/
 │   │   ├── evidence-assessment-template.md # 证据评估模板
 │   │   ├── literature-matrix-template.md # 文献矩阵模板
 │   │   └── ...                       # 其他5个文件
+│   ├── figure-advisor/               # 图表顾问模块（8个文件）
+│   │   ├── README.md                 # 模块概述
+│   │   ├── figure-workflow.md        # 8步工作流 + 五条硬性原则
+│   │   ├── chart-selection.md        # 图表选择决策框架
+│   │   ├── viz-pitfalls.md           # 18条避坑清单
+│   │   ├── journal-specs.md          # 期刊图表规范
+│   │   ├── plot-recipes.md           # 9类图配方 + Python代码
+│   │   ├── data-profiling.md         # 数据剖析报告解读
+│   │   ├── visual-review.md          # 视觉自检闭环
+│   │   └── publication-checklist.md  # 投稿前合规自检清单
 │   └── ars-integration-index.md      # ARS整合索引
 ├── templates/
 │   ├── latex/                        # LaTeX模板
@@ -164,6 +184,7 @@ MIT License
 
 - [nature-skills](https://github.com/Yuan1z0825/nature-skills) — Nature论文写作Skill
 - [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) — 学术研究Skill套件
+- [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) — 科研数据可视化顾问
 - [CCF-Figure](https://github.com/Deepshare-Official/CCF-Figure) — 科研配图Skill
 - [LibCity](https://github.com/LibCity/Bigscity-LibCity) — 交通预测统一框架
 - [BasicTS](https://github.com/GestaltCogTeam/BasicTS) — 时空预测基准

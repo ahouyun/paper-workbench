@@ -5,9 +5,11 @@ description: >
   深度研究、系统综述、多视角审稿、学术搜索、审稿回复（triage→point-by-point→QA）、
   IMRAD/CONSORT/PRISMA/STROBE/ARRIVE报告规范检查、中英文对照阅读、LaTeX排版诊断等全流程学术工作。
   整合了 academic-research-skills (v3.13.0) 的深度研究、多视角审稿、完整流水线编排、风格校准、Nature/venue 政策等能力。
+  整合了 scipilot-figure-skill (v2.1.0) 的科研数据可视化顾问能力——先思考后绘制，主动拦截画图错误，视觉自检闭环。
   默认遵循"证据先于散文"，优先建立 claim-evidence-artifact 对齐，再进入正文生成或润色。
-  当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述、完整流程、端到端时触发。
-version: 7.2.0
+  当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述、完整流程、端到端、
+  科研画图、数据可视化、不知道用什么图、怎么展示数据、用什么图好、期刊投稿图、figure、出版级图表时触发。
+version: 7.3.0
 ---
 
 # Paper Workbench
@@ -149,6 +151,14 @@ version: 7.2.0
 | `disclosure` | 生成 AI 使用声明 | venue 特定的 AI-usage disclosure |
 | `re_review` | 验证修改是否回应审稿意见 | R&R Traceability Matrix + 残留问题 |
 | `calibration` | 校准审稿准确性 | Calibration Report（FNR/FPR/balanced accuracy） |
+
+### 图表顾问任务
+
+| task_type | 用户意图 | 必要输出 |
+|-----------|----------|----------|
+| `figure_advisor` | 科研数据可视化顾问 | 数据剖析 + 图型推荐 + 理由 + 备选 |
+| `figure_review` | 图表合规审查 | 语义合规 + 形式合规 + 视觉自检报告 |
+| `figure_polish` | 图表出版级润色 | 期刊规范适配 + 配色优化 + 字号调整 |
 
 如果请求跨多个任务，先按用户当前最急需的交付目标执行，不默认输出全家桶。
 
@@ -673,6 +683,27 @@ version: 7.2.0
 - Calibration 模式协议: `references/ars-references/calibration-mode-protocol.md`
 - 质量评分标准: `references/ars-references/quality-rubrics.md`
 
+### `figure_advisor` 常用加载
+
+- 工作流: `references/figure-advisor/figure-workflow.md`
+- 图表选择: `references/figure-advisor/chart-selection.md`
+- 避坑清单: `references/figure-advisor/viz-pitfalls.md`
+- 期刊规范: `references/figure-advisor/journal-specs.md`
+- 画图配方: `references/figure-advisor/plot-recipes.md`
+- 数据剖析: `references/figure-advisor/data-profiling.md`
+
+### `figure_review` 常用加载
+
+- 视觉自检: `references/figure-advisor/visual-review.md`
+- 合规清单: `references/figure-advisor/publication-checklist.md`
+- 避坑清单: `references/figure-advisor/viz-pitfalls.md`
+
+### `figure_polish` 常用加载
+
+- 期刊规范: `references/figure-advisor/journal-specs.md`
+- 画图配方: `references/figure-advisor/plot-recipes.md`
+- 合规清单: `references/figure-advisor/publication-checklist.md`
+
 ---
 
 ## Step 7 — Special Enforcement Rules
@@ -747,6 +778,21 @@ ARS 整合任务的额外规则：
 - **Re-review**：必须验证所有审稿意见是否得到回应
 - **Calibration**：必须使用真实审稿数据，不能虚构校准结果
 
+### 7.8 Figure Advisor Rule
+
+图表顾问任务的额外规则：
+
+- **先思考后绘制**：永远先理解数据再选图，先想清楚"这张图要论证什么"
+- **主动拦截**：发现用户需求会触发画图错误时，先说明问题再给替代方案
+- **五条硬性原则**：
+  1. 按最终尺寸出图，不二次缩放
+  2. 矢量优先，绝不 JPEG
+  3. 配色对色盲友好
+  4. 字号在最终尺寸下可读（≥6pt）
+  5. 误差必有交代（SD/SEM/CI + n + 检验方法）
+- **视觉自检闭环**：渲染 PNG → 程序自检 → AI 读图 → 回改，直到通过
+- **不虚构**：不虚构数据、不虚构图表、不虚构实验结果
+
 ---
 
 ## Step 8 — Agent Orchestration
@@ -814,6 +860,14 @@ ARS 整合任务的额外规则：
 | report_compiler_agent | APA 7.0 报告编写 |
 | research_architect_agent | 方法论蓝图设计 |
 | synthesis_agent | 跨源综合分析 |
+
+### 图表顾问 Agents (3个)
+
+| Agent | 职责 |
+|-------|------|
+| data_profiler_agent | 数据剖析：列类型/样本量/分布/异常值/相关性 |
+| chart_selector_agent | 图表选择：按数据形态+论证目标推荐图型 |
+| figure_reviewer_agent | 图表审查：语义合规+形式合规+视觉自检 |
 
 ---
 
