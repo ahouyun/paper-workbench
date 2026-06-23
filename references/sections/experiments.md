@@ -774,3 +774,95 @@ Use them to enforce:
 3. **Real-time optimization** — demand-responsive, dynamic routing
 4. **Modular vehicles** — flexible capacity, charging-on-the-move
 5. **Sustainability** — EV transit, energy optimization, carbon reduction
+
+## IEEE TITS 2025 Traffic Safety Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| Safety Risk Survey | Mixed traffic | CV/AV/CAV risk analysis framework |
+| GrDBN-GPR | Crash prediction | Gaussian RBM + Gaussian process regression |
+| KAN-RL Roundabout | Roundabout driving | KAN network + DQN + action checker |
+| Cycling Safety | Cycling perception | Siamese-CNN from pairwise image comparisons |
+| KLEP | Lane change | Knowledge-driven hierarchical cognition |
+| AV Decision Survey | AV evaluation | DDTUI five-dimensional evaluation criteria |
+| Cycling Network | Cycling safety | Graph-based topological optimization |
+| Bayesian Games | AV decision | Three-stage Bayesian sequential games |
+| CAV Testing | CAV evaluation | Dense RL for adaptive test environment |
+| Drowsiness Detection | Driver safety | Attention DL + YOLOv3 + CAM explainability |
+
+### Common Datasets (Traffic Safety)
+
+| Dataset | Domain | Location |
+|---------|--------|----------|
+| Highway 401 | Crash prediction | Ontario, Canada |
+| Naturalistic driving | Driving behavior | Various |
+| Driving simulator | Risk perception | Lab-controlled |
+| Public benchmarks | Drowsiness detection | Various |
+
+### Common Metrics (Traffic Safety)
+
+| Metric | Usage |
+|--------|-------|
+| Accuracy | Intent classification |
+| AUC | Binary classification |
+| Collision rate | Safety assessment |
+| Travel time | Efficiency |
+| Intent prediction accuracy | Behavior prediction |
+
+### Key Innovation Trends (2025)
+1. **Knowledge-driven methods** — domain knowledge + data-driven
+2. **Multi-modal fusion** — visual + physiological + vehicle state
+3. **Graph neural networks** — road network topology modeling
+4. **Reinforcement learning** — adaptive decision strategies
+5. **Attention mechanisms** — key region detection
+6. **Explainability** — CAM, knowledge graphs, interpretable models
+
+## IEEE TITS 2025 Smart City & Adverse Weather Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| FedLLM | Traffic prediction | Federated LLM for privacy-preserving prediction |
+| CAST-CKT | Cross-city transfer | Chaos-aware spatio-temporal + cross-city alignment |
+| SqLinear | Large-scale prediction | Geometry-adaptive square partitioning |
+| Model Stitching | End-to-end AD | Latent-space alignment for perception updates |
+| OmniV2X | Cooperative driving | Generative foundation planner for V2X |
+| 4D Radar Coop | Adverse weather | Doppler-guided spatial attention for multi-agent |
+| CADENet | Adverse weather | Training-free three-thread async enhancement |
+| AutoAWG | Adverse weather | Adaptive multi-control video generation |
+| GAI-ITDT | Digital twin | Generative AI + UAV trajectory planning |
+| LIORNet | LiDAR denoising | Self-supervised snow removal with pseudo-labels |
+
+### Common Datasets (Smart City/Weather)
+
+| Dataset | Domain | Weather |
+|---------|--------|---------|
+| nuScenes | Multi-task | Various |
+| CARLA | Simulation | Controlled |
+| CADC | Adverse driving | Snow/rain |
+| WADS | Winter driving | Snow |
+| DAWN | Adverse weather | Fog/rain/snow |
+| K-Radar | 4D radar | Adverse |
+| OPV2V | V2X cooperative | Various |
+
+### Common Metrics (Smart City/Weather)
+
+| Metric | Usage |
+|--------|-------|
+| MAE/RMSE | Traffic prediction |
+| Driving score | End-to-end AD |
+| Collision rate | Safety |
+| FID/FVD | Generation quality |
+| FPS | Real-time performance |
+| Recall/F1 | Detection accuracy |
+
+### Key Innovation Trends (2025)
+1. **Federated LLM** — privacy-preserving collaborative prediction
+2. **Cross-city transfer** — chaos theory + meta-learning
+3. **Large-scale scalability** — linear complexity architectures
+4. **Adverse weather robustness** — 4D radar, diffusion restoration, self-supervised denoising
+5. **Digital twin + GenAI** — UAV + diffusion models for ITDT
+6. **Model stitching** — perception-policy compatibility
