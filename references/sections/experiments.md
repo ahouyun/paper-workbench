@@ -298,3 +298,114 @@ Use them to enforce:
 | Social-GAN | 0.87 | 1.98 | 0.45 |
 | PGP | 0.72 | 1.62 | 0.38 |
 | **Ours** | **0.65** | **1.48** | **0.32** |
+
+### BEV Segmentation Table Template
+
+| Method | mIoU↑ | FPS↑ | Params (M) |
+|--------|-------|------|------------|
+| BEVFormer | 48.2 | 8.5 | 74.3 |
+| BEVDet | 51.0 | 12.3 | 68.1 |
+| **RESAR-BEV** | **54.0** | **14.6** | **62.5** |
+
+### 3D Detection Table Template
+
+| Method | NDS↑ | mAP↑ | Latency (ms) |
+|--------|------|------|--------------|
+| CenterPoint | 67.3 | 60.3 | 85 |
+| TransFusion | 70.2 | 65.5 | 92 |
+| **Ours** | **72.1** | **68.2** | **78** |
+
+## IEEE TITS 2025 Traffic Prediction Patterns
+
+### Abstract Structure (10 papers analyzed)
+
+**Standard pattern:**
+> "[Context] Traffic flow prediction is a critical component of intelligent transportation systems. [Challenge] However, existing methods face challenges in capturing complex spatio-temporal dependencies. [Solution] To address this, we propose [model name], which [core innovation]. [Validation] Experiments on METR-LA, PEMS-BAY, PEMS04, and PEMS08 demonstrate that our method achieves state-of-the-art performance, outperforming baselines by X% in terms of MAE."
+
+**Key features:**
+- Always mentions specific datasets (METR-LA, PEMS-BAY, PeMS04, PeMS08)
+- Reports specific metrics (MAE, RMSE, MAPE)
+- 3-4 contribution points
+- Quantitative efficiency improvements highlighted
+
+### Common Datasets (IEEE TITS 2025)
+
+| Dataset | Type | Nodes | Time Period | Interval |
+|---------|------|-------|-------------|----------|
+| METR-LA | Speed | 207 sensors | 4 months | 5 min |
+| PEMS-BAY | Speed | 325 sensors | 6 months | 5 min |
+| PeMS04 | Flow | 307 sensors | 2 months | 5 min |
+| PeMS08 | Flow | 170 sensors | 2 months | 5 min |
+| WH-CN | Flow | Self-collected | Wuhan | 5 min |
+
+### Common Metrics
+
+| Metric | Direction | Description |
+|--------|-----------|-------------|
+| MAE | ↓ | Mean Absolute Error |
+| RMSE | ↓ | Root Mean Squared Error |
+| MAPE | ↓ | Mean Absolute Percentage Error |
+
+### Writing Patterns
+
+**Opening patterns:**
+- "In the context of rapidly growing city road networks..."
+- "Accurate future traffic flow prediction is essential..."
+- "Effective traffic prediction is a critical component..."
+
+**Challenge patterns:**
+- "Traditional models use a single fixed graph structure"
+- "Existing methods face challenges in capturing spatio-temporal information"
+- "GCN-based methods rely on preprocessed data, losing critical features"
+
+**Solution patterns:**
+- "We propose [model name], which [core innovation]"
+- "To address this, we introduce [method name]"
+- "Our key insight is that [observation]"
+
+## IEEE TITS 2025 Autonomous Driving Patterns
+
+### Abstract Structure (10 papers analyzed)
+
+**Standard pattern:**
+> "[Context] Autonomous driving has attracted significant attention. [Challenge] However, [specific challenge]. [Solution] To address this, we propose [method name]. [Validation] Experiments on [datasets] demonstrate [results]."
+
+**Key features:**
+- Emphasis on safety and real-time performance
+- Multiple benchmark evaluation
+- Module naming with acronyms (RHP, SGCP, DPE, CMD)
+- Foundation model adaptation narratives
+
+### Common Datasets (Autonomous Driving)
+
+| Dataset | Task | Description |
+|---------|------|-------------|
+| nuScenes | BEV/3D | 1000 scenes, multi-modal sensors |
+| BDD100K | Detection | 100K images, diverse scenarios |
+| Cityscapes | Segmentation | Urban street scenes |
+| nuPlan | Planning | Closed-loop simulation |
+| highD | Trajectory | Highway driving data |
+| SHRP2 | Trajectory | Urban street data |
+| JAAD/PIE | Pedestrian | Pedestrian trajectory |
+
+### Common Metrics (Autonomous Driving)
+
+| Task | Metrics |
+|------|---------|
+| BEV Segmentation | mIoU, FPS |
+| 3D Detection | AP, AP50, AP75, NDS |
+| Trajectory Prediction | ADE, FDE, minADE, minFDE |
+| Planning | Closed-loop scores, collision rate |
+| Efficiency | Throughput, latency, parameter count |
+
+### Writing Patterns
+
+**Opening patterns:**
+- "The perception system is a critical role of an autonomous driving system..."
+- "Accurate human trajectory prediction is one of the most crucial tasks..."
+- "Ensuring and improving the safety of autonomous driving systems is crucial..."
+
+**Contribution patterns:**
+- "Our contributions are twofold: (1)... (2)..."
+- "We propose [module name] that [function]"
+- "Extensive tests across GPU, edge, and mobile platforms"
