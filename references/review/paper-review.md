@@ -1,4 +1,4 @@
-# Paper Review (Paper Rview)
+# Paper Review
 
 ## Goal
 
@@ -19,9 +19,12 @@ If a claim is not supported, either add evidence or weaken/remove the claim.
 
 ## What Usually Gets a Paper Accepted
 
-1. Sufficient contribution (for example: novel task, novel pipeline, novel module, novel design choices, new experimental findings, or new insight).
-2. Better empirical performance than prior methods under fair comparisons.
-3. Sufficient comparison experiments and ablation studies.
+1. Sufficient contribution (novel task/pipeline/module/design finding/insight)
+2. Better empirical performance than prior methods under fair comparisons
+3. Sufficient comparison experiments and ablation studies
+4. Clear narrative arc (problem → gap → solution → evidence)
+5. Strong visual presentation (figures, tables, layout)
+6. Appropriate scope (not overclaiming)
 
 ## Common Rejection Dimensions
 

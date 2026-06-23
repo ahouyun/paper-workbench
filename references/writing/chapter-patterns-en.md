@@ -39,3 +39,37 @@
 - Summarize strongest experimental evidence
 - Add limitation paragraph (task boundaries, not implementation flaws)
 - Concrete future direction
+
+## Section Length Guide
+
+| Section | CVPR/ECCV | NeurIPS/ICML | IEEE Trans |
+|---------|-----------|--------------|------------|
+| Abstract | ~150 words | ~200 words | 150-200 words |
+| Introduction | ~1 page | 1-1.5 pages | 1.5-2 pages |
+| Related Work | 0.5-1 page | 0.5-1 page | 1.5-2 pages |
+| Method | 1.5-2 pages | 2-3 pages | 3-5 pages |
+| Experiments | 2-3 pages | 3-4 pages | 4-8 pages |
+| Conclusion | 0.5 page | 0.5-1 page | 1-1.5 pages |
+
+## Real Paper Structure Examples
+
+### SAM (Kirillov et al., TPAMI 2023)
+- Abstract: 4 sentences, ~100 words
+- Introduction: 8-step funnel
+- Method: 3 modules (Image Encoder, Prompt Encoder, Mask Decoder)
+- Experiments: 6 capability evaluations + ablations
+- Conclusion: 4 sentences
+
+### FlashAttention (Dao et al., NeurIPS 2022)
+- Abstract: 4 sentences, ~80 words
+- Introduction: Problem → Solutions → Gap → Contribution
+- Method: 1 core algorithm with tiling + recomputation
+- Experiments: Throughput, memory, training speed
+- Conclusion: 5 sentences
+
+### DINO (Zhang et al., ICLR 2023)
+- Abstract: 3 sentences, ~60 words
+- Introduction: Context → Improvements → Gap → Contribution
+- Method: 2 key innovations (mixed query selection, look-forward twice)
+- Experiments: Training schedule ablation, backbone scaling
+- Conclusion: 3 sentences
