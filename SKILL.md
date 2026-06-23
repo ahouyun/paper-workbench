@@ -110,6 +110,45 @@ version: 7.4.0
 | VLDB | 系统设计 + 性能优化 + 数据管理 |
 | AAAI | AI创新 + 应用场景 + 理论基础 |
 | IJCAI | AI综合 + 跨领域应用 + 理论深度 |
+| ECCV | 视觉效果 + 实验对比 + 应用价值 |
+| ACL/EMNLP | NLP创新 + 语言理解 + 生成质量 |
+| SIGGRAPH | 图形创新 + 视觉质量 + 实时性能 |
+| WSDM/RecSys | 推荐系统 + 用户行为 + 大规模验证 |
+
+### ACM 模式子路由
+
+当用户提到"ACM / CHI / SIGCOMM / SIGMOD / SIGIR / SIGKDD"时：
+
+| 会议 | 风格偏置 |
+|------|----------|
+| CHI | 人机交互 + 用户研究 + 设计创新 |
+| SIGCOMM | 网络系统 + 性能优化 + 协议设计 |
+| SIGMOD | 数据管理 + 查询优化 + 系统设计 |
+| SIGIR | 信息检索 + 用户行为 + 评估方法 |
+| SIGKDD | 数据挖掘 + 大规模验证 + 实用性 |
+
+### Springer 模式子路由
+
+当用户提到"Springer / LNCS / ECCV / WSDM"时：
+
+| 会议 | 风格偏置 |
+|------|----------|
+| ECCV | 视觉效果 + 实验对比 + 应用价值 |
+| WSDM | 网络搜索 + 数据挖掘 + 用户行为 |
+| ECML-PKDD | 机器学习 + 数据挖掘 + 知识发现 |
+
+### 冲突解决规则
+
+当关键词匹配多个模式时，按以下优先级判定：
+
+1. **明确场馆关键词优先** — "IEEE" + "CVPR" → `ieee_trans`（IEEE 优先于 conference）
+2. **任务关键词优先于模式关键词** — "rebuttal" + "IEEE" → `rebuttal` 任务
+3. **默认降级** — 无法判定时 → `english_research`
+
+**示例：**
+- "IEEE Transactions rebuttal for CVPR submission" → `ieee_trans` 模式 + `rebuttal` 任务
+- "NeurIPS paper with IEEE formatting" → `conference` 模式（NeurIPS 优先）
+- "Chinese thesis with CVPR experiments" → `chinese_thesis` 模式（中文论文优先）
 
 ---
 
