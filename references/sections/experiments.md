@@ -466,3 +466,132 @@ Use them to enforce:
 - Explainability in diffusion models (ICST-DNET)
 - Few-shot/zero-shot learning (LLM methods)
 - Multi-modal fusion (text + spatio-temporal data)
+
+## IEEE TITS 2025 Trajectory Prediction Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Key Innovation | Datasets |
+|-------|---------------|----------|
+| Self-Supervised Transformer | Noise injection for trajectory augmentation | nuScenes, Argoverse |
+| Timewise Intentions | Time-varying intent modeling | ETH/UCY, SDD |
+| DAAGT | Scene-centric + decision-aware attention | INTERACTION, nuScenes |
+| StyleFormer | Driving style-aware prediction | nuScenes, Argoverse |
+| Mapless KD | Knowledge distillation for map-free prediction | nuScenes, Argoverse |
+| MSES | Multi-scale temporal + egocentric spatial | nuScenes, Argoverse |
+| Intention-Aware Diffusion | Intent-guided diffusion for trajectories | nuScenes, Argoverse |
+| Diffutory | Future feature + mode association diffusion | nuScenes, Argoverse |
+| Continual Learning | Dual knowledge consolidation + pseudo data | nuScenes, Argoverse |
+| Social-Pose | Human body pose for trajectory prediction | ETH/UCY, SDD |
+
+### Common Datasets (Trajectory)
+
+| Dataset | Type | Use Frequency |
+|---------|------|---------------|
+| nuScenes | Vehicle | 8/10 |
+| Argoverse (1/2) | Vehicle | 7/10 |
+| Waymo Open Motion | Vehicle | 5/10 |
+| ETH/UCY | Pedestrian | 2/10 |
+| SDD | Pedestrian | 2/10 |
+| INTERACTION | Intersection | 1/10 |
+
+### Common Metrics (Trajectory)
+
+| Metric | Full Name | Frequency |
+|--------|-----------|-----------|
+| ADE | Average Displacement Error | 10/10 |
+| FDE | Final Displacement Error | 10/10 |
+| minADE | Minimum ADE | 8/10 |
+| minFDE | Minimum FDE | 8/10 |
+| MR | Miss Rate | 6/10 |
+
+### Key Innovation Trends
+- Diffusion models for trajectory generation (3/10)
+- Transformer architectures (4/10)
+- Intent-aware modeling (4/10)
+- Knowledge distillation and continual learning (2/10)
+
+## IEEE TITS 2025 Traffic Control Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Key Innovation | Metrics |
+|-------|---------------|---------|
+| VF-MAPPO | Vehicle-level fairness as constraint | AWT, fairness |
+| MATLIT | Multi-Agent Transformer for global cooperation | AWT reduction 18.51% |
+| DCHI | Knowledge sharing among heterogeneous intersections | Travel time -30% |
+| GA2-Naive/GA2-Aug | Macro-micro traffic state communication | Traffic flow efficiency |
+| GF-VDDQN | Graph forecast-state vector for temporal trends | Vehicle waiting time |
+| Driving Style Integration | IDM parameters as state variable | Queue length |
+| BCT-APLight | Bayesian Critique-Tune for policy credibility | AWT -12.92% |
+| MetaSignal | Meta-learning with Fourier basis | Adaptation speed |
+| CoordLight | Decentralized coordination up to 196 intersections | Throughput |
+| HGAT-MARL | Heterogeneous graph for diverse traffic objects | Travel time |
+
+### Common Environments (Traffic Control)
+- SUMO simulator (most frequent)
+- Real-world traffic datasets (2-9 datasets)
+- CityFlow
+- Synthetic scenarios
+
+### Common Metrics (Traffic Control)
+1. Average waiting time (AWT) — most frequent
+2. Vehicle queue length
+3. Vehicle travel time
+4. Throughput
+5. Traffic efficiency
+6. Fairness measures (max waiting time)
+
+### Key Innovation Trends (2025)
+1. **Heterogeneity handling** — diverse intersections, vehicle types, priority levels
+2. **Communication/coordination** — GAT-based, attention-based, neighborhood sharing
+3. **Scalability** — meta-learning, transfer learning, up to 196 intersections
+4. **Fairness** — vehicle-level fairness as constraint, not just reward
+5. **State representation** — graph forecast vectors, queue dynamic encoding
+6. **Bayesian methods** — policy credibility evaluation
+
+## IEEE TITS 2025 Multi-Modal Fusion Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Modalities | Key Innovation |
+|-------|-----------|---------------|
+| GraphBEV++ | LiDAR + Camera | Dual-level alignment (local graph + global deformable) |
+| RCGDet3D | 4D Radar + Camera | Simple radar feature enhancement beats complex fusion |
+| MMF-BEV | Radar + Camera | Deformable attention BEV fusion |
+| RadarXFormer | 4D Radar + Camera | Raw radar spectra cross-dimension fusion |
+| ModalPatch | Any modality | Plug-and-play for modality drop robustness |
+| MambaFusion | LiDAR + Camera | SSM + windowed Transformer fusion |
+| WRCFormer | 4D Radar + Camera | Wavelet attention for radar tensor |
+| DiffFusion | LiDAR + Camera | Diffusion-based restoration in adverse weather |
+| DGFusion | LiDAR + Camera | Dual-guided Point↔Image fusion |
+| DDHFusion | LiDAR + Camera | Cross-modal Mamba for BEV+voxel fusion |
+
+### Common Datasets (Multi-Modal)
+
+| Dataset | Modalities | Frequency |
+|---------|-----------|-----------|
+| nuScenes | LiDAR + Camera | Highest |
+| Waymo | LiDAR + Camera | High |
+| KITTI | LiDAR + Camera | Medium |
+| K-Radar | 4D Radar + Camera | Medium |
+| VoD | 4D Radar + Camera | Medium |
+| Argoverse2 | LiDAR + Camera | Low |
+
+### Common Metrics (Multi-Modal)
+
+| Metric | Full Name | Usage |
+|--------|-----------|-------|
+| mAP | mean Average Precision | 3D detection accuracy |
+| NDS | nuScenes Detection Score | Comprehensive score |
+| IoU | Intersection over Union | Overlap measure |
+| FPS | Frames Per Second | Inference speed |
+| AR | Average Recall | Recall rate |
+
+### Key Innovation Trends (2025)
+1. **BEV feature alignment** — graph matching, deformable attention, diffusion alignment
+2. **State space models** — Mamba/SSM for efficient long-sequence modeling
+3. **4D radar fusion** — raw spectrum utilization, wavelet transform
+4. **Adverse weather robustness** — diffusion restoration, bidirectional adaptive fusion
+5. **Modality drop robustness** — plug-and-play modules, historical data prediction
+6. **Dual-guided fusion** — Point-guide-Image + Image-guide-Point bidirectional
