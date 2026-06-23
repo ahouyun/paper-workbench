@@ -36,10 +36,6 @@ Introduce the technical challenge, then use one to two sentences to present the 
 3. The technical term must be easy to understand; readers should not feel a jump.
 4. This ability is very important for writing a good abstract.
 
-Version 1 local cite:
-
-1. `references/examples/abstract/template-a.md`
-
 ## Version 2: Challenge -> Insight -> Contribution
 
 Introduce the technical challenge, then use one to two sentences to present the insight for solving the challenge, and then one sentence to present the technical contribution that implements this insight.
@@ -60,10 +56,6 @@ Introduce the technical challenge, then use one to two sentences to present the 
 3. For the implementation sentence(s), usually mention the technical term/name only; do not explain every detailed step.
 4. The technical term must be easy to understand; do not create a jump in reading.
 5. This ability is very important for writing a good abstract.
-
-Version 2 local cite:
-
-1. `references/examples/abstract/template-b.md`
 
 ## Version 3: Multiple Contributions
 
@@ -86,13 +78,6 @@ Version 3: When there are multiple technical contributions, describe each contri
 Version 3 local cite:
 
 1. `references/examples/abstract/template-c.md`
-
-## Example Bank
-
-1. `references/examples/abstract-examples.md`
-2. `references/examples/abstract/template-a.md`
-3. `references/examples/abstract/template-b.md`
-4. `references/examples/abstract/template-c.md`
 
 ## Abstract Quality Checklist
 

@@ -8,6 +8,16 @@ Write a strong introduction in three steps:
 2. Apply a suitable template below.
 3. Revise the introduction repeatedly.
 
+## Introduction Length by Venue
+
+| Venue | Length | Paragraphs |
+|-------|--------|------------|
+| **CVPR/ECCV/ICCV** | ~1 page | 4-5 paragraphs |
+| **NeurIPS/ICML/ICLR** | 1-1.5 pages | 5-6 paragraphs |
+| **IEEE Trans** | 1.5-2 pages | 6-8 paragraphs |
+| **ACL/EMNLP** | 1-1.5 pages | 5-6 paragraphs |
+| **Nature/Science** | ~1 page | 3-4 paragraphs |
+
 ## Introduction Logic Map
 
 ```mermaid
@@ -91,9 +101,6 @@ Sentence skeleton:
 1. `[xxx task] targets at recovering/reconstructing/estimating [xxx output] from [xxx input].`
 2. `[xxx task] has a variety of applications such as [xxx], [xxx], and [xxx].`
 
-Local cite:
-
-1. `references/examples/introduction/version-1-task-then-application.md`
 
 ### Version 2
 
@@ -109,9 +116,6 @@ Sentence skeleton:
 
 1. `[xxx task] has a variety of applications such as [xxx], [xxx], and [xxx].`
 
-Local cite:
-
-1. `references/examples/introduction/version-2-application-first.md`
 
 ### Version 3
 
@@ -128,9 +132,6 @@ Sentence skeleton:
 1. `[general task] has a variety of applications such as [xxx], [xxx], and [xxx].`
 2. `This paper focuses on the specific setting of recovering/reconstructing/estimating [xxx output] from [xxx input].`
 
-Local cite:
-
-1. `references/examples/introduction/version-3-general-to-specific-setting.md`
 
 ### Version 4
 
@@ -156,9 +157,6 @@ Expert note:
 3. Typical Version 4 flow: Part 1 (task + application and directly expose challenge via previous methods 1) -> Part 2 (previous methods 2 try to solve it but still fail) -> Part 3 (our method).
 4. More common general flow: Part 1 (task + application) -> Part 2 (previous methods 1 + limitation) -> Part 3 (previous methods 2 + limitation; here the target challenge emerges) -> Part 4 (our method).
 
-Local cite:
-
-1. `references/examples/introduction/version-4-open-with-challenge.md`
 
 ## Part B: Introduce Technical Challenge for Previous Methods (Very Important)
 
@@ -200,9 +198,6 @@ Sentence skeleton:
 3. `Recently, ... methods ... However, they ... because ...`
 4. `To overcome this challenge, ... methods ... However, they ... because ...`
 
-Local cite:
-
-1. `references/examples/introduction/technical-challenge-version-1-existing-task.md`
 
 ### Technical-Challenge Version 2 (existing task + our insight seen in traditional methods)
 
@@ -223,9 +218,6 @@ Sentence skeleton:
 3. `However, these methods still ... because ...`
 4. `To overcome this challenge, newer methods ... However, they ... because ...`
 
-Local cite:
-
-1. `references/examples/introduction/technical-challenge-version-2-existing-task-insight-backed-by-traditional.md`
 
 ### Technical-Challenge Version 3 (novel task, no direct methods)
 
@@ -245,9 +237,6 @@ Sentence skeleton:
 3. `Second, ...`
 4. `Finally, ...`
 
-Local cite:
-
-1. `references/examples/introduction/technical-challenge-version-3-novel-task.md`
 
 ## Part C: Introduce Our Pipeline for Solving the Challenge
 
@@ -287,9 +276,6 @@ Sentence skeleton:
 5. `In contrast to previous methods, ...`
 6. `Another advantage of the proposed method is that ...`
 
-Local cite:
-
-1. `references/examples/introduction/pipeline-version-1-one-contribution-multi-advantages.md`
 
 ### Pipeline Version 2
 
@@ -313,9 +299,6 @@ Sentence skeleton:
 6. `However, ...` (remaining challenge)
 7. `Specifically, ...` (contribution 2)
 
-Local cite:
-
-1. `references/examples/introduction/pipeline-version-2-two-contributions.md`
 
 ### Pipeline Version 3
 
@@ -337,9 +320,6 @@ Sentence skeleton:
 4. `Considering that ..., we introduce ...`
 5. `In contrast to ..., our module ...`
 
-Local cite:
-
-1. `references/examples/introduction/pipeline-version-3-new-module-on-existing-pipeline.md`
 
 ### Pipeline Version 4
 
@@ -359,9 +339,6 @@ Sentence skeleton:
 3. `Considering that ..., we ...`
 4. `This leads to ... and achieves ...`
 
-Local cite:
-
-1. `references/examples/introduction/pipeline-version-4-observation-driven.md`
 
 ### Not Recommended Writing
 
@@ -379,9 +356,6 @@ Why not recommended (writing structure warning):
 2. Introducing many new terms without mechanism-level explanation creates a novelty illusion.
 3. Reviewers may interpret this as shallow or incremental work.
 
-Local cite:
-
-1. `references/examples/introduction/pipeline-not-recommended-abstract-only.md`
 
 ## Example Bank
 

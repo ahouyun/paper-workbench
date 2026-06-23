@@ -50,7 +50,7 @@ Avoid framing conclusion around fixable implementation flaws unless they critica
 
 ### DeepSeek-V3 (DeepSeek, 2024)
 
-> "We presented DeepSeek-V3, a 671B parameter MoE language model. DeepSeek-V3 matches GPT-4 performance on most benchmarks. Trained with only 2.788M H800 GPU hours. Demonstrates that open-source models can compete with closed-source."
+> "We presented DeepSeek-V3, a 671B parameter MoE language model. DeepSeek-V3 matches GPT-4 performance on most benchmarks. The model was trained with only 2.788M H800 GPU hours, demonstrating that open-source models can compete with closed-source alternatives."
 
 **Pattern:** Method → Result → Cost efficiency → Impact
 
@@ -65,9 +65,21 @@ Avoid framing conclusion around fixable implementation flaws unless they critica
 
 ## Contribution Statement Patterns
 
+Note: Contribution statements typically appear in the Introduction. In the Conclusion, briefly re-emphasize contributions at a higher level.
+
 - **Direct:** "Our contribution is threefold: first, ...; second, ...; third, ..."
 - **Gap-filling:** "While prior work has focused on X, our paper contributes by addressing Y."
 - **Novelty:** "To the best of our knowledge, this is the first study to..."
+
+## Conclusion Length by Venue
+
+| Venue | Length | Style |
+|-------|--------|-------|
+| **IEEE Trans** | 150-250 words | Comprehensive, with limitations paragraph |
+| **CVPR/ECCV** | 100-200 words | Brief, often merged with discussion |
+| **NeurIPS/ICML** | 150-250 words | Moderate, limitations increasingly expected |
+| **ACL/EMNLP** | 200-300 words | Moderate, broader impact sometimes required |
+| **Nature/Science** | 200-300 words | Emphasize significance and societal impact |
 
 ## Discussing Limitations
 

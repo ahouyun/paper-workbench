@@ -8,6 +8,16 @@ Write the Method section clearly by following this sequence:
 2. Draw a pipeline figure sketch.
 3. Write the method section step by step.
 
+## Method Length by Venue
+
+| Venue | Length | Subsections |
+|-------|--------|-------------|
+| **CVPR/ECCV** | 1.5-2 pages | 3-4 subsections |
+| **NeurIPS/ICML** | 2-3 pages | 4-5 subsections |
+| **IEEE Trans** | 3-5 pages | 5-8 subsections |
+| **ACL/EMNLP** | 2-3 pages | 3-5 subsections |
+| **Nature/Science** | 1-2 pages | 2-3 subsections |
+
 ## Pre-Writing Questions
 
 `Before writing Method, first answer: (1) what modules exist in the method, and (2) for each module, what is the workflow, why this module is needed, and why this module works.`
@@ -62,9 +72,6 @@ Definition:
 
 ### Example of the Three Elements
 
-Local cite:
-
-1. `references/examples/method/example-of-the-three-elements.md`
 
 ## Method Content Decomposition
 
@@ -95,9 +102,6 @@ Sentence skeleton:
 2. `Given [input], we first ... then ... finally ...`
 3. `This produces [output], which is used for ...`
 
-Local cite:
-
-1. `references/examples/method/module-design-instant-ngp.md`
 
 ## How to Write Module Motivation
 
@@ -109,9 +113,6 @@ Typical opening sentences:
 2. `However, we ...`
 3. `Previous methods have difficulty in ...`
 
-Local cite:
-
-1. `references/examples/method/module-motivation-patterns.md`
 
 ## How to Check Whether Method is Easy to Understand
 
@@ -143,9 +144,6 @@ Local cite:
 % Section 3.3
 ```
 
-Local cite:
-
-1. `references/examples/method/section-skeleton.md`
 
 ## Overview Subsection
 
@@ -158,17 +156,11 @@ Writing structure:
 3. If pipeline/framework is novel, point to overview figure.
 4. Tell readers what Section 3.1/3.2/3.3 covers.
 
-Local cite:
-
-1. `references/examples/method/overview-template.md`
 
 ## Section 3.1 and Other Module Subsections
 
 `Basic subsection logic: (1) motivation of this module, (2) module forward process/module design, (3) technical advantages of this module.`
 
-Local cite:
-
-1. `references/examples/method/example-of-the-three-elements.md`
 
 ## Module Writing Pattern (Mermaid)
 

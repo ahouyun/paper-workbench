@@ -4,6 +4,16 @@
 
 Position your work against the most relevant lines of research, and make your novelty easy to verify.
 
+## Related Work Length by Venue
+
+| Venue | Length | References |
+|-------|--------|------------|
+| **CVPR/ECCV** | 0.5-1 page | 15-25 references |
+| **NeurIPS/ICML** | 0.5-1 page | 15-25 references |
+| **IEEE Trans** | 1.5-2 pages | 30-50 references |
+| **ACL/EMNLP** | 1-1.5 pages | 25-40 references |
+| **Nature/Science** | 0.5 page | 10-20 references |
+
 ## Workflow
 
 1. List directly competing and recent baseline papers first.

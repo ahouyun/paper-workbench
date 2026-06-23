@@ -224,7 +224,7 @@ flowchart TB
 For IEEE Transactions papers, also load:
 
 - `references/writing/ieee-experiment-playbook.md`
-- `references/writing/ieee-visual-playbook.md`
+- `references/writing/traffic-figure-patterns.md` (visual playbook)
 
 Use them to enforce:
 
@@ -1047,3 +1047,58 @@ Use them to enforce:
 3. **Heterogeneous modeling** — multi-type nodes and edges
 4. **Knowledge integration** — knowledge graphs, physics constraints
 5. **Multi-modal fusion** — LLM semantics + graph structures
+
+---
+
+## Anti-AI Patterns for Experiments (去AI味)
+
+### E1: Empty Evidence Claims
+**Bad:** "Extensive experiments demonstrate the effectiveness of our method."
+**Good:** "We evaluate on COCO, LVIS, and ADE20K. Our method outperforms SAM by 2.1 mIoU on ADE20K."
+**Rule:** Every evidence claim must name the dataset and the specific result.
+
+### E2: Generic Superiority
+**Bad:** "Our method achieves state-of-the-art performance."
+**Good:** "Our method outperforms DINO by 2.1 AP on COCO and by 1.8 AP on LVIS."
+**Rule:** Cite specific method + specific metric + specific number.
+
+### E3: Vague Ablation Language
+**Bad:** "Ablation studies confirm the importance of each component."
+**Good:** "Removing the attention module reduces AP by 3.2 (51.3 → 48.1)."
+**Rule:** Report specific delta for each ablated component.
+
+### E4: Template Results Narration
+**Bad:** "Table 1 shows the results. Our method performs best."
+**Good:** "Table 1 shows that our method outperforms the strongest baseline (DINO) by 2.1 AP on COCO val. The improvement is consistent across model scales: +1.8 AP with R50, +2.3 AP with Swin-L."
+**Rule:** Results narration should answer: What is compared? What is the pattern? Why is it plausible?
+
+### E5: Missing Limitation Discussion
+**Bad:** Only reporting successes, no failure cases.
+**Good:** "Our method struggles with small objects (< 16px), where the AP drops by 5.2 compared to the baseline."
+**Rule:** Acknowledge limitations honestly. This builds credibility.
+
+### E6: Fake Precision
+**Bad:** "Our method achieves 97.3456% accuracy."
+**Good:** "Our method achieves 97.3% accuracy."
+**Rule:** Report precision appropriate to the metric's variance. Don't over-specify.
+
+### E7: Missing Baselines
+**Bad:** Only comparing against weak or outdated baselines.
+**Good:** Include the strongest public methods, even if they perform better on some metrics.
+**Rule:** Reviewers will notice missing strong baselines.
+
+### E8: Inconsistent Protocol
+**Bad:** Using different data splits, preprocessing, or evaluation settings for different methods.
+**Good:** "All methods use the same train/val split, input resolution (512×512), and evaluation protocol."
+**Rule:** Fair comparison requires consistent protocol.
+
+### Experiments De-AI Checklist
+
+- [ ] Every evidence claim names the dataset and specific result
+- [ ] All comparisons cite specific methods with numbers
+- [ ] Ablation reports specific delta for each component
+- [ ] Results narration answers: What? Pattern? Why?
+- [ ] Limitations are acknowledged honestly
+- [ ] Precision is appropriate to metric variance
+- [ ] Strong baselines are included
+- [ ] Protocol is consistent across all methods

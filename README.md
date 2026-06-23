@@ -1,4 +1,4 @@
-# Paper Workbench — 论文写作工作台 v7.5.0
+# Paper Workbench — 论文写作工作台 v7.6.0
 
 > 一套**工具无关**的论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通/智能交通/自动驾驶方向**。
 >
@@ -169,6 +169,29 @@ paper-workbench/
 │   └── code/                         # Python代码模板
 └── scripts/                          # 辅助脚本
 ```
+
+---
+
+## 📋 版本更新日志
+
+### v7.6.0 (2026-06-23)
+
+**全面审核与修复：**
+- 修复所有断开的 `references/examples/` 引用路径
+- 修复 experiments.md 中断开的交叉引用
+- 修复 conclusion.md 中语法问题
+- 为 experiments.md 添加 Anti-AI 模式和 De-AI 清单
+- 为所有 section 指南添加字数/长度按场馆指导
+- 添加 5 个真实论文结构示例
+- 添加 5 个真实审稿回复示例
+
+### v7.5.0 (2026-06-23)
+
+**IEEE TITS 2025 论文模式库：**
+- 新增 190+ 篇 IEEE TITS 2025 论文写作模式
+- 覆盖 19 种方法类别
+- 新增 TNNLS/TVT/TIV 特定模式
+- 新增 ACM/Springer 模式和冲突解决规则
 
 ---
 
