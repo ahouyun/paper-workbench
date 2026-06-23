@@ -866,3 +866,97 @@ Use them to enforce:
 4. **Adverse weather robustness** — 4D radar, diffusion restoration, self-supervised denoising
 5. **Digital twin + GenAI** — UAV + diffusion models for ITDT
 6. **Model stitching** — perception-policy compatibility
+
+## IEEE TITS 2025 Point Cloud & LiDAR Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Task | Key Innovation |
+|-------|------|---------------|
+| PASS | 3D detection | Point-assisted sample selection for anchor-based detection |
+| Fade3D | 3D detection | Lightweight input encoder for real-time deployment |
+| RobMOT | 3D tracking | Track validity mechanism + multi-state estimation |
+| LiDAR-BEVMTN | Multi-task | SWAG module for semantic feature transfer |
+| MSSF | 3D detection | Multi-stage sampling for 4D radar + camera |
+| RM2Occ | 3D detection + occupancy | Re-projection multi-task multi-sensor fusion |
+| BEV Enhancement | 3D detection | Multi-modal BEV enhancement fusion |
+| SID | 3D detection | Self-distilling introspective data paradigm |
+| Ground Segmentation | 3D detection | Empirical study of ground segmentation impact |
+| TransBridge | 3D detection | Transformer decoder for scene-level completion |
+
+### Common Datasets (Point Cloud)
+
+| Dataset | Sensors | Use |
+|---------|---------|-----|
+| KITTI | LiDAR + Camera | 3D detection benchmark |
+| nuScenes | LiDAR + Camera | Multi-task perception |
+| Waymo | LiDAR + Camera | Large-scale detection |
+| SemanticKITTI | LiDAR | Semantic segmentation |
+| VoD | 4D Radar + Camera | Radar-camera fusion |
+| K-Radar | 4D Radar + Camera | Adverse weather |
+
+### Common Metrics (Point Cloud)
+
+| Metric | Full Name | Usage |
+|--------|-----------|-------|
+| AP | Average Precision | 3D detection accuracy |
+| mIoU | mean Intersection over Union | Segmentation accuracy |
+| NDS | nuScenes Detection Score | Comprehensive score |
+| MOTA | Multiple Object Tracking Accuracy | Tracking accuracy |
+| HOTA | Higher Order Tracking Accuracy | Tracking accuracy |
+| FPS | Frames Per Second | Real-time performance |
+
+### Key Innovation Trends (2025)
+1. **Efficient 3D detection** — lightweight encoders, real-time deployment
+2. **Multi-task learning** — detection + segmentation + motion estimation
+3. **4D radar fusion** — multi-stage sampling, sparse noise handling
+4. **Self-distillation** — no additional annotation needed
+5. **Scene completion** — Transformer-based point cloud densification
+
+## IEEE TITS 2025 Video Prediction & Scene Generation Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| GAIA-2 | World model | Controllable multi-view latent diffusion |
+| DiVE | Scene generation | Video Diffusion Transformer + 2.62x speedup |
+| DiST-4D | 4D generation | Disentangled spatiotemporal diffusion + metric depth |
+| Genesis | Multi-modal | Video + LiDAR joint generation |
+| FaithFusion | 3DGS-Diffusion | Pixel-wise Expected Information Gain fusion |
+| LiDARCrafter | 4D LiDAR | Text-guided controllable LiDAR generation |
+| Gaussian Splatting | 3D reconstruction | Multi-scale bilateral grid for appearance |
+| LidarPainter | Lane shift | One-step diffusion + 7x speedup |
+| EQ-TAA | Accident anticipation | Equivariant diffusion-based video synthesis |
+| World Model TAA | Accident anticipation | World model + GCN for accident prediction |
+
+### Common Datasets (Video/Generation)
+
+| Dataset | Usage |
+|---------|-------|
+| nuScenes | Multi-view driving video |
+| Waymo | Large-scale driving scenes |
+| KITTI-360 | Driving scene reconstruction |
+| Argoverse | Urban driving |
+| PandaSet | Diverse driving scenarios |
+
+### Common Metrics (Video/Generation)
+
+| Metric | Full Name | Usage |
+|--------|-----------|-------|
+| FID | Frechet Inception Distance | Image generation quality |
+| FVD | Frechet Video Distance | Video generation quality |
+| Chamfer Distance | — | 3D geometry quality |
+| PSNR | Peak Signal-to-Noise Ratio | Reconstruction quality |
+| SSIM | Structural Similarity Index | Perceptual quality |
+| LPIPS | Learned Perceptual Image Patch Similarity | Perceptual quality |
+| NTA-IoU | — | Controllability (navigation) |
+| NTL-IoU | — | Controllability (traffic light) |
+
+### Key Innovation Trends (2025)
+1. **Diffusion + 3DGS fusion** — combining generative quality with geometric fidelity
+2. **Multi-modal unified generation** — video + LiDAR + text jointly
+3. **Controllable scene editing** — text-guided, scene graph-guided
+4. **4D spatiotemporal modeling** — dynamic scenes with temporal coherence
+5. **Efficiency optimization** — one-step diffusion, 2-7x speedup
+6. **World models for planning** — latent dynamics for autonomous driving
