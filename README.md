@@ -6,7 +6,7 @@
 >
 > 整合了 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (v3.13.0) 和 [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) (v2.1.0) 的核心能力。
 >
-> **基于 190+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML 2024-2026 论文的真实写作模式分析。**
+> **基于 900+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML/CVPR/ACL/SIGGRAPH 2024-2026 论文的真实写作模式分析。**
 
 ---
 
@@ -198,17 +198,18 @@ paper-workbench/
 | 交通预测（TITS） | 10 | ASTMGCNet, TDGCRN, DSTA-GNN, ICST-DNET |
 | 自动驾驶（TITS） | 10 | BEVTraj, RESAR-BEV, CarPLAN, SDD Planner |
 
-### 补充数据来源
+### 补充数据来源（900+ 篇论文引用）
 
-| 来源 | 论文数 | 时间范围 |
-|------|--------|---------|
-| IEEE TITS/TKDE/TNNLS/TVT/TIV | 110+ | 2024-2026 |
-| KDD/AAAI/NeurIPS/ICLR/ICML | 204 | 2024-2026 |
-| CVPR/ECCV/ICCV | 50+ | 2024-2026 |
-| ACL/EMNLP/NAACL | 30+ | 2024-2026 |
-| SIGGRAPH/TOG | 20+ | 2024-2026 |
+| 来源 | 论文引用数 | 时间范围 |
+|------|-----------|---------|
+| IEEE TITS/TNNLS/TVT/TIV/TPAMI/TIP/TMM | 135+ | 2024-2026 |
+| KDD/AAAI/NeurIPS/ICLR/ICML | 234+ | 2024-2026 |
+| CVPR/ECCV/ICCV | 58+ | 2024-2026 |
+| ACL/EMNLP/NAACL | 43+ | 2024-2026 |
+| SIGGRAPH/TOG | 5+ | 2024-2026 |
 | arXiv预印本 | 150+ | 2025-2026 |
 | 综述论文参考文献 | 800+ | 去重后 |
+| **总计** | **900+** | — |
 
 ---
 
