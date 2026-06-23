@@ -233,3 +233,68 @@ Use them to enforce:
 3. explicit quality-efficiency pairing when efficiency is part of the claim;
 4. robustness or limitation evidence instead of benchmark-only reporting;
 5. honest handling of synthetic, generated, or mixed-source data.
+
+## TNNLS/TVT/TIV Specific Patterns
+
+### IEEE TNNLS Experiment Structure
+
+**Standard structure for traffic prediction papers:**
+1. Datasets section (with statistics tables)
+2. Baselines (7-10 methods)
+3. Implementation details (hardware, hyperparameters)
+4. Main results table (bold best values)
+5. Ablation studies (3-5 variants)
+6. Visualization (attention maps, case studies)
+7. Computational cost comparison
+
+**Common datasets:**
+- Traffic prediction: METR-LA, PEMS-BAY, PEMS04, PEMS08, NYC-Bike, NYC-Taxi
+- Trajectory prediction: Argoverse, nuScenes, Waymo Open Motion, ETH/UCY
+
+**Common metrics:**
+- Prediction: MAE, RMSE, MAPE, ADE, FDE
+- Detection: mAP, NDS, IoU
+- Planning: success rate, collision rate, comfort (jerk), efficiency
+
+### IEEE TVT Experiment Structure
+
+**Standard structure for autonomous driving papers:**
+1. Simulation environment description (CARLA/SUMO setup)
+2. Baseline methods (5-8 methods)
+3. Performance metrics (success rate, collision rate, comfort score, efficiency)
+4. Convergence curves
+5. Ablation study
+6. Robustness analysis (different traffic densities, weather conditions)
+
+**Common environments:**
+- CARLA: Urban driving simulation
+- SUMO: Traffic flow simulation
+- HighD: Highway driving data
+
+### IEEE TIV Experiment Structure
+
+**Standard structure for intelligent vehicle papers:**
+1. Real-world dataset description (nuScenes, Waymo, Argoverse 2)
+2. Metrics (ADE, FDE, mAP, NDS for perception; miss rate, collision rate for planning)
+3. Comparison with SOTA (tables with bold/underline formatting)
+4. Qualitative results (trajectory plots, BEV visualizations)
+5. Failure case analysis
+6. Real-time performance (inference time, FPS)
+
+### Traffic Prediction Table Template
+
+| Method | METR-LA MAE↓ | METR-LA RMSE↓ | METR-LA MAPE↓ | PEMS-BAY MAE↓ | PEMS-BAY RMSE↓ | PEMS-BAY MAPE↓ |
+|--------|-------------|---------------|---------------|----------------|----------------|----------------|
+| DCRNN | 3.17 | 6.45 | 8.69% | 1.74 | 3.97 | 3.64% |
+| STGCN | 3.47 | 7.06 | 9.57% | 1.69 | 3.89 | 3.72% |
+| GWNet | 2.69 | 5.64 | 7.10% | 1.58 | 3.58 | 3.21% |
+| **Ours** | **2.52** | **5.05** | **6.55%** | **1.52** | **3.45** | **3.10%** |
+
+### Trajectory Prediction Table Template
+
+| Method | ADE↓ | FDE↓ | Miss Rate↓ |
+|--------|------|------|------------|
+| Social-LSTM | 1.09 | 2.35 | 0.52 |
+| Social-GAN | 0.87 | 1.98 | 0.45 |
+| PGP | 0.72 | 1.62 | 0.38 |
+| **Ours** | **0.65** | **1.48** | **0.32** |

@@ -185,3 +185,38 @@ Unsafe patterns when evidence is missing:
 - `Our method achieves 12.7% improvement ...`
 - `We test on 300 devices ...`
 - `Extensive experiments show ...`
+
+## TNNLS/TVT/TIV Abstract Patterns
+
+### Traffic Prediction Abstract (TNNLS)
+
+**Standard structure:**
+> "Traffic flow prediction is a critical task in intelligent transportation systems. However, existing methods fail to capture complex spatial-temporal dependencies. In this paper, we propose [model name], which [core innovation]. Extensive experiments on METR-LA, PEMS-BAY, PEMS04, and PEMS08 demonstrate that our method achieves state-of-the-art performance, outperforming baselines by X% in terms of MAE."
+
+**Key features:**
+- 150-200 words
+- Always mentions specific datasets (METR-LA, PEMS-BAY, PEMS04, PEMS08)
+- Reports specific metrics (MAE, RMSE, MAPE)
+- 3-4 contribution points
+
+### Autonomous Driving Abstract (TVT)
+
+**Standard structure:**
+> "Autonomous driving has attracted significant attention. However, the complex and dynamic driving environment poses challenges for decision-making. To address this, we propose [framework name]. Simulation results in CARLA/SUMO demonstrate that the proposed method achieves [X]% success rate with [Y]% collision rate."
+
+**Key features:**
+- 150-200 words
+- Mentions simulation environment (CARLA, SUMO)
+- Reports success rate, collision rate, comfort score
+- 3-4 contribution points
+
+### Intelligent Vehicle Abstract (TIV)
+
+**Standard structure:**
+> "Intelligent vehicles are expected to revolutionize transportation. Accurate perception and prediction of surrounding agents is essential for safe autonomous driving. In this work, we present [method name]. Experiments on nuScenes/Waymo/Argoverse show that our method outperforms existing approaches by X% in ADE/FDE."
+
+**Key features:**
+- 150-200 words
+- Mentions real-world datasets (nuScenes, Waymo, Argoverse)
+- Reports ADE, FDE, mAP, NDS
+- 3-4 contribution points
