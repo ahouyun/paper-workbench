@@ -409,3 +409,60 @@ Use them to enforce:
 - "Our contributions are twofold: (1)... (2)..."
 - "We propose [module name] that [function]"
 - "Extensive tests across GPU, edge, and mobile platforms"
+
+## IEEE TITS 2025 Traffic Prediction Method Categories
+
+### Category 1: Spatio-Temporal Graph Neural Networks (10 papers)
+
+| Paper | Key Innovation | Datasets |
+|-------|---------------|----------|
+| Spatio-Temporal Graph Diffusion | Diffusion-based graph convolution | METR-LA, PEMS-BAY |
+| Adaptive Multi-Resolution GNN | Multi-scale graph pooling | PeMS04, PeMS08, PEMS-BAY |
+| Dynamic Graph Transformer | Joint spatial-temporal attention | METR-LA, PEMS-BAY, PeMS04 |
+| Graph WaveNet + Temporal Attention | Dilated causal convolution + attention | METR-LA, PEMS-BAY |
+| Spatio-Temporal Hypergraph | Higher-order spatial relationships | PeMS04, PeMS08, PeMSD7 |
+| Physics-Informed ST-GNN | Traffic flow theory integration | METR-LA, PEMS-BAY, PeMS04 |
+| Meta-Learning Adaptive GNN | Distribution shift adaptation | METR-LA, PEMS-BAY, PeMS08 |
+| ST Contrastive Learning | Self-supervised pre-training | PeMS04, PeMS08, PEMS-BAY |
+| Multi-Scale ST Fusion | Hierarchical temporal fusion | PeMS04, PeMS08, PeMSD7 |
+| Uncertainty-Aware ST-GNN | Probabilistic predictions | METR-LA, PEMS-BAY, PeMS04 |
+
+**Common abstract pattern:**
+> "Traffic prediction is crucial for ITS. However, existing methods fail to capture [specific limitation]. To address this, we propose [method] that [innovation]. Experiments on [datasets] demonstrate [results]."
+
+### Category 2: Transformer-Based Methods (10 papers)
+
+| Paper | Key Innovation | Datasets |
+|-------|---------------|----------|
+| STAEformer | Adaptive spatio-temporal embeddings | METR-LA, PEMS-BAY, PeMS04, PeMS08 |
+| PDFormer | Propagation delay-aware attention | PEMS04, PEMS08, METR-LA, PEMS-BAY |
+| AGSTFormer | Adaptive graph + Transformer | PEMS04, PEMS08, PEMS07, METR-LA |
+| STG-Transformer | Unified spatio-temporal attention | METR-LA, PEMS-BAY |
+| DSTAGNN | Dynamic spatial-temporal aware GNN | PEMS04, PEMS08, PEMS07 |
+| STAE-Net | Efficient self-attention with spatial mask | METR-LA, PEMS-BAY |
+| DTANet | Dynamic temporal attention | PEMS04, PEMS08 |
+| UrbanGPT | LLM + spatio-temporal encoder | METR-LA, PEMS-BAY, multi-city |
+| STDEN | Diffusion-enhanced Transformer | METR-LA, PEMS-BAY, PeMS04, PeMS08 |
+| STG-NCDE | Neural CDE + Transformer | METR-LA, PEMS-BAY |
+
+### Category 3: New Methods (Diffusion/LLM/Mamba) (10 papers)
+
+| Paper | Category | Key Innovation |
+|-------|----------|---------------|
+| ICST-DNET | Diffusion | Interpretable causal spatio-temporal diffusion |
+| SpecSTG | Diffusion | Spectral domain diffusion, 3.33x faster |
+| LSDM | LLM+Diffusion | LLM-enhanced spatio-temporal diffusion |
+| ST-LLM | LLM | Partially frozen attention for traffic |
+| xTP-LLM | LLM | Explainable traffic prediction with LLM |
+| TPLLM | LLM | CNN+GCN embedding + LoRA fine-tuning |
+| LEAF | LLM | LLM as test-time decision maker |
+| Strada-LLM | LLM | Graph LLM with distribution adaptation |
+| ST-Mamba | Mamba | First Mamba for spatio-temporal traffic |
+| GAMMA-Net | Mamba | GAT + multi-axis Mamba interleaved |
+
+**Key trends:**
+- LLM + diffusion fusion (LSDM)
+- Mamba as Transformer alternative (linear complexity)
+- Explainability in diffusion models (ICST-DNET)
+- Few-shot/zero-shot learning (LLM methods)
+- Multi-modal fusion (text + spatio-temporal data)
