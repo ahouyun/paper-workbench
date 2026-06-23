@@ -108,6 +108,37 @@
 
 ---
 
+## LaTeX 风格硬规则
+
+**灵感来源：awesome-ai-research-writing 的 LaTeX 约束**
+
+### 必须遵守的规则
+
+1. **正文不使用粗体/斜体** — LaTeX 正文中避免 `\textbf{}` 和 `\textit{}`，仅用于标题和图表标注
+2. **不使用破折号** — 避免 em-dash（—），使用逗号或括号替代
+3. **不使用 `\item` 列表** — 正文中使用流畅段落，不用 itemize/enumerate
+4. **正确转义特殊字符** — `%` → `\%`，`&` → `\&`，`#` → `\#`，`_` → `\_`
+5. **使用一般现在时描述方法和结果** — "The method achieves..." 而非 "The method achieved..."
+
+### 实验分析段落结构
+
+**灵感来源：awesome-ai-research-writing 的实验分析模式**
+
+**反模式（"记账式"写作）：**
+> "Method A achieves 92.3%. Method B achieves 90.1%. Our method achieves 94.5%."
+
+**推荐模式（分析式写作）：**
+> "Our method outperforms Method A by 2.2% and Method B by 4.4%. The improvement over Method A is attributed to [specific mechanism], while the gap with Method B suggests [specific insight]."
+
+**使用 `\paragraph{Title Case 结论}` 格式：**
+```latex
+\paragraph{The Attention Module Improves Accuracy.}
+Removing the attention module reduces accuracy by 3.2\% (Table~\ref{tab:ablation}).
+This suggests that spatial attention is critical for capturing long-range dependencies.
+```
+
+---
+
 ## Reusable Moves Observed in TPAMI and TKDE Papers
 
 This section captures recurring polishing moves observed in strong papers from

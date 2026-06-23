@@ -283,3 +283,84 @@ When revising, match the user's natural academic voice:
 **Methods:** Passive voice, technical jargon, "We use/adopt/employ"
 **Results:** "significant" with statistical backing, direct comparisons
 **Discussion:** Hedging ("suggests", "may indicate"), limitation acknowledgment
+
+## De-AI Word Blacklist (70+ Overused AI Words)
+
+**Inspired by awesome-ai-research-writing. Replace these with specific, concrete language.**
+
+### Category 1: Inflated Importance
+| Avoid | Replace With |
+|-------|-------------|
+| leverage | use, employ, apply |
+| delve into | examine, investigate, explore |
+| tapestry | (delete - never appropriate) |
+| underscore | highlight, emphasize, demonstrate |
+| unveil | present, introduce, reveal |
+| pivotal | important, critical, essential |
+| groundbreaking | significant, novel (with evidence) |
+| revolutionary | (delete - let results speak) |
+| transformative | significant, impactful |
+| cutting-edge | state-of-the-art, recent |
+| groundbreaking | (delete - describe what's new specifically) |
+
+### Category 2: Filler Phrases
+| Avoid | Replace With |
+|-------|-------------|
+| It is worth noting that | (delete - just state the fact) |
+| It goes without saying | (delete - if it goes without saying, don't say it) |
+| Needless to say | (delete) |
+| In light of the fact that | because, since |
+| In the event that | if |
+| At this point in time | now, currently |
+| In order to | to |
+| Due to the fact that | because |
+| A significant body of work | (name specific papers) |
+
+### Category 3: Vague Quantifiers
+| Avoid | Replace With |
+|-------|-------------|
+| a multitude of | many, [specific number] |
+| a plethora of | many, numerous |
+| a significant number of | [specific number], many |
+| various | (list specific items) |
+| several | [specific number] |
+| numerous | [specific number], many |
+| a wide range of | (list specific items) |
+| a variety of | (list specific items) |
+
+### Category 4: Template Transitions
+| Avoid | Replace With |
+|-------|-------------|
+| Furthermore | (delete - use logical connection instead) |
+| Moreover | (delete - use logical connection instead) |
+| Additionally | (delete - use logical connection instead) |
+| In addition | (delete - use logical connection instead) |
+| Subsequently | then, next, after |
+| Consequently | therefore, thus, as a result |
+| Nevertheless | however, but, yet |
+
+### Category 5: AI-Style Hedging
+| Avoid | Replace With |
+|-------|-------------|
+| It should be noted that | (delete - just state it) |
+| It is important to note that | (delete - just state it) |
+| It is worth mentioning that | (delete - just state it) |
+| This highlights the significance of | (state the specific significance) |
+| This underscores the importance of | (state the specific importance) |
+
+### Category 6: Academic Clichés
+| Avoid | Replace With |
+|-------|-------------|
+| In today's rapidly evolving landscape | (delete - state the specific trend) |
+| In recent years | (delete - state the specific year or timeframe) |
+| With the rapid development of | (delete - state the specific development) |
+| Has gained increasing attention | (state who is paying attention and why) |
+| Plays a crucial role | (state the specific role) |
+| Has become increasingly important | (state why it's important) |
+
+### Self-Check Questions
+Before finalizing, ask:
+1. Can I replace this word with a more specific alternative?
+2. Would a human researcher use this exact phrase?
+3. Does this word add meaning or just fill space?
+4. Am I using this word because it's "safe" or because it's accurate?
