@@ -595,3 +595,95 @@ Use them to enforce:
 4. **Adverse weather robustness** — diffusion restoration, bidirectional adaptive fusion
 5. **Modality drop robustness** — plug-and-play modules, historical data prediction
 6. **Dual-guided fusion** — Point-guide-Image + Image-guide-Point bidirectional
+
+## IEEE TITS 2025 Demand Prediction Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| TSAGE (HFL) | Ride-hailing | Federated learning + GraphSAGE + GRU |
+| TSAGE (VFL) | Ride-hailing | Vertical FL with homomorphic encryption |
+| MMDNet | Multimodal | Meta-learning for cross-mode interactions |
+| DTW-GAT | Bike-sharing | DTW-based adjacency + temporal attention |
+| DT-CTFP | Traffic flow | 6G digital twin + meta-learning transfer |
+| ADCSD | Traffic flow | Online test-time adaptation with series decomposition |
+| PRMAN | Data imputation | Physics-regularized Swin Transformer |
+| GenS2-P | EV charging | Cyberattack-resilient generative self-supervised learning |
+| Score-STPP | Accident | Spatial-temporal point process + diffusion |
+| AUMS | Bike-sharing | AIoT + dynamic clustering + rebalancing |
+
+### Common Datasets (Demand Prediction)
+
+| Dataset | Domain | Location |
+|---------|--------|----------|
+| NYC Uber/Lyft | Ride-hailing | New York City |
+| Beijing multimodal | Multimodal | Beijing |
+| Chicago multimodal | Multimodal | Chicago |
+| Bike-sharing station | Bike-sharing | Various cities |
+| EV charging logs | EV charging | Various |
+| Traffic accident records | Safety | Multiple cities |
+
+### Common Metrics (Demand Prediction)
+
+| Metric | Usage |
+|--------|-------|
+| MAE | Prediction accuracy |
+| RMSE | Prediction accuracy |
+| MAPE | Percentage error |
+| Utilization rate | Bike-sharing efficiency |
+| Trip frequency | Usage intensity |
+| Unmet demand rate | Service quality |
+
+### Key Innovation Trends (2025)
+1. **Federated learning** — privacy-preserving collaborative prediction (HFL, VFL)
+2. **Meta-learning** — cross-domain/cross-city transfer
+3. **Physics-informed** — fundamental diagram constraints
+4. **Test-time adaptation** — handling temporal drift
+5. **Real-world deployment** — 15-month phased validation
+6. **Robustness** — cyberattack-resilient forecasting
+
+## IEEE TITS 2025 Federated Learning & Edge Computing Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| FedGau | Autonomous driving | Gaussian-based hierarchical FL |
+| UAV-VEC-KD | Edge computing | UAV + knowledge distillation FL |
+| PSFL | ITS | Personalized split federated learning |
+| FedCPC | 6G ITS | Clustered FL with adaptive pruning |
+| CAV-FL | Connected vehicles | Cost optimization + model selection |
+| IoV-FL | IoV | Multi-task FL + incentive mechanism |
+| V2X-IDS Survey | V2X security | FL + Edge AI for intrusion detection |
+| VEC-Offloading | Edge computing | Two-hop vehicle-assisted edge computing |
+| ISCC-VCP | Cooperative perception | Integrated sensing-communication-computation |
+| MEC-V2X | V2X networks | Mode selection + resource allocation |
+
+### Common Environments (FL/Edge)
+
+| Environment | Usage |
+|-------------|-------|
+| SUMO | Traffic simulation |
+| Cityscapes | Street scene understanding |
+| CIFAR-10/100 | FL benchmark datasets |
+| Real vehicle networks | Deployment validation |
+
+### Common Metrics (FL/Edge)
+
+| Metric | Usage |
+|--------|-------|
+| Convergence speed | Training efficiency |
+| Communication overhead | Bandwidth cost |
+| Model accuracy | Prediction quality |
+| Latency/Delay | Real-time performance |
+| Energy consumption | Battery life |
+| Load balancing | Resource utilization |
+
+### Key Innovation Trends (2025)
+1. **Hierarchical FL** — multi-level aggregation for cross-city scenarios
+2. **Personalized FL** — split learning + federated learning
+3. **Communication efficiency** — pruning, knowledge distillation, adaptive aggregation
+4. **Edge intelligence** — task offloading, resource allocation, mode selection
+5. **Security** — intrusion detection, adversarial robustness, privacy preservation
+6. **Real-world validation** — 15-month deployment, phased rollout
