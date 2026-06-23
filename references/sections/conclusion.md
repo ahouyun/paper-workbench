@@ -34,6 +34,26 @@ Avoid framing conclusion around fixable implementation flaws unless they critica
 3. Experiments show [main gains] across [datasets/settings].
 4. A current limitation is [scope boundary], and extending to [future setting] is an important next step.
 
+## Real Conclusion Examples
+
+### SAM (Kirillov et al., TPAMI 2023)
+
+> "We introduced the Segment Anything project: a task, model, and dataset for image segmentation. SAM achieves zero-shot transfer to 23 datasets, often matching or exceeding fully supervised results. SAM struggles with fine-grained boundaries and thin structures. Combining SAM with specialized models for specific domains is an important next step."
+
+**Pattern:** Summary → Key result → Specific limitation → Future work
+
+### FlashAttention (Dao et al., NeurIPS 2022)
+
+> "We propose FlashAttention, an IO-aware attention algorithm. FlashAttention achieves 2-4x speedup and 5-20x memory reduction compared to standard attention. This enables training on sequences up to 16K tokens without approximation. Future work includes extending to sparse attention patterns."
+
+**Pattern:** Method → Quantified result → Impact → Future work
+
+### DeepSeek-V3 (DeepSeek, 2024)
+
+> "We presented DeepSeek-V3, a 671B parameter MoE language model. DeepSeek-V3 matches GPT-4 performance on most benchmarks. Trained with only 2.788M H800 GPU hours. Demonstrates that open-source models can compete with closed-source."
+
+**Pattern:** Method → Result → Cost efficiency → Impact
+
 ## Conclusion vs. Abstract
 
 | Dimension | Abstract | Conclusion |

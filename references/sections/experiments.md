@@ -118,6 +118,72 @@ flowchart TB
 ### Implementation Details
 - Hardware, software, hyperparameters, training duration, random seeds, code availability
 
+## Real Experiment Examples
+
+### SAM (Kirillov et al., TPAMI 2023)
+
+**Structure:**
+- 7.1: Zero-Shot Single Point Valid Mask Evaluation (23 datasets, mIoU + human study)
+- 7.2: Zero-Shot Edge Detection (BSDS500, ODS/OIS/AP/R50)
+- 7.3: Zero-Shot Object Proposals (LVIS v1, AR@1000)
+- 7.4: Zero-Shot Instance Segmentation (COCO AP, LVIS AP)
+- 7.5: Zero-Shot Text-to-Mask (proof-of-concept)
+- 7.6: Ablations (data engine stages, data volume, encoder scaling)
+
+**Key patterns:**
+- Each sub-section answers a distinct *capability question*
+- Ablation comes last, not first
+- Human study supplements automated metrics
+
+### FlashAttention (Dao et al., NeurIPS 2022)
+
+**Structure:**
+- Throughput benchmark (A100: 225 TFLOPs/sec, 72% MFU)
+- Memory benchmark (10X savings at 2K, 20X at 4K)
+- Training speedup (3-5x vs HuggingFace baseline)
+
+**Key patterns:**
+- Hardware utilization: "225 TFLOPs/sec per A100, equivalent to 72% model FLOPs utilization"
+- Memory savings scale with sequence length: "10X at 2K, 20X at 4K"
+- Practical speedup: "3-5x compared to the baseline implementation from Huggingface"
+
+### YOLOv7 (Wang et al., CVPR 2023)
+
+**Structure:**
+- Detection on MS COCO (6 model variants, AP + FPS)
+- Instance Segmentation (AP_box + AP_mask)
+- Anchor-Free Detection (AP_val)
+
+**Key patterns:**
+- Speed-accuracy Pareto frontier: 51.4% AP at 161 fps → 56.8% AP at 36 fps
+- Multiple model variants: YOLOv7, YOLOv7-X, W6, E6, D6, E6E
+- "Trainable bag-of-freebies": training enhancements that don't increase inference cost
+
+### DINO (Zhang et al., ICLR 2023)
+
+**Structure:**
+- 12-epoch training (R50: 49.0-49.4 AP)
+- 24-epoch training (R50: 50.4-51.3 AP)
+- 36-epoch training (R50: 50.9-51.2 AP)
+- Swin-L backbone (56.8-58.5 AP)
+
+**Key patterns:**
+- Fast convergence: "49.4 AP in 12 epochs"
+- SOTA: "63.2 AP on COCO Val with more than ten times smaller model size"
+- Training schedule ablation: 12/24/36 epochs
+
+### VAR (Tian et al., NeurIPS 2024 Best Paper)
+
+**Structure:**
+- ImageNet Generation (FID, IS, precision, recall)
+- Scaling Law Analysis (loss/quality vs. model size/compute)
+- Zero-shot Generalization
+
+**Key patterns:**
+- First-claim: "GPT-style autoregressive models surpass diffusion models"
+- Scaling law discovery: "power-law Scaling Laws in VAR transformers"
+- Model scaling: VAR-d16 (310M) → VAR-d30 (2.0B) → VAR-d36 (2.3B)
+
 ## Results Discussion Writing
 
 - State key finding first, then give number

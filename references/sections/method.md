@@ -183,6 +183,60 @@ flowchart TB
 
 `Implementation details include hyperparameters (e.g., layer count, feature dimensions), coordinate transforms/normalization, and other practical details. Put them near the end of Method or in a dedicated Implementation Details section.`
 
+## Real Method Examples
+
+### ResNet — Problem-Driven Module Design
+
+**Motivation:**
+> "When deeper networks are able to start converging, a degradation problem has been exposed: with network depth increasing, accuracy gets saturated and then degrades rapidly."
+
+**Design:**
+> "We explicitly let the layers fit a residual mapping F(x) := H(x) − x."
+
+**Advantage:**
+> "We evaluate on CIFAR-10... our 152-layer ResNet... achieves 5.71% top-5 error."
+
+**Pattern:** Problem → Design → Measurable advantage
+
+### FlashAttention — Complexity-Driven Motivation
+
+**Motivation:**
+> "The standard Transformer self-attention mechanism has time and memory complexity O(N²) in sequence length."
+
+**Design:**
+> "We propose FlashAttention, an IO-aware exact attention algorithm that computes exact attention... We reduce memory reads/writes between HBM and SRAM by tiling the softmax computation."
+
+**Advantage:**
+> "FlashAttention runs 2-4x faster than standard attention and uses 5-20x less memory."
+
+**Pattern:** Complexity problem → Tiling/recomputation design → Measured speedup
+
+### Mamba — Selective State Space Model
+
+**Motivation:**
+> "Transformers are the de-facto standard for sequence modeling but suffer from O(N²) complexity. Prior subquadratic models fall short of Transformers on information-dense data."
+
+**Design:**
+> "Mamba introduces selective state spaces that adapt based on input content. The parameters B, C, and Δ are input-dependent."
+
+**Advantage:**
+> "Mamba achieves 5x faster inference than Transformers at sequence length 1M."
+
+**Pattern:** Complexity problem → Selective mechanism → Scaling advantage
+
+### LoRA — Parameter-Efficient Fine-Tuning
+
+**Motivation:**
+> "Fine-tuning large language models is computationally expensive and memory-intensive."
+
+**Design:**
+> "We freeze the pre-trained model weights and inject trainable low-rank matrices: W₀ + ΔW = W₀ + BA, where B ∈ R^{d×r}, A ∈ R^{r×k}, and r << min(d, k)."
+
+**Advantage:**
+> "LoRA reduces trainable parameters by 10,000x and GPU memory by 3x, while matching full fine-tuning performance."
+
+**Pattern:** Resource constraint → Mathematical formulation → Quantified efficiency gain
+
 ## IEEE Trans Addendum
 
 For IEEE Transactions papers, add these checks:

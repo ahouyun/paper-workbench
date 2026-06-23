@@ -429,6 +429,56 @@ Do not front-load exact gains or real-world scale claims in the introduction unl
 
 ---
 
+## Real Introduction Examples
+
+### SAM Introduction (8-step funnel)
+
+**Step 1 — Broad context:**
+> "Large language models pre-trained on web-scale datasets have revolutionized NLP with strong zero-shot and few-shot generalization."
+
+**Step 2 — Foundation model concept:**
+> "A key capability of these LLMs is the ability to address new tasks described in language via prompt engineering."
+
+**Step 3 — Gap:**
+> "Segmentation lacks an equivalent foundation model."
+
+**Step 4 — Contribution:**
+> "We introduce the promptable segmentation task and the Segment Anything Model (SAM)."
+
+**Key pattern:** Broad context → Foundation model concept → Gap → Contribution
+
+### FlashAttention Introduction (NeurIPS-style)
+
+**Step 1 — Problem:**
+> "Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length."
+
+**Step 2 — Existing solutions:**
+> "Efficient attention methods include sparse attention, low-rank attention, and linear attention."
+
+**Step 3 — Gap:**
+> "These methods sacrifice accuracy for efficiency — they compute approximate attention."
+
+**Step 4 — Contribution:**
+> "We propose FlashAttention, an IO-aware exact attention algorithm."
+
+**Key pattern:** Problem → Existing solutions → Gap → Contribution
+
+### DINO Introduction (CVPR-style)
+
+**Step 1 — Context:**
+> "DETR introduced end-to-end object detection with set-based loss, eliminating hand-designed components."
+
+**Step 2 — Improvements:**
+> "Subsequent work improved DETR through better queries, attention mechanisms, and denoising training."
+
+**Step 3 — Gap:**
+> "However, these methods still struggle with slow convergence and limited performance."
+
+**Step 4 — Contribution:**
+> "We propose DINO, which improves denoising anchor boxes for end-to-end object detection."
+
+**Key pattern:** Foundational work → Improvements → Remaining gap → Contribution
+
 ## Anti-AI Patterns for Introductions (去AI味)
 
 ### I1: The "With the Rapid Development" Opening

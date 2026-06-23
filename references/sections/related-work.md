@@ -66,6 +66,32 @@ Use 2-4 focused topics, for example:
 3. Limitation tied to your target technical challenge.
 4. Transition sentence that leads to your method.
 
+## Real Related Work Examples
+
+### FlashAttention (Dao et al., NeurIPS 2022)
+
+**Structure:** Groups by approach (approximation vs. IO-awareness)
+
+> "Several lines of work attempt to reduce the cost of attention. Sparse attention methods (Child et al., 2019; Beltagy et al., 2020) limit attention patterns to reduce computation. Low-rank methods (Wang et al., 2020; Choromanski et al., 2021) approximate the attention matrix. These methods sacrifice accuracy for efficiency."
+
+**Pattern:** Topic → Category 1 → Category 2 → Common gap → Your positioning
+
+### SAM (Kirillov et al., TPAMI 2023)
+
+**Structure:** Groups by capability (interactive, promptable, zero-shot)
+
+> "Interactive segmentation methods (RITM, SimpleClick) use clicks as prompts. Promptable models (CLIP, DALL-E) use text prompts. Our work differs in three respects: (1) we focus on promptable segmentation, (2) we build the largest segmentation dataset, (3) we design for zero-shot transfer."
+
+**Pattern:** Category 1 → Category 2 → Explicit positioning statement
+
+### Mamba (Gu & Dao, ICML 2024)
+
+**Structure:** Groups by sequence modeling approach
+
+> "Transformers dominate sequence modeling but suffer from O(N²) complexity. Efficient alternatives include linear attention, sparse attention, and state space models. SSMs offer linear scaling but struggle with content-based reasoning. Mamba addresses this with selective state spaces."
+
+**Pattern:** Dominant approach → Alternatives with limitations → Your solution
+
 ## Do and Don't
 
 1. Do compare mechanisms, assumptions, and failure modes.
