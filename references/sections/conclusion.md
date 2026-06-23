@@ -34,6 +34,38 @@ Avoid framing conclusion around fixable implementation flaws unless they critica
 3. Experiments show [main gains] across [datasets/settings].
 4. A current limitation is [scope boundary], and extending to [future setting] is an important next step.
 
+## Conclusion vs. Abstract
+
+| Dimension | Abstract | Conclusion |
+|-----------|----------|------------|
+| Purpose | Help reader decide whether to read | Help understand "so what" |
+| Scope | Full overview | Deep interpretation and reflection |
+| New information? | No | Can include new insights |
+| Style | Informational, compressed | Interpretive, reflective |
+
+## Contribution Statement Patterns
+
+- **Direct:** "Our contribution is threefold: first, ...; second, ...; third, ..."
+- **Gap-filling:** "While prior work has focused on X, our paper contributes by addressing Y."
+- **Novelty:** "To the best of our knowledge, this is the first study to..."
+
+## Discussing Limitations
+
+1. Be honest but strategic — transparent, but contextualize
+2. Prioritize — focus on the most relevant limitations
+3. Explain impact — how the limitation might affect results
+4. Pair with mitigation — explain why findings are still valuable
+5. Link to future research — frame limitations as opportunities
+
+## Future Work Patterns
+
+| Pattern | Example |
+|---------|---------|
+| Scale/Efficiency | "We plan to scale to larger datasets." |
+| Generalization | "Extending to [broader domain] is a natural next step." |
+| Theoretical | "A formal convergence guarantee remains open." |
+| Deployment | "We intend to evaluate in production environments." |
+
 ## IEEE Trans Addendum
 
 For IEEE Transactions papers, apply these extra rules:

@@ -247,7 +247,39 @@ When revising, match the user's natural academic voice:
 
 1. Scan the text for all 46 patterns
 2. Flag each occurrence with the pattern number
-3. Rewrite flagged sections preserving meaning
-4. Verify academic tone is maintained
-5. Check that technical precision is not lost
-6. Present revised text with change summary
+3. **Cluster detection** — identify paragraphs with 3+ co-occurring patterns
+4. Rewrite flagged sections preserving meaning
+5. Verify academic tone is maintained
+6. Check that technical precision is not lost
+7. Present revised text with change summary
+
+## Cluster Detection Philosophy
+
+**Key insight:** A single pattern instance means nothing; multiple patterns co-occurring in proximity is a confession.
+
+**Detection rules:**
+- **Paragraph-level:** 3+ distinct AI patterns within one paragraph = high-risk zone
+- **Section-level:** 5+ distinct patterns across a section = section-level rewrite needed
+- **Severity aggregation:** Individual low-severity + cluster = medium severity
+
+## False Positives and Contextual Exceptions
+
+**Do NOT flag these patterns in the following contexts:**
+
+| Pattern | Acceptable When |
+|---------|----------------|
+| "novel" | Once per abstract/introduction, with specific contribution |
+| "state-of-the-art" | Immediately followed by benchmark numbers |
+| "end-to-end" | Technical term in ML systems papers |
+| Passive voice | Methods sections describing procedures |
+| "However" | Once per abstract; flag only at 2+ occurrences |
+| "comprehensive" | When listing actual scope (e.g., "across 5 benchmarks") |
+| Hedging words | When discussing limitations or future work |
+
+## What NOT to Flag (By Section)
+
+**Abstract:** "We propose...", "novel" (once), "However" (once)
+**Introduction:** "In this paper, we present...", hedging when discussing prior work
+**Methods:** Passive voice, technical jargon, "We use/adopt/employ"
+**Results:** "significant" with statistical backing, direct comparisons
+**Discussion:** Hedging ("suggests", "may indicate"), limitation acknowledgment

@@ -93,6 +93,58 @@ flowchart TB
 2. Several focused mini-ablations for module-level design choices.
 3. Matching qualitative visual results for each important ablation.
 
+### Six Types of Ablation
+
+1. **Component removal**: Remove one module at a time (most common)
+2. **Component replacement**: Replace your novel component with a simpler/standard alternative
+3. **Hyperparameter sensitivity**: Vary key hyperparameters to show robustness
+4. **Data ablation**: Vary training data size, composition, or augmentation
+5. **Architecture ablation**: Change model structure (depth, width, attention type)
+6. **Loss function ablation**: Test different loss formulations
+
+## Experimental Setup Writing
+
+### Datasets
+- Dataset name, source, version; size; data splits; preprocessing/augmentation; why appropriate
+- Use standard benchmarks; cite original dataset paper; report basic statistics
+
+### Evaluation Metrics
+- Use standard metrics; multiple complementary metrics; define formally; explain directionality
+
+### Baselines
+- Include strong, recent SOTA; classical methods for context; if using published numbers, cite
+- **Common mistake:** Only comparing against weak or outdated baselines
+
+### Implementation Details
+- Hardware, software, hyperparameters, training duration, random seeds, code availability
+
+## Results Discussion Writing
+
+- State key finding first, then give number
+- Highlight trends, gaps, and surprises — don't just restate table values
+- Explain why your method works better, not just that it does
+- Address cases where your method does NOT outperform
+
+## Statistical Rigor
+
+- Report over multiple random seeds (3-5 runs)
+- Report mean and standard deviation
+- Use significance tests (paired t-test, Wilcoxon) when claiming superiority
+- Report p-values or confidence intervals
+
+## Common Mistakes
+
+1. Mixing methods and results
+2. No logical flow
+3. Missing ablation study
+4. Weak baselines
+5. Inconsistent evaluation
+6. Single-run results (no variance)
+7. Cherry-picking seeds/runs/metrics
+8. Missing implementation details
+9. No statistical significance
+10. Overclaiming beyond data support
+
 ## Experimental Rigor Checklist
 
 1. Are baselines recent and relevant?

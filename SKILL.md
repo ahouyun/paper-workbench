@@ -16,6 +16,16 @@ version: 7.4.0
 
 # Paper Workbench
 
+## Quick Start
+
+**How to invoke:** Mention "paper writing", "论文润色", "experiment design", "figure planning", "peer review", "rebuttal", "literature review", or related keywords.
+
+**Minimal input:** Provide your paper draft or describe your research. Specify target venue if known.
+
+**Expected output:** Structured guidance with section-specific templates, anti-AI patterns, and reviewer-checklist validation.
+
+---
+
 ## 入口职责
 
 本文件负责六件事：
@@ -32,15 +42,15 @@ version: 7.4.0
 ## 全局硬规则
 
 > [!IMPORTANT]
-> 1. **不虚构**：不虚构功能、字段、API、实验数据、结果数字、设备规模、部署范围或引用。
-> 2. **证据先于散文**：没有材料、证据或明确假设边界时，不写正式终稿式正文。
-> 3. **数字先过 provenance**：任何具体数字进入摘要、引言、实验、图表、结论前，先过 `references/writing/ieee-data-provenance-checklist.md`；过不了就删、改写或标记 `needs evidence`。
-> 4. **图表回答审稿问题**：每个 figure/table 必须回答一个明确 reviewer question；不能只是装饰。
-> 5. **AI 表达治理**：禁止空泛夸张、模板化贡献、伪精确数字和简单同义替换式"降 AIGC"。
-> 6. **学校/场刊覆盖默认**：中文毕设遵循 学校模板 > 导师要求 > 国标 > 内置默认；IEEE/英文论文遵循目标 venue 要求 > 内置默认；顶会遵循会议规范。
-> 7. **按需加载**：只加载当前任务所需 section/reference，避免上下文污染。
-> 8. **完整性门禁**：关键阶段的完整性检查不可跳过。
-> 9. **审稿独立性**：多视角审稿时，各审稿人独立评审，不交叉参考。
+> 1. **不虚构 (No Fabrication)**：不虚构功能、字段、API、实验数据、结果数字、设备规模、部署范围或引用。
+> 2. **证据先于散文 (Evidence Before Prose)**：没有材料、证据或明确假设边界时，不写正式终稿式正文。
+> 3. **数字先过 provenance (Number Provenance)**：任何具体数字进入摘要、引言、实验、图表、结论前，先过 `references/writing/ieee-data-provenance-checklist.md`；过不了就删、改写或标记 `needs evidence`。
+> 4. **图表回答审稿问题 (Figures Answer Reviewers)**：每个 figure/table 必须回答一个明确 reviewer question；不能只是装饰。
+> 5. **AI 表达治理 (AI Expression Governance)**：禁止空泛夸张、模板化贡献、伪精确数字和简单同义替换式"降 AIGC"。
+> 6. **学校/场刊覆盖默认 (Venue Overrides)**：中文毕设遵循 学校模板 > 导师要求 > 国标 > 内置默认；IEEE/英文论文遵循目标 venue 要求 > 内置默认；顶会遵循会议规范。
+> 7. **按需加载 (On-Demand Loading)**：只加载当前任务所需 section/reference，避免上下文污染。
+> 8. **完整性门禁 (Completeness Gates)**：关键阶段的完整性检查不可跳过。
+> 9. **审稿独立性 (Review Independence)**：多视角审稿时，各审稿人独立评审，不交叉参考。
 
 ---
 

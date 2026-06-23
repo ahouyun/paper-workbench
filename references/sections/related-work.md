@@ -19,6 +19,46 @@ Use 2-4 focused topics, for example:
 2. Methods closest to your core idea.
 3. Auxiliary techniques your method builds on.
 
+## Structural Approaches
+
+1. **Taxonomy / Thematic (Preferred)**: Group by topic/method; best for most CS/AI papers
+2. **Chronological**: Good for showing evolution; risk: "laundry list"
+3. **Method-based**: Group by technical approach
+4. **Hybrid (Most Practical)**: Thematic main structure, chronological within each theme
+
+### Recommended: Funnel Structure
+```
+[Broad background] → [Grouped by theme] → [Closest to yours] → [Gaps] → [Your contribution]
+```
+
+## Writing Synthesis Paragraphs
+
+**BAD:** "Smith (2010) found X. Jones (2012) found Y."
+**GOOD:** "Several approaches have explored [theme] [1,3,7]. These share a common assumption that [X]. However, they differ in [Y]..."
+
+**Key:** Subject should be the "theme", not "a specific paper". Synthesize commonalities, note differences, identify gaps.
+
+## Sentence Templates
+
+- **Introducing:** "A significant body of work has focused on [topic]..."
+- **Comparison:** "Unlike [X], who focused on [A], our work addresses [B]."
+- **Gaps:** "Despite these efforts, few studies have addressed..."
+- **Connecting:** "Building on this prior work, we propose..."
+
+## Positioning Your Work
+
+- **Gap-filling:** "Prior work has addressed A and B, but not C."
+- **Improvement:** "While [X] achieved [result], our method improves by [specific]."
+- **Unification:** "Existing approaches treat [A] and [B] separately. We unify these."
+
+## Common Mistakes
+
+1. Annotated bibliography — group by theme, synthesize
+2. Lack of analysis — add evaluative statements
+3. Missing key works — systematic search
+4. No connection to own work — end each theme with relation to your work
+5. Too broad scope — keep only directly relevant work
+
 ## Paragraph Template
 
 1. Topic sentence: define scope of this topic.
