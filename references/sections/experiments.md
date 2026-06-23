@@ -960,3 +960,90 @@ Use them to enforce:
 4. **4D spatiotemporal modeling** — dynamic scenes with temporal coherence
 5. **Efficiency optimization** — one-step diffusion, 2-7x speedup
 6. **World models for planning** — latent dynamics for autonomous driving
+
+## IEEE TITS 2025 Self-Supervised & Contrastive Learning Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Task | Key Innovation |
+|-------|------|---------------|
+| STIseq2seq | Data imputation | Self-supervised contrastive learning for traffic |
+| GenS2-P | EV charging | Generative self-supervised learning for cyberattack resilience |
+| CCL | Traffic forecasting | Cross-city correlation learning with self-supervision |
+| TSD-SSMTL | Video anomaly | Temporal-spatial decoupled self-supervised multi-task |
+| Contrastive Label | Terrain traversability | Contrastive label disambiguation |
+| SID | 3D detection | Self-distilling introspective data |
+| LiDAR-BEVMTN | Multi-task perception | Self-supervised components in multi-task |
+| PRMAN | Data imputation | Physics-regularized multiscale attention |
+| CE-MERL | Decision control | Contrastive expert-guided maximum entropy RL |
+| S2R-UDA-CP | Pedestrian intention | Self-supervised domain adaptation |
+
+### Common Self-Supervised Techniques
+1. **Contrastive learning** — SimCLR/MoCo-style instance discrimination
+2. **Masked autoencoder** — MAE-style pre-training
+3. **Self-distillation** — teacher-student same-architecture distillation
+4. **Pseudo-label generation** — iterative self-supervised label updates
+5. **Proxy tasks** — spatio-temporal decoupled multi-task learning
+6. **Denoising autoencoder** — generative self-supervised pre-training
+
+### Key Innovation Trends (2025)
+1. **Contrastive learning for traffic** — spatio-temporal contrastive objectives
+2. **Self-supervised pre-training** — reducing labeled data dependency
+3. **Cross-domain transfer** — self-supervised domain adaptation
+4. **Physics-informed SSL** — combining physical constraints with self-supervision
+5. **Multi-task SSL** — joint learning of multiple proxy tasks
+
+## IEEE TITS 2025 Continual Learning & Domain Adaptation Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| TRACER | Trajectory prediction | Transfer knowledge-based cross-region adaptation |
+| CGSTT | Traffic forecasting | Cluster-granularity spatiotemporal transfer |
+| CCL | Traffic forecasting | Cross-city correlation learning |
+| CIDTL | Trajectory prediction | Cross-in domain transfer for aggressive driving |
+| 2MGTCN | Traffic flow | Federated transfer learning |
+| De-Simplifying | Object detection | Pseudo label debiasing for domain adaptation |
+| RGB-D SOD | Traffic scenes | Weak supervision for domain adaptation |
+| OOD Detection | Perception safety | Uncertainty for out-of-distribution detection |
+| Few-Shot LLM | AD perception | Manifold-enhanced LLM for few-shot learning |
+| pFedLVM | AD perception | Personalized federated learning with LVM |
+
+### Common Challenges
+1. **Domain shift** — different cities, roads, weather conditions
+2. **Data scarcity** — limited labeled data in target domain
+3. **Distribution shift** — training vs. deployment mismatch
+4. **Catastrophic forgetting** — continual learning degradation
+5. **Privacy constraints** — federated learning requirements
+
+### Key Innovation Trends (2025)
+1. **Cross-city transfer** — knowledge migration between cities
+2. **Federated learning** — privacy-preserving distributed training
+3. **Domain adaptation** — unsupervised/semi-supervised alignment
+4. **Few-shot learning** — data-scarce scenario handling
+5. **OOD detection** — out-of-distribution sample identification
+
+## IEEE TITS 2025 New Graph Architecture Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Architecture | Key Innovation |
+|-------|-------------|---------------|
+| Spatio-Temporal Hypergraph | Hypergraph | Higher-order spatial correlations |
+| ST Graph Transformer | Graph Transformer | Dynamic correlation + Transformer attention |
+| MDHGAT | Heterogeneous GAT | Multi-dimensional heterogeneous graph |
+| Knowledge Graph Enhanced | KG + GNN | Domain knowledge integration |
+| Adaptive ST-GCN | Adaptive GNN | Dynamic graph structure learning |
+| Diffusion GNN | Diffusion + GNN | Traffic flow diffusion modeling |
+| Multi-Scale ST Fusion | Multi-scale GNN | Hierarchical temporal fusion |
+| Physics-Informed GNN | Physics + GNN | Traffic flow theory constraints |
+| LLM-Augmented GNN | LLM + GNN | Semantic feature extraction |
+| Dynamic Heterogeneous | Dynamic + Heterogeneous | Time-varying graph + multi-type relations |
+
+### Key Innovation Trends (2025)
+1. **Higher-order correlations** — hypergraph, multi-relational modeling
+2. **Dynamic graph learning** — adaptive, time-varying graph structures
+3. **Heterogeneous modeling** — multi-type nodes and edges
+4. **Knowledge integration** — knowledge graphs, physics constraints
+5. **Multi-modal fusion** — LLM semantics + graph structures
