@@ -1,10 +1,12 @@
-# Paper Workbench — 论文写作工作台
+# Paper Workbench — 论文写作工作台 v7.5.0
 
-> 一套**工具无关**的论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通流预测方向**。
+> 一套**工具无关**的论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通/智能交通/自动驾驶方向**。
 >
 > 支持 Claude Code, Codex CLI, Cursor, Windsurf, Aider, Continue, Cline 等多种 AI 编程工具。
 >
 > 整合了 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (v3.13.0) 和 [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) (v2.1.0) 的核心能力。
+>
+> **基于 190+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML 2024-2026 论文的真实写作模式分析。**
 
 ---
 
@@ -172,15 +174,75 @@ paper-workbench/
 
 ## 📊 数据来源
 
+### 核心论文覆盖（190+ 篇，按方法类别）
+
+| 方法类别 | 论文数 | 代表论文 |
+|---------|--------|---------|
+| 时空图神经网络 | 10 | Graph WaveNet, STGCN, DCRNN, PDFormer |
+| Transformer | 10 | STAEformer, PDFormer, AGSTFormer, UrbanGPT |
+| 新方法（扩散/LLM/Mamba） | 10 | ICST-DNET, ST-LLM, ST-Mamba, GAMMA-Net |
+| 轨迹预测 | 10 | BEVTraj, StyleFormer, Social-Pose, Intention-Aware Diffusion |
+| 交通控制 | 10 | VF-MAPPO, MATLIT, CoordLight, MetaSignal |
+| 多模态融合 | 10 | GraphBEV++, MambaFusion, DiffFusion, ModalPatch |
+| 需求预测 | 10 | TSAGE, MMDNet, DT-CTFP, AUMS |
+| 联邦学习/边缘计算 | 10 | FedGau, PSFL, FedCPC, UAV-VEC-KD |
+| 场景理解 | 10 | AD-SAM, DiffSemanticFusion, MMDrive, BEVTraj |
+| 公共交通 | 10 | DQN Transit, MADRL DRT, Bus-Pooling, PPO Bus Speed |
+| 交通安全 | 10 | GrDBN-GPR, KAN-RL, KLEP, Bayesian Games |
+| 智慧城市/恶劣天气 | 10 | FedLLM, CAST-CKT, 4D Radar, CADENet |
+| 点云/LiDAR | 10 | PASS, Fade3D, RobMOT, TransBridge |
+| 视频预测/场景生成 | 10 | GAIA-2, DiVE, DiST-4D, Genesis, LiDARCrafter |
+| 自监督学习 | 10 | STIseq2seq, CCL, SID, CE-MERL |
+| 持续学习/领域适应 | 10 | TRACER, CGSTT, CIDTL, pFedLVM |
+| 新图架构 | 10 | Hypergraph, Graph Transformer, MDHGAT, KG-GNN |
+| 交通预测（TITS） | 10 | ASTMGCNet, TDGCRN, DSTA-GNN, ICST-DNET |
+| 自动驾驶（TITS） | 10 | BEVTraj, RESAR-BEV, CarPLAN, SDD Planner |
+
+### 补充数据来源
+
 | 来源 | 论文数 | 时间范围 |
 |------|--------|---------|
-| IEEE TITS/TKDE/TNNLS/TVT | 110+ | 2024-2026 |
+| IEEE TITS/TKDE/TNNLS/TVT/TIV | 110+ | 2024-2026 |
 | KDD/AAAI/NeurIPS/ICLR/ICML | 204 | 2024-2026 |
-| WWW/CIKM/IJCAI/SIGIR | 60+ | 2024-2026 |
-| Transportation Research | 20+ | 2024-2026 |
-| IEEE TITS/TNNLS/TVT/TIV | 110+ | 2024-2026 |
+| CVPR/ECCV/ICCV | 50+ | 2024-2026 |
+| ACL/EMNLP/NAACL | 30+ | 2024-2026 |
+| SIGGRAPH/TOG | 20+ | 2024-2026 |
 | arXiv预印本 | 150+ | 2025-2026 |
 | 综述论文参考文献 | 800+ | 去重后 |
+
+---
+
+## 📝 写作模式库（基于 190+ 篇真实论文）
+
+### Section 指南（6个文件，每个含真实论文示例）
+
+| 文件 | 行数 | 核心内容 |
+|------|------|---------|
+| `references/sections/abstract.md` | 222行 | 3种模板 + 场馆要求 + 压缩策略 |
+| `references/sections/introduction.md` | 598行 | 12种模板变体 + 快速入门 + 贡献要点 |
+| `references/sections/method.md` | 392行 | 三元素框架 + 10篇真实方法解析 |
+| `references/sections/experiments.md` | 1049行 | 190+论文覆盖 + 19种方法类别 |
+| `references/sections/related-work.md` | 200行 | 4种组织结构 + 综合写法 |
+| `references/sections/conclusion.md` | 225行 | 限制讨论策略 + Future Work模式 |
+
+### 核心写作参考（基于 115+ 篇 IEEE Trans 论文）
+
+| 文件 | 行数 | 核心内容 |
+|------|------|---------|
+| `references/writing/ieee-expression-patterns.md` | 3391行 | 标题/摘要/引言/方法/结果/结论表达模式 |
+| `references/writing/ieee-expression-patterns-core.md` | 1300行 | 核心表达模式精简版 |
+| `references/writing/ieee-expression-patterns-new.md` | 1476行 | 2024-2026新发现模式 |
+| `references/writing/traffic-figure-patterns.md` | 3422行 | 21种可视化模式 + 图表设计 |
+| `references/writing/ieee-innovation-inspiration.md` | 39个方向 | 创新灵感库 |
+
+### 写作质量保障
+
+| 文件 | 核心内容 |
+|------|---------|
+| `references/review/paper-review.md` | 7维度审稿检查 + 严重性权重 |
+| `references/review/humanizer-patterns.md` | 51种AI写作模式 + 集群检测 |
+| `references/writing/aigc-governance.md` | AIGC治理策略 + 误报意识 |
+| `references/writing/paragraph-clarity.md` | 段落清晰度检查 + 跨节一致性 |
 
 ---
 
