@@ -237,6 +237,60 @@ flowchart TB
 
 **Pattern:** Resource constraint → Mathematical formulation → Quantified efficiency gain
 
+## Traffic Prediction Method Examples
+
+### Graph WaveNet — Adaptive Graph Learning
+
+**Motivation:**
+> "Predefined graph structures based on distance or connectivity cannot capture dynamic spatial dependencies in traffic networks."
+
+**Design:**
+> "We learn adaptive adjacency matrices through node embeddings: A = softmax(ReLU(E1 · E2^T)), where E1 and E2 are learnable embedding matrices."
+
+**Advantage:**
+> "The adaptive graph discovers hidden spatial correlations without relying on predefined road network topology."
+
+**Pattern:** Limitation of fixed graphs → Learnable graph construction → Data-driven spatial discovery
+
+### PDFormer — Propagation Delay Awareness
+
+**Motivation:**
+> "Traffic congestion propagates across road networks with inherent delays that existing methods ignore."
+
+**Design:**
+> "We design a delay-aware attention mechanism that explicitly models propagation delays. The attention from sensor j to sensor i looks at the state of j at time t − τ_ij."
+
+**Advantage:**
+> "By modeling delays explicitly, we achieve 8.7% MAE reduction on long-horizon prediction."
+
+**Pattern:** Physical phenomenon → Mechanism design → Quantified improvement
+
+### STAEformer — Adaptive Embedding
+
+**Motivation:**
+> "Traditional fixed positional encodings cannot capture the complex spatio-temporal patterns in traffic data."
+
+**Design:**
+> "We propose spatio-temporal adaptive embeddings that learn context-dependent representations for each sensor and time step."
+
+**Advantage:**
+> "The adaptive embeddings enable the model to capture dynamic patterns that fixed encodings miss."
+
+**Pattern:** Limitation of fixed representations → Adaptive learning → Dynamic pattern capture
+
+### DiffSTG — Diffusion for Traffic
+
+**Motivation:**
+> "Deterministic models fail to capture the inherent uncertainty in traffic forecasting."
+
+**Design:**
+> "We apply denoising diffusion probabilistic models on graph-structured traffic data. The forward process adds noise along the graph structure, and the reverse process learns to denoise conditioned on historical observations."
+
+**Advantage:**
+> "The diffusion framework provides calibrated uncertainty estimates alongside point predictions."
+
+**Pattern:** Uncertainty modeling → Generative framework → Probabilistic predictions
+
 ## IEEE Trans Addendum
 
 For IEEE Transactions papers, add these checks:
