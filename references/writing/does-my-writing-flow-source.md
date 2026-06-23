@@ -43,3 +43,72 @@ One of the most frequent questions writers ask themselves or others is "does my 
      - To show place or position: above, adjacent to, below, beyond, finally, furthermore, last, moreover, next, too
      - To show time: after, as soon as, at first, at the same time, before, eventually, finally, immediately, later, meanwhile, next, simultaneously, so far, soon, then, thereafter
      - To signal a summary or conclusion: as a result, as we have seen, finally, in a word, in any event, in brief, in conclusion, in other words, in short, in the end, in a final analysis, on the whole, therefore, thus, to summarize
+
+---
+
+## Research Paper-Specific Flow Guide
+
+### The Golden Thread
+
+Every research paper needs a "golden thread" — the core claim that connects all sections:
+
+1. **Introduction** states the problem and proposed solution
+2. **Method** describes how the solution works
+3. **Experiments** provides evidence that the solution works
+4. **Conclusion** interprets the evidence and its implications
+
+**Self-check:** Can you underline one sentence per section that connects back to the stated research problem?
+
+### Section-to-Section Flow
+
+| Transition | What to Check |
+|-----------|---------------|
+| Introduction → Method | Does Method deliver what Introduction promised? |
+| Method → Experiments | Does each experiment validate a claim from Introduction? |
+| Experiments → Conclusion | Does Conclusion only discuss what Experiments showed? |
+| Related Work → Method | Does Method address the gaps identified in Related Work? |
+
+### Research-Specific Transition Patterns
+
+**Methodological:**
+- "Building on this representation, we..."
+- "To address this limitation, we introduce..."
+- "Following the encoding stage, the decoder..."
+
+**Results:**
+- "As shown in Table X,..."
+- "Consistent with our hypothesis,..."
+- "Contrary to expectations,..."
+- "Across all conditions,..."
+
+**Related Work:**
+- "While X et al. demonstrated..., they did not address..."
+- "Recent work by Y et al. extends this by..."
+- "Our approach differs from Z et al. in that..."
+
+### Paragraph Flow in Technical Writing
+
+**Method paragraphs:**
+1. Open with the module's purpose
+2. Describe the design
+3. Close with the output and its role in the pipeline
+
+**Results paragraphs:**
+1. Open with the finding
+2. Present the evidence (metric/table/figure)
+3. Provide context (comparison to baselines)
+4. Interpret briefly
+
+**Introduction paragraphs:**
+1. Broad context → Specific gap → Proposed solution (funnel)
+
+### Self-Review Checklist for Research Paper Flow
+
+- [ ] Can a reader state your contribution after reading only the Introduction?
+- [ ] Does each Method subsection open with what the module does?
+- [ ] Does each figure get referenced before the next figure appears?
+- [ ] Are all technical terms used consistently (no synonym switching)?
+- [ ] Does each Results paragraph begin with the finding, not the setup?
+- [ ] Can you trace the research question from Introduction through Conclusion?
+- [ ] Do section transitions feel like logical steps, not topic changes?
+- [ ] Is every claim in Introduction supported by an experiment?

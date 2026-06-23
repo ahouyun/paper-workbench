@@ -97,3 +97,39 @@ AIGC 治理在段落清晰度修复之后进行：
 1. 先修复结构和逻辑（段落清晰度检查）
 2. 再修复 AI 写作痕迹（AIGC 治理）
 3. 最后做对抗性审稿（paper-review）
+
+## 集群检测哲学
+
+**关键洞察：** 单个 AI 模式实例无意义；多个模式同时出现才是问题。
+
+**检测规则：**
+- **段落级：** 3+ 个不同 AI 模式出现在同一段落 = 高风险区
+- **章节级：** 5+ 个不同模式出现在同一章节 = 需要重写该章节
+- **严重性聚合：** 单个低严重性 + 集群 = 中严重性
+
+**示例集群：**
+> "It is worth noting that our novel approach leverages cutting-edge techniques to achieve groundbreaking results. Furthermore, extensive experiments demonstrate the effectiveness of our method."
+
+包含："It is worth noting"（填充词）+ "novel"（过度使用）+ "leverages"（AI词汇）+ "groundbreaking"（重要性膨胀）+ "Furthermore"（填充词）+ "extensive experiments demonstrate"（模板）= **6 个模式在 2 句话中 = 高风险集群**
+
+## 误报意识
+
+**不要在以下情况下标记这些模式：**
+
+| 模式 | 可接受场景 |
+|------|-----------|
+| "novel" | 在摘要/引言中出现一次，且有具体贡献 |
+| "state-of-the-art" | 紧跟基准数字 |
+| "end-to-end" | ML 系统论文中的技术术语 |
+| 被动语态 | 方法部分描述实验过程 |
+| "However" | 在摘要中出现一次；仅在 2+ 次时标记 |
+| "comprehensive" | 列出实际范围时（如"across 5 benchmarks"） |
+| Hedging 词汇 | 讨论局限性或未来工作时 |
+
+## 按章节免检列表
+
+**摘要：** "We propose..."、"novel"（一次）、"However"（一次）
+**引言：** "In this paper, we present..."、讨论先前工作时的 hedging
+**方法：** 被动语态、技术术语、"We use/adopt/employ"
+**结果：** 有统计支持的"significant"、直接比较
+**讨论：** Hedging（"suggests"、"may indicate"）、局限性确认
