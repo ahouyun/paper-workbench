@@ -687,3 +687,90 @@ Use them to enforce:
 4. **Edge intelligence** — task offloading, resource allocation, mode selection
 5. **Security** — intrusion detection, adversarial robustness, privacy preservation
 6. **Real-world validation** — 15-month deployment, phased rollout
+
+## IEEE TITS 2025 Scene Understanding Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Task | Key Innovation |
+|-------|------|---------------|
+| AD-SAM | Semantic segmentation | SAM fine-tuning with dual encoder |
+| DiffSemanticFusion | BEV fusion | HD map diffusion for scene understanding |
+| BIMII-Net | RGB-T segmentation | Brain-inspired multi-iterative network |
+| PPAR | Domain generalization | Progressive prototype alignment |
+| MMDrive | VLM scene understanding | Multi-modal VLM with occupancy/LiDAR/text |
+| Visionary Co-Driver | Risk perception | LLM + HUD for driver risk awareness |
+| ODM | Pedestrian intention | Occlusion-aware diffusion model |
+| BEVTraj | Trajectory prediction | Map-free BEV with deformable attention |
+| Radar-Camera MOT | Multi-object tracking | Online calibration + common features |
+| Multi-Weather Restoration | Image restoration | Survey of CNN/Transformer/diffusion methods |
+
+### Common Datasets (Scene Understanding)
+
+| Dataset | Task | Modalities |
+|---------|------|-----------|
+| Cityscapes | Semantic segmentation | RGB |
+| BDD100K | Detection/segmentation | RGB |
+| nuScenes | Multi-task | LiDAR + Camera |
+| PIE/JAAD | Pedestrian intention | Video |
+| DriveLM | VLM understanding | Image + Text |
+
+### Common Metrics (Scene Understanding)
+
+| Metric | Task |
+|--------|------|
+| mIoU | Segmentation accuracy |
+| ADE/FDE | Trajectory prediction |
+| BLEU-4/METEOR | VLM language generation |
+| Accuracy | Intent prediction |
+
+### Key Innovation Trends (2025)
+1. **Foundation model fine-tuning** — SAM, CLIP for driving perception
+2. **Multi-modal VLM** — vision + language + LiDAR + radar
+3. **Map-free methods** — reducing HD map dependency
+4. **Diffusion models** — for prediction, generation, restoration
+5. **Brain-inspired architectures** — biological plausibility
+
+## IEEE TITS 2025 Public Transit Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| DQN Transit | Bus optimization | Deep Q-Network + IoT sensors |
+| F-AMIS | Rural EV transit | Fuzzy logic for adaptive decisions |
+| CPTS | Modular trolleybus | Charging-on-the-move system |
+| Quality Scheduling | Bus-driver | Quality-aware scheduling |
+| Stateless RL | Bus scheduling | Multi-Armed Bandit + Nash equilibrium |
+| Bus-Signal | Single-route | Collaborative bus + signal optimization |
+| Bus-Pooling | Intercity transit | Demand-driven flexible scheduling |
+| Multimodal DL | Rail ridership | CNN + LSTM + attention for demand |
+| MADRL DRT | Demand-responsive | Multi-agent deep RL for dynamic scheduling |
+| PPO Bus Speed | Bus speed control | Energy-aware speed optimization |
+
+### Common Environments (Public Transit)
+
+| Environment | Usage |
+|-------------|-------|
+| SUMO | Traffic simulation |
+| Real bus networks | Deployment validation |
+| AFC/APC data | Demand analysis |
+| GTFS-RT | Real-time transit data |
+
+### Common Metrics (Public Transit)
+
+| Metric | Usage |
+|--------|-------|
+| Passenger waiting time | Service quality |
+| Trip time | Efficiency |
+| Punctuality | Reliability |
+| Operating cost | Economics |
+| Energy consumption | Sustainability |
+| Service coverage | Accessibility |
+
+### Key Innovation Trends (2025)
+1. **Deep RL for transit** — DQN, PPO, MADRL for dynamic scheduling
+2. **Multi-modal data fusion** — GPS + smart card + POI
+3. **Real-time optimization** — demand-responsive, dynamic routing
+4. **Modular vehicles** — flexible capacity, charging-on-the-move
+5. **Sustainability** — EV transit, energy optimization, carbon reduction
