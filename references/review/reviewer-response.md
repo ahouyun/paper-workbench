@@ -118,6 +118,74 @@ now suitable for publication in [Journal Name].
 
 ---
 
+## 真实审稿回复示例
+
+### 示例1：Baseline不足
+
+**审稿人意见：**
+> "The paper only compares with 3 baselines. Please include more recent methods like STAEformer and PDFormer."
+
+**回复：**
+> "We thank the reviewer for this suggestion. We have added STAEformer and PDFormer as additional baselines in Table 2. The results show that our method outperforms STAEformer by 2.3% MAE on METR-LA and PDFormer by 1.8% MAE on PEMS-BAY. We have also added a discussion of these methods in Section 4.2."
+
+**关键技巧：**
+- 感谢审稿人
+- 说明具体修改
+- 提供新的实验结果
+- 引用修改位置
+
+### 示例2：消融实验不足
+
+**审稿人意见：**
+> "The ablation study is incomplete. Please show the contribution of each component."
+
+**回复：**
+> "We have expanded the ablation study in Table 3 to include all key components. Removing the attention module reduces MAE by 3.2% on METR-LA, removing the graph convolution reduces MAE by 2.1%, and removing the temporal attention reduces MAE by 1.5%. These results demonstrate that all components contribute to the final performance."
+
+**关键技巧：**
+- 说明具体修改
+- 提供量化结果
+- 解释各组件贡献
+
+### 示例3：写作不清晰
+
+**审稿人意见：**
+> "The method section is hard to follow. Please improve the clarity."
+
+**回复：**
+> "We have revised Section 3 to improve clarity. Specifically, we added a pipeline figure (Figure 2) to illustrate the overall architecture, added motivation sentences at the beginning of each subsection, and improved the flow between subsections. We hope the revised version is clearer."
+
+**关键技巧：**
+- 说明具体改进措施
+- 引用修改位置
+- 表达希望改进的意愿
+
+### 示例4：数据集不足
+
+**审稿人意见：**
+> "The experiments only use 2 datasets. Please evaluate on more datasets."
+
+**回复：**
+> "We have added experiments on PeMS04 and PeMS08 datasets in Table 4. The results show that our method achieves consistent improvements across all 4 datasets: 2.3% MAE reduction on METR-LA, 1.8% on PEMS-BAY, 2.1% on PeMS04, and 1.9% on PeMS08."
+
+**关键技巧：**
+- 说明新增数据集
+- 提供所有数据集的结果
+- 强调一致性
+
+### 示例5：理论分析不足
+
+**审稿人意见：**
+> "The paper lacks theoretical analysis. Please provide theoretical justification."
+
+**回复：**
+> "We have added Theorem 1 in Section 3.2, which proves that our attention mechanism has O(N log N) complexity. The proof is provided in Appendix A. We have also added a discussion of the theoretical implications in Section 5."
+
+**关键技巧：**
+- 说明新增理论内容
+- 引用定理和证明位置
+- 讨论理论意义
+
 ## 检查清单
 
 - [ ] 每条评论都有 ID 和回复

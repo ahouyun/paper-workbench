@@ -73,3 +73,31 @@
 - Method: 2 key innovations (mixed query selection, look-forward twice)
 - Experiments: Training schedule ablation, backbone scaling
 - Conclusion: 3 sentences
+
+### STAEformer (IEEE TITS 2024)
+- Abstract: 4 sentences, ~120 words
+- Introduction: Importance → Challenge → Solution → Results
+- Method: Adaptive spatio-temporal embeddings + Transformer encoder
+- Experiments: 4 datasets (METR-LA, PEMS-BAY, PeMS04, PeMS08)
+- Conclusion: 3 sentences
+
+### PDFormer (IEEE TITS 2024)
+- Abstract: 5 sentences, ~150 words
+- Introduction: Physical phenomenon → Challenge → Solution → Results
+- Method: Propagation delay-aware attention + dynamic graph
+- Experiments: 4 datasets + ablation + sensitivity analysis
+- Conclusion: 4 sentences
+
+### DiffSTG (IEEE TITS 2025)
+- Abstract: 4 sentences, ~130 words
+- Introduction: Uncertainty challenge → Existing methods gap → Solution → Results
+- Method: Diffusion process on graph-structured data
+- Experiments: Probabilistic evaluation + point estimation
+- Conclusion: 3 sentences + future work
+
+### ST-Mamba (IEEE TITS 2025)
+- Abstract: 4 sentences, ~100 words
+- Introduction: Complexity challenge → Existing methods gap → Solution → Results
+- Method: ST-Mixer + ST-SSM modules (no graph modeling)
+- Experiments: 61.11% speed improvement + 0.67% accuracy gain
+- Conclusion: 3 sentences
