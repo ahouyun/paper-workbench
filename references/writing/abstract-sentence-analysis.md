@@ -1095,3 +1095,62 @@
 | mAP | 高 | 3D检测 |
 | mIoU | 中 | 语义分割 |
 | FPS | 中 | 实时性能 |
+
+---
+
+# 第七部分：CrossRef 补充论文（10篇）
+
+## 交通预测补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| TMGFormer | 10.21203/rs.3.rs-4424020/v1 | Transformer + Multi-Graph Fusion Convolution |
+| MFTFormer | 10.21203/rs.3.rs-8770196/v1 | Meteorological-Frequency-Temporal Transformer |
+| GLFormer | 10.21203/rs.3.rs-8085456/v1 | Global-Local Spatial-Temporal Dependency Interaction |
+| Multi-Head STAG | 10.3390/s23083836 | Multi-Head Spatiotemporal Attention Graph Convolution |
+
+## 自动驾驶补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| CAB-3D | 10.2139/ssrn.6810811 | Context-Aware Attention-Based 3D Detection |
+| Hyper-source Fusion | 10.2139/ssrn.6689267 | Retrospective Attention Fusion for Camera-LiDAR |
+| LiDAR Intensity-Aware | 10.3390/s24092942 | Intensity-Aware Outdoor 3D Detection |
+
+## 联邦学习补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| FedVR360 | 10.21203/rs.3.rs-8808416/v1 | Federated Learning for VR 360° Video in VEC |
+
+## 轨迹预测补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| Pedestrian Transformer | 10.32920/25613349 | Transformer + Kalman Filter for Trajectory |
+| Lightweight Trajectory | 10.21203/rs.3.rs-6112129/v1 | Deep Learning on Raspberry Pi 4 |
+
+## 信号控制补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| DQN Traffic Signal | 10.36227/techrxiv.173272641.13297029/v1 | Deep Q-Networks for Traffic Signal Control |
+
+---
+
+# 最终统计：112篇论文
+
+| 领域 | 论文数 | 数据来源 |
+|------|--------|---------|
+| 交通预测 | 16 | Semantic Scholar + CrossRef |
+| 联邦学习/边缘计算 | 11 | Semantic Scholar + CrossRef |
+| 轨迹预测 | 11 | Semantic Scholar + CrossRef |
+| 点云/LiDAR | 10 | Semantic Scholar |
+| 交通安全 | 10 | Semantic Scholar |
+| 需求预测 | 10 | Semantic Scholar |
+| 信号控制 | 11 | Semantic Scholar + CrossRef |
+| 数据融合 | 10 | Semantic Scholar |
+| 状态估计 | 10 | Semantic Scholar |
+| 经济学/环境 | 10 | Semantic Scholar |
+| 自动驾驶 | 3 | CrossRef |
+| **总计** | **112篇** | — |
