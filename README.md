@@ -102,7 +102,7 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 
 ```
 paper-workbench/
-├── SKILL.md                          # 入口路由（v7.7.0）
+├── SKILL.md                          # 入口路由（v7.8.0）
 ├── README.md                         # 本文件
 ├── install.sh                        # 安装脚本
 ├── references/
