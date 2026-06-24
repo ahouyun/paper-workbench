@@ -952,3 +952,146 @@
 3. **全面：** "on [N] datasets"
 4. **效率：** "saves X% communication overhead"
 5. **双重优势：** "in both X and Y"
+
+---
+
+# 第六部分：补充论文（50篇）
+
+## 需求预测论文（10篇）
+
+| 论文 | DOI | 核心创新 | 摘要开头模式 |
+|------|-----|---------|-------------|
+| TSAGE-HFL | 10.1109/tits.2025.3564627 | 水平联邦学习网约车预测 | "The burgeoning demand for ride-hailing services..." |
+| MMDNet | 10.1109/tits.2025.3614270 | 元学习多模态需求预测 | "Accurately and jointly predicting multimodal transportation demand..." |
+| DTW-GAT | 10.1109/tits.2025.3570009 | 动态时间规整图注意力 | "Bike-sharing demand prediction involves complex..." |
+| DT-CTFP | 10.1109/tits.2025.3582356 | 6G数字孪生协同预测 | "In the era of big data, intelligent transportation systems..." |
+| ADCSD | 10.1109/tits.2025.3600237 | 测试时在线适应 | "Accurate spatial-temporal traffic flow forecasting is crucial..." |
+| PRMAN | 10.1109/tits.2025.3595779 | 物理正则化多尺度注意力 | "Spatiotemporal traffic data imputation is a fundamental task..." |
+| Score-STPP | 10.1109/tits.2025.3605287 | 基于分数的时空点过程 | "Traffic prediction is a crucial aspect of modern traffic management..." |
+| AUMS | 10.1109/tits.2025.3609445 | AIoT共享单车管理 | "Rapid urbanization and the rising demand for sustainable mobility..." |
+| ST-WaveMLP | 10.1109/tits.2025.3546105 | 生成式AI时空网络 | "N/A" |
+| LMO-DFRNN | 10.1109/tits.2025.3571773 | 6G实时交通预测 | "The sensing-computing integrated chips and systems..." |
+
+## 轨迹预测论文（10篇）
+
+| 论文 | DOI | 核心创新 | 摘要开头模式 |
+|------|-----|---------|-------------|
+| SST | 10.1109/tits.2025.3550711 | 自监督Transformer | "Trajectory prediction is one of the important components..." |
+| Timewise | 10.1109/tits.2025.3594563 | 时间维度意图 | "Pedestrian trajectory prediction is crucial for..." |
+| HDAAGT | 10.1109/tits.2025.3589203 | 异构决策感知图Transformer | "Roadside sensors offer a fixed, unobstructed vantage point..." |
+| StyleFormer | 10.1109/tits.2025.3595733 | 驾驶风格感知 | "Accurately inferring the driving intentions..." |
+| Mapless KD | 10.1109/tits.2025.3574258 | 知识蒸馏无地图 | "Scene information plays a crucial role..." |
+| MSES | 10.1109/tits.2025.3589759 | 多尺度时间编码 | "Multi-agent trajectory prediction plays an increasingly critical role..." |
+| Intention Diffusion | 10.1109/tits.2025.3553125 | 意图感知扩散 | "Trajectory prediction is an essential component..." |
+| Continual MATP | 10.1109/tits.2025.3591652 | 持续学习 | "Multi-agent trajectory prediction (MATP) is pivotal..." |
+| Social-Pose | 10.1109/tits.2025.3594889 | 人体姿态融合 | "Accurate human trajectory prediction is one of the most crucial tasks..." |
+
+## 点云/LiDAR论文（10篇）
+
+| 论文 | DOI | 核心创新 | 摘要开头模式 |
+|------|-----|---------|-------------|
+| PASS | 10.1109/tits.2025.3555229 | 点辅助样本选择 | "3D object detection based on LiDAR point cloud..." |
+| Fade3D | 10.1109/tits.2025.3568418 | 快速可部署 | "3D object detection is an essential scene perception capability..." |
+| RobMOT | 10.1109/tits.2025.3581980 | 轨迹有效性机制 | "This paper addresses key limitations in recent 3D tracking-by-detection..." |
+| LiDAR-BEVMTN | 10.1109/tits.2024.3510642 | 实时多任务感知 | "LiDAR is crucial for robust 3D scene perception..." |
+| MSSF | 10.1109/tits.2025.3554313 | 4D雷达+摄像头融合 | "As one of the automotive sensors that have emerged..." |
+| RM2Occ | 10.1109/tits.2025.3606554 | 重投影多任务融合 | "Occupancy prediction plays a crucial role..." |
+| SID | 10.1109/tits.2025.3535595 | 自蒸馏内省数据 | "3D object detection is a fundamental yet critical task..." |
+| Ground Seg | 10.1109/tits.2025.3532436 | 地面分割实证 | "The ratio of foreground and background points directly impacts..." |
+| TransBridge | 10.1109/tits.2025.3617527 | Transformer场景补全 | "3D object detection is essential in autonomous driving..." |
+
+## 交通安全论文（10篇）
+
+| 论文 | DOI | 核心创新 | 摘要开头模式 |
+|------|-----|---------|-------------|
+| Safety Survey | 10.1109/tits.2025.3526820 | 混合驾驶环境安全综述 | "With the continuous development of intelligent networks..." |
+| GrDBN-GPR | 10.1109/tits.2024.3510788 | 高斯径向深度信念网络 | "Traffic crashes are a serious problem in modern civilization..." |
+| KAN-RL | 10.1109/tits.2025.3578279 | KAN网络环岛决策 | "Safety and efficiency are crucial for autonomous driving..." |
+| Cycling Safety | 10.1109/tits.2024.3507639 | 骑行安全感知学习 | "Cycling is critical for cities to transition to more sustainable transport..." |
+| KLEP | 10.1109/tits.2025.3526341 | 知识驱动换道预测 | "Ensuring the smooth operation of road traffic is a momentous target..." |
+| AV Decision Survey | 10.1109/tits.2025.3636070 | 自动驾驶决策评估综述 | "Autonomous vehicles (AVs) promise substantial gains in safety..." |
+| Cycling Network | 10.1109/tits.2025.3556555 | 骑行网络拓扑优化 | "This work aims to improve perceived safety and comfort of cyclists..." |
+| Bayesian Games | 10.1109/tits.2025.3561510 | 贝叶斯序贯博弈 | "Automated Vehicles (AVs) will coexist with Human-Driven Vehicles..." |
+| CAV Testing | 10.1109/tits.2025.3535866 | 自适应测试环境 | "The assessment of safety performance plays a pivotal role..." |
+| Drowsiness | 10.1109/tits.2025.3544138 | 注意力深度学习疲劳检测 | "Drivers' drowsiness has been considered one of the prime reasons..." |
+
+---
+
+# 总结：102篇论文写作模式库
+
+## 覆盖统计
+
+| 领域 | 论文数 | 代表论文 |
+|------|--------|---------|
+| 交通预测 | 12 | LMO-DFRNN, TMA-GNN, ASTMGCNet, HLFNet, TDGCRN |
+| 联邦学习/边缘计算 | 10 | FedGau, UAV-VEC-KD, PSFL, FedCPC, CAV-FL |
+| 轨迹预测 | 10 | SST, HDAAGT, StyleFormer, MSES, Social-Pose |
+| 点云/LiDAR | 10 | PASS, Fade3D, RobMOT, LiDAR-BEVMTN, TransBridge |
+| 交通安全 | 10 | GrDBN-GPR, KAN-RL, KLEP, Bayesian Games, CAV Testing |
+| 需求预测 | 10 | TSAGE, MMDNet, DTW-GAT, DT-CTFP, AUMS |
+| 信号控制 | 10 | OracleTSC, DGLight, CuraLight, SignalClaw, Traffic-R1 |
+| 数据融合 | 10 | Async Tunnel, Hybrid TrafficAI, UMD-Net, TDGCRN |
+| 状态估计 | 10 | DGAE, PIDL TSE, Res-PINN, RNS-TL, UAV Routing |
+| 经济学/环境 | 10 | AMoD Pricing, Blockchain CZ, RL Eco-Driving |
+| **总计** | **102篇** | — |
+
+## 摘要写作模式汇总（10类 × 5种）
+
+### 开头句模式
+1. 技术背景："In the context of [technology]..."
+2. 重要性："X is crucial for Y..."
+3. 趋势："X has increasingly gained attention..."
+4. 需求增长："The demand for X has shown explosive growth..."
+5. 安全重要性："The security of X is fundamental to..."
+
+### 挑战句模式
+1. 先肯定再批评："Although X...they still..."
+2. 编号列出："First,... Second,..."
+3. 具体化：给出具体复杂度、时间、百分比
+4. 多角度：列出多个问题
+5. 量化：给出具体数字
+
+### 方案句模式
+1. 完整名称："We propose [Full Name] ([Acronym])"
+2. 模块化："comprising [Module A] and [Module B]"
+3. 灵感来源："takes inspiration from [source]"
+4. 对比："Unlike [existing approach]..."
+5. 直接回应："To address these issues..."
+
+### 结果句模式
+1. 量化："reducing X by Y%"
+2. 对比："outperforming [baseline] by [Z]"
+3. 全面："on [N] datasets"
+4. 效率："saves X% communication overhead"
+5. 双重优势："in both X and Y"
+
+### 创新句模式
+1. 对比："Unlike [existing approach]..."
+2. 具体：给出具体技术细节
+3. 效果："thereby improving [metric]"
+4. 模块化："comprising [Module A] and [Module B]"
+5. 直接回应："To address these issues..."
+
+## 数据集使用统计
+
+| 数据集 | 使用频率 | 领域 |
+|--------|---------|------|
+| METR-LA | 最高 | 交通预测 |
+| PEMS-BAY | 最高 | 交通预测 |
+| PeMS04/08 | 高 | 交通预测 |
+| nuScenes | 高 | 自动驾驶 |
+| KITTI | 中 | 3D检测 |
+| ETH/UCY | 中 | 轨迹预测 |
+| Argoverse | 中 | 轨迹预测 |
+
+## 指标使用统计
+
+| 指标 | 使用频率 | 用途 |
+|------|---------|------|
+| MAE | 最高 | 预测精度 |
+| RMSE | 最高 | 预测精度 |
+| MAPE | 高 | 预测精度 |
+| ADE/FDE | 高 | 轨迹预测 |
+| mAP | 高 | 3D检测 |
+| mIoU | 中 | 语义分割 |
+| FPS | 中 | 实时性能 |
