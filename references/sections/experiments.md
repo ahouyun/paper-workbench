@@ -1462,3 +1462,65 @@ Use them to enforce:
 5. **Self-refinement** — iterative prediction-feedback-refinement
 6. **Probabilistic prediction** — diffusion models + uncertainty quantification
 7. **Privacy preservation** — federated learning + differential privacy
+
+---
+
+## 实用模板：实验部分写作
+
+### 模板1：实验设置段落
+
+```
+We evaluate our method on [N] benchmark datasets: [Dataset1] ([description]), [Dataset2] ([description]), and [Dataset3] ([description]). Following the standard protocol in [ref], we split each dataset into [train/val/test] sets with ratio [X:Y:Z]. We implement our method using [framework] on [hardware]. The model is trained with [optimizer] (learning rate [X], batch size [Y]) for [Z] epochs. All experiments are repeated [N] times with different random seeds, and we report the mean ± standard deviation.
+```
+
+### 模板2：主结果段落
+
+```
+Table [X] compares our method with [N] baselines on [dataset]. Our method achieves the best performance on [metrics], outperforming the strongest baseline [Method] by [X]% on [metric1] and [Y]% on [metric2]. The improvement is consistent across [settings/datasets], demonstrating the effectiveness of our [component/approach].
+```
+
+### 模板3：消融实验段落
+
+```
+To validate the contribution of each component, we conduct ablation experiments on [dataset]. As shown in Table [X], removing [Component A] leads to a [X]% drop in [metric], while removing [Component B] causes a [Y]% drop. This suggests that [Component A] is the most critical component, contributing [Z]% of the total improvement. The full model achieves the best performance, confirming that all components are necessary.
+```
+
+### 模板4：失败案例段落
+
+```
+Despite the overall strong performance, our method has limitations. Specifically, [describe failure case]. As shown in Figure [X], [describe visualization of failure]. This is because [explain reason]. We plan to address this in future work by [suggest solution].
+```
+
+### 模板5：计算效率段落
+
+```
+Table [X] compares the computational efficiency of our method with baselines. Our method achieves [X]x speedup over [baseline] while using [Y]% less memory. The inference time is [Z]ms per [sample/frame], which is [W]x faster than [baseline]. These results demonstrate that our method is both accurate and efficient.
+```
+
+---
+
+## 实验部分自检清单
+
+### 实验设置
+- [ ] 数据集描述完整（名称、来源、规模、划分）
+- [ ] 评估指标定义清楚（公式、方向性）
+- [ ] 基线方法选择合理（最新SOTA + 经典方法）
+- [ ] 实现细节充分（硬件、软件、超参数、随机种子）
+
+### 主结果
+- [ ] 结果表格格式规范（booktabs、加粗最优）
+- [ ] 结果叙述有分析（不只是罗列数字）
+- [ ] 统计显著性报告（多随机种子、标准差）
+- [ ] 图表清晰可读（标签、图例、单位）
+
+### 消融实验
+- [ ] 每个关键组件都有消融
+- [ ] 消融结果有分析解释
+- [ ] 超参数敏感性分析
+- [ ] 限制和失败案例讨论
+
+### 写作质量
+- [ ] 逻辑流畅（设置→结果→分析→讨论）
+- [ ] 语言简洁（避免冗余和模糊）
+- [ ] 图表与正文对应
+- [ ] 参考文献格式正确
