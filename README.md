@@ -1,4 +1,4 @@
-# Paper Workbench — 论文写作工作台 v7.6.0
+# Paper Workbench — 论文写作工作台 v7.7.0
 
 > 一套**工具无关**的论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通/智能交通/自动驾驶方向**。
 >
@@ -6,7 +6,7 @@
 >
 > 整合了 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (v3.13.0) 和 [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) (v2.1.0) 的核心能力。
 >
-> **基于 900+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML/CVPR/ACL/SIGGRAPH 2024-2026 论文的真实写作模式分析。**
+> **基于 900+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML/CVPR/ACL/SIGGRAPH 2024-2026 论文的真实写作模式分析。包含 12 篇 Semantic Scholar API 验证的 IEEE TITS 2025 真实论文（含 DOI 和真实摘要）。**
 
 ---
 
@@ -173,6 +173,15 @@ paper-workbench/
 ---
 
 ## 📋 版本更新日志
+
+### v7.7.0 (2026-06-23)
+
+**Semantic Scholar API 验证论文集成：**
+- 新增 12 篇 IEEE TITS 2025 真实论文（含 DOI 和真实摘要）
+- 所有论文均通过 Semantic Scholar API 验证
+- 每篇论文包含写作模式分析和关键创新点
+- 新增 5 个实用写作模板（设置/结果/消融/失败案例/效率）
+- 新增 20 项自检清单
 
 ### v7.6.0 (2026-06-23)
 

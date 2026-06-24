@@ -11,7 +11,7 @@ description: >
   默认遵循"证据先于散文"，优先建立 claim-evidence-artifact 对齐，再进入正文生成或润色。
   当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述、完整流程、端到端、
   科研画图、数据可视化、不知道用什么图、怎么展示数据、用什么图好、期刊投稿图、figure、出版级图表时触发。
-version: 7.6.0
+version: 7.7.0
 ---
 
 # Paper Workbench
