@@ -1755,3 +1755,35 @@ Table [X] compares the computational efficiency of our method with baselines. Ou
 - 真实场景验证
 - 部署效率分析
 - 用户研究（如适用）
+
+## 实验叙述写作模板
+
+### 模板1：主结果叙述
+
+```
+Table [X] compares our method with [N] baselines on [dataset]. Our method achieves the best performance on [metrics], outperforming the strongest baseline [Method] by [X]% on [metric1] and [Y]% on [metric2]. The improvement is consistent across [settings/datasets], demonstrating the effectiveness of our [component/approach].
+```
+
+### 模板2：消融实验叙述
+
+```
+To validate the contribution of each component, we conduct ablation experiments on [dataset]. As shown in Table [X], removing [Component A] leads to a [X]% drop in [metric], while removing [Component B] causes a [Y]% drop. This suggests that [Component A] is the most critical component, contributing [Z]% of the total improvement.
+```
+
+### 模板3：失败案例叙述
+
+```
+Despite the overall strong performance, our method has limitations. Specifically, [describe failure case]. As shown in Figure [X], [describe visualization of failure]. This is because [explain reason]. We plan to address this in future work by [suggest solution].
+```
+
+### 模板4：计算效率叙述
+
+```
+Table [X] compares the computational efficiency of our method with baselines. Our method achieves [X]x speedup over [baseline] while using [Y]% less memory. The inference time is [Z]ms per [sample/frame], which is [W]x faster than [baseline].
+```
+
+### 模板5：跨数据集验证叙述
+
+```
+To demonstrate the generalization ability of our method, we evaluate on [N] datasets with different characteristics. As shown in Table [X], our method consistently outperforms baselines across all datasets, with improvements ranging from [X]% to [Y]%.
+```
