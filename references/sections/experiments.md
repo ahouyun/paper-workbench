@@ -1350,3 +1350,47 @@ Use them to enforce:
 3. **Digital twin integration** — real-time data synchronization
 4. **Knowledge graph fusion** — domain knowledge + data-driven
 5. **Asynchronous handling** — delayed measurements, irregular sampling
+
+## IEEE TITS 2025 Traffic Prediction Benchmark Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| LMO-DFRNN | 6G traffic prediction | Deep fuzzy rough neural network |
+| TDGCRN | Traffic prediction | Triple dynamic graph with congestion index |
+| DRSTT | Traffic prediction | Dynamic routing spatial-temporal transformer |
+| HLFNet | Long-term prediction | High-low frequency attention network |
+| TMA-GNN | Sparse data | Traffic management actions as governing rules |
+| Multiform Fusion | Traffic prediction | Sequence autocorrelation + multi-granularity |
+| DyASTGCN | Active mode | Weather-aware spatial correlation |
+| ASTMGCNet | Traffic prediction | Multi-scale feature + dual attention |
+| Lane-Level Benchmark | Lane-level | First unified benchmark for lane-level prediction |
+| TCPP | Congestion | Multi-source auxiliary data benchmark |
+
+### Common Writing Patterns (Traffic Prediction)
+
+**Abstract structure:**
+1. **Opening:** "Traffic flow prediction is a critical component of ITS..."
+2. **Challenge:** "However, existing methods fail to capture..."
+3. **Solution:** "To address this, we propose [method]..."
+4. **Results:** "Extensive experiments demonstrate..."
+
+**Key innovation trends:**
+1. **Dynamic graph structures** — congestion-aware, weather-aware
+2. **Multi-scale decomposition** — hourly, daily, weekly cycles
+3. **Attention mechanisms** — dual attention, frequency-based
+4. **Graph neural network variants** — GCN, GNN, graph transformers
+5. **Handling data sparsity** — missing data, sparse sensors
+
+### Benchmark Paper Patterns
+
+**Lane-Level Prediction Benchmark:**
+- First unified benchmark for lane-level traffic prediction
+- Graph structural perspective
+- Standard evaluation protocol
+
+**TCPP Benchmark Platform:**
+- Multi-source auxiliary data integration
+- Reproducible evaluation framework
+- Standard metrics and baselines
