@@ -1138,19 +1138,155 @@
 
 ---
 
-# 最终统计：112篇论文
+# 第八部分：CrossRef 大量补充论文（30篇）
+
+## 交通预测补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| FedGraphNet | 10.55529/jaimlnn.52.58.68 | Federated GNN for privacy-preserving traffic forecasting |
+| ISTGCN | 10.3390/app142411477 | Integrated Spatio-Temporal Graph Convolutional Networks |
+| TMGFormer | 10.21203/rs.3.rs-4424020/v1 | Transformer + Multi-Graph Fusion Convolution |
+| MFTFormer | 10.21203/rs.3.rs-8770196/v1 | Meteorological-Frequency-Temporal Transformer |
+| GLFormer | 10.21203/rs.3.rs-8085456/v1 | Global-Local Spatial-Temporal Dependency Interaction |
+| Multi-Head STAG | 10.3390/s23083836 | Multi-Head Spatiotemporal Attention Graph Convolution |
+
+## 信号控制补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| DQN Traffic Signal | 10.36227/techrxiv.173272641.13297029/v1 | Deep Q-Networks for Traffic Signal Control |
+| DRL Signal Efficiency | 10.70251/hyjr2348.43557567 | Deep Reinforcement Learning for Signal Efficiency |
+
+## NLP/LLM 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| LLM Survey Classification | 10.31224/3984 | ML + NLP for classifying LLM survey papers |
+| MLLM Noise Resistance | 10.33774/coe-2025-6z9zx | Noise resistance of multimodal LLMs |
+| Thyroid Cancer LLM | 10.64898/2026.03.05.26347766 | LLM for thyroid cancer risk prediction |
+| MLLM Improvisation | 10.31219/osf.io/68fsw | Multimodal LLM improvisational capabilities |
+| 3M-DeepSC | 10.22541/au.172479430.09168922/v1 | Mamba-based multimodal semantic communication |
+| ChemReactLLM | 10.26434/chemrxiv-2025-vhvgh | Multimodal LLM for catalyst-driven reaction prediction |
+
+## 3D Gaussian Splatting 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| Specialized 3DGS | 10.30693/smj.2026.15.2.64 | Inner Gaussian Splatting for MRI |
+| Transparent 3DGS | 10.20944/preprints202505.2191.v1 | 2D Gaussian Splatting for transparent surfaces |
+| Text-to-3DGS | 10.32388/ydank8 | Text-to-3D with physics-grounded motion |
+
+## State Space Model 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| BEVMamba | 10.36227/techrxiv.172236567.72239502/v1 | Mamba for BEV perception |
+
+## Meta-Learning 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| Meta-Learning Survey | 10.36227/techrxiv.176784520.02393968/v1 | Comprehensive meta-learning survey |
+| Few-Shot Image Classification | 10.18178/joig.12.2.205-214 | Episodic learning for few-shot |
+| UAV Trajectory Meta-RL | 10.36227/techrxiv.173896950.07108481/v1 | Few-shot meta-offline RL for UAV |
+| Neural Context Flow | 10.2139/ssrn.6179364 | Meta-learning for time-varying systems |
+
+## Graph Transformer 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| EG-DGATN | 10.3390/app14083428 | EEMD-Granger + Dynamic Graph Attention Transformer |
+
+## Physics-Informed 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| PINN Atmospheric | 10.5194/egusphere-egu26-13711 | Physics-informed NN for atmospheric parameterization |
+| PINN Gas Network | 10.2139/ssrn.6878407 | Physics-informed GNN for gas network feasibility |
+
+## Contrastive Learning 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| scRNA-seq Clustering | 10.21203/rs.3.rs-8072547/v1 | Self-supervised graph contrastive learning |
+| Zero-Shot BCI | 10.21203/rs.3.rs-8011168/v1 | Self-supervised contrastive learning for BCI |
+| Colorectal Cancer | 10.21203/rs.3.rs-6414312/v1 | Interpretable SSCL for histopathology |
+| CMPL | 10.21203/rs.3.rs-7555258/v1 | Contrastive Modality-Preserving Learning |
+
+## Other ML 补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| Neural Architecture Transfer 2 | 10.31224/3613 | Efficient neural architecture transfer |
+| Kannada Speech Recognition | 10.21203/rs.3.rs-6858731/v1 | Deep phonetic learning for speech |
+
+---
+
+# 最终统计：142篇论文
 
 | 领域 | 论文数 | 数据来源 |
 |------|--------|---------|
-| 交通预测 | 16 | Semantic Scholar + CrossRef |
-| 联邦学习/边缘计算 | 11 | Semantic Scholar + CrossRef |
-| 轨迹预测 | 11 | Semantic Scholar + CrossRef |
+| 交通预测 | 22 | Semantic Scholar + CrossRef |
+| 联邦学习/边缘计算 | 12 | Semantic Scholar + CrossRef |
+| 轨迹预测 | 12 | Semantic Scholar + CrossRef |
 | 点云/LiDAR | 10 | Semantic Scholar |
 | 交通安全 | 10 | Semantic Scholar |
 | 需求预测 | 10 | Semantic Scholar |
-| 信号控制 | 11 | Semantic Scholar + CrossRef |
+| 信号控制 | 13 | Semantic Scholar + CrossRef |
 | 数据融合 | 10 | Semantic Scholar |
 | 状态估计 | 10 | Semantic Scholar |
 | 经济学/环境 | 10 | Semantic Scholar |
-| 自动驾驶 | 3 | CrossRef |
-| **总计** | **112篇** | — |
+| 自动驾驶 | 4 | CrossRef |
+| NLP/LLM | 6 | CrossRef |
+| 3DGS | 3 | CrossRef |
+| Meta-Learning | 4 | CrossRef |
+| Contrastive Learning | 4 | CrossRef |
+| Graph Transformer | 1 | CrossRef |
+| Physics-Informed | 2 | CrossRef |
+| Other ML | 1 | CrossRef |
+| **总计** | **142篇** | — |
+
+## 摘要写作模式汇总（从142篇论文提取）
+
+### 开头句模式（8种）
+1. **技术背景：** "In the context of [technology]..."
+2. **重要性：** "X is crucial for Y..."
+3. **趋势：** "X has increasingly gained attention..."
+4. **需求增长：** "The demand for X has shown explosive growth..."
+5. **安全重要性：** "The security of X is fundamental to..."
+6. **研究空白：** "Despite significant progress, X remains challenging..."
+7. **应用驱动：** "X plays a crucial role in Y applications..."
+8. **数据驱动：** "With the increasing availability of X data..."
+
+### 挑战句模式（6种）
+1. **先肯定再批评：** "Although X...they still..."
+2. **编号列出：** "First,... Second,..."
+3. **具体化：** 给出具体复杂度、时间、百分比
+4. **多角度：** 列出多个问题
+5. **量化：** 给出具体数字
+6. **对比：** "Unlike X, Y faces..."
+
+### 方案句模式（6种）
+1. **完整名称：** "We propose [Full Name] ([Acronym])"
+2. **模块化：** "comprising [Module A] and [Module B]"
+3. **灵感来源：** "takes inspiration from [source]"
+4. **对比：** "Unlike [existing approach]..."
+5. **直接回应：** "To address these issues..."
+6. **理论支撑：** "Building on [theory/framework]..."
+
+### 结果句模式（6种）
+1. **量化：** "reducing X by Y%"
+2. **对比：** "outperforming [baseline] by [Z]"
+3. **全面：** "on [N] datasets"
+4. **效率：** "saves X% communication overhead"
+5. **双重优势：** "in both X and Y"
+6. **统计显著：** "with p < 0.05"
+
+### 创新句模式（6种）
+1. **对比：** "Unlike [existing approach]..."
+2. **具体：** 给出具体技术细节
+3. **效果：** "thereby improving [metric]"
+4. **模块化：** "comprising [Module A] and [Module B]"
+5. **直接回应：** "To address these issues..."
+6. **首次：** "To the best of our knowledge, this is the first..."
