@@ -102,51 +102,37 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 
 ```
 paper-workbench/
-├── SKILL.md                          # 入口路由
+├── SKILL.md                          # 入口路由（v7.7.0）
 ├── README.md                         # 本文件
 ├── install.sh                        # 安装脚本
 ├── references/
 │   ├── README.md                     # 统一索引
-│   ├── writing/                      # 写作参考
-│   │   ├── ieee-expression-patterns-core.md  # 核心表达模式（1300行）
-│   │   ├── ieee-expression-patterns-new.md   # 新发现模式（972行）
-│   │   ├── chapter-patterns-ieee.md  # IEEE章节模式
-│   │   ├── ieee-polishing.md         # 润色规则（51条）
-│   │   ├── traffic-figure-patterns.md # 图表模式（3300行）
-│   │   ├── ieee-experiment-playbook.md # 实验设计
-│   │   ├── ieee-innovation-inspiration.md # 创新灵感
-│   │   ├── style-calibration-protocol.md # 风格校准协议（ARS整合）
-│   │   └── traffic-*.md              # 交通预测专项
-│   ├── research/                     # 研究工具
-│   │   ├── academic-search.md        # 学术检索
-│   │   └── citation-verification.md  # 引用验证
-│   ├── review/                       # 审稿工具
-│   │   ├── ieee-reviewer-simulation.md # 审稿模拟
-│   │   └── collaboration-depth-rubric.md # 协作深度评分（ARS整合）
-│   ├── submission/                   # 投稿工具
-│   │   ├── cover-letter-template.md  # Cover Letter
-│   │   ├── ieee-submission-guide.md  # 投稿指南
-│   │   └── rejection-handling-guide.md # 拒稿处理
-│   ├── venues/                       # 期刊政策
-│   │   ├── ieee-tits.md              # IEEE TITS规范
-│   │   └── conference-specs.md       # 顶会规范
-│   ├── workflow/                     # 工作流
-│   │   ├── deep-research-workflow.md # 深度研究工作流
-│   │   ├── systematic-review-protocol.md # 系统综述协议
-│   │   ├── handoff-schemas.md        # 交接模式（ARS整合）
-│   │   ├── compliance-checkpoint-protocol.md # 合规检查点（ARS整合）
-│   │   ├── raise-framework.md        # RAISE框架（ARS整合）
-│   │   ├── prisma-trAIce-protocol.md # PRISMA协议（ARS整合）
-│   │   └── cross-model-verification.md # 跨模型验证（ARS整合）
-│   ├── ars-references/               # ARS整合参考（40个文件）
-│   │   ├── apa7-style-guide.md       # APA 7风格指南
-│   │   ├── review-criteria-framework.md # 审稿标准框架
-│   │   ├── pipeline-state-machine.md # 流水线状态机
-│   │   └── ...                       # 其他37个文件
-│   ├── ars-agents/                   # ARS整合智能体（3个文件）
-│   │   ├── report-compiler-agent.md  # 报告编译器
-│   │   ├── research-architect-agent.md # 研究架构师
-│   │   └── synthesis-agent.md        # 综合智能体
+│   ├── sections/                     # 📝 Section 指南（核心）
+│   │   ├── abstract.md               # 摘要写作（372行）
+│   │   ├── introduction.md           # 引言写作（769行）
+│   │   ├── method.md                 # 方法写作（491行）
+│   │   ├── experiments.md            # 实验写作（1789行，含142篇论文分析）
+│   │   ├── related-work.md           # 相关工作（210行）
+│   │   └── conclusion.md             # 结论写作（174行）
+│   ├── writing/                      # ✍️ 写作参考
+│   │   ├── abstract-sentence-analysis.md # 142篇论文逐句分析（1291行）
+│   │   ├── ieee-expression-patterns.md  # 表达模式库（3391行）
+│   │   ├── traffic-figure-patterns.md   # 图表模式（3488行）
+│   │   ├── ieee-polishing.md            # 润色规则（51条）
+│   │   ├── aigc-governance.md           # AIGC治理
+│   │   └── ...                          # 其他写作参考
+│   ├── review/                       # 👁️ 审稿工具
+│   │   ├── humanizer-patterns.md     # AI写作模式检测（366行）
+│   │   ├── paper-review.md           # 论文审稿清单
+│   │   └── reviewer-response.md      # 审稿回复模板
+│   ├── figure-advisor/               # 📊 图表顾问
+│   │   ├── chart-selection.md        # 图表选择
+│   │   ├── plot-recipes.md           # 图表配方
+│   │   └── viz-pitfalls.md           # 避坑清单
+│   ├── submission/                   # 📮 投稿工具
+│   ├── venues/                       # 🏛️ 期刊政策
+│   ├── workflow/                     # 🔄 工作流
+│   └── ars-*/                        # ARS整合模块
 │   ├── ars-templates/                # ARS整合模板（7个文件）
 │   │   ├── evidence-assessment-template.md # 证据评估模板
 │   │   ├── literature-matrix-template.md # 文献矩阵模板

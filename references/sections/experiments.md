@@ -1,5 +1,55 @@
 # Experiments Writing Guide
 
+> **1789行 | 142篇论文分析 | 32种写作模式**
+
+## 目录
+
+### 核心指南
+- [Three Core Questions](#three-core-questions)
+- [Experiment Planning](#experiment-planning)
+- [Figure/Table Writing Rules](#figuretable-writing-rules)
+- [Recommended Ablation Package](#recommended-ablation-package)
+- [Experimental Setup Writing](#experimental-setup-writing)
+- [Results Discussion Writing](#results-discussion-writing)
+- [Statistical Rigor](#statistical-rigor)
+- [Common Mistakes](#common-mistakes)
+- [Experimental Rigor Checklist](#experimental-rigor-checklist)
+
+### 写作模板
+- [Experiment Section Length by Venue](#experiment-section-length-by-venue)
+- [When NOT to Ablate](#when-not-to-ablate)
+- [Experiment Narration Templates](#实验叙述写作模板)
+
+### IEEE TITS 2025 模式库
+- [Traffic Prediction Patterns](#ieee-tits-2025-traffic-prediction-patterns)
+- [Verified Papers (Semantic Scholar)](#验证过的-ieee-tits-2025-真实论文)
+- [Autonomous Driving Patterns](#ieee-tits-2025-autonomous-driving-patterns)
+- [Trajectory Prediction](#ieee-tits-2025-trajectory-prediction-patterns)
+- [Traffic Control](#ieee-tits-2025-traffic-control-patterns)
+- [Multi-Modal Fusion](#ieee-tits-2025-multi-modal-fusion-patterns)
+- [Demand Prediction](#ieee-tits-2025-demand-prediction-patterns)
+- [Federated Learning](#ieee-tits-2025-federated-learning--edge-computing-patterns)
+- [Scene Understanding](#ieee-tits-2025-scene-understanding-patterns)
+- [Public Transit](#ieee-tits-2025-public-transit-patterns)
+- [Traffic Safety](#ieee-tits-2025-traffic-safety-patterns)
+- [Smart City](#ieee-tits-2025-smart-city--adverse-weather-patterns)
+- [Point Cloud/LiDAR](#ieee-tits-2025-point-cloud--lidar-patterns)
+- [Video Prediction](#ieee-tits-2025-video-prediction--scene-generation-patterns)
+- [Self-Supervised Learning](#ieee-tits-2025-self-supervised--contrastive-learning-patterns)
+- [Continual Learning](#ieee-tits-2025-continual-learning--domain-adaptation-patterns)
+- [New Graph Architectures](#ieee-tits-2025-new-graph-architecture-patterns)
+- [Signal Control New Methods](#ieee-tits-2025-traffic-signal-control-new-methods)
+- [Big Data](#ieee-tits-2025-big-data--urban-computing-patterns)
+- [Survey Papers](#ieee-tits-2025-survey--review-patterns)
+- [Foundation Models/LLM](#ieee-tits-2025-foundation-model--llm-patterns)
+- [Benchmarks](#ieee-tits-2025-traffic-prediction-benchmark-patterns)
+- [Transportation Economics](#ieee-tits-2025-transportation-economics--pricing-patterns)
+- [Environmental Impact](#ieee-tits-2025-environmental-impact-patterns)
+- [Traffic State Estimation](#ieee-tits-2025-traffic-state-estimation-patterns)
+- [Data Fusion](#ieee-tits-2025-traffic-data-fusion-patterns)
+
+---
+
 ## Goal
 
 Convince reviewers with complete evidence on effectiveness, causality, and practical value.
