@@ -183,3 +183,494 @@
 - ✅ 诚实讨论局限性
 - ✅ 局限性要有对应的解决方案
 - ❌ 避免只展示成功案例
+
+---
+
+## 论文4: ASTMGCNet — Attention-Driven Spatio-Temporal Deep Hybrid Neural Networks
+
+**DOI:** 10.1109/tits.2025.3540852
+
+### 逐句分析
+
+**S1 (背景):** "In the context of rapidly growing city road networks, understanding complex traffic patterns and implementing effective safety monitoring through advanced Transportation Cyber-Physical Systems (T-CPS) has become increasingly challenging."
+- **功能：** 介绍研究背景和挑战
+- **技巧：** 用"increasingly challenging"强调问题严重性
+- **学习点：** 背景要具体，不要泛泛而谈
+
+**S2 (具体挑战):** "This involves understanding spatial relationships and non-linear temporal associations."
+- **功能：** 具体说明挑战内容
+- **技巧：** 列出两个具体方面
+- **学习点：** 挑战要具体化
+
+**S3 (数据复杂性):** "Accurately predicting traffic in such scenarios, particularly for long-term sequences, is challenging due to the complexity of the data."
+- **功能：** 强调长期预测的难度
+- **技巧：** 用"particularly"突出重点
+- **学习点：** 要明确指出研究重点
+
+**S4 (现有方法问题):** "Traditional ways of predicting traffic flow use a single fixed graph structure based on location."
+- **功能：** 指出现有方法的局限
+- **技巧：** 具体描述现有方法的做法
+- **学习点：** 批评要具体
+
+**S5 (核心问题):** "This structure does not consider possible correlations and cannot fully capture long-term temporal relationships among traffic flow data, thereby limiting the system ability to ensure safety and reliability."
+- **功能：** 指出核心问题
+- **技巧：** 用"thereby"连接因果关系
+- **学习点：** 问题要解释影响
+
+**S6 (方案):** "To address this challenge, we propose a novel traffic prediction framework called Attention-based Spatio-temporal Multi-scale Graph Convolutional Recurrent Network (ASTMGCNet)."
+- **功能：** 提出解决方案
+- **技巧：** 给出完整方法名称和缩写
+- **学习点：** 方案要具体
+
+**S7 (框架描述):** "This study introduces a novel framework designed to improve prediction accuracy in dynamic urban traffic systems by effectively capturing complex spatio-temporal correlations through multi-scale feature extraction and attention mechanisms."
+- **功能：** 描述框架目标
+- **技巧：** 用"by"说明实现方式
+- **学习点：** 框架描述要包含实现方式
+
+**S8 (技术细节):** "ASTMGCNet records changing features of space and time by combining Gated Recurrent Units (GRU) and Graph Convolutional Networks (GCN)."
+- **功能：** 说明技术细节
+- **技巧：** 给出具体技术组件
+- **学习点：** 技术细节要具体
+
+**S9 (创新点):** "Its design incorporates multi-scale feature extraction and dual attention mechanisms, effectively capturing informative patterns at different levels of detail."
+- **功能：** 说明创新点
+- **技巧：** 强调"multi-scale"和"dual attention"
+- **学习点：** 创新点要具体
+
+**S10 (优势):** "This strategic design allows ASTMGCNet to effectively capture complex spatio-temporal correlations within traffic sequences, enhancing prediction accuracy."
+- **功能：** 说明设计优势
+- **技巧：** 用"strategic design"强调设计意图
+- **学习点：** 优势要与设计对应
+
+**S11 (验证):** "We have tested this method on two different real-world datasets and found that ASTMGCNet predicts significantly better than other methods, demonstrating its potential to advance traffic flow prediction and improve safety and reliability in T-CPS applications."
+- **功能：** 展示实验结果
+- **技巧：** 强调"two different real-world datasets"
+- **学习点：** 验证要全面
+
+---
+
+## 论文5: AIMSAN — Sparse Cross Attention-Based Graph Convolution Network
+
+**DOI:** 10.1109/tits.2025.3533560
+
+### 逐句分析
+
+**S1 (背景):** "Deep graph convolutional networks (GCNs) have shown promising performance in traffic prediction tasks, but their practical deployment on resource-constrained devices faces challenges."
+- **功能：** 肯定现有方法的同时指出问题
+- **技巧：** 用"but"转折，先肯定再批评
+- **学习点：** 批评要公正
+
+**S2 (挑战1):** "First, few models consider the potential influence of historical and future auxiliary information, such as weather and holidays, on complex traffic patterns."
+- **功能：** 指出第一个挑战
+- **技巧：** 用"First"列出，给出具体例子
+- **学习点：** 挑战要编号列出
+
+**S3 (挑战2):** "Second, the computational complexity of dynamic graph convolution operations grows quadratically with the number of traffic nodes, limiting model scalability."
+- **功能：** 指出第二个挑战
+- **技巧：** 用"Second"列出，给出具体复杂度
+- **学习点：** 挑战要量化
+
+**S4 (方案):** "To address these challenges, this study proposes a deep encoder-decoder model named AIMSAN, which comprises an auxiliary information-aware module (AIM) and a sparse cross-attention-based graph convolutional network (SAN)."
+- **功能：** 提出解决方案
+- **技巧：** 给出模块缩写和全称
+- **学习点：** 方案要模块化
+
+**S5 (AIM细节):** "From historical or future perspectives, AIM prunes multi-attribute auxiliary data into diverse time frames, and embeds them into one tensor."
+- **功能：** 描述AIM模块细节
+- **技巧：** 用"From...perspectives"说明处理方式
+- **学习点：** 模块描述要具体
+
+**S6 (SAN细节):** "SAN employs a cross-attention mechanism to merge traffic data with historical embedded data in each encoder layer, forming dynamic adjacency matrices."
+- **功能：** 描述SAN模块细节
+- **技巧：** 说明具体机制
+- **学习点：** 技术细节要具体
+
+**S7 (效率优化):** "Additionally, AIMSAN utilizes the spatial sparsity of traffic nodes as a mask to mitigate the quadratic computational complexity of SAN, thereby improving overall computational efficiency."
+- **功能：** 说明效率优化
+- **技巧：** 用"additionally"补充，用"thereby"连接因果
+- **学习点：** 效率优化要具体
+
+**S8 (结果):** "Experimental evaluations on three public traffic datasets demonstrate that AIMSAN achieves competitive performance compared to state-of-the-art algorithms, while reducing GPU memory consumption by 41.24%, training time by 62.09%, and validation time by 65.17% on average."
+- **功能：** 展示实验结果
+- **技巧：** 给出具体百分比
+- **学习点：** 结果要量化
+
+---
+
+## 论文6: DRSTT — Dynamic Routing Spatial-Temporal Transformer
+
+**DOI:** 10.1109/tits.2025.3552404
+
+### 逐句分析
+
+**S1 (背景):** "Predicting traffic flow is vital component of Intelligent Transportation Systems (ITS), aimed at enhancing urban traffic management and optimization efforts."
+- **功能：** 说明研究重要性
+- **技巧：** 用"vital component"强调重要性
+- **学习点：** 背景要说明重要性
+
+**S2 (挑战):** "However, accurate prediction remains a significant challenge due to the vast array of influencing factors."
+- **功能：** 指出挑战
+- **技巧：** 用"vast array"强调因素众多
+- **学习点：** 挑战要具体
+
+**S3 (现有问题):** "Many existing approaches often overlook the comprehensive impact of diverse factors on prediction accuracy by considering only a subset of data features."
+- **功能：** 指出现有方法的不足
+- **技巧：** 用"overlook"和"only a subset"批评
+- **学习点：** 批评要具体
+
+**S4 (方案):** "To address this critical issue, a Dynamic Routing Spatial-Temporal Transformer (DRSTT) model specifically tailored for traffic flow prediction is proposed."
+- **功能：** 提出解决方案
+- **技巧：** 用"specifically tailored"强调针对性
+- **学习点：** 方案要有针对性
+
+**S5 (模块设计):** "The DRSTT model captures data features through the design of specialized modules that effectively handle short-term variations, long-term trends, static spatial information of road networks, and dynamically evolving spatial patterns."
+- **功能：** 描述模块设计
+- **技巧：** 列出四种处理能力
+- **学习点：** 模块设计要全面
+
+**S6 (动态路由):** "The proposed approach combines dynamic routing techniques with the transformer model to intelligently adjust information transmission paths within the network according to the distinct features of real-time input data."
+- **功能：** 说明核心创新
+- **技巧：** 用"intelligently adjust"强调智能性
+- **学习点：** 创新要具体
+
+**S7 (自注意力):** "Utilizing its robust self-attention mechanism, the transformer model effectively captures and analyzes the spatial-temporal dependencies present in data, thereby improving the accuracy of traffic flow predictions."
+- **功能：** 说明技术优势
+- **技巧：** 用"robust"和"effectively"强调优势
+- **学习点：** 优势要量化
+
+**S8 (位置嵌入):** "Furthermore, distinct position embeddings are incorporated for different modules to further enhance the model's capability to recognize and utilize various feature types."
+- **功能：** 补充说明
+- **技巧：** 用"furthermore"补充
+- **学习点：** 补充说明要简洁
+
+**S9 (验证):** "The DRSTT model has been thoroughly tested on three traffic flow datasets, consistently surpassing leading techniques and demonstrating its reliability and efficiency in traffic flow prediction."
+- **功能：** 展示验证结果
+- **技巧：** 用"thoroughly tested"和"consistently surpassing"强调可靠性
+- **学习点：** 验证要全面
+
+---
+
+## 论文7: HLFNet — High and Low Frequency Attention Network
+
+**DOI:** 10.1109/tits.2025.3564305
+
+### 逐句分析
+
+**S1 (挑战):** "While several methods for short-term traffic prediction have been proposed in the literature, modeling the interaction between short-term and long-term traffic dynamics remains a major challenge."
+- **功能：** 指出核心挑战
+- **技巧：** 用"while...remains"结构
+- **学习点：** 挑战要具体
+
+**S2 (方案):** "To address this problem, we propose a deep learning architecture named High and Low Frequency Attention Network (HLFNet) with the capability to capture multi-scale spatio-temporal dynamics."
+- **功能：** 提出解决方案
+- **技巧：** 给出完整名称和缩写
+- **学习点：** 方案要具体
+
+**S3 (灵感来源):** "HLFNet takes inspiration from the frequency domain analysis in signal processing, where short-term (fast) and long-term (slow) dynamics are characterized in terms of high and low frequency, respectively."
+- **功能：** 说明灵感来源
+- **技巧：** 用"takes inspiration from"说明来源
+- **学习点：** 灵感来源要具体
+
+**S4 (具体设计):** "Specifically, we design a multi-scale attention block considering multi-grained feature information at different frequencies."
+- **功能：** 描述具体设计
+- **技巧：** 用"specifically"引出细节
+- **学习点：** 设计要具体
+
+**S5 (高频注意力):** "The attention block comprises: a high-frequency attention operation for extracting fine-grained information within a local window; a low-frequency attention operation for extracting coarse-grained information within average pooled features."
+- **功能：** 描述两种注意力
+- **技巧：** 用分号分隔两种操作
+- **学习点：** 设计要对比说明
+
+**S6 (空间嵌入):** "To capture the spatial interactions within the traffic network, HLFNet further considers three spatial embeddings: distance-based, attribute-based and potential-based."
+- **功能：** 描述空间嵌入
+- **技巧：** 用冒号列出三种类型
+- **学习点：** 设计要分类说明
+
+**S7 (结果):** "Experimental results with real-world traffic datasets using different prediction horizons and granularities show that, no matter how state-of-the-art methods are good at predicting in the short term, they fail to capture long-term trends."
+- **功能：** 指出现有方法的不足
+- **技巧：** 用"no matter how...they fail"强调问题
+- **学习点：** 批评要具体
+
+**S8 (优势):** "On the other hand, HLFNet retains a consistent prediction performance in both the short and the long term, outperforming all tested state-of-the-art methods in long-term traffic prediction."
+- **功能：** 展示优势
+- **技巧：** 用"on the other hand"对比
+- **学习点：** 优势要对比说明
+
+---
+
+## 论文8: TDGCRN — Triple Dynamic Graph Convolutional Recurrent Network
+
+**DOI:** 10.1109/tits.2025.3563532
+
+### 逐句分析
+
+**S1 (重要性):** "Effective traffic prediction is a critical component of traffic management, especially long-term traffic prediction, as it holds significance for urban traffic planning, traffic warning, people's travel planning, etc."
+- **功能：** 说明研究重要性
+- **技巧：** 用"critical component"和"holds significance"强调
+- **学习点：** 重要性要具体
+
+**S2 (数据特点):** "Traffic flow data usually include natural spatio-temporal characteristics, which means the spatial and temporal dependencies are both to be considered for building traffic prediction model."
+- **功能：** 说明数据特点
+- **技巧：** 用"natural"强调固有特性
+- **学习点：** 数据特点要说明
+
+**S3 (方案概述):** "Hence, a triple dynamic graph convolutional recurrent network (TDGCRN) is proposed in this paper, in which a temporal segmentation-based triple spatio-temporal encoder-decoder module is used to capture correlation features of different periods contained in traffic dataset, such as hourly, daily, and weekly cycles."
+- **功能：** 提出方案
+- **技巧：** 用"hence"连接因果，给出具体周期
+- **学习点：** 方案要具体
+
+**S4 (动态融合):** "and then a dynamic fusion module is introduced to adaptively learn the weights of different periods to effectively fuse these different cycle features"
+- **功能：** 描述动态融合
+- **技巧：** 用"adaptively learn"强调自适应
+- **学习点：** 模块要说明功能
+
+**S5 (拥堵指数):** "finally a congestion index-based adjacency matrix update module is utilized to model the topology of graphs to capture the dynamic topology characteristics of the road network."
+- **功能：** 描述拥堵指数模块
+- **技巧：** 用"finally"引出最后一个模块
+- **学习点：** 模块要说明功能
+
+**S6 (拥堵指数创新):** "In addition, the congestion index is presented to detect the topology changes caused by traffic congestion to reduce the number of dynamic graphs so as to save computational cost in the training process on our self-collected dataset WH-CN."
+- **功能：** 说明拥堵指数创新
+- **技巧：** 用"in addition"补充，说明具体数据集
+- **学习点：** 创新要具体
+
+**S7 (结果):** "Experiments on the public dataset (PEMS-BAY and METR-LA datasets) and WH-CN dataset show that our model achieved average improvements of 0.98%, 1.19%, and 1.17% in MAE, RMSE, and MAPE metrics by comparison with the suboptimal baseline, respectively."
+- **功能：** 展示实验结果
+- **技巧：** 给出具体数字和数据集
+- **学习点：** 结果要量化
+
+**S8 (效率):** "And on the WH-CN dataset, it also reduced the average training time per epoch by reducing the frequency of dynamic graph generation, thereby reducing the computational cost."
+- **功能：** 说明效率提升
+- **技巧：** 用"thereby"连接因果
+- **学习点：** 效率要量化
+
+---
+
+## 论文9: PM-DMNet — Pattern-Matching Dynamic Memory Network
+
+**DOI:** 10.1109/tits.2025.3564564
+
+### 逐句分析
+
+**S1 (背景):** "In recent years, deep learning has increasingly gained attention in the field of traffic prediction."
+- **功能：** 说明研究背景
+- **技巧：** 简洁直接
+- **学习点：** 背景可以很简洁
+
+**S2 (现有问题):** "Existing traffic prediction models often rely on GCNs or attention mechanisms with O(N²) complexity to dynamically extract traffic node features, which lack efficiency and are not lightweight."
+- **功能：** 指出现有方法的不足
+- **技巧：** 给出具体复杂度O(N²)
+- **学习点：** 批评要量化
+
+**S3 (另一个问题):** "Additionally, these models typically only utilize historical data for prediction, without considering the impact of the target information on the prediction."
+- **功能：** 指出另一个问题
+- **技巧：** 用"additionally"补充
+- **学习点：** 问题要多角度
+
+**S4 (方案):** "To address these issues, we propose a Pattern-Matching Dynamic Memory Network (PM-DMNet)."
+- **功能：** 提出解决方案
+- **技巧：** 简洁直接
+- **学习点：** 方案要简洁
+
+**S5 (核心创新):** "Unlike traditional attention and graph convolution-based approaches, PM-DMNet employs a novel dynamic memory network that stores the most representative traffic patterns from historical data in a memory matrix through training."
+- **功能：** 说明核心创新
+- **技巧：** 用"Unlike"对比，用"novel"强调创新
+- **学习点：** 创新要对比说明
+
+**S6 (工作原理):** "It captures traffic pattern features by comparing the similarity between the memory matrix and the current traffic state."
+- **功能：** 说明工作原理
+- **技巧：** 用"by comparing"说明方式
+- **学习点：** 原理要具体
+
+**S7 (效率优势):** "This method not only achieves excellent predictive performance but also significantly reduces computational complexity to O(N)."
+- **功能：** 说明效率优势
+- **技巧：** 用"not only...but also"强调双重优势
+- **学习点：** 优势要量化
+
+**S8 (预测方法):** "The PM-DMNet also introduces two prediction methods: Recursive Multi-step Prediction (RMP) and Parallel Multi-step Prediction (PMP), which leverage the time features of the prediction targets to assist in the prediction process."
+- **功能：** 介绍预测方法
+- **技巧：** 给出缩写和全称
+- **学习点：** 方法要命名
+
+**S9 (迁移注意力):** "Furthermore, a transfer attention mechanism is integrated into PMP, transforming historical data features to better align with the predicted target states, thereby capturing trend changes more accurately and reducing errors."
+- **功能：** 说明迁移注意力
+- **技巧：** 用"furthermore"补充，用"thereby"连接因果
+- **学习点：** 创新要具体
+
+**S10 (验证):** "Extensive experiments demonstrate the superiority of the proposed model over existing benchmarks."
+- **功能：** 展示验证
+- **技巧：** 用"extensive experiments"强调全面性
+- **学习点：** 验证要全面
+
+**S11 (代码):** "The source codes are available at: https://github.com/wengwenchao123/PM-DMNet"
+- **功能：** 提供代码链接
+- **技巧：** 直接给出链接
+- **学习点：** 开源代码要提供链接
+
+---
+
+## 论文10: DGODE — ODE Dynamic Spatio-Temporal Attention Graph Neural Network
+
+**DOI:** 10.1109/tits.2025.3612204
+
+### 逐句分析
+
+**S1 (背景):** "In the fields of traffic flow prediction and other intelligent forecasting applications, the technology of multivariate time series forecasting using graph neural networks (GNNs) is receiving growing attention."
+- **功能：** 说明研究背景
+- **技巧：** 用"receiving growing attention"强调趋势
+- **学习点：** 背景要说明趋势
+
+**S2 (现有方法):** "Although various GNN models based on dynamic graph structures have introduced promising approaches, they still face challenges in adequately capturing spatio-temporal information for traffic forecasting."
+- **功能：** 肯定现有方法的同时指出问题
+- **技巧：** 用"Although...they still"结构
+- **学习点：** 批评要公正
+
+**S3 (方案):** "To address this issue, this paper proposes a novel dynamic spatio-temporal attention-based GNN model using ordinary differential equations (ODEs), termed the dynamic graph ordinary differential equation (DGODE) model."
+- **功能：** 提出解决方案
+- **技巧：** 给出完整名称和缩写
+- **学习点：** 方案要具体
+
+**S4 (核心创新):** "Building upon the prior graph ordinary differential equation (GODE) framework, DGODE employs ODEs to mitigate the over-smoothing problem in GNNs and further incorporates dynamic graph structures to enhance the graph information extraction capabilities of GODE."
+- **功能：** 说明核心创新
+- **技巧：** 用"Building upon"说明基础，用"employs"和"incorporates"说明创新
+- **学习点：** 创新要说明基础
+
+**S5 (优势):** "These enhancements enable DGODE to optimize the integration of ODEs within GNNs, alleviate overfitting, and deepen the mining of spatio-temporal dependencies."
+- **功能：** 说明优势
+- **技巧：** 列出三个具体优势
+- **学习点：** 优势要具体
+
+**S6 (结果):** "The related experimental results demonstrate that, compared with existing baseline models, the proposed DGODE model achieves superior performance in traffic flow prediction with a reduced prediction error rate."
+- **功能：** 展示结果
+- **技巧：** 用"superior performance"和"reduced prediction error rate"强调
+- **学习点：** 结果要量化
+
+---
+
+## 论文11: 2MGTCN — Federated Transfer Learning for Cross-City Traffic Prediction
+
+**DOI:** 10.1109/tits.2025.3545445
+
+### 逐句分析
+
+**S1 (重要性):** "Accurate future traffic flow prediction is essential for decision-making in travel recommendations and route planning, aiming to reduce congestion and enhance traffic safety."
+- **功能：** 说明研究重要性
+- **技巧：** 用"essential for"强调重要性
+- **学习点：** 重要性要具体
+
+**S2 (现有问题):** "Traditional traffic flow prediction models often face limitations in quality and structure, leading to increased training costs and inefficiencies, due to data scarcity and centralized training modes that compromise data privacy."
+- **功能：** 指出现有问题
+- **技巧：** 列出多个问题（质量、结构、成本、隐私）
+- **学习点：** 问题要多角度
+
+**S3 (方案):** "To address these issues, we propose a model called 2MGTCN, which combines Multi-modal Graph Convolutional Networks (GCN) and Temporal Convolutional Networks (TCN) for Cross-city Traffic Flow Prediction (TFP)."
+- **功能：** 提出解决方案
+- **技巧：** 给出完整名称和缩写
+- **学习点：** 方案要具体
+
+**S4 (联邦学习):** "Our 2MGTCN model utilizes federated transfer learning (FTL) to transfer the model from the source to the target domain, mitigating data scarcity."
+- **功能：** 说明联邦学习部分
+- **技巧：** 用"mitigating"说明效果
+- **学习点：** 方法要说明效果
+
+**S5 (GCN+TCN):** "It also incorporates GCN and TCN to capture both spatial and temporal information, enhancing cross-city adaptability."
+- **功能：** 说明GCN和TCN的作用
+- **技巧：** 用"both...and"强调双重能力
+- **学习点：** 方法要说明能力
+
+**S6 (GRA+DTW):** "Additionally, Grey Relation Analysis (GRA) and Dynamic Time Warping (DTW) methods are applied to capture road relationships, and a Federated Parameter Aggregation based on Spatial Similarity (FPASS) algorithm is proposed for ensuring effective parameter aggregation by considering spatial similarity."
+- **功能：** 说明GRA、DTW和FPASS
+- **技巧：** 用"additionally"补充，给出具体算法名称
+- **学习点：** 方法要模块化
+
+**S7 (结果):** "Simulation results show that our 2MGTCN algorithm outperforms traditional TFP models in both centralized and distributed training modes, ensuring higher accuracy and better privacy protection."
+- **功能：** 展示结果
+- **技巧：** 用"both...and"强调双重优势
+- **学习点：** 结果要全面
+
+---
+
+## 论文12: DyASTGCN — Dynamic Spatial-Temporal Graph CNN for Active Mode Traffic
+
+**DOI:** 10.1109/tits.2025.3577742
+
+### 逐句分析
+
+**S1 (重要性):** "Accurate short-term predictions of active mode traffic are crucial for effective urban traffic control and management, helping to reduce delays, stops, and improve travel time reliability, and optimize travel route choice."
+- **功能：** 说明研究重要性
+- **技巧：** 列出多个具体好处
+- **学习点：** 重要性要具体
+
+**S2 (被忽视的领域):** "While most methods focus on motorized traffic, active modes like walking and cycling have been overlooked due to their complex dynamics and sensitivity to external factors like weather and individual choices, making them inherently less predictable."
+- **功能：** 指出被忽视的领域
+- **技巧：** 用"While...have been overlooked"结构
+- **学习点：** 要找到被忽视的领域
+
+**S3 (方案):** "To address this, we propose a Dynamic Attention-based Spatial-Temporal Graph Convolutional Network (DyASTGCN) model that incorporates the impact of weather on graph spatial correlations within the active mode traffic network."
+- **功能：** 提出解决方案
+- **技巧：** 给出完整名称和缩写
+- **学习点：** 方案要具体
+
+**S4 (融合方法):** "Additionally, we introduce a fusion approach to integrate various heterogeneous spatial correlations, aiming to represent the optimal spatial correlations within the active mode network."
+- **功能：** 说明融合方法
+- **技巧：** 用"additionally"补充
+- **学习点：** 方法要模块化
+
+**S5 (天气影响发现):** "Experimental results demonstrate that weather changes have a lagging effect on traffic network spatial correlations."
+- **功能：** 展示关键发现
+- **技巧：** 用"demonstrate"强调发现
+- **学习点：** 发现要具体
+
+**S6 (降水影响):** "Specifically, active mode traffic demonstrates significant sensitivity to precipitation, with notable changes in spatial correlations occurring within 5 minutes."
+- **功能：** 具体说明降水影响
+- **技巧：** 用"specifically"引出细节，给出具体时间
+- **学习点：** 发现要量化
+
+**S7 (风速影响):** "Conversely, it takes approximately 20 minutes for spatial correlations to respond to wind speed influences."
+- **功能：** 说明风速影响
+- **技巧：** 用"conversely"对比
+- **学习点：** 发现要对比
+
+**S8 (综合效果):** "By incorporating both precipitation and wind speed with a 20-minute lag, our model outperforms those using only one feature, achieving the best traffic prediction performance."
+- **功能：** 说明综合效果
+- **技巧：** 用"both...and"强调综合
+- **学习点：** 效果要量化
+
+**S9 (融合方法优势):** "Given the uncertain traffic state and highly sparse nature of active mode data, our fusion approach adeptly captures the essential spatial correlations required for accurate traffic flow prediction."
+- **功能：** 说明融合方法优势
+- **技巧：** 用"adeptly captures"强调能力
+- **学习点：** 优势要具体
+
+**S10 (更广泛影响):** "This allows our model to better understand complex graph correlations and traffic patterns, improving prediction accuracy and offering valuable insights into active mode network dynamics."
+- **功能：** 说明更广泛影响
+- **技巧：** 用"valuable insights"强调价值
+- **学习点：** 影响要具体
+
+---
+
+## 综合写作技巧总结
+
+### 1. 背景句模式
+- **技术背景：** "In the context of [specific technology]..."
+- **重要性：** "X is crucial for Y..."
+- **趋势：** "X is receiving growing attention..."
+
+### 2. 挑战句模式
+- **先肯定再批评：** "Although X...they still..."
+- **编号列出：** "First,... Second,..."
+- **具体化：** 给出具体复杂度、时间、百分比
+
+### 3. 方案句模式
+- **完整名称：** "We propose [Full Name] ([Acronym])"
+- **模块化：** "comprising [Module A] and [Module B]"
+- **灵感来源：** "takes inspiration from [source]"
+
+### 4. 结果句模式
+- **量化：** "reducing X by Y%"
+- **对比：** "outperforming [baseline] by [Z]"
+- **全面：** "on [N] datasets"
+
+### 5. 创新句模式
+- **对比：** "Unlike [existing approach]..."
+- **具体：** 给出具体技术细节
+- **效果：** "thereby improving [metric]"
