@@ -1272,3 +1272,81 @@ Use them to enforce:
 3. **Multi-source data fusion** — traffic + weather + emission data
 4. **Real-time optimization** — edge deployment, practical efficiency
 5. **Digital twin** — modeling disaster scenarios, energy exchange
+
+## IEEE TITS 2025 Traffic State Estimation Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| DGAE | Freeway TSE | Dirichlet graph auto-encoder for sparse sensors |
+| PIDL TSE | Freeway TSE | Physics-informed deep learning with 4 macro models |
+| Res-PINN | TSE | Residual PINN + transfer learning for connected vehicles |
+| RNS-TL | Traffic volume | Road network similarity-based transfer learning |
+| Async Fusion | Tunnel tracking | Asynchronous data fusion for lane-level tracking |
+| RCG Calibration | Sensor fusion | Automatic radar-camera extrinsic calibration |
+| Radar-Camera MOT | Tracking | Radar-camera common feature for online calibration |
+| UAV Routing | Monitoring | Dynamic UAV routing with mobile charging stations |
+| V2X Digital Twin | ITS | Physical-virtual integration for V2X corridors |
+| CBLOF Anomaly | Anomaly detection | Dynamic CBLOF with adaptive window + incremental learning |
+
+### Common Datasets (Traffic State Estimation)
+
+| Dataset | Type | Source |
+|---------|------|--------|
+| PeMS | Highway detectors | California DOT |
+| Urban freeway | Loop detector/radar | Various cities |
+| Connected vehicle | GPS telemetry | Melbourne corridors |
+| Sioux Falls | Network simulation | Standard benchmark |
+| Manhattan | Probe vehicle | NYC taxi data |
+
+### Common Metrics (Traffic State Estimation)
+
+| Metric | Usage |
+|--------|-------|
+| MAE/RMSE | Estimation accuracy |
+| MAPE | Percentage error |
+| Calibration accuracy | Sensor alignment |
+| Tracking accuracy | Vehicle-level |
+| Coverage | Spatiotemporal completeness |
+
+### Key Innovation Trends (2025)
+1. **Physics-informed deep learning** — LWR/ARZ/JWZ/PW models embedded in neural networks
+2. **Graph neural networks** — GAT/GCN for road network topology
+3. **Transfer learning** — cross-domain/cross-city estimation
+4. **Digital twin** — real-time data synchronization
+5. **Multi-sensor fusion** — radar + camera + magnetic sensors
+
+## IEEE TITS 2025 Traffic Data Fusion Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| Async Tunnel | Tunnel tracking | Asynchronous fusion with delayed measurements |
+| Hybrid TrafficAI | Simulation | Multi-modal fusion (video + LiDAR + text) |
+| UMD-Net | Assistive driving | Unified multi-task with 4 recognition tasks |
+| TDGCRN | Traffic prediction | Triple dynamic graph for hourly/daily/weekly |
+| TSD-Informer | Carbon emission | Multi-source information fusion gate |
+| PMFF | Pedestrian intention | Progressive multimodal feature fusion |
+| RCG Calibration | Sensor fusion | Automatic radar-camera calibration |
+| SC3EF | Image registration | Visible-thermal image registration |
+| V2X Digital Twin | ITS | Physical-virtual integration |
+| MOGP-SDRL | Knowledge integration | Multi-objective GP + stochastic DRL |
+
+### Common Fusion Approaches
+
+| Approach | Application |
+|----------|-------------|
+| Multi-modal fusion | Video + LiDAR + text |
+| Multi-sensor fusion | Radar + camera + magnetic |
+| Multi-source data fusion | Traffic sensors + GPS + knowledge bases |
+| Spatio-temporal fusion | Hourly/daily/weekly patterns |
+| Cross-modality fusion | Visible + thermal images |
+
+### Key Innovation Trends (2025)
+1. **Progressive fusion** — step-by-step feature integration
+2. **Attention-based gating** — context-aware feature weighting
+3. **Digital twin integration** — real-time data synchronization
+4. **Knowledge graph fusion** — domain knowledge + data-driven
+5. **Asynchronous handling** — delayed measurements, irregular sampling
