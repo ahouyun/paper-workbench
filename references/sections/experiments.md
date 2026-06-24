@@ -460,6 +460,66 @@ Use them to enforce:
 
 **写作模式：** 短期vs长期挑战 → 频域分析启发 → 多尺度注意力
 
+### 9. PM-DMNet — Pattern-Matching Dynamic Memory Network
+
+**DOI:** 10.1109/tits.2025.3564564
+**Authors:** Wenchao Weng, Mei Wu, Hanyu Jiang
+
+**Abstract摘要（真实）：**
+> "In recent years, deep learning has increasingly gained attention in the field of traffic prediction. Existing traffic prediction models often rely on GCNs or attention mechanisms with O(N²) complexity to dynamically extract traffic node features, which lack efficiency and are not lightweight."
+
+**关键创新：**
+- 动态记忆网络存储代表性交通模式
+- 模式匹配（O(N)复杂度）替代注意力机制（O(N²)）
+- RMP和PMP双模式预测
+
+**写作模式：** 效率问题 → 记忆网络 + 模式匹配 → 双模式预测
+
+### 10. DGODE — ODE Dynamic Spatio-Temporal Attention Graph Neural Network
+
+**DOI:** 10.1109/tits.2025.3612204
+**Authors:** Yihang Li, Weimin Peng, Jing Chen
+
+**Abstract摘要（真实）：**
+> "In the fields of traffic flow prediction and other intelligent forecasting applications, the technology of multivariate time series forecasting using graph neural networks (GNNs) is receiving growing attention. Although various GNN models based on dynamic graph structures have introduced promising approaches for capturing spatio-temporal features, existing methods still face challenges in adequately capturing spatio-temporal information."
+
+**关键创新：**
+- ODE缓解GNN过平滑问题
+- 动态图结构增强图信息提取
+- 时空依赖深度挖掘
+
+**写作模式：** GNN过平滑问题 → ODE连续深度 → 动态图增强
+
+### 11. 2MGTCN — Federated Transfer Learning for Cross-City Traffic Prediction
+
+**DOI:** 10.1109/tits.2025.3545445
+**Authors:** Xiaoming Yuan, Zhenyu Luo, Ning Zhang
+
+**Abstract摘要（真实）：**
+> "Accurate future traffic flow prediction is essential for decision-making in travel recommendations and route planning, aiming to reduce congestion and enhance traffic safety. Traditional traffic flow prediction models often face limitations in quality and structure, leading to increased training costs."
+
+**关键创新：**
+- 联邦迁移学习保护数据隐私
+- 多模态GCN + TCN
+- GRA + DTW路网关系建模
+
+**写作模式：** 隐私保护需求 → 联邦学习框架 → 跨城市迁移
+
+### 12. AIMSAN — Sparse Cross Attention-Based Graph Convolution Network
+
+**DOI:** 10.1109/tits.2025.3533560
+**Authors:** Lingqiang Chen, Qinglin Zhao, Guanghui Li
+
+**Abstract摘要（真实）：**
+> "Deep graph convolutional networks (GCNs) have shown promising performance in traffic prediction tasks, but their practical deployment on resource-constrained devices faces challenges. First, few models consider the potential influence of historical and future auxiliary information, such as weather and holiday."
+
+**关键创新：**
+- 辅助信息感知模块（AIM）
+- 稀疏交叉注意力网络（SAN）
+- GPU内存减少41.24%，训练时间减少62.09%
+
+**写作模式：** 部署挑战 → 辅助信息嵌入 → 稀疏注意力优化
+
 ### Common Metrics
 
 | Metric | Direction | Description |
