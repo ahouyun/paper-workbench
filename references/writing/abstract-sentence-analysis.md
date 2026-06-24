@@ -1673,9 +1673,14 @@
 
 # 最统统计：280篇论文
 
+
+---
+
+# 最终统计：290篇论文
+
 | 领域 | 论文数 |
 |------|--------|
-| 交通预测 | 36 |
+| 交通预测 | 37 |
 | 联邦学习/边缘计算 | 19 |
 | 轨迹预测 | 14 |
 | 信号控制 | 14 |
@@ -1686,15 +1691,15 @@
 | 状态估计 | 10 |
 | 经济学/环境 | 10 |
 | 自动驾驶 | 10 |
-| NLP/LLM | 11 |
+| NLP/LLM | 13 |
 | 3DGS | 4 |
 | Meta-Learning | 14 |
 | Contrastive Learning | 11 |
-| SSM/Mamba | 3 |
-| MLLM | 14 |
+| SSM/Mamba | 4 |
+| MLLM | 15 |
 | Vision-Language | 1 |
 | Transformer | 3 |
-| 强化学习 | 18 |
+| 强化学习 | 20 |
 | AAAI | 3 |
 | 多模态 | 4 |
 | 知识蒸馏 | 2 |
@@ -1705,206 +1710,48 @@
 | NAS | 1 |
 | Graph Network | 3 |
 | 其他ML | 5 |
-| **总计** | **280篇** |
+| **总计** | **290篇** |
 
-| 领域 | 论文数 |
-|------|--------|
-| 交通预测 | 35 |
-| 联邦学习/边缘计算 | 16 |
-| 轨迹预测 | 14 |
-| 信号控制 | 14 |
-| 点云/LiDAR | 17 |
-| 交通安全 | 10 |
-| 需求预测 | 10 |
-| 数据融合 | 10 |
-| 状态估计 | 10 |
-| 经济学/环境 | 10 |
-| 自动驾驶 | 10 |
-| NLP/LLM | 11 |
-| 3DGS | 4 |
-| Meta-Learning | 14 |
-| Contrastive Learning | 11 |
-| SSM/Mamba | 3 |
-| MLLM | 14 |
-| Transformer | 3 |
-| 强化学习 | 13 |
-| AAAI | 3 |
-| 多模态 | 4 |
-| 知识蒸馏 | 2 |
-| GAN | 2 |
-| 时间序列 | 2 |
-| 扩散模型 | 3 |
-| 图像分割 | 1 |
-| NAS | 1 |
-| Graph Network | 2 |
-| 其他ML | 5 |
-| **总计** | **270篇** |
+## 写作模式汇总（32种）
 
-| 领域 | 论文数 |
-|------|--------|
-| 交通预测 | 32 |
-| 联邦学习/边缘计算 | 16 |
-| 轨迹预测 | 14 |
-| 信号控制 | 14 |
-| 点云/LiDAR | 15 |
-| 交通安全 | 10 |
-| 需求预测 | 10 |
-| 数据融合 | 10 |
-| 状态估计 | 10 |
-| 经济学/环境 | 10 |
-| 自动驾驶 | 10 |
-| NLP/LLM | 11 |
-| 3DGS | 4 |
-| Meta-Learning | 14 |
-| Contrastive Learning | 11 |
-| SSM/Mamba | 3 |
-| MLLM | 10 |
-| Transformer | 3 |
-| 强化学习 | 11 |
-| AAAI | 3 |
-| 多模态 | 4 |
-| 知识蒸馏 | 2 |
-| GAN | 2 |
-| 时间序列 | 2 |
-| 扩散模型 | 2 |
-| 图像分割 | 1 |
-| NAS | 1 |
-| Graph Network | 2 |
-| 其他ML | 5 |
-| **总计** | **255篇** |
+### 开头句模式（8种）
+1. **技术背景：** "In the context of [technology]..."
+2. **重要性：** "X is crucial for Y..."
+3. **趋势：** "X has increasingly gained attention..."
+4. **需求增长：** "The demand for X has shown explosive growth..."
+5. **安全重要性：** "The security of X is fundamental to..."
+6. **研究空白：** "Despite significant progress, X remains challenging..."
+7. **应用驱动：** "X plays a crucial role in Y applications..."
+8. **数据驱动：** "With the increasing availability of X data..."
 
-| 领域 | 论文数 |
-|------|--------|
-| 交通预测 | 32 |
-| 联邦学习/边缘计算 | 12 |
-| 轨迹预测 | 14 |
-| 信号控制 | 14 |
-| 点云/LiDAR | 15 |
-| 交通安全 | 10 |
-| 需求预测 | 10 |
-| 数据融合 | 10 |
-| 状态估计 | 10 |
-| 经济学/环境 | 10 |
-| 自动驾驶 | 10 |
-| NLP/LLM | 11 |
-| 3DGS | 4 |
-| Meta-Learning | 11 |
-| Contrastive Learning | 10 |
-| SSM/Mamba | 3 |
-| MLLM | 10 |
-| Transformer | 3 |
-| 强化学习 | 9 |
-| AAAI | 3 |
-| 多模态 | 4 |
-| 知识蒸馏 | 2 |
-| GAN | 2 |
-| 时间序列 | 2 |
-| NAS | 1 |
-| Graph Network | 1 |
-| 其他ML | 5 |
-| **总计** | **240篇** |
+### 挑战句模式（6种）
+1. **先肯定再批评：** "Although X...they still..."
+2. **编号列出：** "First,... Second,..."
+3. **具体化：** 给出具体复杂度、时间、百分比
+4. **多角度：** 列出多个问题
+5. **量化：** 给出具体数字
+6. **对比：** "Unlike X, Y faces..."
 
-| 领域 | 论文数 |
-|------|--------|
-| 交通预测 | 30 |
-| 联邦学习/边缘计算 | 12 |
-| 轨迹预测 | 14 |
-| 信号控制 | 14 |
-| 点云/LiDAR | 15 |
-| 交通安全 | 10 |
-| 需求预测 | 10 |
-| 数据融合 | 10 |
-| 状态估计 | 10 |
-| 经济学/环境 | 10 |
-| 自动驾驶 | 9 |
-| NLP/LLM | 10 |
-| 3DGS | 4 |
-| Meta-Learning | 11 |
-| Contrastive Learning | 10 |
-| SSM/Mamba | 3 |
-| MLLM | 5 |
-| Transformer | 3 |
-| 强化学习 | 5 |
-| AAAI | 3 |
-| 多模态 | 4 |
-| 知识蒸馏 | 2 |
-| GAN | 2 |
-| 时间序列 | 2 |
-| NAS | 1 |
-| Graph Network | 1 |
-| 其他ML | 5 |
-| **总计** | **230篇** |
+### 方案句模式（6种）
+1. **完整名称：** "We propose [Full Name] ([Acronym])"
+2. **模块化：** "comprising [Module A] and [Module B]"
+3. **灵感来源：** "takes inspiration from [source]"
+4. **对比：** "Unlike [existing approach]..."
+5. **直接回应：** "To address these issues..."
+6. **理论支撑：** "Building on [theory/framework]..."
 
-| 领域 | 论文数 |
-|------|--------|
-| 交通预测 | 29 |
-| 联邦学习/边缘计算 | 12 |
-| 轨迹预测 | 14 |
-| 信号控制 | 14 |
-| 点云/LiDAR | 15 |
-| 交通安全 | 10 |
-| 需求预测 | 10 |
-| 数据融合 | 10 |
-| 状态估计 | 10 |
-| 经济学/环境 | 10 |
-| 自动驾驶 | 9 |
-| NLP/LLM | 10 |
-| 3DGS | 4 |
-| Meta-Learning | 8 |
-| Contrastive Learning | 9 |
-| SSM/Mamba | 3 |
-| MLLM | 5 |
-| Transformer | 3 |
-| 强化学习 | 5 |
-| AAAI | 3 |
-| 其他ML | 5 |
-| **总计** | **215篇** |
+### 结果句模式（6种）
+1. **量化：** "reducing X by Y%"
+2. **对比：** "outperforming [baseline] by [Z]"
+3. **全面：** "on [N] datasets"
+4. **效率：** "saves X% communication overhead"
+5. **双重优势：** "in both X and Y"
+6. **统计显著：** "with p < 0.05"
 
-| 领域 | 论文数 |
-|------|--------|
-| 交通预测 | 29 |
-| 联邦学习/边缘计算 | 12 |
-| 轨迹预测 | 12 |
-| 信号控制 | 14 |
-| 点云/LiDAR | 14 |
-| 交通安全 | 10 |
-| 需求预测 | 10 |
-| 数据融合 | 10 |
-| 状态估计 | 10 |
-| 经济学/环境 | 10 |
-| 自动驾驶 | 7 |
-| NLP/LLM | 10 |
-| 3DGS | 4 |
-| Meta-Learning | 8 |
-| Contrastive Learning | 9 |
-| Graph Transformer | 1 |
-| Physics-Informed | 4 |
-| Knowledge Graph | 1 |
-| State Space Model | 3 |
-| MLLM | 5 |
-| Deep RL | 1 |
-| Other ML | 4 |
-| **总计** | **200篇** |
-
-| 领域 | 论文数 | 数据来源 |
-|------|--------|---------|
-| 交通预测 | 29 | Semantic Scholar + CrossRef |
-| 联邦学习/边缘计算 | 12 | Semantic Scholar + CrossRef |
-| 轨迹预测 | 12 | Semantic Scholar + CrossRef |
-| 信号控制 | 14 | Semantic Scholar + CrossRef |
-| 点云/LiDAR | 14 | Semantic Scholar + CrossRef |
-| 交通安全 | 10 | Semantic Scholar |
-| 需求预测 | 10 | Semantic Scholar |
-| 数据融合 | 10 | Semantic Scholar |
-| 状态估计 | 10 | Semantic Scholar |
-| 经济学/环境 | 10 | Semantic Scholar |
-| 自动驾驶 | 7 | CrossRef |
-| NLP/LLM | 9 | CrossRef |
-| 3DGS | 3 | CrossRef |
-| Meta-Learning | 8 | CrossRef |
-| Contrastive Learning | 7 | CrossRef |
-| Graph Transformer | 1 | CrossRef |
-| Physics-Informed | 4 | CrossRef |
-| Knowledge Graph | 1 | CrossRef |
-| Other ML | 4 | CrossRef |
-| **总计** | **192篇** | — |
+### 创新句模式（6种）
+1. **对比：** "Unlike [existing approach]..."
+2. **具体：** 给出具体技术细节
+3. **效果：** "thereby improving [metric]"
+4. **模块化：** "comprising [Module A] and [Module B]"
+5. **直接回应：** "To address these issues..."
+6. **首次：** "To the best of our knowledge, this is the first..."
