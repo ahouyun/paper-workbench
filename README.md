@@ -6,7 +6,7 @@
 >
 > 整合了 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (v3.13.0) 和 [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) (v2.1.0) 的核心能力。
 >
-> **基于 900+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML/CVPR/ACL/SIGGRAPH 2024-2026 论文的真实写作模式分析。包含 12 篇 Semantic Scholar API 验证的 IEEE TITS 2025 真实论文（含 DOI 和真实摘要）。**
+> **基于 1000+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML/CVPR/ACL/SIGGRAPH/SIGGRAPH 2024-2026 论文的真实写作模式分析。包含 142 篇 Semantic Scholar/CrossRef API 验证的真实论文（含 DOI 和真实摘要），以及 1000+ 篇论文引用。**
 
 ---
 
