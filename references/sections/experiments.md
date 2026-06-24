@@ -1394,3 +1394,71 @@ Use them to enforce:
 - Multi-source auxiliary data integration
 - Reproducible evaluation framework
 - Standard metrics and baselines
+
+## IEEE TITS 2025 Survey & Review Patterns
+
+### 10 Survey Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| GNN for VSN | Vehicular social networks | First GNN survey for VSN |
+| DL Time Series | Time series | Universal paradigms for deep forecasting |
+| MTSF Channel Strategy | Multivariate TS | Channel modeling strategy taxonomy |
+| LLM Mobility | Transportation | First LLM survey for mobility forecasting |
+| Multi-Weather Restoration | Smart transportation | Image/video restoration in adverse weather |
+| Vehicular IDS | Automotive security | CAN bus intrusion detection survey |
+| LLM Scenario Testing | Automated driving | LLM in scenario-based testing survey |
+| GNN Data Mining | Transportation | GNN for traffic network data mining |
+| LLM Roadway Safety | Road safety | LLM for safety and mobility enhancement |
+| LLM4TR Framework | Transportation | Four-dimensional LLM framework for transport |
+
+### Survey Writing Patterns
+
+**Abstract structure:**
+1. **Opening:** "X has become increasingly important in..."
+2. **Gap:** "Despite numerous surveys, none has focused on..."
+3. **Scope:** "This survey provides a comprehensive review of..."
+4. **Contributions:** "We make the following contributions: (1)... (2)... (3)..."
+
+**Common contributions:**
+- Taxonomy/classification framework
+- Systematic comparison of methods
+- Identification of open challenges
+- Future research directions
+
+## IEEE TITS 2025 Foundation Model & LLM Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Category | Key Innovation |
+|-------|----------|---------------|
+| ST-LLM | LLM | Spatial-temporal LLM with partial freezing |
+| UrbanGPT | LLM | Instruction tuning for zero-shot prediction |
+| OpenCity | Foundation Model | Transformer + GNN with scaling laws |
+| Strada-LLM | Graph LLM | Graph LLM with distribution adaptation |
+| TPLLM | LLM | CNN + GCN embedding + LoRA fine-tuning |
+| UniST | Foundation Model | Universal spatio-temporal model |
+| TrafficLLM | LLM | Self-refined generative foundation models |
+| LSDM | LLM + Diffusion | LLM-enhanced spatio-temporal diffusion |
+| Text-Enhanced | LLM | Textual data for traffic prediction |
+| BjTT | Multimodal | Large-scale multimodal traffic dataset |
+
+### Common Datasets (Foundation Models)
+
+| Dataset | Type | Usage |
+|---------|------|-------|
+| METR-LA | Traffic speed | Most common benchmark |
+| PEMS-BAY | Traffic speed | Most common benchmark |
+| PeMS04/08 | Traffic flow | California highways |
+| NYC Taxi/Bike | Urban mobility | City-scale prediction |
+| Chicago Crime | Event prediction | Anomaly detection |
+| BjTT | Multimodal | Text + traffic data |
+
+### Key Innovation Trends (2025)
+1. **Foundation model paradigm** — large-scale pre-training + fine-tuning/prompting
+2. **LLM adaptation** — spatial-temporal embedding + partial freezing + LoRA
+3. **Multi-modal fusion** — text + numerical + graph structure
+4. **Zero-shot/few-shot** — cross-city/cross-task transfer
+5. **Self-refinement** — iterative prediction-feedback-refinement
+6. **Probabilistic prediction** — diffusion models + uncertainty quantification
+7. **Privacy preservation** — federated learning + differential privacy
