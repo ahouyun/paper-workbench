@@ -1191,3 +1191,84 @@ Use them to enforce:
 3. **Foundation models** — LLM/VLM for traffic understanding
 4. **Uncertainty quantification** — diffusion models, probabilistic prediction
 5. **Self-supervised learning** — trajectory pre-training, contrastive learning
+
+## IEEE TITS 2025 Transportation Economics & Pricing Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| AMoD Pricing | Ride-hailing | Joint rebalancing + dynamic pricing via RL |
+| Blockchain CZ | Congestion zone | Blockchain-based decentralized enforcement |
+| Cooperative Sensing | CAV | Multi-tier blockchain + incentive mechanism |
+| FL-CEGID | IoV | Federated learning + game-theoretic incentives |
+| NTN-VN-FL | V2X | Reverse auction + Stackelberg game |
+| GAI Offloading | MEC | Stackelberg game + GAI-driven simulation |
+| DT Energy | Disaster | Digital twin + RL for EV energy exchange |
+| Stochastic BCN | EV charging | Stochastic Markov charging behavior model |
+| 6G CPT | 6G | Communication-power-transportation coupling |
+| eVTOL | UAM | eVTOL for ground congestion alleviation |
+
+### Common Technical Approaches
+
+| Approach | Usage |
+|----------|-------|
+| Reinforcement Learning | Dynamic pricing, rebalancing |
+| Game Theory | Stackelberg, auction mechanisms |
+| Blockchain | Trust, incentive, privacy |
+| Federated Learning | Privacy-preserving |
+| Digital Twin | Modeling, simulation |
+| Multi-objective Optimization | Balancing competing objectives |
+
+### Common Metrics (Economics)
+
+| Metric | Usage |
+|--------|-------|
+| Monetary cost | Total cost optimization |
+| Travel time | Efficiency |
+| Energy consumption | Sustainability |
+| QoS/QoE | Service quality |
+| Grid stability | Power system |
+
+## IEEE TITS 2025 Environmental Impact Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| RL Signal Control | CO2 reduction | PPO-based signal control reducing 23% CO2 |
+| AAM Corridor | Aviation | eVTOL corridor design for emission reduction |
+| Parking Selection | Parking | Probability-aware parking reducing 66% time |
+| GHG Prediction | Emissions | LSTM-based link-level GHG prediction |
+| Macroscopic eFD | Emissions | ML-based network-wide emission modeling |
+| Vision Carbon | Emissions | YOLOv8 + OCR for carbon estimation |
+| Eco-Driving Scale | Driving | Multi-task RL reducing 11-22% carbon at intersections |
+| SDSTM | Emissions | Scale-disentangled spatiotemporal modeling |
+| EV Charging | EV | TW-GCN for EV charging demand forecasting |
+| Eco-Driving CAV | Driving | Traffic-aware eco-driving with terminal cost model |
+
+### Common Datasets (Environmental)
+
+| Dataset | Type | Location |
+|---------|------|----------|
+| Real city traffic | Traffic flow | Kuwait, Toronto, Seattle, Tennessee |
+| MOVES | Emission model | US EPA |
+| Probe vehicle GPS | Trajectory | Various cities |
+| EV charging data | Charging | Various |
+
+### Common Metrics (Environmental)
+
+| Metric | Usage |
+|--------|-------|
+| CO2 emission rate | Carbon footprint |
+| GHG emission | Greenhouse gas |
+| Energy consumption | Fuel efficiency |
+| RMSE/MAE | Prediction accuracy |
+| Adoption rate | Technology adoption |
+
+### Key Innovation Trends (2025)
+1. **Deep RL for eco-driving** — PPO, multi-task RL for emission reduction
+2. **Large-scale simulation** — thousands of intersections, millions of scenarios
+3. **Multi-source data fusion** — traffic + weather + emission data
+4. **Real-time optimization** — edge deployment, practical efficiency
+5. **Digital twin** — modeling disaster scenarios, energy exchange
