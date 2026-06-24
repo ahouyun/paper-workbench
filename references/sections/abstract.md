@@ -205,3 +205,57 @@ Unsafe patterns when evidence is missing:
 - Mentions real-world datasets (nuScenes, Waymo, Argoverse)
 - Reports ADE, FDE, mAP, NDS
 - 3-4 contribution points
+
+## Abstract Writing Templates
+
+### Template 1: Method Paper (4 sentences)
+
+```
+[1 sentence: Problem importance + context]
+[1 sentence: Specific limitation of existing methods]
+[1 sentence: Your method + key innovation]
+[1 sentence: Quantified results on specific datasets]
+```
+
+**Example (Traffic Prediction):**
+> "Traffic flow prediction is crucial for intelligent transportation systems. However, existing methods fail to capture complex spatio-temporal dependencies. We propose Graph WaveNet, which learns adaptive graph structures through node embeddings. Experiments on METR-LA and PEMS-BAY show 2.3% MAE improvement over state-of-the-art."
+
+### Template 2: Multi-Contribution Paper (5-6 sentences)
+
+```
+[1 sentence: Problem importance]
+[1 sentence: Specific limitation]
+[1 sentence: Overall method + key innovation]
+[1 sentence: Contribution 1]
+[1 sentence: Contribution 2]
+[1 sentence: Quantified results]
+```
+
+**Example (Autonomous Driving):**
+> "Autonomous driving requires accurate perception of 3D environments. Existing methods rely on expensive LiDAR sensors or limited camera views. We present UniAD, a unified framework for end-to-end autonomous driving. UniAD integrates tracking, mapping, motion prediction, and planning in a single model. Joint training improves all tasks: planning-oriented philosophy ensures each module contributes to the final objective. UniAD achieves state-of-the-art performance on nuScenes."
+
+### Template 3: Survey Paper (4 sentences)
+
+```
+[1 sentence: Field importance]
+[1 sentence: Gap in existing surveys]
+[1 sentence: Survey scope and methodology]
+[1 sentence: Key findings or taxonomy]
+```
+
+**Example (PEFT Survey):**
+> "Parameter-efficient fine-tuning has become essential for adapting large language models. Existing surveys focus on general transfer learning but lack dedicated analysis of PEFT methods. We provide a comprehensive review of 50+ PEFT methods across 5 categories. Our analysis reveals that adapter-based and LoRA-based methods dominate current practice."
+
+## Cross-References
+
+**Abstract → Introduction:**
+- The limitation stated in abstract should be elaborated in Introduction
+- The contributions listed in abstract should appear in Introduction's contribution bullets
+
+**Abstract → Experiments:**
+- The results mentioned in abstract must be supported by experiments
+- The datasets named in abstract should appear in experiments section
+
+**Abstract → Conclusion:**
+- The conclusion should not repeat the abstract verbatim
+- The conclusion should add deeper interpretation and limitations
