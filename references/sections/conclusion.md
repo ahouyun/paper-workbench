@@ -172,3 +172,67 @@ Do not use the conclusion to add prestige language that the experiments did not 
 - [ ] No "promising results" ending
 - [ ] Not a copy of the abstract
 - [ ] Specific limitations are acknowledged
+
+## Conclusion Writing Templates
+
+### Template 1: Single-Contribution Paper
+
+```
+[1-2 sentences: Restate the problem and your solution]
+[1-2 sentences: Key experimental result with specific numbers]
+[1 sentence: Practical impact or broader significance]
+[1-2 sentences: Specific limitations]
+[1-2 sentences: Concrete future work]
+```
+
+**Example:**
+> "We proposed FlashAttention, an IO-aware algorithm for exact attention computation. FlashAttention achieves 2-4x speedup and 5-20x memory reduction compared to standard attention. This enables training on sequences up to 16K tokens without approximation. Our current implementation requires custom CUDA kernels, limiting portability. Future work includes extending to sparse attention patterns and supporting additional hardware platforms."
+
+### Template 2: Multi-Contribution Paper
+
+```
+[1 sentence: Summarize the overall contribution]
+[1 sentence: Contribution 1 result]
+[1 sentence: Contribution 2 result]
+[1 sentence: Contribution 3 result]
+[1-2 sentences: Limitations]
+[1-2 sentences: Future work]
+```
+
+**Example:**
+> "We presented Llama 2, a family of pretrained and fine-tuned LLMs. Llama 2-Chat achieves competitive performance with ChatGPT on human evaluations. We release both models and a comprehensive safety evaluation. Llama 2 bridges the gap between open-source and closed-source LLMs. Future work includes extending to multimodal inputs and improving alignment techniques."
+
+### Template 3: Survey/Review Paper
+
+```
+[1 sentence: Summarize the survey scope]
+[1-2 sentences: Key findings or taxonomy]
+[1 sentence: Identified gaps or open challenges]
+[1-2 sentences: Future research directions]
+```
+
+**Example:**
+> "We surveyed 50+ parameter-efficient fine-tuning methods across 5 categories. Our analysis reveals that adapter-based and LoRA-based methods dominate current practice. However, few methods address catastrophic forgetting in continual learning settings. Future work should focus on methods that combine efficiency with robustness."
+
+## Conclusion Length by Venue
+
+| Venue | Recommended Length | Style |
+|-------|-------------------|-------|
+| IEEE Trans | 150-250 words | Comprehensive, with limitations paragraph |
+| CVPR/ECCV | 100-200 words | Brief, often merged with discussion |
+| NeurIPS/ICML | 150-250 words | Moderate, limitations increasingly expected |
+| ACL/EMNLP | 200-300 words | Moderate, broader impact sometimes required |
+| Nature/Science | 200-300 words | Emphasize significance and societal impact |
+
+## Cross-References
+
+**Conclusion → Introduction:**
+- The limitations discussed here should connect to the gaps identified in Introduction
+- The future work should extend the contributions listed in Introduction
+
+**Conclusion → Experiments:**
+- The results summarized here should come from the experiments section
+- The limitations should be based on observed failure cases
+
+**Conclusion → Method:**
+- The future work should suggest method improvements based on observed limitations
