@@ -1676,11 +1676,11 @@
 
 ---
 
-# 最终统计：290篇论文
+# 最终统计：300篇论文
 
 | 领域 | 论文数 |
 |------|--------|
-| 交通预测 | 37 |
+| 交通预测 | 41 |
 | 联邦学习/边缘计算 | 19 |
 | 轨迹预测 | 14 |
 | 信号控制 | 14 |
@@ -1691,15 +1691,15 @@
 | 状态估计 | 10 |
 | 经济学/环境 | 10 |
 | 自动驾驶 | 10 |
-| NLP/LLM | 13 |
+| NLP/LLM | 14 |
 | 3DGS | 4 |
 | Meta-Learning | 14 |
-| Contrastive Learning | 11 |
+| Contrastive Learning | 12 |
 | SSM/Mamba | 4 |
 | MLLM | 15 |
 | Vision-Language | 1 |
 | Transformer | 3 |
-| 强化学习 | 20 |
+| 强化学习 | 22 |
 | AAAI | 3 |
 | 多模态 | 4 |
 | 知识蒸馏 | 2 |
@@ -1710,48 +1710,4 @@
 | NAS | 1 |
 | Graph Network | 3 |
 | 其他ML | 5 |
-| **总计** | **290篇** |
-
-## 写作模式汇总（32种）
-
-### 开头句模式（8种）
-1. **技术背景：** "In the context of [technology]..."
-2. **重要性：** "X is crucial for Y..."
-3. **趋势：** "X has increasingly gained attention..."
-4. **需求增长：** "The demand for X has shown explosive growth..."
-5. **安全重要性：** "The security of X is fundamental to..."
-6. **研究空白：** "Despite significant progress, X remains challenging..."
-7. **应用驱动：** "X plays a crucial role in Y applications..."
-8. **数据驱动：** "With the increasing availability of X data..."
-
-### 挑战句模式（6种）
-1. **先肯定再批评：** "Although X...they still..."
-2. **编号列出：** "First,... Second,..."
-3. **具体化：** 给出具体复杂度、时间、百分比
-4. **多角度：** 列出多个问题
-5. **量化：** 给出具体数字
-6. **对比：** "Unlike X, Y faces..."
-
-### 方案句模式（6种）
-1. **完整名称：** "We propose [Full Name] ([Acronym])"
-2. **模块化：** "comprising [Module A] and [Module B]"
-3. **灵感来源：** "takes inspiration from [source]"
-4. **对比：** "Unlike [existing approach]..."
-5. **直接回应：** "To address these issues..."
-6. **理论支撑：** "Building on [theory/framework]..."
-
-### 结果句模式（6种）
-1. **量化：** "reducing X by Y%"
-2. **对比：** "outperforming [baseline] by [Z]"
-3. **全面：** "on [N] datasets"
-4. **效率：** "saves X% communication overhead"
-5. **双重优势：** "in both X and Y"
-6. **统计显著：** "with p < 0.05"
-
-### 创新句模式（6种）
-1. **对比：** "Unlike [existing approach]..."
-2. **具体：** 给出具体技术细节
-3. **效果：** "thereby improving [metric]"
-4. **模块化：** "comprising [Module A] and [Module B]"
-5. **直接回应：** "To address these issues..."
-6. **首次：** "To the best of our knowledge, this is the first..."
+| **总计** | **300篇** |
