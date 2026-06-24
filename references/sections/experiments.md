@@ -1102,3 +1102,92 @@ Use them to enforce:
 - [ ] Precision is appropriate to metric variance
 - [ ] Strong baselines are included
 - [ ] Protocol is consistent across all methods
+
+## IEEE TITS 2025 Traffic Signal Control New Methods
+
+### 11 Papers Analyzed (LLM/Diffusion/Foundation Models)
+
+| Paper | Category | Key Innovation |
+|-------|----------|---------------|
+| OracleTSC | LLM + RL | Reward hurdle + uncertainty regularization |
+| DGLight | LLM + RL | DQN-guided GRPO fine-tuning |
+| LLM-Augmented TSC | LLM + LSTM | LSTM prediction + LLM reasoning + safety filter |
+| CuraLight | LLM + RL | Debate-guided data curation + multi-LLM deliberation |
+| SignalClaw | LLM | Evolutionary synthesis of interpretable skills |
+| LATS | LLM + RL | Teacher-student knowledge distillation |
+| Virtual Traffic Police | LLM | Hierarchical LLM for unforeseen incidents |
+| ReasonLight | Foundation Model | Multimodal foundation model + zero-shot TSC |
+| Traffic-R1 | LLM | 3B parameter foundation model + edge deployment |
+| DiffLight | Diffusion | Conditional diffusion for missing data TSC |
+| VLMLight | VLM | Vision-language meta-control + safety-critical |
+
+### Common Environments (New TSC Methods)
+
+| Environment | Usage |
+|-------------|-------|
+| SUMO | Most common simulation |
+| CityFlow | Multi-intersection simulation |
+| LibSignal | Standardized benchmark |
+| Real city networks | Jinan, Hangzhou, Yizhuang |
+
+### Common Metrics (New TSC Methods)
+
+| Metric | Usage |
+|--------|-------|
+| Average travel time | Overall efficiency |
+| Average queue length | Congestion measure |
+| Average waiting time | Delay measure |
+| Emergency vehicle wait | Safety-critical |
+
+### Key Innovation Trends (2025)
+1. **LLM + RL fusion** — teacher-student distillation, critic-guided fine-tuning, debate deliberation
+2. **Interpretability** — natural language reasoning traces, executable code skills
+3. **Zero-shot generalization** — cross-intersection, cross-city transfer
+4. **Safety constraints** — safety filters, rule verification
+5. **Multimodal fusion** — visual + sensor + language model
+6. **Diffusion models** — conditional diffusion for missing data scenarios
+
+## IEEE TITS 2025 Big Data & Urban Computing Patterns
+
+### 10 Papers Analyzed
+
+| Paper | Domain | Key Innovation |
+|-------|--------|---------------|
+| STAEFormer | Traffic forecasting | Spatio-temporal adaptive embedding |
+| PDFormer | Traffic forecasting | Propagation delay-aware attention |
+| ST-Wave | Traffic forecasting | Wavelet-based multi-resolution analysis |
+| Large-scale Mining | Urban computing | City-scale heterogeneous data mining |
+| ST Graph Transformer | Traffic forecasting | Hybrid graph attention + temporal transformer |
+| Federated Prediction | Privacy | Federated learning for traffic |
+| LLM for Traffic | Survey | Foundation models for transportation |
+| Diffusion for Traffic | Probabilistic | Generative diffusion for uncertainty |
+| Trajectory Mining | Urban computing | Self-supervised pre-training on trajectories |
+| Multi-Source Fusion | Data fusion | Attention-based heterogeneous data fusion |
+
+### Common Datasets (Big Data)
+
+| Dataset | Type | Scale |
+|---------|------|-------|
+| METR-LA | Traffic speed | 207 sensors |
+| PEMS-BAY | Traffic speed | 325 sensors |
+| PEMS03/04/07/08 | Traffic flow | 170-883 sensors |
+| TaxiBJ | Trajectory | Beijing taxi |
+| T-Drive | Trajectory | Beijing taxi |
+| Porto Taxi | Trajectory | Porto taxi |
+| NYC Taxi/Citi Bike | Trajectory | New York |
+
+### Common Metrics (Big Data)
+
+| Metric | Usage |
+|--------|-------|
+| MAE/RMSE/MAPE | Traffic prediction |
+| Accuracy/F1-Score | Classification |
+| CRPS | Probabilistic prediction |
+| Computational efficiency | Scalability |
+
+### Key Innovation Trends (2025)
+1. **Multi-scale analysis** — wavelets, hierarchical temporal fusion
+2. **Privacy-preserving** — federated learning, differential privacy
+3. **Foundation models** — LLM/VLM for traffic understanding
+4. **Uncertainty quantification** — diffusion models, probabilistic prediction
+5. **Self-supervised learning** — trajectory pre-training, contrastive learning
