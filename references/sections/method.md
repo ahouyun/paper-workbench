@@ -382,3 +382,30 @@ quantitative comparisons, or deployment scale unless those facts are already gro
 - [ ] Advantages are tied to measurable behavior
 - [ ] Section openings state content, not meta-announcements
 - [ ] Implementation details include specific hyperparameters
+
+## Cross-References
+
+**Method → Experiments:**
+- Each technical advantage should map to an ablation row
+- Each module's contribution should be validated by removal
+- See `experiments.md` for ablation table formats
+
+**Method → Introduction:**
+- Pipeline description should align with Part C
+- Contribution bullets should correspond to module elements
+- See `introduction.md` for contribution bullet writing
+
+**Method → Related Work:**
+- Gaps identified in Related Work should be addressed here
+- Each module's motivation should connect to a prior limitation
+- See `related-work.md` for gap identification
+
+**Method → Abstract:**
+- Key innovation stated in abstract should be elaborated here
+- Method name introduced in abstract should be defined here
+- See `abstract.md` for concise method statements
+
+**Method → Conclusion:**
+- Limitations should be based on method constraints
+- Future work should suggest method improvements
+- See `conclusion.md` for limitation discussion

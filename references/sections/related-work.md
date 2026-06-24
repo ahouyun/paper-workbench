@@ -208,3 +208,24 @@ Do not hide it behind a broad family label.
 - [ ] No "In recent years" template openings
 - [ ] Strong baselines are included
 - [ ] Differences explained in technical terms
+
+## Cross-References
+
+**Related Work → Method:**
+- Gaps identified here should be addressed by your method
+- Limitations of prior work should motivate your modules
+- See `method.md` for how to design modules that address gaps
+
+**Related Work → Introduction:**
+- The positioning statement should echo in Introduction
+- The gap identification should align with Introduction's challenge
+- See `introduction.md` for how to state the challenge
+
+**Related Work → Experiments:**
+- Baselines mentioned here should appear in experiments
+- The comparison should be validated by experimental results
+- See `experiments.md` for baseline selection
+
+**Related Work → Abstract:**
+- The limitation stated in abstract should be elaborated here
+- See `abstract.md` for concise limitation statements
