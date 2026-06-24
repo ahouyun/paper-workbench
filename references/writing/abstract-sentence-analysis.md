@@ -1360,9 +1360,77 @@
 |------|-----|---------|
 | Drug Repurposing KGE | 10.26434/chemrxiv.15004946/v1 | 生物医学知识图谱嵌入 |
 
+## 3DGS补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| Cultural Relics 3DGS | 10.26689/jera.v9i5.12382 | 混合点云生成文物3D渲染 |
+
+## State Space Model补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| BEVMamba | 10.36227/techrxiv.172236567.72239502/v1 | Mamba用于BEV感知 |
+| Octonion SSM | 10.22541/au.177499342.22394718/v1 | 八元数状态空间模型 |
+
+## MLLM补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| VF Report MLLM | 10.3390/vision9020033 | MLLM视觉场报告解读 |
+| Fair Medical AI | 10.21203/rs.3.rs-5015239/v1 | 公平多模态医学AI指南 |
+| Object Detection LVLM | 10.36227/techrxiv.174559706.69198342/v1 | 大视觉语言模型目标检测综述 |
+| MLLM Noise Resistance | 10.33774/coe-2025-6z9zx | MLLM噪声鲁棒性 |
+| VLM Survey | 10.2139/ssrn.6176720 | 视觉语言基础模型综述 |
+
+## Contrastive Learning补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| Polymer Contrastive | 10.26434/chemrxiv.15003645/v1 | 聚合物对比表示学习 |
+| EConTab | 10.31224/3985 | 可解释对比表格表示学习 |
+
+## Deep RL补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| DRL Autonomous Systems | 10.71443/9789349552982-01 | 动态环境DRL自主系统优化 |
+
+## NLP补充论文
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| DistilBERT Search | 10.5121/csit.2024.141004 | NLP+DistilBERT网络搜索 |
+
 ---
 
-# 最终统计：192篇论文
+# 最终统计：200篇论文
+
+| 领域 | 论文数 |
+|------|--------|
+| 交通预测 | 29 |
+| 联邦学习/边缘计算 | 12 |
+| 轨迹预测 | 12 |
+| 信号控制 | 14 |
+| 点云/LiDAR | 14 |
+| 交通安全 | 10 |
+| 需求预测 | 10 |
+| 数据融合 | 10 |
+| 状态估计 | 10 |
+| 经济学/环境 | 10 |
+| 自动驾驶 | 7 |
+| NLP/LLM | 10 |
+| 3DGS | 4 |
+| Meta-Learning | 8 |
+| Contrastive Learning | 9 |
+| Graph Transformer | 1 |
+| Physics-Informed | 4 |
+| Knowledge Graph | 1 |
+| State Space Model | 3 |
+| MLLM | 5 |
+| Deep RL | 1 |
+| Other ML | 4 |
+| **总计** | **200篇** |
 
 | 领域 | 论文数 | 数据来源 |
 |------|--------|---------|
