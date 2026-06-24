@@ -674,3 +674,281 @@
 - **对比：** "Unlike [existing approach]..."
 - **具体：** 给出具体技术细节
 - **效果：** "thereby improving [metric]"
+
+---
+
+# 第二部分：联邦学习/边缘计算论文逐句分析
+
+## 论文13: FedGau — Fast-Convergent Hierarchical Federated Learning
+
+**DOI:** 10.1109/tits.2025.3543235
+
+### 逐句分析
+
+**S1 (背景+问题):** "Street Scene Semantic Understanding (denoted as TriSU) is a complex task for autonomous driving (AD). However, inference model trained from data in a particular geographical region faces poor generalization when applied in other regions due to inter-city data domain-shift."
+- **技巧：** 用缩写(TriSU)简化后续引用，用"However"引出问题
+
+**S2 (现有方案+问题):** "Hierarchical Federated Learning (HFL) offers a potential solution... Unfortunately, it suffers from slow convergence because the data from different cities are with disparate statistical properties."
+- **技巧：** 用"Unfortunately"引出现有方案的不足
+
+**S3 (方案):** "Going beyond existing HFL methods, we propose a Gaussian heterogeneous HFL algorithm (FedGau) to address inter-city data heterogeneity so that convergence can be accelerated."
+- **技巧：** 用"Going beyond"强调超越，给出具体加速比例
+
+**S4 (技术细节):** "In the proposed FedGau algorithm, both single RGB image and RGB dataset are modelled as Gaussian distributions for aggregation weight design."
+- **技巧：** 具体描述技术实现
+
+**S5 (创新点):** "This approach not only differentiates each RGB image by respective statistical distribution, but also exploits the statistics of dataset from each city in addition to the conventionally considered data volume."
+- **技巧：** 用"not only...but also"强调双重创新
+
+**S6 (结果):** "With the proposed approach, the convergence is accelerated by 35.5%-40.6% compared to existing state-of-the-art (SOTA) HFL methods."
+- **技巧：** 给出具体百分比
+
+**S7 (补充创新):** "On the other hand, to reduce the involved communication resource, we further introduce a novel performance-aware adaptive resource scheduling (AdapRS) policy."
+- **技巧：** 用"On the other hand"引出第二个创新
+
+**S8 (AdapRS细节):** "Unlike the traditional static resource scheduling policy that exchanges a fixed number of models between two adjacent aggregations, AdapRS adjusts the number of model aggregation at different levels of HFL so that unnecessary communications are minimized."
+- **技巧：** 用"Unlike"对比传统方法
+
+**S9 (结果):** "Extensive experiments demonstrate that AdapRS saves 29.65% communication overhead compared to conventional static resource scheduling policy while maintaining almost the same performance."
+- **技巧：** 给出具体节省百分比
+
+---
+
+## 论文14: UAV-VEC-KD — UAV辅助VEC中的联邦学习
+
+**DOI:** 10.1109/tits.2025.3525735
+
+### 逐句分析
+
+**S1 (背景):** "In Vehicular Edge Computing (VEC), the high mobility of vehicles and periodic of traffic flow present challenges to the effectiveness of roadside units."
+- **技巧：** 直接指出具体挑战
+
+**S2 (方案1):** "Unmanned Aerial Vehicles (UAVs) can serve as aerial base stations to address this issue."
+- **技巧：** 简洁提出第一个方案
+
+**S3 (方案2):** "Federated Learning (FL) is employed to reduce backhaul load."
+- **技巧：** 简洁提出第二个方案
+
+**S4 (挑战):** "However, the limited battery and bandwidth of UAVs constrain long-term training capabilities."
+- **技巧：** 用"However"指出新挑战
+
+**S5 (具体方案):** "We propose a collaborative deployment of multiple UAVs to maximize communication coverage, utilizing a Particle Swarm Optimization (PSO) algorithm for optimal deployment decisions."
+- **技巧：** 给出具体算法名称
+
+**S6-9 (其他创新):** 车辆选择、知识蒸馏、DDPG-D3QN算法
+- **技巧：** 每个创新点用一句话描述
+
+**S10 (结果):** "Experimental results demonstrate that our approach effectively meets communication needs in urban areas while enhancing training efficiency and accuracy."
+- **技巧：** 强调双重优势
+
+---
+
+## 论文15: PSFL — 个性化分割联邦学习
+
+**DOI:** 10.1109/tits.2025.3554710
+
+### 逐句分析
+
+**S1 (背景):** "Interest in Intelligent Transportation Systems (ITS) has increased significantly with the development of 6G."
+- **技巧：** 用"increased significantly"强调趋势
+
+**S2 (技术优势):** "Owning an extremely high transmission speed, 6G is able to support low-latency service for edge-intelligence applications by Machine Learning(ML) techniques."
+- **技巧：** 用"Owning"引出技术优势
+
+**S3 (问题):** "However, traditional centralized learning is not suitable for this scenario due to the requirement for users to upload local data to the server, which can compromise data privacy."
+- **技巧：** 用"However"引出隐私问题
+
+**S4 (现有方案):** "To overcome this challenge, Federated Learning (FL) and Split Learning (SL), as progressive distributed learning techniques, have been proposed as a solution."
+- **技巧：** 介绍两种现有技术
+
+**S5 (现有方案问题):** "However, conventional FL has poor convergence when data heterogeneity occurs, also fails to meet personalized demands."
+- **技巧：** 用第二个"However"指出更深层问题
+
+**S6 (方案):** "To address these issues, We propose a novel personalized Federated Learning(pFL) framework, which trains models in SL and collaborates in FL."
+- **技巧：** 用"To address these issues"直接回应问题
+
+**S7 (优势):** "It offers a personalized solution for each client while retaining a global solution for newcomers."
+- **技巧：** 用"while"对比双重优势
+
+**S8 (结果):** "Experimental results demonstrate that our method outperforms other advanced baselines on benchmark datasets."
+- **技巧：** 标准结果声明
+
+---
+
+## 论文16: FedCPC — 聚类联邦学习+自适应剪枝
+
+**DOI:** 10.1109/tits.2025.3540519
+
+### 逐句分析
+
+**S1 (背景):** "The upcoming 6G technology, with its high speed and low latency, is poised to become a foundational technology for intelligent transportation systems."
+- **技巧：** 用"is poised to become"预测未来
+
+**S2 (需求):** "To handle the massive data generated by connected vehicles in 6G environments, federated learning methods are essential."
+- **技巧：** 用"are essential"强调必要性
+
+**S3 (挑战):** "However, traditional centralized federated learning approaches still face challenges related to data and device heterogeneity, which significantly affects training efficiency."
+- **技巧：** 指出两类异构性
+
+**S4 (方案):** "To address these challenges, we propose FedCPC, a context-based adaptive pruning clustered federated learning method."
+- **技巧：** 给出完整方法名称
+
+**S5 (聚类创新):** "Based on the positive correlation between similar data distributions and model representations, we use centralized kernel alignment (CKA) to group clients with similar data distributions, thus reducing the impact of data heterogeneity."
+- **技巧：** 解释科学原理（正相关性）
+
+**S6 (剪枝创新):** "Furthermore, we introduce a context-aware random forest multi-armed bandit method to determine appropriate pruning rates based on device capabilities and historical performance which addresses device heterogeneity concerns."
+- **技巧：** 用"Furthermore"补充第二个创新
+
+**S7 (结果):** "Experimental results on open-source datasets demonstrate that FedCPC outperforms traditional FL methods in both learning efficiency and communication effectiveness."
+- **技巧：** 强调双重优势
+
+---
+
+## 论文17-22: 其他联邦学习论文（简要模式分析）
+
+### 论文17: CAV-FL (DOI: 10.1109/tits.2025.3546088)
+**模式：** 机会+挑战 → 创新方案 → 验证
+> "With the rapid evolution of vehicular network technology... presents both remarkable opportunities and formidable challenges."
+
+### 论文18: IoV-FL (DOI: 10.1109/tits.2025.3528969)
+**模式：** 爆炸增长需求 → 有限资源挑战 → 博弈论方案
+> "the demand for computational resources... has shown an explosive growth trend"
+
+### 论文19: V2X-IDS Survey (DOI: 10.1109/tits.2025.3558849)
+**模式：** 安全重要性 → 动态挑战 → 综合综述
+> "The security of Vehicle-to-Everything (V2X) networks is fundamental to..."
+
+### 论文20: VEC-Offloading (DOI: 10.1109/tits.2025.3549493)
+**模式：** 智能城市需求 → 计算不足 → 边缘计算方案
+> "With the explosion of connected devices and Internet-of-Things (IoT) services in the smart city..."
+
+### 论文21: ISCC-VCP (DOI: 10.1109/tits.2025.3542365)
+**模式：** 协同感知优势 → 资源限制 → ISCC框架
+> "Vehicular cooperative perception (VCP) facilitates the exchange of sensing data..."
+
+### 论文22: MEC-V2X (DOI: 10.1109/tits.2025.3590981)
+**模式：** MEC优势 → 性能挑战 → 模式选择优化
+> "Mobile edge computing (MEC)-assisted vehicle-to-everything (V2X) communication has been proposed..."
+
+---
+
+## 联邦学习/边缘计算论文写作模式总结
+
+### 1. 背景句模式
+- **技术趋势：** "With the development of 6G..."
+- **需求增长：** "the demand for X has shown an explosive growth trend"
+- **安全重要性：** "The security of X is fundamental to..."
+
+### 2. 挑战句模式
+- **隐私问题：** "traditional centralized learning... can compromise data privacy"
+- **异构性：** "challenges related to data and device heterogeneity"
+- **资源限制：** "limited battery and bandwidth constrain..."
+
+### 3. 方案句模式
+- **联邦学习：** "We propose a federated learning framework..."
+- **优化算法：** "utilizing [Algorithm] for optimal decisions"
+- **知识蒸馏：** "knowledge distillation is used to compress..."
+
+### 4. 结果句模式
+- **效率提升：** "saves X% communication overhead"
+- **性能提升：** "outperforms traditional methods"
+- **双重优势：** "in both learning efficiency and communication effectiveness"
+
+---
+
+# 第三部分：轨迹预测论文（10篇）
+
+## 论文23-32: 轨迹预测论文简要分析
+
+| 论文 | DOI | 核心创新 | 摘要开头模式 |
+|------|-----|---------|-------------|
+| SST | 10.1109/tits.2025.3550711 | 自监督Transformer + 噪声填充 | "Trajectory prediction is one of the important components..." |
+| Timewise | 10.1109/tits.2025.3594563 | 时间维度意图 + 时变分布 | "Pedestrian trajectory prediction is crucial for..." |
+| HDAAGT | 10.1109/tits.2025.3589203 | 异构决策感知图Transformer | "Roadside sensors offer a fixed, unobstructed vantage point..." |
+| StyleFormer | 10.1109/tits.2025.3595733 | 驾驶风格感知预测 | "Accurately inferring the driving intentions..." |
+| Mapless KD | 10.1109/tits.2025.3574258 | 知识蒸馏无地图预测 | "Scene information plays a crucial role..." |
+| MSES | 10.1109/tits.2025.3589759 | 多尺度时间编码 | "Multi-agent trajectory prediction plays an increasingly critical role..." |
+| Intention Diffusion | 10.1109/tits.2025.3553125 | 意图感知扩散模型 | "Trajectory prediction is an essential component..." |
+| Continual MATP | 10.1109/tits.2025.3591652 | 持续学习轨迹预测 | "Multi-agent trajectory prediction (MATP) is pivotal..." |
+| Social-Pose | 10.1109/tits.2025.3594889 | 人体姿态融合 | "Accurate human trajectory prediction is one of the most crucial tasks..." |
+
+---
+
+# 第四部分：点云/LiDAR论文（10篇）
+
+## 论文33-42: 点云/LiDAR论文简要分析
+
+| 论文 | DOI | 核心创新 | 摘要开头模式 |
+|------|-----|---------|-------------|
+| PASS | 10.1109/tits.2025.3555229 | 点辅助样本选择 | "3D object detection based on LiDAR point cloud... is a critical technology" |
+| Fade3D | 10.1109/tits.2025.3568418 | 快速可部署3D检测 | "3D object detection is an essential scene perception capability..." |
+| RobMOT | 10.1109/tits.2025.3581980 | 轨迹有效性机制 | "This paper addresses key limitations in recent 3D tracking-by-detection..." |
+| LiDAR-BEVMTN | 10.1109/tits.2024.3510642 | 实时多任务感知 | "LiDAR is crucial for robust 3D scene perception..." |
+| MSSF | 10.1109/tits.2025.3554313 | 4D雷达+摄像头融合 | "As one of the automotive sensors that have emerged..." |
+| RM2Occ | 10.1109/tits.2025.3606554 | 重投影多任务融合 | "Occupancy prediction plays a crucial role..." |
+| SID | 10.1109/tits.2025.3535595 | 自蒸馏内省数据 | "3D object detection is a fundamental yet critical task..." |
+| Ground Seg | 10.1109/tits.2025.3532436 | 地面分割实证研究 | "The ratio of foreground and background points directly impacts..." |
+| TransBridge | 10.1109/tits.2025.3617527 | Transformer场景补全 | "3D object detection is essential in autonomous driving..." |
+
+---
+
+# 第五部分：交通安全论文（10篇）
+
+## 论文43-52: 交通安全论文简要分析
+
+| 论文 | DOI | 核心创新 | 摘要开头模式 |
+|------|-----|---------|-------------|
+| Safety Survey | 10.1109/tits.2025.3526820 | 混合驾驶环境安全综述 | "With the continuous development of intelligent networks..." |
+| GrDBN-GPR | 10.1109/tits.2024.3510788 | 高斯径向深度信念网络 | "Traffic crashes are a serious problem in modern civilization..." |
+| KAN-RL Roundabout | 10.1109/tits.2025.3578279 | KAN网络环岛决策 | "Safety and efficiency are crucial for autonomous driving..." |
+| Cycling Safety | 10.1109/tits.2024.3507639 | 骑行安全感知学习 | "Cycling is critical for cities to transition to more sustainable transport..." |
+| KLEP | 10.1109/tits.2025.3526341 | 知识驱动换道预测 | "Ensuring the smooth operation of road traffic is a momentous target..." |
+| AV Decision Survey | 10.1109/tits.2025.3636070 | 自动驾驶决策评估综述 | "Autonomous vehicles (AVs) promise substantial gains in safety..." |
+| Cycling Network | 10.1109/tits.2025.3556555 | 骑行网络拓扑优化 | "This work aims to improve perceived safety and comfort of cyclists..." |
+| Bayesian Games | 10.1109/tits.2025.3561510 | 贝叶斯序贯博弈决策 | "Automated Vehicles (AVs) will coexist with Human-Driven Vehicles..." |
+| CAV Testing | 10.1109/tits.2025.3535866 | 自适应测试环境生成 | "The assessment of safety performance plays a pivotal role..." |
+| Drowsiness | 10.1109/tits.2025.3544138 | 注意力深度学习疲劳检测 | "Drivers' drowsiness has been considered one of the prime reasons..." |
+
+---
+
+# 综合统计
+
+## 52篇论文覆盖领域
+
+| 领域 | 论文数 | 代表论文 |
+|------|--------|---------|
+| 交通预测 | 12 | LMO-DFRNN, TMA-GNN, ASTMGCNet, HLFNet, TDGCRN |
+| 联邦学习/边缘计算 | 10 | FedGau, UAV-VEC-KD, PSFL, FedCPC, CAV-FL |
+| 轨迹预测 | 10 | SST, HDAAGT, StyleFormer, MSES, Social-Pose |
+| 点云/LiDAR | 10 | PASS, Fade3D, RobMOT, LiDAR-BEVMTN, TransBridge |
+| 交通安全 | 10 | GrDBN-GPR, KAN-RL, KLEP, Bayesian Games, CAV Testing |
+
+## 摘要写作模式汇总
+
+### 开头句模式（5种）
+1. **技术背景：** "In the context of [technology]..."
+2. **重要性：** "X is crucial for Y..."
+3. **趋势：** "X has increasingly gained attention..."
+4. **需求增长：** "The demand for X has shown explosive growth..."
+5. **安全重要性：** "The security of X is fundamental to..."
+
+### 挑战句模式（5种）
+1. **先肯定再批评：** "Although X...they still..."
+2. **编号列出：** "First,... Second,..."
+3. **具体化：** 给出具体复杂度、时间、百分比
+4. **多角度：** 列出多个问题
+5. **量化：** 给出具体数字
+
+### 方案句模式（5种）
+1. **完整名称：** "We propose [Full Name] ([Acronym])"
+2. **模块化：** "comprising [Module A] and [Module B]"
+3. **灵感来源：** "takes inspiration from [source]"
+4. **对比：** "Unlike [existing approach]..."
+5. **直接回应：** "To address these issues..."
+
+### 结果句模式（5种）
+1. **量化：** "reducing X by Y%"
+2. **对比：** "outperforming [baseline] by [Z]"
+3. **全面：** "on [N] datasets"
+4. **效率：** "saves X% communication overhead"
+5. **双重优势：** "in both X and Y"
