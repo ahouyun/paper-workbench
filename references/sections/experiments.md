@@ -338,6 +338,128 @@ Use them to enforce:
 | PeMS08 | Flow | 170 sensors | 2 months | 5 min |
 | WH-CN | Flow | Self-collected | Wuhan | 5 min |
 
+## 验证过的 IEEE TITS 2025 真实论文（Semantic Scholar API验证）
+
+### 1. TMA-GNN — Management Actions Enhanced Traffic Prediction Under Sparse Data
+
+**DOI:** 10.1109/tits.2025.3588274
+**Authors:** Zhiming Liang, Bin Shi, Bo Dong, Hua Wei
+
+**Abstract摘要（真实）：**
+> "Accurate traffic prediction is crucial for real-time traffic management and a variety of subsequent applications. In the domain of traffic prediction, while the latest data-driven studies have achieved satisfactory results, they often overlook the significant problem of data sparsity (i.e., only part of the traffic system is observed) in real-world scenarios which can lead to insufficient data and erroneous predictions."
+
+**关键创新：**
+- 将交通管理动作（信号控制）作为约束规则整合到数据驱动模型中
+- 挑战"车辆总是从上游到下游"的传统假设
+- EERA策略评估插值值的鲁棒性，优先安装传感器
+
+**写作模式：** 挑战传统假设 → 提出新框架 → 实际部署验证
+
+### 2. Multi-Form Spatiotemporal Feature Fusion Enhancement Network
+
+**DOI:** 10.1109/tits.2025.3591109
+**Authors:** Qing Shen, Zihao Ying, Zhenfang Liu, Jungang Lou
+
+**Abstract摘要（真实）：**
+> "Spatiotemporal fusion strategies are a crucial direction in traffic flow prediction. However, studies often emphasize the learning of local dynamic spatiotemporal dependencies from historical data while neglecting the potential impacts of label sequence autocorrelation, nonstationary signals, and temporal pattern changes on spatiotemporal dependency modeling."
+
+**关键创新：**
+- 多形式特征增强模块利用序列自相关知识
+- 双通道时空融合网络建模局部和全局依赖
+- MAE/RMSE/MAPE平均提升5.47%/4.27%/7.05%
+
+**写作模式：** 识别被忽视的因素 → 提出针对性增强 → 量化改进
+
+### 3. DyASTGCN — Dynamic Spatial-Temporal Graph CNN for Active Mode Traffic
+
+**DOI:** 10.1109/tits.2025.3577742
+**Authors:** Xiamei Wen, Panchamy Krishnakumari, Serge P. Hoogendoorn
+
+**Abstract摘要（真实）：**
+> "Accurate short-term predictions of active mode traffic are crucial for effective urban traffic control and management, helping to reduce delays, stops, and improve travel time reliability, and optimize travel route choice."
+
+**关键创新：**
+- 天气对主动交通（步行/骑行）空间相关性的影响建模
+- 降水在5分钟内显著改变空间相关性
+- 风速需要约20分钟才能影响空间相关性
+
+**写作模式：** 关注被忽视的交通模式 → 天气感知建模 → 时间滞后分析
+
+### 4. ASTMGCNet — Attention-Driven Spatio-Temporal Deep Hybrid Neural Networks
+
+**DOI:** 10.1109/tits.2025.3540852
+**Authors:** Ahmad Ali, Inam Ullah, Shabir Ahmad, Zongze Wu, Jianqiang Li, Xiaoshan Bai
+
+**Abstract摘要（真实）：**
+> "In the context of rapidly growing city road networks, understanding complex traffic patterns and implementing effective safety monitoring through advanced Transportation Cyber-Physical Systems (T-CPS) has become increasingly challenging."
+
+**关键创新：**
+- GRU + GCN融合捕获时空相关性
+- 多尺度特征提取 + 双注意力机制
+- 在T-CPS安全监控场景中验证
+
+**写作模式：** T-CPS安全视角 → 多尺度注意力 → 安全可靠性验证
+
+### 5. LMO-DFRNN — Real-Time Traffic Flow Prediction for 6G Enabled ITS
+
+**DOI:** 10.1109/tits.2025.3571773
+**Authors:** Xin Liu, Haihang Zhao, Jie Li, Qi Han, Jingyuan Wu
+
+**Abstract摘要（真实）：**
+> "The sensing-computing integrated chips and systems can be used for intelligent transportation to process and acquire traffic data. Traffic data can be used to effectively forecast real-time traffic flow at a specific future time, which is crucial for promoting efficient transportation systems and supporting economic development in the era of 6G."
+
+**关键创新：**
+- 大规模多目标优化深度模糊粗糙神经网络
+- 基于状态信息的动态平衡评估策略
+- MAE/RMSE/MAPE分别降低43.73%/46.22%/34.87%
+
+**写作模式：** 6G时代背景 → 模糊粗糙集理论 → 大规模优化
+
+### 6. TDGCRN — Triple Dynamic Graph Convolutional Recurrent Network
+
+**DOI:** 10.1109/tits.2025.3563532
+**Authors:** Xiaomei Zhang, Ziqin Jiang, Ping Lou
+
+**Abstract摘要（真实）：**
+> "Effective traffic prediction is a critical component of traffic management, especially long-term traffic prediction, as it holds significance for urban traffic planning, traffic warning, people's travel planning, etc."
+
+**关键创新：**
+- 时间分割三重编码器-解码器（小时/日/周周期）
+- 拥堵指数检测拓扑变化，减少动态图生成频率
+- 自采武汉数据集WH-CN
+
+**写作模式：** 长期预测重要性 → 三重周期建模 → 拥堵感知动态图
+
+### 7. DRSTT — Dynamic Routing Spatial-Temporal Transformer
+
+**DOI:** 10.1109/tits.2025.3552404
+**Authors:** Miaomiao Zhang, Jinxin Cao
+
+**Abstract摘要（真实）：**
+> "Predicting traffic flow is vital component of Intelligent Transportation Systems (ITS), aimed at enhancing urban traffic management and optimization efforts. However, accurate prediction remains a significant challenge due to the vast array of influencing factors."
+
+**关键创新：**
+- 专门模块处理短期变化、长期趋势、静态/动态空间信息
+- 动态路由技术根据实时输入调整信息传输路径
+- 不同模块使用不同的位置嵌入
+
+**写作模式：** 多因素挑战 → 专门化模块设计 → 动态路由
+
+### 8. HLFNet — High and Low Frequency Attention Network
+
+**DOI:** 10.1109/tits.2025.3564305
+**Authors:** Jia Hu, Simone Baldi
+
+**Abstract摘要（真实）：**
+> "While several methods for short-term traffic prediction have been proposed in the literature, modeling the interaction between short-term and long-term traffic dynamics remains a major challenge."
+
+**关键创新：**
+- 频域分析启发：高频=短期细粒度，低频=长期粗粒度
+- 三种空间嵌入：距离、属性、潜在
+- 长期预测超越所有SOTA
+
+**写作模式：** 短期vs长期挑战 → 频域分析启发 → 多尺度注意力
+
 ### Common Metrics
 
 | Metric | Direction | Description |
