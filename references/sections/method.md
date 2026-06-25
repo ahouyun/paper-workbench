@@ -328,17 +328,6 @@ If these details are not confirmed yet, mark them as `needs evidence` in draftin
 Method diagrams may simplify computation flow, but must not visually imply measured gains,
 quantitative comparisons, or deployment scale unless those facts are already grounded in the paper.
 
-## Example Bank
-
-1. `references/examples/method-examples.md`
-2. `references/examples/method/pre-writing-questions.md`
-3. `references/examples/method/module-triad-neural-body.md`
-4. `references/examples/method/module-design-instant-ngp.md`
-5. `references/examples/method/module-motivation-patterns.md`
-6. `references/examples/method/section-skeleton.md`
-7. `references/examples/method/overview-template.md`
-8. `references/examples/method/example-of-the-three-elements.md`
-9. `references/examples/method/method-writing-common-issues-note.md`
 
 ---
 

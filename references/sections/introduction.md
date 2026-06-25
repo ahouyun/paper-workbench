@@ -357,22 +357,6 @@ Why not recommended (writing structure warning):
 3. Reviewers may interpret this as shallow or incremental work.
 
 
-## Example Bank
-
-1. `references/examples/introduction-examples.md`
-2. `references/examples/introduction/version-1-task-then-application.md`
-3. `references/examples/introduction/version-2-application-first.md`
-4. `references/examples/introduction/version-3-general-to-specific-setting.md`
-5. `references/examples/introduction/version-4-open-with-challenge.md`
-6. `references/examples/introduction/technical-challenge-version-1-existing-task.md`
-7. `references/examples/introduction/technical-challenge-version-2-existing-task-insight-backed-by-traditional.md`
-8. `references/examples/introduction/technical-challenge-version-3-novel-task.md`
-9. `references/examples/introduction/pipeline-version-1-one-contribution-multi-advantages.md`
-10. `references/examples/introduction/pipeline-version-2-two-contributions.md`
-11. `references/examples/introduction/pipeline-version-3-new-module-on-existing-pipeline.md`
-12. `references/examples/introduction/pipeline-version-4-observation-driven.md`
-13. `references/examples/introduction/pipeline-not-recommended-abstract-only.md`
-
 ## Quick Quality Checklist
 
 1. Does the first sentence of each paragraph state its message?

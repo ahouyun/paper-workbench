@@ -75,10 +75,6 @@ Version 3: When there are multiple technical contributions, describe each contri
 1. When there are multiple technical contributions, describe each contribution together with its technical advantage.
 2. The ability to express "contribution + advantage" in one sentence is very important for writing a good abstract.
 
-Version 3 local cite:
-
-1. `references/examples/abstract/template-c.md`
-
 ## Abstract Quality Checklist
 
 1. Can a reader identify task, challenge, insight/contribution, and results in one pass?
