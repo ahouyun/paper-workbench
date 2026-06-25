@@ -1,4 +1,4 @@
-# Paper Workbench — 论文写作工作台 v7.8.0
+# Paper Workbench — 论文写作工作台 v7.9.0
 
 > 一套**工具无关**的论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通/智能交通/自动驾驶方向**。
 >
@@ -102,7 +102,7 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 
 ```
 paper-workbench/
-├── SKILL.md                          # 入口路由（v7.8.0）
+├── SKILL.md                          # 入口路由（v7.9.0）
 ├── README.md                         # 本文件
 ├── install.sh                        # 安装脚本
 ├── references/
@@ -159,6 +159,14 @@ paper-workbench/
 ---
 
 ## 📋 版本更新日志
+
+### v7.9.0 (2026-06-24)
+
+**持续打磨与增强：**
+- 增强 related-work.md：添加 DINO、YOLOv7、UniAD 真实论文示例 + 场馆长度指导
+- 增强 reviewer-response.md：添加回复格式模板 + 4种回复策略 + 扩展检查清单
+- 增强 paragraph-clarity.md：添加段落质量诊断清单 + 常见段落问题修复
+- 修复所有断开的 references/examples/ 引用路径
 
 ### v7.8.0 (2026-06-24)
 
