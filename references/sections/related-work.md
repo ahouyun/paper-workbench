@@ -102,6 +102,39 @@ Use 2-4 focused topics, for example:
 
 **Pattern:** Dominant approach → Alternatives with limitations → Your solution
 
+### DINO (Zhang et al., ICLR 2023)
+
+**Structure:** Groups by DETR improvement strategies
+
+> "DETR introduced end-to-end object detection with set-based loss. Subsequent work improved DETR through better queries (Deformable DETR), attention mechanisms (DAB-DETR), and denoising training (DN-DETR). Our method builds on these advances by introducing a mixed query selection strategy."
+
+**Pattern:** Foundational work → Improvements → Your extension
+
+### YOLOv7 (Wang et al., CVPR 2023)
+
+**Structure:** Groups by detection optimization strategy
+
+> "Real-time object detectors optimize for speed through architectural innovations (YOLOv4, YOLOv5) or training strategies (YOLOX, PP-YOLOE). Our work introduces E-ELAN for efficient feature aggregation and a trainable bag-of-freebies."
+
+**Pattern:** Two optimization strategies → Your contribution combining both
+
+### UniAD (Hu et al., CVPR 2023 Best Paper)
+
+**Structure:** Groups by autonomous driving pipeline stage
+
+> "Autonomous driving systems typically handle perception tasks independently: detection (CenterPoint), tracking (AB3DMOT), prediction (HiVT), planning (PDM). This modular approach suffers from error accumulation. UniAD unifies all tasks in an end-to-end framework."
+
+**Pattern:** Modular components → System-level limitation → Unified solution
+
+## Related Work Length by Venue
+
+| Venue | Length | References |
+|-------|--------|------------|
+| IEEE Trans | 1.5-2 pages | 30-50 references |
+| CVPR/ECCV | 0.5-1 page | 15-25 references |
+| NeurIPS/ICML | 0.5-1 page | 15-25 references |
+| ACL/EMNLP | 1-1.5 pages | 25-40 references |
+
 ## Do and Don't
 
 1. Do compare mechanisms, assumptions, and failure modes.
