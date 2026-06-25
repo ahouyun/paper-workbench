@@ -186,6 +186,40 @@ now suitable for publication in [Journal Name].
 - 引用定理和证明位置
 - 讨论理论意义
 
+## 回复格式模板
+
+### 标准格式
+
+```
+We thank the reviewer for this insightful comment. [回应具体内容].
+
+[具体修改说明].
+
+[引用修改位置，如 "See Section X, paragraph Y" or "As shown in Table Z"].
+```
+
+### 示例
+
+> "We thank the reviewer for this insightful comment. We have added a comparison with Method X in Table 2. The results show that our method outperforms Method X by 2.3% on METR-LA. See Section 4.2 for detailed analysis."
+
+## 常见审稿意见回复策略
+
+### 策略1：接受并修改
+**适用：** 意见合理，修改可行
+**回复：** 说明具体修改 + 提供结果 + 引用位置
+
+### 策略2：部分接受
+**适用：** 意见部分合理，部分不可行
+**回复：** 说明接受的部分 + 解释不可行的原因 + 提供替代方案
+
+### 策略3：礼貌反驳
+**适用：** 意见不合理，有充分理由
+**回复：** 感谢审稿人 + 提供证据支持 + 引用相关工作
+
+### 策略4：补充实验
+**适用：** 需要额外验证
+**回复：** 说明新增实验 + 提供结果 + 解释意义
+
 ## 检查清单
 
 - [ ] 每条评论都有 ID 和回复
@@ -195,3 +229,6 @@ now suitable for publication in [Journal Name].
 - [ ] 态度合作、尊重
 - [ ] 分歧有证据支持
 - [ ] 蓝色高亮标记所有修改
+- [ ] 回复格式统一
+- [ ] 具体修改说明清晰
+- [ ] 引用修改位置准确

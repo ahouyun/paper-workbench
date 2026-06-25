@@ -70,3 +70,58 @@
 - [ ] Conclusion 是否只讨论了 Experiments 中展示的结果？
 - [ ] Related Work 识别的缺口是否在 Method 中解决？
 - [ ] 所有技术术语是否全文一致？
+
+## 段落质量诊断清单
+
+### 信息密度检查
+- [ ] 每段是否只有一个核心信息？
+- [ ] 是否有空洞的填充句？
+- [ ] 是否有重复表达同一意思的句子？
+- [ ] 是否有与主题无关的细节？
+
+### 逻辑连贯性检查
+- [ ] 句子之间的逻辑关系是否清晰？
+- [ ] 是否有逻辑跳跃？
+- [ ] 是否有因果关系不明确的推论？
+- [ ] 是否有前提未交代的结论？
+
+### 语言简洁性检查
+- [ ] 是否有冗余的修饰词？
+- [ ] 是否有可以简化的长句？
+- [ ] 是否有被动语态可以改为主动语态？
+- [ ] 是否有抽象表达可以改为具体表达？
+
+## 常见段落问题及修复
+
+### 问题1：信息密度过低
+**症状：** 一段话读完后感觉什么都没说
+**原因：** 填充句过多，核心信息被稀释
+**修复：** 删除填充句，保留核心信息
+
+**Before:**
+> "In recent years, deep learning has attracted increasing attention in various fields. Many researchers have proposed various methods to solve this problem. These methods have achieved some results. However, there are still some challenges."
+
+**After:**
+> "Deep learning methods for traffic prediction face three challenges: (1) capturing long-range temporal dependencies, (2) modeling dynamic spatial correlations, and (3) handling missing data."
+
+### 问题2：逻辑跳跃
+**症状：** 句子之间缺乏逻辑连接
+**原因：** 缺少过渡词或逻辑连接词
+**修复：** 添加过渡词或重组句子
+
+**Before:**
+> "Our method uses attention mechanisms. The results show improvement."
+
+**After:**
+> "Our method uses attention mechanisms to capture long-range dependencies. As a result, the results show a 5% improvement in accuracy."
+
+### 问题3：被动语态过多
+**症状：** 句子显得生硬、不自然
+**原因：** 被动语态过度使用
+**修复：** 适当改为主动语态
+
+**Before:**
+> "The data was collected. The model was trained. The results were analyzed."
+
+**After:**
+> "We collected the data from three sources. We trained the model using Adam optimizer. We analyzed the results using statistical tests."
