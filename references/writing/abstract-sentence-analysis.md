@@ -1894,3 +1894,20 @@
 | MMU | 10.21203/rs.3.rs-8009235/v1 | 统一Transformer框架语言视觉理解生成 |
 | NLG Self-Translation | 10.70003/160792642025112606005 | Transformer自翻译多语言生成 |
 | Transformer NLG | 10.54254/2755-2721/2025.po24517 | Transformer自然语言生成能力评估 |
+
+## 补充论文（CrossRef 2025 - 强化学习补充)
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| MADRL Autonomous | 10.71443/9789349552982-04 | 多智能体深度强化学习协作竞争自主系统 |
+| A-DRL Resource | 10.71443/9789349552982-08 | 异步深度强化学习实时适应资源受限 |
+| DRL Fundamentals | 10.71443/9789349552982-01 | 深度强化学习动态环境自主系统优化 |
+| MORL Autonomous | 10.71443/9789349552982-13 | 多目标强化学习效率安全平衡 |
+| DRL Decentralized | 10.71443/9789349552982-14 | 分布式强化学习去中心化系统 |
+
+## 补充论文（CrossRef 2025 - Physics-Informed)
+
+| 论文 | DOI | 核心创新 |
+|------|-----|---------|
+| PINN Landslide | 10.5194/egusphere-egu25-5633 | 物理信息神经网络地震滑坡建模 |
+| PINN Burgers | 10.36227/techrxiv.175760430.01088421/v1 | PINN求解1D Burgers方程 |
