@@ -77,26 +77,51 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 
 ## ✨ 核心功能
 
-| 能力 | 说明 | 文件 |
-|------|------|------|
-| 📝 **论文撰写** | Abstract/Introduction/Method/Experiment/Conclusion写作模板 | `ieee-expression-patterns-core.md` |
-| 📊 **图表制作** | 11种图类型 + Table设计规范 + Figure Caption模板 | `traffic-figure-patterns.md` |
-| 🧪 **实验设计** | 4种消融类型 + 效率报告 + 鲁棒性评估 | `ieee-experiment-playbook.md` |
-| ✍️ **论文润色** | 51条润色规则 + Claim-Evidence-Boundary + QA检查 | `ieee-polishing.md` |
-| 💡 **创新点挖掘** | 最新文献检索 + closest-work 聚类 + gap/rescue route + 方向地图 | `workflow/innovation-mining-protocol.md` |
-| 📈 **真实数据** | METR-LA/PEMS-BAY/PEMS04/PEMS08真实实验数值 | `ieee-real-experimental-data.md` |
-| 🎯 **逐句学习** | 好句vs坏句对比 + 12种标题模式 | `ieee-expression-patterns-new.md` |
-| 📐 **逻辑严谨** | Claim-Evidence-Boundary + 六段式漏斗 | `ieee-polishing.md` |
-| 📄 **LaTeX模板** | IEEE官方模板 + 自定义TITS模板 | `templates/latex/` |
-| 🔍 **引用验证** | 4步验证流程 + Phantom ID检测 | `citation-verification.md` |
-| 📋 **投稿指南** | Cover Letter + 审稿回复 + 拒稿处理 | `submission/` |
-| 🔬 **深度研究** | 13个智能体的研究团队，7种模式 | `ars-references/socratic-mode-protocol.md` |
-| 👥 **多视角审稿** | 5人审稿团 + Devil's Advocate | `ars-references/review-criteria-framework.md` |
-| 🔄 **完整流水线** | 研究→检索→创新点挖掘→写作→审稿→修改→定稿 | `ars-references/pipeline-state-machine.md` |
-| 🎨 **风格校准** | 6维度写作风格分析 | `writing/style-calibration-protocol.md` |
-| 📐 **图表规范** | NeurIPS/ICML/ICLR/CVPR/KDD/VLDB等顶会+IEEE/ACM期刊规范 | `figure-advisor/journal-specs.md` |
-| 🎯 **图表顾问** | 先思考后绘制 + 主动拦截 + 视觉自检闭环 | `figure-advisor/figure-workflow.md` |
-| 🔍 **图表审查** | 18条避坑清单 + 投稿前合规自检 | `figure-advisor/viz-pitfalls.md` |
+不再把所有能力堆在一张长表里。下面按实际使用场景分组，GitHub 上更好扫读，后续也更方便维护。
+
+### 写作与论证
+
+- **论文撰写**：Abstract / Introduction / Method / Experiment / Conclusion 写作模板  
+  入口：[references/writing/ieee-expression-patterns-core.md](references/writing/ieee-expression-patterns-core.md)
+- **论文润色**：51 条润色规则 + Claim-Evidence-Boundary + QA 检查  
+  入口：[references/writing/ieee-polishing.md](references/writing/ieee-polishing.md)
+- **逐句学习**：好句 vs 坏句对比 + 12 种标题模式  
+  入口：[references/writing/ieee-expression-patterns-new.md](references/writing/ieee-expression-patterns-new.md)
+- **风格校准**：6 维度写作风格分析  
+  入口：[references/writing/style-calibration-protocol.md](references/writing/style-calibration-protocol.md)
+
+### 研究与创新
+
+- **创新点挖掘**：最新文献检索 + closest-work 聚类 + gap / rescue route  
+  入口：[references/workflow/innovation-mining-protocol.md](references/workflow/innovation-mining-protocol.md)
+- **深度研究**：13 个智能体的研究团队，支持 7 种模式  
+  入口：[references/ars-references/socratic-mode-protocol.md](references/ars-references/socratic-mode-protocol.md)
+- **完整流水线**：研究 → 检索 → 创新点挖掘 → 写作 → 审稿 → 修改 → 定稿  
+  入口：[references/ars-integration-index.md](references/ars-integration-index.md)
+- **真实数据**：METR-LA / PEMS-BAY / PEMS04 / PEMS08 真实实验数值  
+  入口：[references/writing/ieee-real-experimental-data.md](references/writing/ieee-real-experimental-data.md)
+
+### 审稿与投稿
+
+- **多视角审稿**：5 人审稿团 + Devil's Advocate  
+  入口：[references/ars-references/review-criteria-framework.md](references/ars-references/review-criteria-framework.md)
+- **引用验证**：4 步验证流程 + Phantom ID 检测  
+  入口：[references/research/citation-verification.md](references/research/citation-verification.md)
+- **投稿指南**：Cover Letter + 审稿回复 + 拒稿处理  
+  入口：[references/submission/](references/submission/)
+
+### 图表与排版
+
+- **图表制作**：11 种图类型 + Table 设计规范 + Figure Caption 模板  
+  入口：[references/writing/traffic-figure-patterns.md](references/writing/traffic-figure-patterns.md)
+- **图表规范**：NeurIPS / ICML / ICLR / CVPR / KDD / VLDB 等顶会 + IEEE / ACM 期刊规范  
+  入口：[references/figure-advisor/journal-specs.md](references/figure-advisor/journal-specs.md)
+- **图表顾问**：先思考后绘制 + 主动拦截 + 视觉自检闭环  
+  入口：[references/figure-advisor/figure-workflow.md](references/figure-advisor/figure-workflow.md)
+- **图表审查**：18 条避坑清单 + 投稿前合规自检  
+  入口：[references/figure-advisor/viz-pitfalls.md](references/figure-advisor/viz-pitfalls.md)
+- **LaTeX 模板**：IEEE 官方模板 + 自定义 TITS 模板  
+  入口：[templates/latex/](templates/latex/)
 
 ### 新的创新点工作流
 
