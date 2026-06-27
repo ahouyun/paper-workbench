@@ -35,6 +35,7 @@
 | comparator / baseline strength 相关质疑 | `references/writing/traffic-baseline-master-index.md` |
 | venue-aware reviewer framing | `references/writing/traffic-cross-venue-patterns.md` |
 | T-ITS 特定审稿偏置 | `references/venues/ieee-tits.md` |
+| 创新不足 / contribution 不清 / closest prior art 太近 | `references/workflow/innovation-mining-protocol.md` |
 | 不确定属于哪类 reviewer-facing 任务 | 先本文件，再按任务分流 |
 
 ### 硬规则
@@ -43,6 +44,7 @@
 2. 不要把 paper review 和 response letter 混成同一个输出。
 3. 不要先写“我们已修改”，再去想具体改了什么。
 4. 若 concern 涉及 baseline、experiment、figure、number，先回查对应 planning reference，再写回复。
+5. 若 concern 涉及创新不足、与已有工作太像、贡献不清，先回查 `references/workflow/innovation-mining-protocol.md`，明确 closest prior art、novelty threat、rescue route，再写回复。
 
 ---
 
@@ -55,6 +57,7 @@
 - adversarial 审稿视角的 reject-risk 检查
 - contribution / writing / evaluation / method soundness 四类风险
 - revision priority 的初步判断
+- innovation claim 是否经得住 closest-work 审核
 
 用于：
 
@@ -70,12 +73,28 @@
 - reviewer comment 分类
 - action mapping
 - rebuttal / revision letter 的语气与证据格式
+- 把 innovation concern 映射成 manuscript change 与 response wording
 
 用于：
 
 - 写逐条回复
 - 把 concern 变成 response stance
 - 组织修订说明和修改位置
+
+### 3.2.5 `innovation-mining-protocol.md`
+
+负责：
+
+- 创新不足 / 已有工作覆盖 / 贡献不清 这类 concern 的根因回查
+- 输出 closest-work clusters、opportunity map、novelty threat、rescue route
+- 决定是保留 claim、缩窄 claim、转 contribution 类型，还是放弃 claim
+
+用于：
+
+- reviewer 说“创新不足”
+- reviewer 说“和已有工作太像”
+- reviewer 说“contribution 不清楚”
+- rebuttal 前先判断 concern 是否成立
 
 ### 3.3 `traffic-experiment-planning-master-index.md`
 
@@ -149,12 +168,14 @@
 - baseline not strong enough 吗？
 - figure/table not answering the question 吗？
 - claim overreach / unclear scope 吗？
+- novelty too weak / too close to prior art 吗？
 - T-ITS 风格下缺 realism / robustness / deployment cost 吗？
 
 ### Step 3: 再判先加载哪条链
 
 - 要找 reject risk -> 先 `paper-review.md`
 - 要写 response letter / rebuttal -> 先 `reviewer-response.md`
+- concern 指向创新不足 / contribution positioning -> 先补 `innovation-mining-protocol.md`
 - concern 指向实验或图表 -> 补 `traffic-experiment-planning-master-index.md`
 - concern 指向 baseline -> 补 `traffic-baseline-master-index.md`
 - concern 指向 venue 审稿偏置 -> 补 `traffic-cross-venue-patterns.md` 或 `ieee-tits.md`
@@ -167,16 +188,17 @@
 
 1. identify venue and task family
 2. classify each reviewer concern
-3. map each concern to claim / baseline / experiment / figure / number
+3. map each concern to claim / closest prior art / baseline / experiment / figure / number
 4. load the primary review-response reference
 5. verify whether the paper already has evidence or needs revision
-6. decide action: accept, clarify, soften, add experiment, add reference, or decline with evidence
-7. order revisions by accept/reject risk and implementation cost
-8. only then write rebuttal wording or revision summary
+6. if novelty is challenged, decide whether the central claim is covered, crowded but open, or salvageable via rescue route
+7. decide action: accept, clarify, soften, add experiment, add reference, reroute contribution, or decline with evidence
+8. order revisions by accept/reject risk and implementation cost
+9. only then write rebuttal wording or revision summary
 
 ### 最小链条
 
-`reviewer concern -> evidence status -> action -> manuscript change -> response wording -> revision order`
+`reviewer concern -> evidence status -> closest prior art / novelty threat -> action -> manuscript change -> response wording -> revision order`
 
 如果中间任何一环缺失，说明回复还没锁定。
 
@@ -188,6 +210,7 @@
 
 1. **会直接打掉核心 claim 的问题**
    - unsupported contribution
+   - closest prior art already covers the central claim
    - wrong or weak experiment evidence
    - missing strong baseline
 2. **会让 reviewer 觉得论文不可信的问题**
@@ -226,9 +249,10 @@
 加载顺序：
 
 1. `reviewer-response.md`
-2. 若需要判断 concern 是否成立，再补 `paper-review.md`
-3. 若要引用实验或图表证据，再补 `traffic-experiment-planning-master-index.md`
-4. 若是 baseline 质疑，再补 `traffic-baseline-master-index.md`
+2. 若 concern 是创新不足/贡献不清，再补 `innovation-mining-protocol.md`
+3. 若需要判断 concern 是否成立，再补 `paper-review.md`
+4. 若要引用实验或图表证据，再补 `traffic-experiment-planning-master-index.md`
+5. 若是 baseline 质疑，再补 `traffic-baseline-master-index.md`
 
 ### 7.3 “帮我排 revision order”
 
@@ -254,6 +278,15 @@
 2. `paper-review.md`
 3. 若要输出逐条回复，再补 `reviewer-response.md`
 
+### 7.6 “审稿人说创新不足 / 和已有工作太像 / contribution 不清楚”
+
+加载顺序：
+
+1. `references/workflow/innovation-mining-protocol.md`
+2. `paper-review.md`
+3. 若要写正式回复，再补 `reviewer-response.md`
+4. 若创新主张需要新实验支撑，再补 `traffic-experiment-planning-master-index.md`
+
 ---
 
 ## 8. reviewer-friendly 的统一检查框架
@@ -262,10 +295,11 @@
 
 1. reviewer concern 指向哪条核心 claim？
 2. 这个 concern 是真的 evidence gap，还是表达问题？
-3. 现有 paper 中哪一个 section / table / figure 能回答它？
-4. 如果答不上来，需要补什么：新实验、重写、删 claim、还是加 limitation？
-5. 回复里能否给出明确 manuscript anchor？
-6. revision order 是否先处理了最伤 acceptance 的问题？
+3. 如果 concern 指向 novelty，closest prior art 是谁？当前 novelty threat 是什么？
+4. 现有 paper 中哪一个 section / table / figure 能回答它？
+5. 如果答不上来，需要补什么：新实验、重写、删 claim、缩窄 claim、改 contribution 类型、还是加 limitation？
+6. 回复里能否给出明确 manuscript anchor？
+7. revision order 是否先处理了最伤 acceptance 的问题？
 
 如果有一个问题答不上来，就说明还需要继续加载对应 reference。
 
@@ -280,9 +314,10 @@
 3. baseline 质疑没有回到 comparator coverage
 4. 实验质疑没有回到 artifact/provenance
 5. reviewer concern 明明成立，却只做措辞防守
-6. T-ITS 论文没有回应 realism / robustness / cost / failure boundary
-7. response letter 说“已修改”，但找不到 section / figure / table anchor
-8. concern 需要新实验，却被错误地降格成 minor wording change
+6. 创新质疑没有回到 closest prior art / novelty threat / rescue route
+7. T-ITS 论文没有回应 realism / robustness / cost / failure boundary
+8. response letter 说“已修改”，但找不到 section / figure / table anchor
+9. concern 需要新实验，却被错误地降格成 minor wording change
 
 ---
 
@@ -316,5 +351,6 @@
 2. 每条 reviewer concern 都要映射到 evidence status 和具体动作。
 3. revision order 必须按 accept/reject 风险排，不按章节顺序排。
 4. 若 concern 指向实验、baseline、figure 或数字，必须先回查对应 reference 再写回复。
-5. T-ITS 审稿应对默认强调 realism、protocol clarity、robustness、deployment cost、mechanism verification。
-6. 当用户只问 review/rebuttal 时，优先加载本 index + 当前最关键的一条 review-response reference，不要把所有审稿参考一起塞进上下文。
+5. 若 concern 指向创新不足、已有工作覆盖或 contribution 不清，必须先明确 closest prior art、novelty threat、rescue route。
+6. T-ITS 审稿应对默认强调 realism、protocol clarity、robustness、deployment cost、mechanism verification。
+7. 当用户只问 review/rebuttal 时，优先加载本 index + 当前最关键的一条 review-response reference，不要把所有审稿参考一起塞进上下文。

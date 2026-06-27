@@ -21,11 +21,12 @@
 - `ieee-expression-patterns-core.md` 是核心子集，适合初次使用
 - `ieee-expression-patterns-new.md` 是2024-2026新发现，适合追加学习
 
-### 创新灵感
+### 创新点挖掘
 
 | 文件 | 行数 | 内容 |
 |------|------|------|
-| `ieee-innovation-inspiration.md` | 1920+ | 39个创新方向，涵盖GNN/Transformer/Mamba/Diffusion/LLM/Neural ODE/因果推断等 |
+| `workflow/innovation-mining-protocol.md` | 新增协议 | 最新检索 → closest-work聚类 → gap/rescue route → evidence package |
+| `ieee-innovation-inspiration.md` | 1920+ | 39个方向地图，涵盖GNN/Transformer/Mamba/Diffusion/LLM/Neural ODE/因果推断等，仅作 query seed |
 
 ### 实验数据
 
@@ -79,7 +80,7 @@
 | 写实验 | `ieee-experiment-playbook.md` + `ieee-real-experimental-data.md` |
 | 画图表 | `traffic-figure-patterns.md` |
 | 润色论文 | `ieee-polishing.md` + `traffic-anti-ai-writing.md` |
-| 找创新方向 | `ieee-innovation-inspiration.md` |
+| 找创新方向 | `workflow/innovation-mining-protocol.md` + `ieee-innovation-inspiration.md` |
 | 找基线方法 | `traffic-baseline-roster.md` |
 
 ### 按数据集查找

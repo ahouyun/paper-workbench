@@ -7,6 +7,8 @@
 > 整合了 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (v3.13.0) 和 [scipilot-figure-skill](https://github.com/Haojae/scipilot-figure-skill) (v2.1.0) 的核心能力。
 >
 > **基于 1000+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML/CVPR/ACL/SIGGRAPH/SIGGRAPH 2024-2026 论文的真实写作模式分析。包含 142 篇 Semantic Scholar/CrossRef API 验证的真实论文（含 DOI 和真实摘要），以及 1000+ 篇论文引用。**
+>
+> **当前版本新增“创新点动态挖掘”主线：默认先做 recent-paper 检索、closest-work 聚类、gap / rescue route 分析、claim-evidence 绑定，再进入 contribution 写作。`ieee-innovation-inspiration.md` 仅作为方向地图，不再直接充当创新点结论。**
 
 ---
 
@@ -81,7 +83,7 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 | 📊 **图表制作** | 11种图类型 + Table设计规范 + Figure Caption模板 | `traffic-figure-patterns.md` |
 | 🧪 **实验设计** | 4种消融类型 + 效率报告 + 鲁棒性评估 | `ieee-experiment-playbook.md` |
 | ✍️ **论文润色** | 51条润色规则 + Claim-Evidence-Boundary + QA检查 | `ieee-polishing.md` |
-| 💡 **创新灵感** | 39个创新方向 + 1200+篇论文洞察 | `ieee-innovation-inspiration.md` |
+| 💡 **创新点挖掘** | 最新文献检索 + closest-work 聚类 + gap/rescue route + 方向地图 | `workflow/innovation-mining-protocol.md` |
 | 📈 **真实数据** | METR-LA/PEMS-BAY/PEMS04/PEMS08真实实验数值 | `ieee-real-experimental-data.md` |
 | 🎯 **逐句学习** | 好句vs坏句对比 + 12种标题模式 | `ieee-expression-patterns-new.md` |
 | 📐 **逻辑严谨** | Claim-Evidence-Boundary + 六段式漏斗 | `ieee-polishing.md` |
@@ -90,11 +92,18 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 | 📋 **投稿指南** | Cover Letter + 审稿回复 + 拒稿处理 | `submission/` |
 | 🔬 **深度研究** | 13个智能体的研究团队，7种模式 | `ars-references/socratic-mode-protocol.md` |
 | 👥 **多视角审稿** | 5人审稿团 + Devil's Advocate | `ars-references/review-criteria-framework.md` |
-| 🔄 **完整流水线** | 10阶段编排：研究→写作→审稿→修改→定稿 | `ars-references/pipeline-state-machine.md` |
+| 🔄 **完整流水线** | 研究→检索→创新点挖掘→写作→审稿→修改→定稿 | `ars-references/pipeline-state-machine.md` |
 | 🎨 **风格校准** | 6维度写作风格分析 | `writing/style-calibration-protocol.md` |
 | 📐 **图表规范** | NeurIPS/ICML/ICLR/CVPR/KDD/VLDB等顶会+IEEE/ACM期刊规范 | `figure-advisor/journal-specs.md` |
 | 🎯 **图表顾问** | 先思考后绘制 + 主动拦截 + 视觉自检闭环 | `figure-advisor/figure-workflow.md` |
 | 🔍 **图表审查** | 18条避坑清单 + 投稿前合规自检 | `figure-advisor/viz-pitfalls.md` |
+
+### 新的创新点工作流
+
+1. 先用 `references/research/academic-search.md` 做公开检索、去重和来源核验。
+2. 再用 `references/workflow/innovation-mining-protocol.md` 做 closest-work 聚类、机会图和 rescue route。
+3. 只把能写出 `claim -> prior art -> differentiator -> evidence package` 的候选写进 contribution。
+4. 最后用 `references/review/paper-review.md` 和段落清晰度/claim-evidence 检查做审稿式自检。
 
 ---
 
@@ -268,7 +277,8 @@ paper-workbench/
 | `references/writing/ieee-expression-patterns-core.md` | 1300行 | 核心表达模式精简版 |
 | `references/writing/ieee-expression-patterns-new.md` | 1476行 | 2024-2026新发现模式 |
 | `references/writing/traffic-figure-patterns.md` | 3422行 | 21种可视化模式 + 图表设计 |
-| `references/writing/ieee-innovation-inspiration.md` | 39个方向 | 创新灵感库 |
+| `references/workflow/innovation-mining-protocol.md` | 新增协议 | 创新点动态挖掘主线 |
+| `references/writing/ieee-innovation-inspiration.md` | 39个方向 | 前沿方向地图 / query seed |
 
 ### 写作质量保障
 

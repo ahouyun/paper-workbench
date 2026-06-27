@@ -1,6 +1,53 @@
-﻿# 交通流预测论文创新灵感库 (2024-2026)
+﻿# 交通流预测前沿方向地图 (2024-2026)
 
-> 基于 IEEE TITS / TKDE / TNNLS / AAAI / KDD 等期刊和会议的真实论文，提炼可复用的创新思路与技术洞察。聚焦交通流预测方向。
+> 基于 IEEE TITS / TKDE / TNNLS / AAAI / KDD 等期刊和会议的真实论文，提炼**方向地图、query seed 和技术洞察**。聚焦交通流预测方向。
+>
+> **重要：本文件不再作为“创新点结论库”使用。** 任何正式 novelty claim 都必须先经过 `references/workflow/innovation-mining-protocol.md`：
+> recent-paper 检索 → closest-work 聚类 → opportunity map → rescue route → evidence package。
+>
+> 推荐用法：
+> 1. 先用本文件选 query seed 或方向簇；
+> 2. 再做当前 topic 的最近文献检索与去重；
+> 3. 最后只保留能写出 `claim -> prior art -> differentiator -> evidence` 的候选创新点。
+
+---
+
+## 使用守则
+
+### A. 这份文件能做什么
+
+- 快速枚举最近两年的活跃方法家族
+- 帮你看哪些旧创新已经变成“领域标配”
+- 帮你构造检索 query 和 closest-work clustering 的起点
+- 帮你做 rescue route brainstorming
+
+### B. 这份文件不能替代什么
+
+- 不能替代当前 topic 的 recent-paper 检索
+- 不能替代 closest-work 对比
+- 不能替代 novelty threat 判断
+- 不能替代实验与证据包设计
+
+### C. 读这份文件时要问的四个问题
+
+1. 这是“方法家族”还是“真正的创新点”？
+2. 这条路线在 2025-2026 是前沿，还是已经成为默认配置？
+3. 如果别人已经做过类似路线，我还能从问题、机制、证据、部署、分析哪个维度切开？
+4. 我要补什么实验，才能把这个方向写成论文贡献而不是灵感备忘？
+
+### D. 融合进来的工作流要求
+
+本文件现在默认吸收以下机制：
+
+- 来自 `CCFA-Skills`：source tier、closest-work cluster、opportunity map、rescue route、paper type / quality scoring 的思路
+- 来自 `Research-Paper-Writing-Skills`：claim-evidence 对齐、段落反向提纲、adversarial review、自我拒稿风险检查
+
+因此，后续引用本文件时，至少要补出：
+
+- 当前 query 与来源范围
+- 直接威胁 novelty 的 closest work
+- 最保守可站住的 innovation claim
+- 对应 baseline / ablation / robustness / failure analysis
 
 ---
 

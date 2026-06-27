@@ -17,6 +17,8 @@ Every major claim, especially in Abstract and Introduction, must be:
 
 If a claim is not supported, either add evidence or weaken/remove the claim.
 
+If the claim is a novelty or contribution claim, it must also be supported by current literature positioning rather than intuition. In practice, this means the paper should be defensible under `references/workflow/innovation-mining-protocol.md`, not just persuasive in prose.
+
 ## What Usually Gets a Paper Accepted
 
 1. Sufficient contribution (novel task/pipeline/module/design finding/insight)
@@ -36,6 +38,20 @@ If a claim is not supported, either add evidence or weaken/remove the claim.
 | 4. Incomplete evaluation     | 4.1 Missing ablation studies.<br />4.2 Missing important baselines or important evaluation metrics.<br /> 4.3 Datasets are too simple to prove the method truly works.                                                                                                                    |
 | 5. Problematic method design | 5.1 Experimental setting is unrealistic.<br />5.2 Method has technical flaws and appears unreasonable.<br />5.3 Method is not robust and needs per-scenario hyperparameter tuning. <br /> 5.4 New design introduces stronger limitations than its benefits, leading to negative net value. |
 
+## Novelty Audit Before Review
+
+Before scoring contribution quality, run a fast novelty audit:
+
+1. What is the paper's central novelty claim in one sentence?
+2. What is the closest prior art or closest-work cluster?
+3. Is the claimed difference a real mechanism/protocol/system contribution, or just a renamed direction keyword?
+4. Has the paper shown why the closest work does not already cover the same central claim?
+5. If direct novelty is weak, has the paper switched to a narrower and more defensible rescue route?
+
+Reject-risk signal:
+
+- the paper writes a polished novelty story, but never identifies closest prior art or novelty threat.
+
 ## End-of-Paper Self-Review Question List
 
 Add this checklist near the end of the draft while revising.
@@ -48,6 +64,9 @@ Use each question to trigger concrete edits before submission.
 3. Is the technical idea genuinely non-obvious beyond well-explored practice?
 4. Is our gain surprising or insightful rather than a predictable improvement?
 5. Is there at least one clear novelty type (task/pipeline/module/design finding/insight)?
+6. Can we name the closest prior art and explain the differentiator in one precise sentence?
+7. Are we mistaking a direction label such as `Transformer`, `Mamba`, `Diffusion`, `LLM`, or `foundation model` for the innovation itself?
+8. If recent work already covers the broad claim, did we narrow the claim to a benchmark gap, mechanism gap, deployment gap, theory gap, or negative-result opportunity?
 
 ### 2. Writing Clarity
 
@@ -83,10 +102,12 @@ Use each question to trigger concrete edits before submission.
 ## Adversarial Writing Workflow
 
 1. Read the paper as a skeptical reviewer.
-2. Answer every question above with explicit evidence from the paper.
-3. Mark each item as `pass`, `needs revision`, or `needs new experiment`.
-4. Revise claims, writing, experiments, or method scope accordingly.
-5. Repeat until no major rejection risk remains.
+2. For every contribution claim, identify the closest prior art and current novelty threat.
+3. Answer every question above with explicit evidence from the paper.
+4. Mark each item as `pass`, `needs revision`, or `needs new experiment`.
+5. Revise claims, writing, experiments, or method scope accordingly.
+6. If novelty remains weak after review, route back to `references/workflow/innovation-mining-protocol.md` and change the framing before polishing the prose.
+7. Repeat until no major rejection risk remains.
 
 ## IEEE Trans Review Addendum
 
@@ -114,6 +135,7 @@ Ask:
 2. If the problem is complex, are challenges and responses explicitly paired?
 3. Are contribution bullets concrete and later evidenced?
 4. Is there a paper organization paragraph when the paper is long or structurally dense?
+5. Does the introduction distinguish the paper from the closest prior art instead of only naming a trendy direction?
 
 Reject-risk signal:
 
@@ -150,6 +172,7 @@ Ask whether the results section answers reviewer questions in a useful order:
 1. Is the main benchmark comparison first?
 2. Are the key gains localized by ablation or study design?
 3. Are efficiency, limitations, and failure cases surfaced instead of buried?
+4. If novelty depends on a specific mechanism, does the results section contain the exact evidence package needed to defend that mechanism?
 
 Reject-risk signal:
 
@@ -179,7 +202,25 @@ Ask:
 5. Are all scope numbers such as datasets, subject counts, devices, PRs, or deployment counts backed by evidence rather than assumed from memory?
 6. Do explanatory figures avoid introducing modules, workflows, or quantitative facts that are absent from the manuscript?
 7. If a figure is illustrative rather than measured, is that status explicit?
+8. If a figure is used to defend novelty, does it clearly compare against the closest prior art rather than only against weak or generic baselines?
 
 Reject-risk signal:
 
 - the paper looks polished, but the evidence artifacts do not support the prose.
+
+## Novelty-Specific Reject Signals
+
+Treat the following as high-priority findings:
+
+1. The manuscript never states the closest prior art, only the broad area.
+2. The claimed innovation is actually a method family label or fashionable keyword.
+3. The paper claims "first" or "novel" without current-search support.
+4. The differentiator disappears once the strongest recent baseline is included.
+5. The paper keeps a broad novelty claim even though only a narrow rescue route is defensible.
+
+When any of these occur, prefer:
+
+1. weaken or narrow the claim,
+2. add explicit closest-work positioning,
+3. request missing experiments or analysis,
+4. or redirect to a safer contribution type.
