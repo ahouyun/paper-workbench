@@ -51,6 +51,7 @@ version: 7.9.0
 > 7. **按需加载 (On-Demand Loading)**：只加载当前任务所需 section/reference，避免上下文污染。
 > 8. **完整性门禁 (Completeness Gates)**：关键阶段的完整性检查不可跳过。
 > 9. **审稿独立性 (Review Independence)**：多视角审稿时，各审稿人独立评审，不交叉参考。
+> 10. **创新点先挖掘后表述 (Mine Before You Claim Novelty)**：凡涉及 contribution / novelty / 研究空白 / 选题机会，先运行 `references/workflow/innovation-mining-protocol.md`；`references/writing/ieee-innovation-inspiration.md` 只能作为 query seed 和方向地图，不能直接替代当前文献检索与 closest-work 分析。
 
 ---
 
@@ -179,6 +180,8 @@ version: 7.9.0
 | `fact_check` | 事实核查 | 验证报告 (300-800字) |
 | `lit_review` | 文献综述 | 带注释的文献综述 (1500-4000字) |
 
+> 若 `deep_research` / `quick_research` / `lit_review` 的目标是“找研究空白 / 找创新点 / 判断方向是否过时”，默认在研究流程中串联 `references/workflow/innovation-mining-protocol.md`，输出 opportunity map 而不是只做静态综述。
+
 ### 顶会专项任务
 
 | task_type | 用户意图 | 必要输出 |
@@ -258,7 +261,7 @@ version: 7.9.0
 
 #### Conference 风格偏置
 
-1. 创新性优先：必须有明确的 novelty claim
+1. 创新性优先：必须先通过 `references/workflow/innovation-mining-protocol.md` 形成可辩护的 novelty claim
 2. 实验完整性：完整的消融实验 + 对比实验
 3. 清晰表达：逻辑清晰，避免过度技术化
 4. 可复现性：代码和数据可获取
@@ -290,13 +293,13 @@ version: 7.9.0
 
 ### `conference` 最小执行主线
 
-1. Identify novelty claim and target conference
-2. Lock story arc (problem → method → experiments → contribution)
-3. Plan figures (Figure 1 = framework, Figure 2-5 = experiments)
-4. Draft with conference style constraints
-5. Run conference-specific quality checks
-6. Run multi-perspective review
-7. Prepare code release and reproducibility checklist
+1. Identify target conference and problem framing
+2. Run `references/workflow/innovation-mining-protocol.md` to mine closest work, gaps, and defensible novelty
+3. Lock story arc (problem → method → experiments → contribution)
+4. Plan figures (Figure 1 = framework, Figure 2-5 = experiments)
+5. Draft with conference style constraints
+6. Run conference-specific quality checks
+7. Run multi-perspective review and reproducibility checklist
 
 ### `chinese_thesis` 最小执行主线
 
@@ -514,8 +517,12 @@ version: 7.9.0
 2. 引用格式（多格式）
 3. 来源验证状态
 4. 搜索策略文档
+5. closest-work clusters（按问题/机制/证据路径聚类）
+6. opportunity map（covered / crowded but open / benchmark gap / mechanism gap / deployment gap / theory gap）
+7. quality / risk 标签（高优先级近邻、支持性文献、背景文献、潜在 novelty threat）
 
 **执行参考**: `references/research/academic-search.md`
+**创新点联动**: 若用户目标涉及选题、创新点、novelty、contribution positioning，继续运行 `references/workflow/innovation-mining-protocol.md`
 **支持API**: Semantic Scholar, DBLP, arXiv, CrossRef
 **输出格式**: Markdown + BibTeX
 
@@ -643,7 +650,8 @@ version: 7.9.0
 - paper review: `references/review/traffic-review-response-master-index.md`
 - academic search: `references/research/academic-search.md`
 - reviewer simulation: `references/review/ieee-reviewer-simulation.md`
-- innovation inspiration: `references/writing/ieee-innovation-inspiration.md`
+- innovation mining protocol: `references/workflow/innovation-mining-protocol.md`
+- innovation direction map: `references/writing/ieee-innovation-inspiration.md`
 - real experimental data: `references/writing/ieee-real-experimental-data.md`
 - expression patterns: `references/writing/ieee-expression-patterns.md`
 - polishing rules: `references/writing/ieee-polishing.md`
@@ -658,6 +666,7 @@ version: 7.9.0
 - experiment design: `references/writing/ieee-experiment-playbook.md`
 - chart selection: `references/figure-advisor/chart-selection.md`
 - visual review: `references/figure-advisor/visual-review.md`
+- innovation mining protocol: `references/workflow/innovation-mining-protocol.md`
 - **真实论文模式**: `references/writing/ieee-traffic-transportation-patterns.md` (IEEE T-ITS 真实 Abstract 分析)
 
 ### `chinese_thesis` 常用加载

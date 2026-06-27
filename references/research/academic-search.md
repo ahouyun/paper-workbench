@@ -563,6 +563,8 @@ venue 信息: DBLP > Semantic Scholar > CrossRef
 
 ## 6. 搜索结果模板 (Output Template)
 
+如果 `academic_search` 的目标不只是“给出文献列表”，而是要继续做研究空白判断、创新点挖掘或 contribution positioning，那么输出必须能直接交给 `references/workflow/innovation-mining-protocol.md`，而不是停留在“这篇论文看起来挺新”的静态判断。
+
 ### 6.1 单篇论文信息
 
 ```yaml
@@ -575,15 +577,56 @@ journal_conference: "IJCAI 2018"  # 或期刊名如 "IEEE TITS"
 year: 2018
 doi: "10.24963/ijcai.2018/505"
 citations: 2150  # 截至搜索时的引用数
+source_status: "peer-reviewed"
+source_tier: "T1"
+paper_type: "pure method"
 abstract: "Timely accurate traffic forecasting is crucial for urban traffic control..."
 key_innovation: "首次提出纯图卷积架构处理交通时空数据，设计门控时间卷积层"
+relevance_rationale: "直接针对交通流预测，且是图时空建模主线中的经典起点"
+closest_work_cluster: "graph-based spatiotemporal forecasting"
+coverage_relation: "covered central claim"
+novelty_threat: "如果新方法只是'再加一个图模块'，很容易被视为增量改造"
+possible_rescue_route: "改为更窄的机制解释、协议验证或部署约束贡献"
+required_evidence:
+  - "与 STGCN / DCRNN / Graph WaveNet 的直接对照"
+  - "对新增机制的消融"
+  - "说明为何不是已有图时空范式的直接复写"
+quality_label: "classic-strong"
+risk_label: "high-threat-to-similar-ideas"
 dataset:
   - METR-LA
   - PEMS-BAY
 code_url: "https://github.com/hazdzz/STGCN"
 ```
 
+### 6.1.1 可直接交给创新点挖掘协议的补充字段
+
+- `paper_type`: 至少区分 `pure method` / `pure benchmark` / `method + benchmark` / `system/tool` / `survey` / `theory/proof`
+- `source_status`: 至少区分 `peer-reviewed` / `preprint` / `workshop` / `unclear`
+- `source_tier`: 用于快速标注来源强弱，例如 `T1/T2/T3`
+- `closest_work_cluster`: 不按标题逐篇堆，而按“最接近的工作簇”归类
+- `coverage_relation`: 至少从以下标签里选一个
+  - `covered central claim`
+  - `crowded but open`
+  - `benchmark gap`
+  - `mechanism gap`
+  - `deployment/system gap`
+  - `theory/analysis gap`
+  - `negative-result opportunity`
+- `novelty_threat`: 这篇工作会如何威胁你当前的 novelty claim
+- `possible_rescue_route`: 如果主张已被覆盖，最可信的转向路线是什么
+- `required_evidence`: 后续若要保留这条创新，需要补哪些 baseline / ablation / stress test / failure analysis
+- `quality_label` / `risk_label`: 帮助后续在 review 与 contribution framing 阶段快速筛选
+
 ### 6.2 批量结果排序
+
+若任务目标涉及“找研究空白/创新点”，批量输出不能只有 Top-N 排序，还必须额外汇总：
+
+- `closest-work clusters`
+- `opportunity map`
+- `high-risk novelty threats`
+- `rescue routes`
+- `paper type / quality / risk labels`
 
 **排序维度**:
 ```
@@ -624,6 +667,7 @@ def compute_score(paper, query_year=2026):
 **搜索时间**: 2026-06-19
 **搜索关键词**: "traffic flow prediction" OR "traffic forecasting"
 **时间范围**: 2024-2026
+**搜索新鲜度判断**: 已覆盖最近 12-24 个月的主线论文与相关预印本
 **共找到**: 47 篇论文（去重后）
 
 ---
@@ -634,14 +678,52 @@ def compute_score(paper, query_year=2026):
 - **发表**: AAAI 2024
 - **DOI**: 10.1609/aaai.v38i8.28725
 - **引用数**: 85
+- **paper type**: pure method
+- **source / quality**: peer-reviewed / T1
 - **关键创新**: 自适应时空嵌入，无需预定义图结构
 - **数据集**: METR-LA, PEMS-BAY, PEMS04, PEMS08
+- **closest-work cluster**: graph-free or adaptive-structure spatiotemporal forecasting
+- **coverage relation**: crowded but open
+- **novelty threat**: 如果新工作只强调“无需固定图”，容易与其正面撞车
+- **possible rescue route**: 改为更细的鲁棒性、泛化、缺失图结构或部署约束贡献
 - **代码**: https://github.com/XDZhelheim/STAEformer
 
 ### 2. [TrafficBERT: ...]
 
 ...
 ```
+
+### 6.4 面向 `innovation-mining-protocol` 的批量摘要模板
+
+当 `academic_search` 服务于选题、novelty 或 contribution positioning 时，建议在文献列表后附加如下摘要块：
+
+```text
+Search freshness:
+Closest-work clusters:
+- Cluster A:
+  Covered:
+  Still weak:
+  Novelty threat:
+  Possible rescue route:
+  Evidence needed:
+
+Opportunity map:
+- covered central claim:
+- crowded but open:
+- benchmark gap:
+- mechanism gap:
+- deployment/system gap:
+- theory/analysis gap:
+
+Claims that are unsafe to write now:
+Best current contribution route:
+```
+
+硬规则：
+
+1. `academic_search` 的输出默认不是“创新点结论”，而是“创新点挖掘的证据底稿”。
+2. 若没有 `closest-work cluster` 和 `novelty threat`，不要直接生成强 novelty claim。
+3. 若最近工作已覆盖中心主张，优先输出 `possible rescue route`，而不是继续堆砌方向名词。
 
 ---
 
