@@ -800,6 +800,7 @@ the revision, the paper would be suitable for publication.
    - 结论是否由实验结果支持?
    - novelty claim 是否经过 closest-work 检索和 differentiator 证明?
    - 是否把方向名词误写成了创新点?
+   - 是否能把创新 claim 拆成 `problem bottleneck + closest-work weakness + mechanism lever + evidence lever + setting constraint`?
 
 3. **图表检查** (5分钟):
    - 图表是否准确反映了结果?

@@ -563,7 +563,7 @@ venue 信息: DBLP > Semantic Scholar > CrossRef
 
 ## 6. 搜索结果模板 (Output Template)
 
-如果 `academic_search` 的目标不只是“给出文献列表”，而是要继续做研究空白判断、创新点挖掘或 contribution positioning，那么输出必须能直接交给 `references/workflow/innovation-mining-protocol.md`，而不是停留在“这篇论文看起来挺新”的静态判断。
+如果 `academic_search` 的目标不只是“给出文献列表”，而是要继续做研究空白判断、创新点挖掘或 contribution positioning，那么输出必须能直接交给 `references/workflow/innovation-mining-protocol.md`，而不是停留在“这篇论文看起来挺新”的静态判断。检索阶段只产出**创新挖掘证据底稿**和**组合输入维度**，不要直接替用户下固定创新点结论。
 
 ### 6.1 单篇论文信息
 
@@ -591,6 +591,12 @@ required_evidence:
   - "与 STGCN / DCRNN / Graph WaveNet 的直接对照"
   - "对新增机制的消融"
   - "说明为何不是已有图时空范式的直接复写"
+candidate_assembly_inputs:
+  problem_bottleneck: "固定图结构难以捕捉随时间变化的交通依赖"
+  closest_work_weakness: "经典图时空方法已覆盖基础图卷积建模，新工作必须证明更细的机制或场景价值"
+  mechanism_lever: "动态图结构学习或图结构诊断"
+  evidence_lever: "动态图消融、跨时段 stress test、与强图基线的直接对照"
+  setting_constraint: "长时预测、缺失传感器或跨区域迁移"
 quality_label: "classic-strong"
 risk_label: "high-threat-to-similar-ideas"
 dataset:
@@ -616,6 +622,7 @@ code_url: "https://github.com/hazdzz/STGCN"
 - `novelty_threat`: 这篇工作会如何威胁你当前的 novelty claim
 - `possible_rescue_route`: 如果主张已被覆盖，最可信的转向路线是什么
 - `required_evidence`: 后续若要保留这条创新，需要补哪些 baseline / ablation / stress test / failure analysis
+- `candidate_assembly_inputs`: 为后续组合式创新挖掘保留 `problem_bottleneck`、`closest_work_weakness`、`mechanism_lever`、`evidence_lever`、`setting_constraint`
 - `quality_label` / `risk_label`: 帮助后续在 review 与 contribution framing 阶段快速筛选
 
 ### 6.2 批量结果排序
@@ -624,6 +631,7 @@ code_url: "https://github.com/hazdzz/STGCN"
 
 - `closest-work clusters`
 - `opportunity map`
+- `candidate assembly inputs`
 - `high-risk novelty threats`
 - `rescue routes`
 - `paper type / quality / risk labels`
@@ -715,6 +723,13 @@ Opportunity map:
 - deployment/system gap:
 - theory/analysis gap:
 
+Candidate assembly inputs:
+- problem bottlenecks:
+- closest-work weaknesses:
+- usable mechanism levers:
+- evidence levers:
+- setting constraints:
+
 Claims that are unsafe to write now:
 Best current contribution route:
 ```
@@ -724,6 +739,7 @@ Best current contribution route:
 1. `academic_search` 的输出默认不是“创新点结论”，而是“创新点挖掘的证据底稿”。
 2. 若没有 `closest-work cluster` 和 `novelty threat`，不要直接生成强 novelty claim。
 3. 若最近工作已覆盖中心主张，优先输出 `possible rescue route`，而不是继续堆砌方向名词。
+4. 若输出要进入创新挖掘协议，必须提供 `candidate assembly inputs`；缺少这些维度时，只能说“需要补检索/补分析”，不能编造 novelty。
 
 ---
 

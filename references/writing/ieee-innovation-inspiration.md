@@ -1,14 +1,15 @@
-﻿# 交通流预测前沿方向地图 (2024-2026)
+﻿# 交通流预测创新素材矩阵 (2024-2026)
 
-> 基于 IEEE TITS / TKDE / TNNLS / AAAI / KDD 等期刊和会议的真实论文，提炼**方向地图、query seed 和技术洞察**。聚焦交通流预测方向。
+> 基于 IEEE TITS / TKDE / TNNLS / AAAI / KDD 等期刊和会议的真实论文，提炼**组合素材、query seed 和技术洞察**。聚焦交通流预测方向。
 >
 > **重要：本文件不再作为“创新点结论库”使用。** 任何正式 novelty claim 都必须先经过 `references/workflow/innovation-mining-protocol.md`：
 > recent-paper 检索 → closest-work 聚类 → opportunity map → rescue route → evidence package。
 >
 > 推荐用法：
-> 1. 先用本文件选 query seed 或方向簇；
+> 1. 先用本文件选 query seed、机制素材或风险切口；
 > 2. 再做当前 topic 的最近文献检索与去重；
-> 3. 最后只保留能写出 `claim -> prior art -> differentiator -> evidence` 的候选创新点。
+> 3. 把 `problem bottleneck + closest-work weakness + mechanism lever + evidence lever + setting constraint` 组装成候选；
+> 4. 最后只保留能写出 `claim -> prior art -> differentiator -> evidence` 的候选创新点。
 
 ---
 
@@ -20,6 +21,7 @@
 - 帮你看哪些旧创新已经变成“领域标配”
 - 帮你构造检索 query 和 closest-work clustering 的起点
 - 帮你做 rescue route brainstorming
+- 帮你抽取可组合的 `problem_bottleneck`、`mechanism_lever`、`evidence_lever`、`setting_constraint`
 
 ### B. 这份文件不能替代什么
 
@@ -46,8 +48,27 @@
 
 - 当前 query 与来源范围
 - 直接威胁 novelty 的 closest work
+- 从素材中抽取的组合维度，而不是直接复用方向标题
 - 最保守可站住的 innovation claim
 - 对应 baseline / ablation / robustness / failure analysis
+
+### E. 组合方式
+
+本文件中的章节标题、方法家族和历史条目都只是素材。正式候选必须按下面方式组装：
+
+```text
+方向/机制素材 + 未解瓶颈 + 最近近邻弱点 + 证据缺口 + 约束场景 = 候选创新
+```
+
+示例：
+
+- `Mamba` 不是创新；`长时预测误差传播 + 最近 SSM 工作只测平均精度 + 频域/状态空间机制 + 极端拥堵 stress test + 边缘延迟约束` 才可能成为候选。
+- `Diffusion` 不是创新；`概率预测校准不足 + 最近扩散交通模型缺少覆盖率验证 + 条件去噪机制 + conformal/calibration evidence + 事故稀疏场景` 才可能成为候选。
+- `LLM` 不是创新；`跨城市泛化弱 + 最近 LLM 交通模型缺少 closest-work baseline + 检索增强/提示机制 + zero-shot city split + 数据稀疏城市` 才可能成为候选。
+
+### F. 历史字段兼容说明
+
+下文大量条目仍保留“核心创新 / 创新点”等字段名。这些字段只表示**被总结论文自己的贡献元数据**，不是给当前论文复用的创新结论。引用这些条目时，必须先转译成组合维度，再交给 `innovation-mining-protocol.md` 验证。
 
 ---
 

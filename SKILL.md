@@ -11,7 +11,6 @@ description: >
   默认遵循"证据先于散文"，优先建立 claim-evidence-artifact 对齐，再进入正文生成或润色。
   当用户提到论文写作、论文润色、实验设计、图表规划、对抗性审稿、rebuttal、深度研究、文献综述、完整流程、端到端、
   科研画图、数据可视化、不知道用什么图、怎么展示数据、用什么图好、期刊投稿图、figure、出版级图表时触发。
-version: 7.9.0
 ---
 
 # Paper Workbench
@@ -51,7 +50,7 @@ version: 7.9.0
 > 7. **按需加载 (On-Demand Loading)**：只加载当前任务所需 section/reference，避免上下文污染。
 > 8. **完整性门禁 (Completeness Gates)**：关键阶段的完整性检查不可跳过。
 > 9. **审稿独立性 (Review Independence)**：多视角审稿时，各审稿人独立评审，不交叉参考。
-> 10. **创新点先挖掘后表述 (Mine Before You Claim Novelty)**：凡涉及 contribution / novelty / 研究空白 / 选题机会，先运行 `references/workflow/innovation-mining-protocol.md`；`references/writing/ieee-innovation-inspiration.md` 只能作为 query seed 和方向地图，不能直接替代当前文献检索与 closest-work 分析。
+> 10. **创新点先挖掘后表述 (Mine Before You Claim Novelty)**：凡涉及 contribution / novelty / 研究空白 / 选题机会，先运行 `references/workflow/innovation-mining-protocol.md`；`references/writing/ieee-innovation-inspiration.md` 只能作为组合素材矩阵和 query seed，不能直接摘取为固定创新点，也不能替代当前文献检索、closest-work 分析与证据包设计。
 
 ---
 
@@ -180,7 +179,7 @@ version: 7.9.0
 | `fact_check` | 事实核查 | 验证报告 (300-800字) |
 | `lit_review` | 文献综述 | 带注释的文献综述 (1500-4000字) |
 
-> 若 `deep_research` / `quick_research` / `lit_review` 的目标是“找研究空白 / 找创新点 / 判断方向是否过时”，默认在研究流程中串联 `references/workflow/innovation-mining-protocol.md`，输出 opportunity map 而不是只做静态综述。
+> 若 `deep_research` / `quick_research` / `lit_review` 的目标是“找研究空白 / 找创新点 / 判断方向是否过时”，默认在研究流程中串联 `references/workflow/innovation-mining-protocol.md`，输出 opportunity map 与 candidate assembly，而不是只做静态综述或复述方向清单。
 
 ### 顶会专项任务
 
@@ -261,7 +260,7 @@ version: 7.9.0
 
 #### Conference 风格偏置
 
-1. 创新性优先：必须先通过 `references/workflow/innovation-mining-protocol.md` 形成可辩护的 novelty claim
+1. 创新性优先：必须先通过 `references/workflow/innovation-mining-protocol.md` 形成组合式、可辩护的 novelty claim
 2. 实验完整性：完整的消融实验 + 对比实验
 3. 清晰表达：逻辑清晰，避免过度技术化
 4. 可复现性：代码和数据可获取
@@ -294,7 +293,7 @@ version: 7.9.0
 ### `conference` 最小执行主线
 
 1. Identify target conference and problem framing
-2. Run `references/workflow/innovation-mining-protocol.md` to mine closest work, gaps, and defensible novelty
+2. Run `references/workflow/innovation-mining-protocol.md` to mine closest work, gaps, candidate assembly, and defensible novelty
 3. Lock story arc (problem → method → experiments → contribution)
 4. Plan figures (Figure 1 = framework, Figure 2-5 = experiments)
 5. Draft with conference style constraints
@@ -520,9 +519,10 @@ version: 7.9.0
 5. closest-work clusters（按问题/机制/证据路径聚类）
 6. opportunity map（covered / crowded but open / benchmark gap / mechanism gap / deployment gap / theory gap）
 7. quality / risk 标签（高优先级近邻、支持性文献、背景文献、潜在 novelty threat）
+8. candidate assembly inputs（problem bottleneck / prior-art weakness / mechanism lever / evidence lever / setting constraint）
 
 **执行参考**: `references/research/academic-search.md`
-**创新点联动**: 若用户目标涉及选题、创新点、novelty、contribution positioning，继续运行 `references/workflow/innovation-mining-protocol.md`
+**创新点联动**: 若用户目标涉及选题、创新点、novelty、contribution positioning，继续运行 `references/workflow/innovation-mining-protocol.md`，把检索结果转成组合式候选而不是固定方向清单
 **支持API**: Semantic Scholar, DBLP, arXiv, CrossRef
 **输出格式**: Markdown + BibTeX
 
@@ -651,7 +651,7 @@ version: 7.9.0
 - academic search: `references/research/academic-search.md`
 - reviewer simulation: `references/review/ieee-reviewer-simulation.md`
 - innovation mining protocol: `references/workflow/innovation-mining-protocol.md`
-- innovation direction map: `references/writing/ieee-innovation-inspiration.md`
+- innovation seed matrix: `references/writing/ieee-innovation-inspiration.md`
 - real experimental data: `references/writing/ieee-real-experimental-data.md`
 - expression patterns: `references/writing/ieee-expression-patterns.md`
 - polishing rules: `references/writing/ieee-polishing.md`

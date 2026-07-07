@@ -1,4 +1,4 @@
-# Paper Workbench — 论文写作工作台 v7.9.0
+# Paper Workbench — 论文写作工作台 v7.9.1
 
 > 一套**工具无关**的论文写作 Skill，提供 IEEE Transactions 论文写作的参考资料和工具。**专注交通/智能交通/自动驾驶方向**。
 >
@@ -8,7 +8,7 @@
 >
 > **基于 1000+ 篇 IEEE TITS/TNNLS/TVT/TIV/KDD/AAAI/NeurIPS/ICML/CVPR/ACL/SIGGRAPH/SIGGRAPH 2024-2026 论文的真实写作模式分析。包含 142 篇 Semantic Scholar/CrossRef API 验证的真实论文（含 DOI 和真实摘要），以及 1000+ 篇论文引用。**
 >
-> **当前版本新增“创新点动态挖掘”主线：默认先做 recent-paper 检索、closest-work 聚类、gap / rescue route 分析、claim-evidence 绑定，再进入 contribution 写作。`ieee-innovation-inspiration.md` 仅作为方向地图，不再直接充当创新点结论。**
+> **当前版本新增“创新点动态挖掘”主线：默认先做 recent-paper 检索、closest-work 聚类、gap / rescue route 分析、claim-evidence 绑定，再进入 contribution 写作。`ieee-innovation-inspiration.md` 仅作为组合素材矩阵 / query seed，不再直接充当创新点结论。**
 
 ---
 
@@ -110,7 +110,7 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
     </tr>
     <tr>
       <td nowrap>💡 创新点挖掘</td>
-      <td>最新文献检索 + closest-work 聚类 + gap / rescue route + 方向地图</td>
+      <td>最新文献检索 + closest-work 聚类 + gap / rescue route + 组合素材矩阵</td>
       <td><a href="references/workflow/innovation-mining-protocol.md">创新协议</a></td>
     </tr>
     <tr>
@@ -185,8 +185,9 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 
 1. 先用 `references/research/academic-search.md` 做公开检索、去重和来源核验。
 2. 再用 `references/workflow/innovation-mining-protocol.md` 做 closest-work 聚类、机会图和 rescue route。
-3. 只把能写出 `claim -> prior art -> differentiator -> evidence package` 的候选写进 contribution。
-4. 最后用 `references/review/paper-review.md` 和段落清晰度/claim-evidence 检查做审稿式自检。
+3. 将问题瓶颈、近邻弱点、机制杠杆、证据杠杆和场景约束组合成候选 innovation claim。
+4. 只把能写出 `claim -> prior art -> differentiator -> evidence package` 的候选写进 contribution。
+5. 最后用 `references/review/paper-review.md` 和段落清晰度/claim-evidence 检查做审稿式自检。
 
 ---
 
@@ -194,7 +195,7 @@ ln -s $(pwd)/paper-workbench ~/.codex/skills/paper-workbench
 
 ```
 paper-workbench/
-├── SKILL.md                          # 入口路由（v7.9.0）
+├── SKILL.md                          # 入口路由（v7.9.1）
 ├── README.md                         # 本文件
 ├── install.sh                        # 安装脚本
 ├── references/
@@ -251,6 +252,13 @@ paper-workbench/
 ---
 
 ## 📋 版本更新日志
+
+### v7.9.1 (2026-07-07)
+
+**创新点挖掘协议升级：**
+- 将 `ieee-innovation-inspiration.md` 明确为组合素材矩阵
+- 新增 problem bottleneck / closest-work weakness / mechanism lever / evidence lever / setting constraint 的候选创新组装口径
+- 联动 academic search 与 review，避免把方法家族或热门名词直接写成创新点
 
 ### v7.9.0 (2026-06-24)
 
@@ -361,7 +369,7 @@ paper-workbench/
 | `references/writing/ieee-expression-patterns-new.md` | 1476行 | 2024-2026新发现模式 |
 | `references/writing/traffic-figure-patterns.md` | 3422行 | 21种可视化模式 + 图表设计 |
 | `references/workflow/innovation-mining-protocol.md` | 新增协议 | 创新点动态挖掘主线 |
-| `references/writing/ieee-innovation-inspiration.md` | 39个方向 | 前沿方向地图 / query seed |
+| `references/writing/ieee-innovation-inspiration.md` | 素材矩阵 | 前沿组合素材 / query seed |
 
 ### 写作质量保障
 

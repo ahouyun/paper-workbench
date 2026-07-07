@@ -46,11 +46,13 @@ Before scoring contribution quality, run a fast novelty audit:
 2. What is the closest prior art or closest-work cluster?
 3. Is the claimed difference a real mechanism/protocol/system contribution, or just a renamed direction keyword?
 4. Has the paper shown why the closest work does not already cover the same central claim?
-5. If direct novelty is weak, has the paper switched to a narrower and more defensible rescue route?
+5. Can the claim be reconstructed as `problem bottleneck + closest-work weakness + mechanism lever + evidence lever + setting constraint`?
+6. If direct novelty is weak, has the paper switched to a narrower and more defensible rescue route?
 
 Reject-risk signal:
 
 - the paper writes a polished novelty story, but never identifies closest prior art or novelty threat.
+- the paper appears to select a fixed direction from a survey or inspiration file, but cannot explain the assembled bottleneck, weakness, mechanism, evidence, and boundary.
 
 ## End-of-Paper Self-Review Question List
 
@@ -67,6 +69,7 @@ Use each question to trigger concrete edits before submission.
 6. Can we name the closest prior art and explain the differentiator in one precise sentence?
 7. Are we mistaking a direction label such as `Transformer`, `Mamba`, `Diffusion`, `LLM`, or `foundation model` for the innovation itself?
 8. If recent work already covers the broad claim, did we narrow the claim to a benchmark gap, mechanism gap, deployment gap, theory gap, or negative-result opportunity?
+9. Can each contribution be decomposed into problem bottleneck, closest-work weakness, mechanism lever, evidence lever, and setting constraint?
 
 ### 2. Writing Clarity
 
@@ -217,6 +220,7 @@ Treat the following as high-priority findings:
 3. The paper claims "first" or "novel" without current-search support.
 4. The differentiator disappears once the strongest recent baseline is included.
 5. The paper keeps a broad novelty claim even though only a narrow rescue route is defensible.
+6. The innovation section reads like a fixed catalog entry rather than a claim assembled from the paper's actual bottleneck, nearest prior art, mechanism, evidence, and boundary.
 
 When any of these occur, prefer:
 

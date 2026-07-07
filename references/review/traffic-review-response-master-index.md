@@ -44,7 +44,7 @@
 2. 不要把 paper review 和 response letter 混成同一个输出。
 3. 不要先写“我们已修改”，再去想具体改了什么。
 4. 若 concern 涉及 baseline、experiment、figure、number，先回查对应 planning reference，再写回复。
-5. 若 concern 涉及创新不足、与已有工作太像、贡献不清，先回查 `references/workflow/innovation-mining-protocol.md`，明确 closest prior art、novelty threat、rescue route，再写回复。
+5. 若 concern 涉及创新不足、与已有工作太像、贡献不清，先回查 `references/workflow/innovation-mining-protocol.md`，明确 closest prior art、novelty threat、candidate assembly、rescue route，再写回复。
 
 ---
 
@@ -87,6 +87,7 @@
 
 - 创新不足 / 已有工作覆盖 / 贡献不清 这类 concern 的根因回查
 - 输出 closest-work clusters、opportunity map、novelty threat、rescue route
+- 检查 claim 是否由 problem bottleneck、closest-work weakness、mechanism lever、evidence lever、setting constraint 组合而来
 - 决定是保留 claim、缩窄 claim、转 contribution 类型，还是放弃 claim
 
 用于：

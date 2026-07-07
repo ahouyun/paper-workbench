@@ -25,8 +25,8 @@
 
 | 文件 | 行数 | 内容 |
 |------|------|------|
-| `workflow/innovation-mining-protocol.md` | 新增协议 | 最新检索 → closest-work聚类 → gap/rescue route → evidence package |
-| `ieee-innovation-inspiration.md` | 1920+ | 39个方向地图，涵盖GNN/Transformer/Mamba/Diffusion/LLM/Neural ODE/因果推断等，仅作 query seed |
+| `workflow/innovation-mining-protocol.md` | 新增协议 | 最新检索 → closest-work聚类 → candidate assembly → evidence package |
+| `ieee-innovation-inspiration.md` | 1920+ | 组合素材矩阵，涵盖GNN/Transformer/Mamba/Diffusion/LLM/Neural ODE/因果推断等，仅作 query seed / mechanism lever |
 
 ### 实验数据
 
@@ -80,7 +80,7 @@
 | 写实验 | `ieee-experiment-playbook.md` + `ieee-real-experimental-data.md` |
 | 画图表 | `traffic-figure-patterns.md` |
 | 润色论文 | `ieee-polishing.md` + `traffic-anti-ai-writing.md` |
-| 找创新方向 | `workflow/innovation-mining-protocol.md` + `ieee-innovation-inspiration.md` |
+| 挖掘创新点 | `workflow/innovation-mining-protocol.md` + `ieee-innovation-inspiration.md` |
 | 找基线方法 | `traffic-baseline-roster.md` |
 
 ### 按数据集查找

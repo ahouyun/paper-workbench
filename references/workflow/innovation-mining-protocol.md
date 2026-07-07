@@ -14,6 +14,7 @@
    - 它需要什么实验或分析才能站住？
 4. **先做机会图，再做写作包装**：若最近工作已覆盖中心主张，优先做 rescue route，而不是强行夸大。
 5. **动态优先于库存**：历史整理文件只能做启发，不能直接代替最近 12-24 个月的检索结果。
+6. **组合优先于收录**：不要从某个“创新方向”里挑一句当贡献；必须把当前问题瓶颈、closest-work 弱点、机制杠杆、证据杠杆和场景约束动态组合后，再生成候选 claim。
 
 ---
 
@@ -50,6 +51,52 @@
    - 雄心重构：改问题 framing、证据类型或贡献类型
 6. **给出证据包**：为每个候选创新绑定 baseline、ablation、stress test、failure analysis。
 7. **只保留可辩护 claims**：不能明确写出“相对谁新、为什么新、怎么证”的候选，一律降级为想法备忘。
+
+---
+
+## 2.1 组合式创新生成器
+
+每个候选创新都应当由多个维度组装出来，而不是直接复用素材库里的方向名词。
+
+```text
+Candidate = Problem bottleneck
+          + Closest-work weakness
+          + Mechanism lever
+          + Evidence lever
+          + Boundary / setting constraint
+```
+
+### 2.1.1 组装维度
+
+| 维度 | 要回答的问题 | 合法示例 |
+|------|--------------|----------|
+| `problem_bottleneck` | 当前任务里真正卡住的失败模式是什么？ | 长时预测误差传播、跨城市迁移失效、事故/节假日极端场景稀疏 |
+| `closest_work_weakness` | 最近最接近工作还有什么没解决或没证明？ | 只测平均精度、未测 OOD、无真实延迟、缺少强 baseline、机制解释不足 |
+| `mechanism_lever` | 用什么机制改变这个弱点？ | 动态图重构、检索增强、状态空间长程建模、物理约束、因果不变性 |
+| `evidence_lever` | 用什么证据让 claim 站住？ | 新 stress test、failure analysis、消融链、校准指标、部署延迟/显存曲线 |
+| `setting_constraint` | 贡献在哪个边界内成立？ | 数据稀疏城市、边缘设备、缺失传感器、异常天气、跨域数据 |
+| `venue_facing_claim` | 面向目标 venue 最保守的贡献句是什么？ | 方法贡献、协议贡献、负结果贡献、系统贡献或分析贡献 |
+
+### 2.1.2 组装规则
+
+1. 每个正式候选至少包含 `closest_work_weakness`、`mechanism_lever`、`evidence_lever` 三类维度；缺一项只能算 brainstorm。
+2. `Mamba / Diffusion / LLM / causal / physics-informed` 只能填在 `mechanism_lever`，不能单独成为 `venue_facing_claim`。
+3. 若同一个机制杠杆已被最近工作覆盖，优先替换 `evidence_lever` 或 `setting_constraint`，不要换个名字继续写同一 claim。
+4. 若只能说“精度更高”，但无法说明对应的瓶颈、近邻弱点和证据路径，直接降级为实验结果，不写成创新点。
+
+### 2.1.3 候选输出模板
+
+```text
+Candidate assembly:
+- problem_bottleneck:
+- closest_work_weakness:
+- mechanism_lever:
+- evidence_lever:
+- setting_constraint:
+- venue_facing_claim:
+- safest wording:
+- missing evidence:
+```
 
 ---
 
@@ -208,6 +255,7 @@ Search freshness:
 Closest-work clusters:
 Opportunity map:
 Candidate innovation claims:
+Candidate assembly matrix:
 Evidence package for each claim:
 High-risk novelty threats:
 Best current route:
@@ -216,9 +264,9 @@ Claims that should not be written yet:
 
 ---
 
-## 10. 2025-2026 前沿方向簇（仅作检索启发，不可直接当创新点）
+## 10. 2025-2026 前沿素材簇（仅作检索与组合启发，不可直接当创新点）
 
-以下方向在 2025-2026 仍值得优先检索，但只能作为**query seed**：
+以下素材在 2025-2026 仍值得优先检索，但只能作为**query seed / mechanism lever**：
 
 - foundation model / pretraining / universal spatiotemporal model
 - Mamba / SSM for long-horizon spatiotemporal forecasting
@@ -230,7 +278,7 @@ Claims that should not be written yet:
 - federated / edge / real-time / deployment-aware forecasting
 - benchmark redesign / evaluation protocol / negative result / diagnostic analysis
 
-写作时一律改写成“**这个方向下的具体未解问题**”，不能原样当贡献。
+写作时一律改写成“**这个方向下的具体未解问题 + 最近近邻弱点 + 可验证证据路径**”，不能原样当贡献。
 
 ---
 
